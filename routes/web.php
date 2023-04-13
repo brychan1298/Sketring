@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('konsumen.beranda');
 });
+
+Route::get('/umkm', function(){
+    return view('umkm.beranda');
+});
+
+Route::get('/listkeranjang', function(){
+    return view('konsumen.ListKeranjang');
+});
+
+Route::get('/keranjang', function(){
+    return view('konsumen.keranjang');
+});

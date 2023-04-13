@@ -1,5 +1,6 @@
-@extends('layouts.navbar')
-
+@extends('konsumen.layouts.master')
+@section('title','Beranda')
+@section('description','Halaman Beranda Konsumen')
 @section('content')
 <div class="">
     <div id="" class="container-md mx-auto">
@@ -27,35 +28,80 @@
                     <div class="">
                         <p class="font-bold text-xl">Paket Nasi Hainam</p>
                         <div class="flex gap-2 mt-1">
-                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                            <img src="images/store.png" alt="">
                             <div class="font-light">Pt. NatFood</div>
                         </div>
                         <div class="flex gap-2 mt-1">
-                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                            <div class="font-light">Pt. NatFood</div>
+                            <img src="images/location.png" alt="">
+                            <div class="font-light">3.5 km</div>
                         </div>
                         <div class="flex gap-2 mt-1">
-                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                            <div class="font-light">Pt. NatFood</div>
+                            <img src="images/export.png" alt="">
+                            <div class="font-light">5</div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button class="bg-[#850000] text-white px-5 py-2 rounded-md">
+                    <button class="bg-[#850000] text-white px-5 py-2 rounded-md font-semibold">
                         Lihat Detail
                     </button>
                 </div>
             </div>
-
+            <div class="flex mt-10 rounded-md shadow-3xl p-5 items-end justify-between">
+                <div class="flex">
+                    <img src="https://source.unsplash.com/120x120/?web-programming" class="rounded-md mr-5">
+                    <div class="">
+                        <p class="font-bold text-xl">Paket Nasi Hainam</p>
+                        <div class="flex gap-2 mt-1">
+                            <img src="images/store.png" alt="">
+                            <div class="font-light">Pt. NatFood</div>
+                        </div>
+                        <div class="flex gap-2 mt-1">
+                            <img src="images/location.png" alt="">
+                            <div class="font-light">3.5 km</div>
+                        </div>
+                        <div class="flex gap-2 mt-1">
+                            <img src="images/export.png" alt="">
+                            <div class="font-light">5</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="bg-[#850000] text-white px-5 py-2 rounded-md font-semibold">
+                        Lihat Detail
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="">
-            <h1>Chat</h1>
+
+        <div class="rounded-xl shadow-3xl">
+            <div class="bg-[#850000] rounded-t-xl px-7 py-2">
+                <h1 class="text-2xl text-white">
+                    Chat
+                </h1>
+            </div>
+            <div class="mx-7 py-5 flex border-b-2 items-center justify-between">
+                <div class="flex gap-5">
+                    <img class="w-12 h-12 rounded-full bg-gray" src="">
+                    <div class="">
+                        <h1 class="font-semibold">
+                            Samsul Katering
+                        </h1>
+                        <p class="font-normal text-sm text-[#8F8F8F]">
+                            Selamat pagi, pesanan yang tadi siang sudah fix ya jadinya ???
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    1
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 
-<section id="" class="mt-[60px]">
+<section id="" class="mt-[130px]">
     <div class="text-center">
         <p class="text-[#8f8f8f]">
             Selamat datang di
