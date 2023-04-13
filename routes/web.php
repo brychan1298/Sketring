@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('konsumen.beranda');
 });
+
+Route::get('/virtualaccount', function () {
+    return view('konsumen.virtualAccount');
+});
+
+Route::get('/chat', function () {
+    return view('konsumen.chat');
+});
