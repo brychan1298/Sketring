@@ -17,16 +17,12 @@ Route::get('/', function () {
     return view('konsumen.beranda');
 });
 
-<<<<<<< HEAD
 Route::get('/virtualaccount', function () {
     return view('konsumen.virtualAccount');
 });
 
 Route::get('/chat', function () {
     return view('konsumen.chat');
-=======
-Route::get('/umkm', function(){
-    return view('umkm.beranda');
 });
 
 Route::get('/listkeranjang', function(){
@@ -35,5 +31,16 @@ Route::get('/listkeranjang', function(){
 
 Route::get('/keranjang', function(){
     return view('konsumen.keranjang');
->>>>>>> a19927182528681bdbc9e243081e24f5808edf33
+});
+
+Route::get('/umkm', function(){
+    return view('umkm.beranda');
+});
+
+Route::get('/dashboard', function(){
+    return view('umkm.dashboard');
+});
+
+Route::get('/tambahProduk', function(){
+    return view('umkm.tambahProduk');
 });
