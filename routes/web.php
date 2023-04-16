@@ -36,7 +36,3 @@ Route::get('/listkeranjang', function(){
 Route::get('/keranjang', function(){
     return view('konsumen.keranjang');
 });
-
-Route::get('/toko', function(){
-    return view('konsumen.toko');
-});
