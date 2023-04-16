@@ -25,6 +25,10 @@ Route::get('/chat', function () {
     return view('konsumen.chat');
 });
 
+Route::get('/umkm', function(){
+    return view('umkm.beranda');
+});
+
 Route::get('/listkeranjang', function(){
     return view('konsumen.ListKeranjang');
 });
@@ -43,4 +47,14 @@ Route::get('/dashboard', function(){
 
 Route::get('/tambahProduk', function(){
     return view('umkm.tambahProduk');
+});
+
+Route::group(['prefix'=>'register'], function(){
+    Route::get('/',function(){
+        return view('register');
+    });
+
+    Route::get('/role', function(){
+        return view('PilihRole');
+    });
 });
