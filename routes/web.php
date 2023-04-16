@@ -36,3 +36,47 @@ Route::get('/listkeranjang', function(){
 Route::get('/keranjang', function(){
     return view('konsumen.keranjang');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::group(['prefix'=>'register'], function(){
+    Route::get('/',function(){
+        return view('register');
+    });
+
+    Route::get('/role', function(){
+        return view('PilihRole');
+    });
+});

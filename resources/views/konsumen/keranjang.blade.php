@@ -16,7 +16,7 @@
         </div>
         <div class="container flex mt-8 gap-7">
             <div class="w-3/4">
-                <div class="bg-white px-10 bg-[#D9D9D9] rounded">
+                <div class="px-10 bg-[#D9D9D9] rounded">
                     <div class="flex items-center -mx-8 px-6 py-5 border-b-2">
                         <div class="flex w-2/5">
                             <input type="checkbox">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white px-10 bg-[#D9D9D9] rounded mt-7">
+                <div class="px-10 bg-[#D9D9D9] rounded mt-7">
                     <div class="flex items-center -mx-8 px-6 py-5 border-b-2">
                         <div class="flex w-2/5">
                             <input type="checkbox">
