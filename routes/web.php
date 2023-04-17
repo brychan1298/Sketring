@@ -37,39 +37,17 @@ Route::get('/keranjang', function(){
     return view('konsumen.keranjang');
 });
 
+Route::get('/umkm', function(){
+    return view('umkm.beranda');
+});
 
+Route::get('/dashboard', function(){
+    return view('umkm.dashboard');
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/tambahProduk', function(){
+    return view('umkm.tambahProduk');
+});
 
 Route::group(['prefix'=>'register'], function(){
     Route::get('/',function(){
