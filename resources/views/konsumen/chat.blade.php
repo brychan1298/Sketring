@@ -1,5 +1,6 @@
 @extends('konsumen.layouts.master')
-
+@section('title', 'Chat')
+@section('description', 'Halaman Chat')
 @section('content')
 {{-- <div class="container-md">
     <div class="px-10 py-24">
