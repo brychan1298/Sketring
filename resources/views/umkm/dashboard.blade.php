@@ -2,6 +2,24 @@
 @section('title','UMKM Dashboard')
 @section('description','Halaman Dashboard UMKM')
 @section('content')
+<style>
+
+
+    .tambahProduk{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pagination{
+        /* background-color: red; */
+        /* justify-content: center;
+        align-items: center;
+        display: flex; */
+        color: #850000;
+    }
+</style>
 
 <div class="container m-auto mt-[100px]">
     <div class="mb-3">
