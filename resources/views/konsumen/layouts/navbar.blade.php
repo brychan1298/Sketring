@@ -45,10 +45,10 @@
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
             </button>
         </div>
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 z-10" id="mobile-menu-2">
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                    <a href="#" class="block py-2 px-4 pr-4 text-white
+                    <a href="/" class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 underline" aria-current="page">Beranda</a>
                 </li>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndoRegionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,37 @@ Route::get('/tambahProduk', function(){
     return view('umkm.tambahProduk');
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::group(['prefix'=>'register'], function(){
     Route::get('/',function(){
         return view('register');
@@ -55,3 +87,9 @@ Route::group(['prefix'=>'register'], function(){
     });
 });
 
+Route::get('/login',function(){
+    return view('login');
+});
+
+Route::get('/form',[IndoRegionController::class,'form'])->name('form');
+Route::post('api/fetch-states', [IndoRegionController::class, 'fetchState']);
