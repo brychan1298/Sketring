@@ -79,9 +79,8 @@ Route::get('/tambahProduk', function(){
 
 
 
-
-
-
+Route::get('/editprofile',[LoginController::class,'edit']);
+Route::put('/konsumen/update',[LoginController::class,'update']);
 
 Route::group(['prefix'=>'register'], function(){
     // Route::get('/',[RegisterController::class,'index']);
