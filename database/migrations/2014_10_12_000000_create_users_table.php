@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('IdUser');
             $table->string('Email')->unique();
+            $table->char('IdKota', 4);
+            // $table->foreign('id')->references('id')->on('regencies');
             $table->string('password');
             $table->string('Nama');
             $table->text('Alamat');
+            $table->string('Nohp',15);
             $table->string('FotoProfil')->nullable();
             $table->decimal('Saldo', 10, 2)->default(0.00);
             $table->enum('Role', ['umkm', 'konsumen']);

@@ -99,6 +99,18 @@ return [
         ],
     ],
 
+    // 'konsumen' => [
+    //     'redirectTo' => 'konsumen.beranda',
+    //     'driver' => 'session',
+    //     'provider' => 'konsumen',
+    // ],
+
+    // 'umkm' => [
+    //     'redirectTo' => 'umkm.beranda',
+    //     'driver' => 'session',
+    //     'provider' => 'umkm',
+    // ],
+
     /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout

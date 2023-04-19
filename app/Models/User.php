@@ -17,10 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'IdUser';
     protected $fillable = [
-        'name',
-        'email',
+        'Nama',
+        'Email',
         'password',
+        'Alamat',
+        'Role',
+        'IdKota',
+        'Nohp'
     ];
 
     /**
@@ -41,4 +46,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // public function getAuthPassword()
+    // {
+    //     return $this->Password;
+    // }
+
+    // public function validateCredentials(array $credentials)
+    // {
+    //     $plain = $credentials['password'];
+    //     return $this->hasher->check($plain, $this->getAuthPassword());
+    // }
 }

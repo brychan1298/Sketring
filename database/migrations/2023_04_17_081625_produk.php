@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('Produk', function (Blueprint $table) {
             $table->bigIncrements('IdProduk');
             $table->unsignedBigInteger('IdUser');
-            $table->foreign('IdUser')->references('IdUser')->on('user')->onDelete('cascade');
+            $table->foreign('IdUser')->references('IdUser')->on('users')->onDelete('cascade');
             $table->string('Nama');
             $table->string('FotoProduk')->nullable();
             $table->text('Deskripsi');
