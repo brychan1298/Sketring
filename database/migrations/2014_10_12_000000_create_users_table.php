@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('IdUser');
             $table->string('Email')->unique();
             $table->char('IdKota', 4);
-            // $table->foreign('id')->references('id')->on('regencies');
+            // $table->foreign('IdKota')->references('id')->on('regencies')->onDelete('no action')->onUpdate('no action');
             $table->string('password');
             $table->string('Nama');
             $table->text('Alamat');

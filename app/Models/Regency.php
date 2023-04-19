@@ -54,4 +54,8 @@ class Regency extends Model
     {
         return $this->hasMany(District::class);
     }
+
+    public function User() {
+        return $this->hasMany(User::class,'id');
+    }
 }
