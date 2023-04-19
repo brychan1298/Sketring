@@ -56,7 +56,9 @@ Route::get('/tambahProduk', function(){
     return view('umkm.tambahProduk');
 });
 
-
+Route::get('/profileToko', function(){
+    return view('umkm.profileToko');
+});
 
 
 
