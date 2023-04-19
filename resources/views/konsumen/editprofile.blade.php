@@ -169,10 +169,10 @@
                             value="{{ Auth::User()->Nohp }}">
                     </div>
                     <div class="flex gap-5">
-                        <a href="/profilekonsumen" class="text-white border-2 px-7 py-2 text-2xl rounded-md my-5">
+                        <a href="/profilekonsumen" class="font-bold border-2 text-2xl px-7 py-2 my-5 rounded-md hover:text-[#DC0000] hover:bg-white">
                             BATAL
                         </a>
-                        <button type="submit" class="text-[#DC0000] bg-white px-7 py-2 text-2xl rounded-md my-5">
+                        <button type="submit" class="border-2 text-[#DC0000] bg-white px-7 py-2 text-2xl rounded-md my-5 hover:bg-[#850000] hover:text-white">
                             SIMPAN
                         </button>
                     </div>
