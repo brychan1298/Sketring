@@ -36,6 +36,10 @@ Route::get('/profilekonsumen', function(){
     return view('konsumen.profile');
 });
 
+Route::get('/editprofile', function(){
+    return view('konsumen.editprofile');
+});
+
 Route::get('/keranjang', function(){
     return view('konsumen.keranjang');
 });
