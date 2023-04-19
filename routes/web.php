@@ -28,10 +28,6 @@ Route::get('/chat', function () {
     return view('konsumen.chat');
 });
 
-Route::get('/umkm', function(){
-    return view('umkm.beranda');
-});
-
 Route::get('/listkeranjang', function(){
     return view('konsumen.ListKeranjang');
 });
