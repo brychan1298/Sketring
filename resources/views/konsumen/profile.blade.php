@@ -41,7 +41,7 @@
                             <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
                             <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
                         </svg>
-                        <p class="text-2xl font-bold">Rp. 250.000</p>
+                        <p class="text-2xl font-bold">{{Auth::User()->Saldo}}</p>
                     </div>
                 </div>
                 <a href="#">
@@ -61,8 +61,12 @@
                 </a>
             </div>
             <div class="flex flex-col gap-[16px] ">
-                <img class="rounded-full w-[360px] h-[360px]" src="images/daniljerge.jpeg" alt="">
-                <p class="text-center text-2xl font-bold">DANIL JERGE</p>
+                @if(Auth::User()->FotoProfil)
+                    <img class="rounded-full w-[360px] h-[360px]" src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="">
+                @else
+                    <img class="rounded-full w-[360px] h-[360px]" src="images/profile.png" alt="">
+                @endif
+                <p class="text-center text-2xl font-bold">{{Auth::User()->Nama}}</p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[8px] items-center">
@@ -72,7 +76,7 @@
                     <p class="font-bold">Nama Lengkap</p>
                 </div>
                 <p class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    Danil Jerge
+                    {{Auth::User()->Nama}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -81,9 +85,7 @@
                     <p class="font-bold">Alamat</p>
                 </div>
                 <p class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    Jl. nya sama aku, jadian nya sama dia
-                    <br>
-                    Kecamatan gamon, 80085
+                    {{Auth::User()->Alamat}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -92,7 +94,7 @@
                     <p class="font-bold">Provinsi</p>
                 </div>
                 <p class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    Jawa Timur
+                    {{Auth::User()->Regency->Province->name}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -101,7 +103,7 @@
                     <p class="font-bold">Kota</p>
                 </div>
                 <p class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    Malang
+                    {{Auth::User()->Regency->name}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -110,7 +112,16 @@
                     <p class="font-bold">Email</p>
                 </div>
                 <p class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    jerge.ganteng@gmail.com
+                    {{Auth::User()->Email}}
+                </p>
+            </div>
+            <div class="w-[100%] flex flex-col gap-[8px]">
+                <div class="w-[100%] flex flex-row gap-[8px] items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
+                    <p class="font-bold">No Telepon</p>
+                </div>
+                <p class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
+                    {{Auth::User()->Nohp}}
                 </p>
             </div>
         </div>
