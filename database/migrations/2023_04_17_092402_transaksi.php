@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('IdTransaksi');
 
             $table->unsignedBigInteger('IdUser');
-            $table->foreign('IdUser')->references('IdUser')->on('user')
+            $table->foreign('IdUser')->references('IdUser')->on('users')
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
 

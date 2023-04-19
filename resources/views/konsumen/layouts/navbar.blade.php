@@ -6,11 +6,7 @@
             </h1>
         </a>
         <div class="flex items-center md:order-2">
-            @if(Auth::guest())
-                <a href="/login" class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
-                    Login
-                </a>
-            @else
+            @if(Auth::check())
                 <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
@@ -21,8 +17,8 @@
                             tes
                         </div>
                         <div>
-                            <span class="block text-sm text-gray-900 text-[#c0c0c0]">Syamsul Katering</span>
-                            <span class="block text-sm text-gray-500 truncate dark:text-gray-400">syamsul@katering.com</span>
+                            <span class="block text-sm text-gray-900 text-[#c0c0c0]">{{auth()->user()->Nama}}</span>
+                            <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{auth()->user()->Email}}</span>
                         </div>
 
                     </div>
@@ -34,10 +30,21 @@
                             <a href="#" class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                {{-- <input type="submit" value="Logout" class="block w-full px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"> --}}
+                                <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Logout
+                                </button>
+                                {{-- <a type="submit">Log Out</a> --}}
+                            </form>
                         </li>
                     </ul>
                 </div>
+            @else
+                <a href="/login" class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
+                    Login
+                </a>
             @endif
 
             <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">

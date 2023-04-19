@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndoRegionController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,18 +84,19 @@ Route::get('/tambahProduk', function(){
 
 
 Route::group(['prefix'=>'register'], function(){
-    Route::get('/',function(){
-        return view('register');
-    });
+    // Route::get('/',[RegisterController::class,'index']);
+    Route::get('/{roleId}',[RegisterController::class,'index']);
+    Route::post('/',[RegisterController::class,'store']);
 
-    Route::get('/role', function(){
+    Route::get('/', function(){
         return view('PilihRole');
     });
 });
+Route::post('api/fetch-kota', [RegisterController::class, 'fetchKota']);
 
-Route::get('/login',function(){
-    return view('login');
-});
+Route::get('/login',[LoginController::class,'index'])->middleware('guest');
+Route::post('/login',[LoginController::class,'store']);
+Route::post('/logout',[LoginController::class,'logout']);
 
 Route::get('/form',[IndoRegionController::class,'form'])->name('form');
-Route::post('api/fetch-states', [IndoRegionController::class, 'fetchState']);
+Route::post('api/fetch-kota', [IndoRegionController::class, 'fetchState']);
