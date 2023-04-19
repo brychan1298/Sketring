@@ -3,8 +3,7 @@
 @section('description', 'Halaman Chat')
 @section('content')
 
-<!-- component -->
-<div class="mx-auto container-md">
+<div class="container mx-auto">
     <div class="px-10 py-24">
         <a href="/">
             <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,7 +14,7 @@
             <div class="flex flex-row w-full h-full overflow-hidden">
 
                 {{-- kotak kiri --}}
-                <div class="flex flex-col flex-shrink-0 w-1/6 h-full px-4 py-8 border-r-2">
+                <div class="flex flex-col flex-shrink-0 w-1/4 h-full px-4 py-8 border-r-2">
                     <div class="flex flex-row items-center justify-center">
                         <input type="text" placeholder="Cari..." class="w-full px-4 py-2 text-lg border border-gray-400 border-solid rounded-md">
                     </div>

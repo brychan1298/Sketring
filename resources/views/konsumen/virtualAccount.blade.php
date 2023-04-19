@@ -2,7 +2,7 @@
 @section('title', 'Virtual Account')
 @section('description', 'Halaman Virtual Account')
 @section('content')
-<div class="container-md">
+<div class="mx-auto container-md">
     <div class="px-10 py-24">
         <div class="content_VirtualAccount">
             <div class="w-full">
