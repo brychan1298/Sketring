@@ -19,5 +19,6 @@
 <div>
     @yield('content')
 </div>
+@include('konsumen.layouts.footer')
 </body>
 </html>

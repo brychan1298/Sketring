@@ -32,6 +32,10 @@ Route::get('/listkeranjang', function(){
     return view('konsumen.ListKeranjang');
 });
 
+Route::get('/profilekonsumen', function(){
+    return view('konsumen.profile');
+});
+
 Route::get('/keranjang', function(){
     return view('konsumen.keranjang');
 });
