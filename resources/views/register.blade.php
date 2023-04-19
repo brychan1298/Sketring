@@ -45,6 +45,16 @@
                     shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="password" placeholder="Password">
         </div>
         <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="Nohp">
+                No Telepon
+            </label>
+            <input required
+                    value="{{ old('Nohp') }}"
+                    name="Nohp"
+                    class="@if($errors->has('Nohp')) border border-red-500 @else border-none shadow @endif
+                    shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="Nohp" type="text" placeholder="No Telepon">
+        </div>
+        <div class="mb-2">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="Alamat">
                 Alamat
             </label>

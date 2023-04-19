@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('Nama');
             $table->text('Alamat');
+            $table->string('Nohp',15);
             $table->string('FotoProfil')->nullable();
             $table->decimal('Saldo', 10, 2)->default(0.00);
             $table->enum('Role', ['umkm', 'konsumen']);

@@ -30,6 +30,7 @@ class RegisterController extends Controller
             'Nama' => 'required|max:255',
             'Email' => 'required|email:dns',
             'password' => 'required|min:5|max:255',
+            'Nohp' => 'required|min:10|max:14',
             'Alamat' => 'required',
             'IdKota' => 'required',
             'Role' => 'required'

@@ -24,7 +24,8 @@ class User extends Authenticatable
         'password',
         'Alamat',
         'Role',
-        'IdKota'
+        'IdKota',
+        'Nohp'
     ];
 
     /**
