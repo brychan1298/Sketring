@@ -1,4 +1,4 @@
-<nav class="bg-[#850000] fixed w-full">
+<nav class="bg-[#850000] fixed w-full z-10">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="" class="flex items-center">
             <h1 class="text-white text-3xl">
@@ -41,7 +41,7 @@
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                    <a href="#" class="block py-2 px-4 pr-4 text-white
+                    <a href="/umkm" class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 underline" aria-current="page">Beranda</a>
                 </li>
