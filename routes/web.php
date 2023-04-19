@@ -48,6 +48,10 @@ Route::get('/umkm', function(){
     return view('umkm.beranda');
 });
 
+Route::get('/cari', function(){
+    return view('konsumen.cari');
+});
+
 Route::get('/dashboard', function(){
     return view('umkm.dashboard');
 });
