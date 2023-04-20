@@ -52,6 +52,14 @@ Route::get('/cari', function(){
     return view('konsumen.cari');
 });
 
+Route::get('/pesanankonsumen', function(){
+    return view('konsumen.pesanan');
+});
+
+Route::get('/pesananumkm', function(){
+    return view('umkm.pesanan');
+});
+
 Route::get('/dashboard', function(){
     return view('umkm.dashboard');
 });
