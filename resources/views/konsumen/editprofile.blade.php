@@ -208,19 +208,15 @@
                 });
             });
         });
-
         function previewImage(){
             const image = document.querySelector('#FotoProfil');
             const previewed = document.querySelector('.img-preview');
-
             const oFReader = new FileReader();
             oFReader.readAsDataURL(image.files[0]);
-
             oFReader.onload = function(oFREvent){
                 previewed.src = oFREvent.target.result
             }
         }
-
     </script>
 
 @endsection

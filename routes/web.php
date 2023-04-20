@@ -72,6 +72,11 @@ Route::get('/profileToko', function(){
 
 
 
+Route::get('/detailproduk', function(){
+    return view('konsumen.detailProduk');
+});
+
+
 
 
 
