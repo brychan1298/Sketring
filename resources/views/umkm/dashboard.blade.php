@@ -6,7 +6,7 @@
     .pagination{
         color: #850000;
     }
-    
+
     .tambahProduk{
         display: flex;
         flex-direction: column;
@@ -47,7 +47,7 @@
     </div>
 
     <div class="grid grid-cols-4 gap-20 mt-12">
-        <button class="bg-[#EBEBEB] rounded-md shadow-3xl tambahProduk">
+        <a href="/tambahProduk" class="bg-[#EBEBEB] rounded-md shadow-3xl tambahProduk">
             <svg version="1.1" id="Capa_1"
             class="h-20 w-20"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +62,27 @@
                 <line style="fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="37.5" y1="25" x2="12.5" y2="25"></line> </g>
             </svg>
             <h1 class="font-bold my-5 text-[#850000] text-2xl">Tambah Produk</h1>
-        </button>
+        </a>
 
+        @foreach ($produks as $produk)
+        <div class="rounded-md shadow-3xl">
+            <img src="{{asset('storage/'.$produk->FotoProduk)}}" alt="" class="w-full h-[12vw] rounded-md">
+            <div class="p-4">
+                <h1 class="font-bold my-1">{{$produk->Nama}}</h1>
+                <p class="font-normal text-xs mt-3">{{$produk->Deskripsi}}</p>
+                <div class="flex justify-between mt-4">
+                    <h1 class="text-[#850000] text-sm">
+                        Rp {{$produk->Harga}}
+                    </h1>
+                </div>
+                <a href="#">
+                    <button class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4">
+                        Edit
+                    </button>
+                </a>
+            </div>
+        </div>
+        @endforeach
         <div class="rounded-md shadow-3xl">
             <img src="images/secure.png" alt="" class="w-[12vw] h-[12vw]">
             <div class="p-4">

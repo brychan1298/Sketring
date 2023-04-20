@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -60,9 +61,7 @@ Route::get('/pesananumkm', function(){
     return view('umkm.pesanan');
 });
 
-Route::get('/dashboard', function(){
-    return view('umkm.dashboard');
-});
+Route::get('/dashboard',[ProdukController::class,'index']);
 
 Route::get('/tambahProduk', function(){
     return view('umkm.tambahProduk');
@@ -99,7 +98,7 @@ Route::get('/detailproduk', function(){
 
 
 
-
+Route::post('/tambahProduk',[ProdukController::class,'store']);
 
 
 Route::get('/editprofile',[LoginController::class,'edit']);

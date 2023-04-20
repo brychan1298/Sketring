@@ -59,14 +59,14 @@
                                 underline" aria-current="page">Beranda</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-4 pr-4 text-white
+                    <a href="/dashboard" class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 ">Produk Saya</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-4 pr-4 text-white
+                    <a href="/pesananumkm" class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
-                                ">Home</a>
+                                ">Pesanan</a>
                 </li>
             </ul>
         </div>

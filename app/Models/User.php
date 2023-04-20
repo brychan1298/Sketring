@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->belongsTo(Regency::class,'IdKota');
     }
 
+    public function Produk()
+    {
+        return $this->HasMany(Produk::class,'IdUser');
+    }
+
     // public function getAuthPassword()
     // {
     //     return $this->Password;
