@@ -34,7 +34,7 @@ Route::get('/listkeranjang', function(){
 
 Route::get('/profilekonsumen', function(){
     return view('konsumen.profile');
-});
+})->middleware("auth");
 
 Route::get('/editprofile', function(){
     return view('konsumen.editprofile');
