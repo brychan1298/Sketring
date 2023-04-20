@@ -111,23 +111,17 @@
         // }
 
         function displayPhoto() {
-            const chooseFile = document.getElementById("file-upload");
-            const imgPreview = document.getElementById("photoPreview");
+            const image = document.querySelector('#file-upload');
+            const previewed = document.querySelector('.img-preview');
+            const preview = document.querySelector('#Preview');
 
-            chooseFile.addEventListener("change", function() {
-                getImgData();
-            });
+            preview.style.display = 'block';
 
-            function getImgData() {
-                const files = chooseFile.files[0];
-                if (files) {
-                    const fileReader = new FileReader();
-                    fileReader.readAsDataURL(files);
-                    fileReader.addEventListener("load", function() {
-                        imgPreview.style.display = "block";
-                        imgPreview.innerHTML = '<img src="' + this.result + '" />';
-                    });
-                }
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                previewed.src = oFREvent.target.result
             }
         }
     </script>
@@ -157,25 +151,30 @@
         <div class="formProduk flex justify-center">
             <form class="/tambahProduk" enctype="multipart/form-data" method="post">
                 @csrf
-                <div
-                    class="uploadFoto bg-[#BCBCBC] mt-2 flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
-                    <div class="text-center bg-">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="90" height="90" color="white"
-                            viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z" />
-                        </svg>
-                        <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                            <label for="file-upload" class="cursor-pointer rounded-md font-semibold hover:text-indigo-700">
+                <label for="file-upload" class="cursor-pointer rounded-md font-semibold hover:text-indigo-700">
+                    <div
+                        class="uploadFoto bg-[#BCBCBC] mt-2 flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
+                        <div class="text-center bg-">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="90" height="90" color="white"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z" />
+                            </svg>
+
+                            <div class="mt-4 flex text-2xl leading-6 text-white">
                                 <span>TAMBAH FOTO PRODUK</span>
-                                <input id="file-upload" name="FotoProduk" type="file" class="sr-only"
-                                    accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
-                                {{-- <div id="file-upload-filename"></div> --}}
-                            </label>
+                            </div>
+
+                            <div id="photoPreview"></div>
                         </div>
-                        <div id="photoPreview"></div>
-                    </div>
-                </div><br>
+                        <input id="file-upload" name="FotoProduk" type="file" class="hidden sr-only"
+                                        accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
+                    </div><br>
+                </label>
+                <p id="Preview" class="font-black hidden">
+                    Preview :
+                </p>
+                <img src="" alt="" class="img-preview mb-4">
 
 
                 <label class="font-semibold" for="Nama">Nama Produk:</label>
