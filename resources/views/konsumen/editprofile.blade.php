@@ -52,7 +52,7 @@
                                     <path
                                         d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z" />
                                 </svg>
-                                {{-- <p class="text-2xl font-bold">{{ Auth::User()->Saldo }}</p> --}}
+                                <p class="text-2xl font-bold">{{ Auth::User()->Saldo }}</p>
                             </div>
                         </div>
                         <a href="#">
@@ -168,8 +168,6 @@
                         <input type="text" name="Nohp" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
                             value="{{ Auth::User()->Nohp }}">
                     </div>
-                    <div>
-                        <button type="submit" class="text-[#DC0000] bg-white px-7 py-2 text-2xl rounded-md my-5">
                     <div class="flex gap-5">
                         <a href="/profilekonsumen" class="font-bold border-2 text-2xl px-7 py-2 my-5 rounded-md hover:text-[#DC0000] hover:bg-white">
                             BATAL
@@ -218,11 +216,6 @@
             const oFReader = new FileReader();
             oFReader.readAsDataURL(image.files[0]);
 
-        function previewImage(){
-            const image = document.querySelector('#FotoProfil');
-            const previewed = document.querySelector('.img-preview');
-            const oFReader = new FileReader();
-            oFReader.readAsDataURL(image.files[0]);
             oFReader.onload = function(oFREvent){
                 previewed.src = oFREvent.target.result
             }

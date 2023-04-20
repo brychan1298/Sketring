@@ -71,7 +71,9 @@ Route::get('/profileToko', function(){
     return view('umkm.profileToko');
 });
 
-
+Route::get('/editProfileToko', function(){
+    return view('umkm.editProfileToko');
+});
 
 
 
