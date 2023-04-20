@@ -11,7 +11,7 @@
                 </svg>
             </div>
         </a>
-        <p class="w-full text-center absolute text-2xl font-bold">
+        <p class="absolute w-full text-2xl font-bold text-center">
             PROFIL ANDA
         </p>
     </div>
@@ -34,24 +34,24 @@
             <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443]">
                 <div class="flex flex-col">
                     <div class="w-[100%] text-center">
-                        <p class="font-bold text-2xl">SALDO:</p>
+                        <p class="text-2xl font-bold">SALDO:</p>
                     </div>
                     <div class="w-[100%] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
                             <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
                         </svg>
-                        {{-- <p class="text-2xl font-bold">{{Auth::User()->Saldo}}</p> --}}
+                        <p class="text-2xl font-bold">{{Auth::User()->Saldo}}</p>
                     </div>
                 </div>
                 <a href="#">
-                    <p class="font-bold text-1xl text-center underline">Tarik Saldo >></p>
+                    <p class="font-bold text-center underline text-1xl">Tarik Saldo >></p>
                 </a>
             </div>
         </div>
         <div class="bg-[#850000] w-[75%] text-white flex flex-col gap-[16px] items-center p-[32px] rounded-[10px]">
             <div class="w-[100%] flex flex-row-reverse">
-                <a href="/editprofile" class="w-max flex flex-row">
+                <a href="/editprofile" class="flex flex-row w-max">
                     <div class="flex flex-row bg-white w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">
                         <p class="font-bold">SUNTING</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#DC0000" viewBox="0 0 16 16">
@@ -66,7 +66,7 @@
                 @else
                     <img class="rounded-full w-[360px] h-[360px]" src="images/profile.png" alt="">
                 @endif
-                <p class="text-center text-2xl font-bold">{{Auth::User()->Nama}}</p>
+                <p class="text-2xl font-bold text-center">{{Auth::User()->Nama}}</p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[8px] items-center">

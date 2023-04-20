@@ -297,7 +297,7 @@
                         {{-- Header --}}
                         <div class="flex items-center justify-between px-3 py-2 border-b-2 bg-grey-lighter">
                             <div class="flex items-center">
-                                <div>
+                                <div class="flex-shrink-0">
                                     <img class="w-16 h-16 rounded-full" src="images/natfood.png"/>
                                 </div>
                                 <div class="ml-4">
