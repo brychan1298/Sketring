@@ -147,10 +147,22 @@
         </div>
 
         <hr class="my-8">
-
+        @if(session()->has('success'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <span>
+                    {{session('success')}}
+                </span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                </span>
+            </div>
+        @endif
         <div class="formProduk flex justify-center">
-            <form class="/tambahProduk" enctype="multipart/form-data" method="post">
+
+            <form action="/umkm/updateProduk" method="post" enctype="multipart/form-data">
+                @method('put')
                 @csrf
+                <input type="hidden" name="IdProduk" value="{{$produk->IdProduk}}">
                 <label for="file-upload" class="cursor-pointer rounded-md font-semibold hover:text-indigo-700">
                     <div
                         class="uploadFoto bg-[#BCBCBC] mt-2 flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
@@ -164,46 +176,47 @@
                             <div class="mt-4 flex text-2xl leading-6 text-white">
                                 <span>GANTI FOTO PRODUK</span>
                             </div>
-
-                            <div id="photoPreview"></div>
                         </div>
                         <input id="file-upload" name="FotoProduk" type="file" class="hidden sr-only"
-                                        accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
+                                        accept=".jpg, .png, .jpeg" onchange="displayPhoto()">
                     </div><br>
                 </label>
-                <p id="Preview" class="font-black hidden">
+                <p id="Preview" class="font-black">
                     Preview :
                 </p>
-                <img src="" alt="" class="img-preview mb-4">
-
+                @if($produk->FotoProduk)
+                <img src="{{asset('storage/'.$produk->FotoProduk)}}" alt="" class="img-preview mb-4">
+                @else
+                Belum ada foto untuk produk ini
+                @endif
 
                 <label class="font-semibold" for="Nama">Nama Produk:</label>
-                <input type="text" id="Nama" name="Nama" required value=""
+                <input type="text" id="Nama" name="Nama" required value="{{$produk->Nama}}"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Nama Produk"><br>
 
                 <label class="font-semibold" for="Deskripsi">Deskrpsi:</label>
                 <textarea id="Deskripsi" name="Deskripsi" rows="4" required
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
-                    placeholder="Deskripsi"></textarea><br>
+                    placeholder="Deskripsi">{{$produk->Deskripsi}}</textarea><br>
 
                 <label class="font-semibold" for="Harga">Harga (Rp.):</label>
-                <input type="number" id="Harga" required name="Harga" value=""
+                <input type="number" id="Harga" required name="Harga" value="{{$produk->Harga}}"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Harga"><br>
 
                 <label class="font-semibold" for="MaxOrder">Max Order:</label>
-                <input type="number" id="MaxOrder" required name="MaxOrder" value=""
+                <input type="number" id="MaxOrder" required name="MaxOrder" value="{{$produk->MaxOrder}}"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Maximum Pemesanan"><br>
 
                 <label class="font-semibold" for="MinOrder">Min. Pemesanan:</label>
-                <input type="number" id="MinOrder" required name="MinOrder" value=""
+                <input type="number" id="MinOrder" required name="MinOrder" value="{{$produk->MinOrder}}"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Minimum Pemesanan"><br>
 
                 <label class="font-semibold" for="MinimalWaktuPO">Minimal Waktu PO:</label>
-                <input type="number" id="MinimalWaktuPO" required name="MinimalWaktuPO" value=""
+                <input type="number" id="MinimalWaktuPO" required name="MinimalWaktuPO" value="{{$produk->MinimalWaktuPO}}"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Minimum PO(Hari)"><br>
 

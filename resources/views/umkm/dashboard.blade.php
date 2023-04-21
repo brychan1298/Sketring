@@ -75,15 +75,15 @@
                         Rp {{$produk->Harga}}
                     </h1>
                 </div>
-                <a href="/editProduk">
-                    <div class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4">
+                <a href="/editProduk/{{$produk->IdProduk}}">
+                    <div class="bg-[#850000] text-white py-2 px-10 text-center rounded-md mt-4">
                         Edit
                     </div>
                 </a>
             </div>
         </div>
         @endforeach
-        <div class="rounded-md shadow-3xl">
+        {{-- <div class="rounded-md shadow-3xl">
             <img src="images/secure.png" alt="" class="w-[12vw] h-[12vw]">
             <div class="p-4">
                 <h1 class="font-bold my-1">Paket Nasi Hainam</h1>
@@ -99,7 +99,7 @@
                     </button>
                 </a>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     <div class="pagination mt-20 justify-center items-center flex">

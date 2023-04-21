@@ -46,7 +46,7 @@
             </div>
         </div>
         {{-- Product List --}}
-        @if (!request('search'))
+        @if (!request('search') && Auth::check())
         <div class="my-4 text-2xl">
             Katering terdekat di
             <input type="text" value="{{Auth::User()->Regency->name}}" disabled>
