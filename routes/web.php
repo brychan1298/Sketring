@@ -61,6 +61,10 @@ Route::get('/detailPesanan', function(){
     return view('konsumen.detailPesanan');
 });
 
+Route::get('/pembayaran', function(){
+    return view('konsumen.pembayaran');
+});
+
 Route::get('/pesananMasuk', function(){
     return view('umkm.pesananMasuk');
 });

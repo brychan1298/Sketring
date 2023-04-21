@@ -150,11 +150,11 @@
 
         <div class="formProduk flex justify-center">
             <form class="/tambahProduk" enctype="multipart/form-data" method="post">
-                @csrf
+                {{-- @csrf
                 <label for="file-upload" class="cursor-pointer rounded-md font-semibold hover:text-indigo-700">
                     <div
                         class="uploadFoto bg-[#BCBCBC] mt-2 flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
-                        <div class="text-center bg-">
+                        <div class="text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="90" height="90" color="white"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -174,8 +174,20 @@
                 <p id="Preview" class="font-black hidden">
                     Preview :
                 </p>
-                <img src="" alt="" class="img-preview mb-4">
+                <img src="" alt="" class="img-preview mb-4"> --}}
 
+                <div class="photo flex flex-col justify-center items-center mb-4">
+                    <img src="https://source.unsplash.com/300x300/?web-programming" class="rounded-lg img-preview">
+                    <div class="change bg-zinc-400 flex items-center justify-center my-2 w-1/2 rounded-xl">
+                        <h1 class="text-white">GANTI FOTO PRODUK</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="30" height="30" color="white"
+                            viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z" />
+                        </svg>
+                        <input id="file-upload" name="FotoProduk" type="file" class="hidden sr-only" accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
+                    </div>
+                </div>
 
                 <label class="font-semibold" for="Nama">Nama Produk:</label>
                 <input type="text" id="Nama" name="Nama" required value=""
