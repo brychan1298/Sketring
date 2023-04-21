@@ -17,7 +17,11 @@
 <div class="w-full mt-5">
     <img src="images/bannerToko.jpg" alt="">
     <div class="ml-20 text-center w-fit">
-        <img src="images/syamsulkatering.png" alt="SyamsulKatering.id" class="rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
+        @if (Auth::User()->FotoProfil)
+            <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
+        @else
+            <img src="images/profile.png" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
+        @endif
         <p class="mt-8 text-2xl font-bold">{{Auth::User()->Nama}}</p>
     </div>
 </div>

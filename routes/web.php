@@ -74,6 +74,8 @@ Route::get('/profileToko', function(){
 // });
 Route::get('/editProfileToko',[LoginController::class,'editToko']);
 
+Route::put('/umkm/update',[LoginController::class,'updateToko']);
+
 
 
 
