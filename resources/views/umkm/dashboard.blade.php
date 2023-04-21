@@ -75,10 +75,10 @@
                         Rp {{$produk->Harga}}
                     </h1>
                 </div>
-                <a href="#">
-                    <button class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4">
+                <a href="/editProduk">
+                    <div class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4">
                         Edit
-                    </button>
+                    </div>
                 </a>
             </div>
         </div>
@@ -93,7 +93,7 @@
                         Rp 35000
                     </h1>
                 </div>
-                <a href="#">
+                <a href="/editProduk">
                     <button class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4">
                         Edit
                     </button>

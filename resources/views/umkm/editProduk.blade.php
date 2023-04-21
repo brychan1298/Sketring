@@ -1,6 +1,6 @@
 @extends('umkm.layouts.master')
-@section('title', 'UMKM Dashboard')
-@section('description', 'Halaman Dashboard UMKM')
+@section('title', 'Edit Produk')
+@section('description', 'Edit Produk UMKM')
 @section('content')
     <style>
         .judulAddProduk {
@@ -143,7 +143,7 @@
                     </g>
                 </svg>
             </a>
-            <h2 class="textJudul text-4xl font-black">Tambah Produk</h2>
+            <h2 class="textJudul text-4xl font-black">Edit Produk</h2>
         </div>
 
         <hr class="my-8">
@@ -162,7 +162,7 @@
                             </svg>
 
                             <div class="mt-4 flex text-2xl leading-6 text-white">
-                                <span>TAMBAH FOTO PRODUK</span>
+                                <span>GANTI FOTO PRODUK</span>
                             </div>
 
                             <div id="photoPreview"></div>
@@ -209,7 +209,7 @@
 
                 <div class="flex justify-center my-6">
                     <button type="submit" class="bg-[#850000] py-2 px-6 text-white rounded-md my-5">
-                        SUBMIT
+                        SIMPAN PERUBAHAN
                     </button>
                 </div>
 

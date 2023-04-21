@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('konsumen.beranda');
 });
 
-Route::get('/virtualaccount', function () {
+Route::get('/virtualAccount', function () {
     return view('konsumen.virtualAccount');
 });
 
@@ -29,15 +29,15 @@ Route::get('/chat', function () {
     return view('konsumen.chat');
 });
 
-Route::get('/listkeranjang', function(){
+Route::get('/listKeranjang', function(){
     return view('konsumen.ListKeranjang');
 });
 
-Route::get('/profilekonsumen', function(){
+Route::get('/profileKonsumen', function(){
     return view('konsumen.profile');
 })->middleware("auth");
 
-Route::get('/editprofile', function(){
+Route::get('/editProfile', function(){
     return view('konsumen.editprofile');
 });
 
@@ -53,11 +53,19 @@ Route::get('/cari', function(){
     return view('konsumen.cari');
 });
 
-Route::get('/pesanankonsumen', function(){
+Route::get('/pesananKonsumen', function(){
     return view('konsumen.pesanan');
 });
 
-Route::get('/pesananumkm', function(){
+Route::get('/detailPesanan', function(){
+    return view('konsumen.detailPesanan');
+});
+
+Route::get('/pesananMasuk', function(){
+    return view('umkm.pesananMasuk');
+});
+
+Route::get('/pesananUmkm', function(){
     return view('umkm.pesanan');
 });
 
@@ -69,6 +77,10 @@ Route::get('/tambahProduk', function(){
 
 Route::get('/profileToko', function(){
     return view('umkm.profileToko');
+});
+
+Route::get('/editProduk', function(){
+    return view('umkm.editProduk');
 });
 
 Route::get('/editProfileToko', function(){
