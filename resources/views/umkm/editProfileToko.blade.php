@@ -18,10 +18,10 @@
     <img src="images/bannerToko.jpg" alt="">
     <div class="ml-20 text-center w-fit">
         <img src="images/syamsulkatering.png" alt="SyamsulKatering.id" class="rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
-        <p class="mt-8 text-2xl font-bold">SyamsulKatering.id</p>
+        <p class="mt-8 text-2xl font-bold">{{Auth::User()->Nama}}</p>
     </div>
 </div>
-
+<form action="">
 <div class="flex flex-col w-full mx-auto container-md">
     <div class="w-[100%] flex flex-row-reverse mb-5 pr-28 bder">
         <a href="/profileToko" class="flex flex-row w-max">
@@ -59,7 +59,7 @@
                             <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
                             <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
                         </svg>
-                        <p class="text-2xl font-bold">Rp250.000</p>
+                        <p class="text-2xl font-bold">Rp {{Auth::User()->Saldo}}</p>
                     </div>
                 </div>
                 <a href="#">
@@ -75,14 +75,14 @@
                     </svg>
                     <p class="text-xl font-bold">Nama Lengkap</p>
                 </div>
-                <input type="text" name="nama" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nama Lengkap Anda" value="Syamsul Said">
+                <input type="text" name="nama" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nama Lengkap Anda" value="{{Auth::User()->Nama}}">
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/></svg>
                     <p class="text-xl font-bold">Alamat</p>
                 </div>
-                <textarea name="alamat" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Alamat Lengkap Anda">Jl. Raya Kedung Baruk No. 98B, RT 007/RW 001, Kelurahan Kedung Baruk, Kecamatan Rungkut, Kota Surabaya, Provinsi Jawa Timur, Kode Pos 60298, Indonesia</textarea>
+                <textarea name="alamat" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Alamat Lengkap Anda">{{Auth::User()->Alamat}}</textarea>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
@@ -96,9 +96,20 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20 20c-1.39 0-2.78-.47-4-1.33c-2.44 1.71-5.56 1.71-8 0C6.78 19.53 5.39 20 4 20H2v2h2c1.37 0 2.74-.35 4-1c2.5 1.3 5.5 1.3 8 0c1.26.65 2.62 1 4 1h2v-2h-2m.78-1H20c-1.18 0-2.36-.4-3.42-1.15l-.58-.4l-.58.4c-1.03.72-2.21 1.1-3.42 1.1c-1.23 0-2.41-.38-3.44-1.1l-.56-.4l-.57.4C6.36 18.6 5.18 19 4 19h-.78c.53-1.46 2.36-4 8.78-4c2 0 3 .24 3 .24c.68-1.37 1.83-4.47 1-8.42l1.06.71c.33 1.43.94 4.22-.26 8.12c2.63.85 3.62 2.35 3.98 3.35M22 7.59c-.79-1.09-2-1.88-3.42-2.06c.12.14.23.3.34.47a5.03 5.03 0 0 1-.45 5.95c.59-1.45.53-3.16-.39-4.59c-.08-.08-.12-.16-.18-.25c-.4-.58-.94-1.05-1.52-1.39c-2.03.65-3.5 2.55-3.5 4.78c0 .53.08 1.03.22 1.5c-.6-.83-.94-1.83-.94-2.93c0-1.66.8-3.12 2.04-4.04c-1.04-.08-2.11.15-3.06.75c-.44.27-.82.6-1.14.98c.39-.94 1.05-1.76 2-2.36a4.85 4.85 0 0 1 3.39-.71a5.2 5.2 0 0 0-1.06-1.09c-.41-.31-.86-.55-1.33-.72c1 .03 2.04.36 2.91 1.01c.44.33.79.73 1.09 1.16c.06 0 .12-.01.19-.01A5.03 5.03 0 0 1 22 7.59Z"/></svg>
                     <p class="text-xl font-bold">Provinsi</p>
                 </div>
-                <select name="provinsi"
-                    class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg">
+                <select required id="Province-dropdown" name="provinsi"
+                            class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
                     <option value="">Pilih Provinsi</option>
+                    @foreach ($provinces as $data)
+                        @if (Auth::User()->Regency->Province->id == $data->id)
+                            <option value="{{ $data->id }}" selected>
+                                {{ $data->name }}
+                            </option>
+                        @else
+                            <option value="{{ $data->id }}">
+                                {{ $data->name }}
+                            </option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -106,9 +117,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15 11V5.83c0-.53-.21-1.04-.59-1.41L12.7 2.71a.996.996 0 0 0-1.41 0l-1.7 1.7C9.21 4.79 9 5.3 9 5.83V7H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6c0-1.1-.9-2-2-2h-4zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
                     <p class="text-xl font-bold">Kota</p>
                 </div>
-                <select name="kota"
-                    class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg">
-                    <option value="">Pilih Kota</option>
+                <select required id="kota-dropdown" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
+                            name="IdKota">
                 </select>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -116,14 +126,14 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
                     <p class="text-xl font-bold">Email</p>
                 </div>
-                <input type="email" name="emailToko" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Email" value="syamsulkatering@gmail.com">
+                <input type="email" name="emailToko" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Email" value="{{Auth::User()->Email}}">
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     <p class="text-xl font-bold">No. Telepon</p>
                 </div>
-                <input type="no_telepon" name="telepon" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nomor Telepon" value="081232139392">
+                <input type="no_telepon" name="telepon" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nomor Telepon" value="{{Auth::User()->Nohp}}">
             </div>
         </div>
     </div>
@@ -136,5 +146,47 @@
         </button>
     </div>
 </div>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#Province-dropdown').on('change', function() {
+                var idProvince = this.value;
+                $("#kota-dropdown").html('');
+                $.ajax({
+                    url: "{{ url('api/fetch-kota') }}",
+                    type: "POST",
+                    data: {
+                        Province_id: idProvince,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        $('#kota-dropdown').html(
+                            '<option value="">Pilih Kota</option>');
+                        $.each(result.states, function(key, value) {
+                            $("#kota-dropdown").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+
+        function previewImage(){
+            const image = document.querySelector('#FotoProfil');
+            const previewed = document.querySelector('.img-preview');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                previewed.src = oFREvent.target.result
+            }
+        }
+
+    </script>
 
 @endsection

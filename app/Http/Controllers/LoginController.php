@@ -21,6 +21,12 @@ class LoginController extends Controller
         return view('konsumen.editProfile',compact('provinces'));
     }
 
+    public function editToko(){
+        $provinces = Province::all();
+        $title = "Register";
+        return view('umkm.editProfileToko',compact('provinces'));
+    }
+
     public function update(Request $request){
         $validatedUpdate = [
             'Nama' => 'required|max:255',
