@@ -21,6 +21,12 @@ class LoginController extends Controller
         return view('konsumen.editProfile',compact('provinces'));
     }
 
+    public function editToko(){
+        $provinces = Province::all();
+        $title = "Register";
+        return view('umkm.editProfileToko',compact('provinces'));
+    }
+
     public function update(Request $request){
         $validatedUpdate = [
             'Nama' => 'required|max:255',
@@ -42,6 +48,29 @@ class LoginController extends Controller
 
         User::where('IdUser',Auth::User()->IdUser)->update($validatedData);
         return redirect('/profilekonsumen')->with('success','Profile telah berhasil diedit');
+    }
+
+    public function updateToko(Request $request){
+        $validatedUpdate = [
+            'Nama' => 'required|max:255',
+            'Email' => 'required|email:dns',
+            'Nohp' => 'required|min:10|max:14',
+            'Alamat' => 'required',
+            'IdKota' => 'required',
+            'FotoProfil' => 'image|file|max:1024'
+        ];
+
+        $validatedData = $request->validate($validatedUpdate);
+
+        if($request->file('FotoProfil')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['FotoProfil'] = $request->file('FotoProfil')->store();
+        }
+
+        User::where('IdUser',Auth::User()->IdUser)->update($validatedData);
+        return redirect('/profileToko')->with('success','Profile telah berhasil diedit');
     }
 
     public function index(){
