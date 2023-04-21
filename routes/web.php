@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AcaraController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\LoginController;
@@ -29,9 +31,7 @@ Route::get('/chat', function () {
     return view('konsumen.chat');
 });
 
-Route::get('/listkeranjang', function(){
-    return view('konsumen.ListKeranjang');
-});
+Route::get('/listKeranjang', [AcaraController::class, 'index']);
 
 Route::get('/profilekonsumen', function(){
     return view('konsumen.profile');
@@ -115,7 +115,8 @@ Route::group(['prefix'=>'register'], function(){
     Route::get('/', function(){
         return view('PilihRole');
     });
-});
+})->middleware('guest');
+
 Route::post('api/fetch-kota', [RegisterController::class, 'fetchKota']);
 
 Route::get('/login',[LoginController::class,'index'])->middleware('guest');
