@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AcaraController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\LoginController;
@@ -29,9 +31,8 @@ Route::get('/chat', function () {
     return view('konsumen.chat');
 });
 
-Route::get('/listKeranjang', function(){
-    return view('konsumen.ListKeranjang');
-});
+
+Route::get('/listKeranjang', [AcaraController::class, 'index']);
 
 Route::get('/profileKonsumen', function(){
     return view('konsumen.profile');
@@ -49,9 +50,7 @@ Route::get('/umkm', function(){
     return view('umkm.beranda');
 });
 
-Route::get('/cari', function(){
-    return view('konsumen.cari');
-});
+Route::get('/cari', [ProdukController::class,'konsumenIndex']);
 
 Route::get('/pesananKonsumen', function(){
     return view('konsumen.pesanan');
@@ -79,13 +78,14 @@ Route::get('/profileToko', function(){
     return view('umkm.profileToko');
 });
 
+
 Route::get('/editProduk', function(){
     return view('umkm.editProduk');
 });
 
-Route::get('/editProfileToko', function(){
-    return view('umkm.editProfileToko');
-});
+Route::get('/editProfileToko',[LoginController::class,'editToko']);
+
+Route::put('/umkm/update',[LoginController::class,'updateToko']);
 
 
 
@@ -126,7 +126,8 @@ Route::group(['prefix'=>'register'], function(){
     Route::get('/', function(){
         return view('PilihRole');
     });
-});
+})->middleware('guest');
+
 Route::post('api/fetch-kota', [RegisterController::class, 'fetchKota']);
 
 Route::get('/login',[LoginController::class,'index'])->middleware('guest');

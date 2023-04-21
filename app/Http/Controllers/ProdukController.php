@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +19,30 @@ class ProdukController extends Controller
 
         // dd($produks);
         return view("umkm.dashboard",compact('produks'));
+    }
+
+    public function konsumenIndex(Request $request)
+    {
+
+        if(Auth::check()){
+            $produks = Produk::select('Produk.*')->join('users','Produk.IdUser','=','users.IdUser')
+                        ->join('regencies','users.IdKota','=','regencies.id')
+                        ->where('users.IdKota','=',Auth::User()->IdKota);
+            // $produks = $produks->where('IdKota','=',Auth::User()->IdKota);
+            // dd($produks);
+        }else{
+            $produks = Produk::All();
+        }
+
+        if(request('search')){
+            // dd(request('search'));
+            $produks->where('Produk.Nama','like','%'.request('search').'%')
+                ->orWhere('regencies.name','like','%'.request('search').'%');
+        }
+
+        $produks = $produks->paginate(10)->withQueryString();
+
+        return view("konsumen.cari",compact('produks'));
     }
 
     /**

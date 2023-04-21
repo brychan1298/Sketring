@@ -15,4 +15,9 @@ class Produk extends Model
     public function User() {
         return $this->belongsTo(User::class,'IdUser');
     }
+
+    public function Keranjang()
+    {
+        return $this->HasMany(Keranjang::class,'IdKeranjang');
+    }
 }
