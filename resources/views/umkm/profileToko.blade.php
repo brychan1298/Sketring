@@ -18,7 +18,7 @@
     <img src="images/bannerToko.jpg" alt="">
     <div class="ml-20 text-center w-fit">
         <img src="images/syamsulkatering.png" alt="SyamsulKatering.id" class="rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
-        <p class="mt-8 text-2xl font-bold">SyamsulKatering.id</p>
+        <p class="mt-8 text-2xl font-bold">{{Auth::User()->Nama}}</p>
     </div>
 </div>
 
@@ -59,7 +59,7 @@
                             <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
                             <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
                         </svg>
-                        <p class="text-2xl font-bold">Rp250.000</p>
+                        <p class="text-2xl font-bold">Rp {{Auth::User()->Saldo}}</p>
                     </div>
                 </div>
                 <a href="#">
@@ -73,10 +73,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
-                    <p class="text-xl font-bold">Nama Lengkap</p>
+                    <p class="text-xl font-bold">Nama Toko</p>
                 </div>
                 <p class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg">
-                    Syamsul Said
+                    {{Auth::User()->Nama}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -85,7 +85,7 @@
                     <p class="text-xl font-bold">Alamat</p>
                 </div>
                 <p class="text-lg px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    Jl. Raya Kedung Baruk No. 98B, RT 007/RW 001, Kelurahan Kedung Baruk, Kecamatan Rungkut, Kota Surabaya, Provinsi Jawa Timur, Kode Pos 60298, Indonesia
+                    {{Auth::User()->Alamat}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -103,7 +103,7 @@
                     <p class="text-xl font-bold">Provinsi</p>
                 </div>
                 <p class="text-lg px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    JAWA TIMUR
+                    {{Auth::User()->Regency->Province->name}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -112,7 +112,7 @@
                     <p class="text-xl font-bold">Kota</p>
                 </div>
                 <p class="text-lg px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    MALANG
+                    {{Auth::User()->Regency->name}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -121,7 +121,7 @@
                     <p class="text-xl font-bold">Email</p>
                 </div>
                 <p class="text-lg px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    syamsulkatering@gmail.com
+                    {{Auth::User()->Email}}
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -130,7 +130,7 @@
                     <p class="text-xl font-bold">No. Telepon</p>
                 </div>
                 <p class="text-lg px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    081232139392
+                    {{Auth::User()->Nohp}}
                 </p>
             </div>
         </div>
