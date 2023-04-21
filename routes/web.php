@@ -49,9 +49,7 @@ Route::get('/umkm', function(){
     return view('umkm.beranda');
 });
 
-Route::get('/cari', function(){
-    return view('konsumen.cari');
-});
+Route::get('/cari', [ProdukController::class,'konsumenIndex']);
 
 Route::get('/pesanankonsumen', function(){
     return view('konsumen.pesanan');
