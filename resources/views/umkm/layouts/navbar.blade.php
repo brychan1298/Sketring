@@ -9,12 +9,12 @@
             @if(Auth::check())
                 <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+                    <img class="w-8 h-8 rounded-full" src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="user photo">
                 </button>
                 <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
-                    <div class="px-4 py-3 flex flex-row">
+                    <div class="px-4 py-3 flex flex-row gap-2 items-center">
                         <div class="w-25">
-                            tes
+                            <img class="w-8 h-8 rounded-full" src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="user photo">
                         </div>
                         <div>
                             <span class="block text-sm text-gray-900 text-[#c0c0c0]">{{auth()->user()->Nama}}</span>

@@ -14,14 +14,36 @@
     </div>
 </div>
 
+<form action="umkm/update" enctype="multipart/form-data" method="post">
+@method('put')
+@csrf
 <div class="w-full mt-5">
     <img src="images/bannerToko.jpg" alt="">
     <div class="ml-20 text-center w-fit">
-        <img src="images/syamsulkatering.png" alt="SyamsulKatering.id" class="rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
-        <p class="mt-8 text-2xl font-bold">{{Auth::User()->Nama}}</p>
+        @if (Auth::User()->FotoProfil)
+            <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
+        @else
+            <img src="images/profile.png" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
+        @endif
+        <label for="FotoProfil">
+        <div class="flex flex-col items-center justify-center absolute bg-[black] w-[18.75vw] h-[18.75vw] rounded-full bg-opacity-50 -mt-[18.75vw]">
+            <svg class="text-center" width="80" height="72" viewBox="0 0 80 72" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M40 57.7467C45 57.7467 49.2507 56.0189 52.752 52.5633C56.2533 49.1077 58.0027 44.9138 58 39.9817C58 35.047 56.2493 30.8518 52.748 27.3962C49.2467 23.9406 44.9973 22.2141 40 22.2167C35 22.2167 30.7493 23.9445 27.248 27.4001C23.7467 30.8557 21.9973 35.0496 22 39.9817C22 44.9164 23.7507 49.1116 27.252 52.5672C30.7533 56.0228 35.0027 57.7493 40 57.7467ZM8 71.5639C5.80001 71.5639 3.91601 70.7902 2.34801 69.2426C0.780006 67.6951 -0.00265987 65.837 6.79117e-06 63.6684V16.295C6.79117e-06 14.1237 0.784007 12.2643 2.35201 10.7168C3.92001 9.16928 5.80267 8.39683 8 8.39947H20.6L28 0.503906H52L59.4 8.39947H72C74.2 8.39947 76.084 9.17323 77.652 10.7208C79.22 12.2683 80.0027 14.1264 80 16.295V63.6684C80 65.8397 79.216 67.6991 77.648 69.2466C76.08 70.7941 74.1973 71.5666 72 71.5639H8Z"
+                    fill="white" />
+            </svg>
+            <div class="px-10 mt-4 text-4xl text-white font-black text-center">
+                GANTI FOTO PROFIL
+            </div>
+        </div>
+        </label>
+        <input type="file" name="FotoProfil" id="FotoProfil" class="hidden" onchange="previewImage()">
+        <input type="text" class="mt-8 text-2xl font-bold text-center" value="{{Auth::User()->Nama}}" disabled>
     </div>
+
 </div>
-<form action="">
+
 <div class="flex flex-col w-full mx-auto container-md">
     <div class="w-[100%] flex flex-row-reverse mb-5 pr-28 bder">
         <a href="/profileToko" class="flex flex-row w-max">
@@ -75,14 +97,14 @@
                     </svg>
                     <p class="text-xl font-bold">Nama Lengkap</p>
                 </div>
-                <input type="text" name="nama" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nama Lengkap Anda" value="{{Auth::User()->Nama}}">
+                <input type="text" name="Nama" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nama Lengkap Anda" value="{{Auth::User()->Nama}}">
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/></svg>
                     <p class="text-xl font-bold">Alamat</p>
                 </div>
-                <textarea name="alamat" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Alamat Lengkap Anda">{{Auth::User()->Alamat}}</textarea>
+                <textarea name="Alamat" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Alamat Lengkap Anda">{{Auth::User()->Alamat}}</textarea>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
@@ -126,14 +148,14 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
                     <p class="text-xl font-bold">Email</p>
                 </div>
-                <input type="email" name="emailToko" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Email" value="{{Auth::User()->Email}}">
+                <input type="email" name="Email" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Email" value="{{Auth::User()->Email}}">
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     <p class="text-xl font-bold">No. Telepon</p>
                 </div>
-                <input type="no_telepon" name="telepon" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nomor Telepon" value="{{Auth::User()->Nohp}}">
+                <input type="no_telepon" name="Nohp" class="px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nomor Telepon" value="{{Auth::User()->Nohp}}">
             </div>
         </div>
     </div>
@@ -174,6 +196,18 @@
                 });
             });
         });
+
+        function previewImage(){
+            const image = document.querySelector('#FotoProfil');
+            const previewed = document.querySelector('.img-preview');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                previewed.src = oFREvent.target.result
+            }
+        }
 
         function previewImage(){
             const image = document.querySelector('#FotoProfil');
