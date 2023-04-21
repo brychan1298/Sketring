@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('konsumen.beranda');
 });
 
-Route::get('/virtualaccount', function () {
+Route::get('/virtualAccount', function () {
     return view('konsumen.virtualAccount');
 });
 
@@ -31,13 +31,14 @@ Route::get('/chat', function () {
     return view('konsumen.chat');
 });
 
+
 Route::get('/listKeranjang', [AcaraController::class, 'index']);
 
-Route::get('/profilekonsumen', function(){
+Route::get('/profileKonsumen', function(){
     return view('konsumen.profile');
 })->middleware("auth");
 
-Route::get('/editprofile', function(){
+Route::get('/editProfile', function(){
     return view('konsumen.editprofile');
 });
 
@@ -51,11 +52,19 @@ Route::get('/umkm', function(){
 
 Route::get('/cari', [ProdukController::class,'konsumenIndex']);
 
-Route::get('/pesanankonsumen', function(){
+Route::get('/pesananKonsumen', function(){
     return view('konsumen.pesanan');
 });
 
-Route::get('/pesananumkm', function(){
+Route::get('/detailPesanan', function(){
+    return view('konsumen.detailPesanan');
+});
+
+Route::get('/pesananMasuk', function(){
+    return view('umkm.pesananMasuk');
+});
+
+Route::get('/pesananUmkm', function(){
     return view('umkm.pesanan');
 });
 
@@ -69,9 +78,11 @@ Route::get('/profileToko', function(){
     return view('umkm.profileToko');
 });
 
-// Route::get('/editProfileToko', function(){
-//     return view('umkm.editProfileToko');
-// });
+
+Route::get('/editProduk', function(){
+    return view('umkm.editProduk');
+});
+
 Route::get('/editProfileToko',[LoginController::class,'editToko']);
 
 Route::put('/umkm/update',[LoginController::class,'updateToko']);
