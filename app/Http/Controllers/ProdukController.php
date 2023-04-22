@@ -6,6 +6,7 @@ use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class ProdukController extends Controller
@@ -31,7 +32,7 @@ class ProdukController extends Controller
             // $produks = $produks->where('IdKota','=',Auth::User()->IdKota);
             // dd($produks);
         }else{
-            $produks = Produk::All();
+            $produks = Produk::latest();
         }
 
         if(request('search')){
@@ -93,17 +94,41 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Produk $produk)
+    public function edit(Produk $produk,$IdProduk)
     {
-        //
+        $produk = Produk::find($IdProduk);
+        return view('umkm.editProduk',compact('produk'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Produk $produk)
+    public function update(Request $request)
     {
-        //
+        $validatedUpdate = [
+            'Nama' => 'required|max:255',
+            'FotoProduk' => 'image|file|max:1024',
+            'Deskripsi' => 'required',
+            'Harga' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'MinOrder' => 'required|numeric',
+            'MaxOrder' => 'required|numeric',
+            'MinimalWaktuPO' => 'required|numeric',
+        ];
+
+        $validatedData = $request->validate($validatedUpdate);
+
+        if($request->file('FotoProduk')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['FotoProduk'] = $request->file('FotoProduk')->store();
+        }
+
+        $idProduk = request('IdProduk');
+
+        Produk::where('IdProduk',request('IdProduk'))->update($validatedData);
+        // return redirect('/dashboard');
+        return redirect('/editProduk/'.$idProduk)->with('success','Produk telah berhasil diedit');
     }
 
     /**
