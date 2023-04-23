@@ -14,7 +14,7 @@ class AcaraController extends Controller
      */
     public function index()
     {
-        $daftarAcara = Acara::where('IdUser',Auth::User()->IdUser);
+        $daftarAcara = Acara::where('IdUser',Auth::User()->IdUser)->get();
         return view("konsumen.ListKeranjang",compact('daftarAcara'));
     }
 
@@ -31,7 +31,14 @@ class AcaraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'Nama' => 'required|max:255',
+        ]);
+        $validatedData['IdUser'] = Auth::User()->IdUser;
+
+        Acara::create($validatedData);
+
+        return redirect('/listKeranjang')->with("success","Jenis keranjang/acara berhasil ditambahkan");
     }
 
     /**

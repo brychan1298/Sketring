@@ -4,9 +4,12 @@ use App\Http\Controllers\AcaraController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndoRegionController;
+use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +21,8 @@ use App\Http\Controllers\RegisterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Route::get('/',[KeranjangController::class, 'CartCount']);
 
 Route::get('/', function () {
     return view('konsumen.beranda');
@@ -96,10 +101,12 @@ Route::put('/umkm/update',[LoginController::class,'updateToko']);
 
 
 
-Route::get('/detailproduk', function(){
-    return view('konsumen.detailProduk');
-});
+Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show']);
+Route::post('/konsumen/tambahAcara',[AcaraController::class,'store']);
+Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);
+Route::post('/konsumen/addtocart',[KeranjangController::class, 'store']);
 
+Route::get('/loadCartCount',[KeranjangController::class, 'CartCount']);
 
 
 

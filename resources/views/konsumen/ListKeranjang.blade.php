@@ -19,14 +19,15 @@
                     </div>
                     <div id="dropdown"
                         class="hidden rounded-lg border-2 border-[#850000] bg-[#BBBBBB] p-5">
-                        <form action="">
+                        <form action="/konsumen/tambahAcara" method="post">
+                            @csrf
                             <div>
                                 <p class="text-left font-extrabold">
                                     Nama Koleksi
                                 </p>
-                                <input type="text"
+                                <input name="Nama" type="text"
                                     class="shadow mt-3 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="">
-                                <button class="bg-[#850000] text-white px-8 py-2 rounded mt-8">
+                                <button type="submit" class="bg-[#850000] text-white px-8 py-2 rounded mt-8">
                                     Ok
                                 </button>
                             </div>
@@ -37,15 +38,29 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-4 mt-12">
-        <div>
-            <div class="rounded-md shadow-3xl">
-                <img src="images/secure.png" alt="" class="w-full aspect-square">
+    <div class="grid grid-cols-4 mt-12 gap-7 mx-auto">
+        <a href="">
+            <div>
+                <div class="rounded-md shadow-3xl">
+                    <img src="images/secure.png" alt="" class="w-full aspect-square">
+                </div>
+                <h1 class="font-bold mt-5">
+                    Semua Produk
+                </h1>
             </div>
-            <h1 class="font-bold mt-5">
-                Semua Produk
-            </h1>
-        </div>
+        </a>
+        @foreach ($daftarAcara as $acara)
+            <a href="">
+                <div>
+                    <div class="rounded-md shadow-3xl">
+                        <img src="images/secure.png" alt="" class="w-full aspect-square">
+                    </div>
+                    <h1 class="font-bold mt-5">
+                        {{$acara->Nama}}
+                    </h1>
+                </div>
+            </a>
+        @endforeach
     </div>
 </div>
 @endsection

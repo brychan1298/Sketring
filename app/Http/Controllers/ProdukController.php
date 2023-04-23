@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Keranjang;
+use App\Models\Acara;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -86,9 +88,14 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Produk $produk)
+    public function show(Produk $produk,$IdProduk)
     {
-        //
+        $keranjang = [];
+        $detailProduk = Produk::find($IdProduk);
+        if(Auth::check()){
+            $keranjang = Acara::where("IdUser",Auth::User()->IdUser)->get();
+        }
+        return view('konsumen.detailProduk',compact('detailProduk','keranjang'));
     }
 
     /**
