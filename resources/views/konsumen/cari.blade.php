@@ -46,18 +46,18 @@
             </div>
         </div>
         {{-- Product List --}}
-        @if (!request('search'))
+        @if (!request('search') && Auth::check())
         <div class="my-4 text-2xl">
             Katering terdekat di
             <input type="text" value="{{Auth::User()->Regency->name}}" disabled>
         </div>
         @endif
-        <div class="flex flex-wrap flex-row gap-[2vw] bg-white px-[2vw] w-full items-center justify-center">
+        <div class="flex gap-[2vw] bg-white px-[2vw] w-full items-center justify-center">
             @foreach ($produks as $produk)
-                <a href="#">
-                    <div class="bg-white drop-shadow-lg flex flex-col w-max rounded-[10px]">
+                <a href="/konsumen/detailproduk/{{$produk->IdProduk}}">
+                    <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[45vh] rounded-[10px]">
                         {{-- Product Image --}}
-                        <img src="{{ asset('storage/' . $produk->FotoProduk) }}" class="rounded-[10px] w-full h-[9vw]"
+                        <img src="{{ asset('storage/' . $produk->FotoProduk) }}" class="rounded-[10px] w-[full] h-[9vw]"
                             alt="">
                         {{-- Product Information --}}
                         <div class="flex flex-col w-[100%] gap-[0.5vw] p-[1vw]">
