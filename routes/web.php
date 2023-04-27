@@ -73,6 +73,10 @@ Route::get('/tarikDebit', function(){
     return view('konsumen.debit');
 });
 
+Route::get('/tarikEmoney', function(){
+    return view('konsumen.emoney');
+});
+
 Route::get('/pembayaran', function(){
     return view('konsumen.pembayaran');
 });
