@@ -39,7 +39,7 @@
     </div>
 
     <div class="grid grid-cols-4 mt-12 gap-7 mx-auto">
-        <a href="">
+        <a href="/konsumen/keranjang">
             <div>
                 <div class="rounded-md shadow-3xl">
                     <img src="images/secure.png" alt="" class="w-full aspect-square">

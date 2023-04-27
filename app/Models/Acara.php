@@ -14,10 +14,11 @@ class Acara extends Model
 
     public function Keranjang()
     {
-        return $this->HasMany(Keranjang::class,'IdKeranjanag');
+        return $this->HasMany(Keranjang::class,'IdKeranjang');
     }
 
     public function User() {
         return $this->belongsTo(User::class,'IdUser');
     }
+
 }

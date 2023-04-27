@@ -15,7 +15,34 @@ class KeranjangController extends Controller
      */
     public function index()
     {
-        //
+        // $listAcara = Keranjang::select("*")->join("Acara","Keranjang.IdAcara","=","Acara.IdAcara")
+                                // ->join("Produk","Keranjang.IdProduk","=","Produk.IdProduk")
+                                // ->where("Acara.IdUser","=",Auth::User()->IdUser)
+                                // // ->groupBy("Acara.IdAcara")
+                                // ->get();
+
+        // $listAcara = Acara::where("IdUser",Auth::User()->IdUser)->get();
+
+        $IdUser = Auth::User()->IdUser;
+        // $callback = function($q) use ($IdUser){
+        //     $q -> where('IdUser', $IdUser);
+        // };
+
+        $listAcara = Acara::query()->with('Keranjang')->get();
+
+
+        $listAcara = [];
+
+        $Acara = Acara::selectRaw("Acara.Nama AS NamaAcara, Keranjang.*, Produk.*")
+                                ->join("Keranjang","Keranjang.IdAcara","=","Acara.IdAcara")
+                                ->join("Produk","Produk.IdProduk","=","Keranjang.IdProduk")
+                                ->where("Acara.IdUser",Auth::User()->IdUser)->get();
+        // dd($Acara);
+        foreach($Acara as $items){
+            $listAcara[$items->NamaAcara][] = $items;
+        }
+        // dd($listAcara);
+        return view("konsumen.keranjang",compact('listAcara'));
     }
 
     public function CartCount(){
@@ -99,8 +126,12 @@ class KeranjangController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Keranjang $keranjang)
+    public function destroy(Keranjang $keranjang, Request $request)
     {
-        //
+        // return response()->json(['status'=>'Product telah dihapus dari keranjang anda']);
+        $IdKeranjang = $request->input('IdKeranjang');
+        $KeranjangItem = Keranjang::where('IdKeranjang',$IdKeranjang)->first();
+        $KeranjangItem->delete();
+        return response()->json(['status'=>'Product telah dihapus dari keranjang anda']);
     }
 }
