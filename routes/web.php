@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Models\Keranjang;
 use App\Models\User;
 
 /*
@@ -47,9 +48,7 @@ Route::get('/editProfile', function(){
     return view('konsumen.editprofile');
 });
 
-Route::get('/keranjang', function(){
-    return view('konsumen.keranjang');
-});
+Route::get('/konsumen/keranjang', [KeranjangController::class, 'index']);
 
 Route::get('/umkm', function(){
     return view('umkm.beranda');
@@ -113,8 +112,11 @@ Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show']
 Route::post('/konsumen/tambahAcara',[AcaraController::class,'store']);
 Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);
 Route::post('/konsumen/addtocart',[KeranjangController::class, 'store']);
+Route::post('/konsumen/deleteCart',[KeranjangController::class, 'destroy']);
 
 Route::get('/loadCartCount',[KeranjangController::class, 'CartCount']);
+
+
 
 
 
