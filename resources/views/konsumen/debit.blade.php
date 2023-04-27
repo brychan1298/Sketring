@@ -14,6 +14,8 @@
     }
 </style>
 
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
 <div class="container m-auto mt-[100px]">
     <div class="judulAddProduk flex items-center justify-center">
         <a href="">
@@ -63,6 +65,11 @@
 
             </div>
         </div>
+    </div>
+
+    <div class="mx-32 pb-6">
+        <h1 class="mt-16 text-2xl">Debit</h1>
+        <hr class="h-px my-3 bg-gray-500 border-0">
     </div>
 </div>
 @endsection
