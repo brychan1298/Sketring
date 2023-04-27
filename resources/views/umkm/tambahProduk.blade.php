@@ -1,6 +1,6 @@
 @extends('umkm.layouts.master')
-@section('title', 'UMKM Dashboard')
-@section('description', 'Halaman Dashboard UMKM')
+@section('title', 'Tambah Produk')
+@section('description', 'Halaman Tambah Produk')
 @section('content')
     <style>
         .judulAddProduk {
@@ -23,21 +23,23 @@
             color: #850000;
         }
 
-        .formProduk {
-            /* background-color: skyblue */
-        }
-
         .formProduk input[type=text] {
             /* background-color: purple; */
             width: 100%;
         }
 
         form {
-            /* background-color: blue; */
-            width: 30%;
+            background-color: blue;
+            /* padding: 0px 50px; */
+            width: 450px;
             align-items: center;
-            /* display: flex; */
-            /* flex-direction: column; */
+        }
+
+        @media(max-width: 768px){
+            form{
+                /* width: 500px; */
+                background-color: red;
+            }
         }
 
         .formProduk input[type=number] {
