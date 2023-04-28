@@ -71,6 +71,18 @@ Route::get('/tarikSaldo', function(){
     return view('konsumen.saldo');
 });
 
+Route::get('/tarikDebit', function(){
+    return view('konsumen.debit');
+});
+
+Route::get('/tarikEmoney', function(){
+    return view('konsumen.emoney');
+});
+
+Route::get('/pembayaran', function(){
+    return view('konsumen.pembayaran');
+});
+
 Route::get('/pesananMasuk', function(){
     return view('umkm.pesananMasuk');
 });

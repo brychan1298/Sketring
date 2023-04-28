@@ -97,7 +97,7 @@
             </button>
         </div>
         <div class="text-center">
-            Sudah punya akun? <a href="/login" class="font-bold">Log In</a>
+            Sudah punya akun? <a href="/login" class="font-bold hover:text-red-600">Log In</a>
         </div>
     </form>
 </div>
