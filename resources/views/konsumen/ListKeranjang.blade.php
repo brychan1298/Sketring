@@ -50,7 +50,7 @@
             </div>
         </a>
         @foreach ($daftarAcara as $acara)
-            <a href="">
+            <a href="/konsumen/keranjang/{{$acara->IdAcara}}">
                 <div>
                     <div class="rounded-md shadow-3xl">
                         <img src="images/secure.png" alt="" class="w-full aspect-square">

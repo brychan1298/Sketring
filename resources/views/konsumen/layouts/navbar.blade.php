@@ -49,7 +49,7 @@
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="/profilekonsumen"
+                            <a href="/profileKonsumen"
                                 class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
                         </li>
                         <li>
@@ -102,7 +102,7 @@
                                 ">Produk</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="/konsumen/pesanan"
                         class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 ">Pesanan</a>
