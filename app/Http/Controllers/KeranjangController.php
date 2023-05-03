@@ -20,17 +20,6 @@ class KeranjangController extends Controller
                                 // ->where("Acara.IdUser","=",Auth::User()->IdUser)
                                 // // ->groupBy("Acara.IdAcara")
                                 // ->get();
-
-        // $listAcara = Acara::where("IdUser",Auth::User()->IdUser)->get();
-
-        $IdUser = Auth::User()->IdUser;
-        // $callback = function($q) use ($IdUser){
-        //     $q -> where('IdUser', $IdUser);
-        // };
-
-        $listAcara = Acara::query()->with('Keranjang')->get();
-
-
         $listAcara = [];
 
         $Acara = Acara::selectRaw("Acara.Nama AS NamaAcara, Keranjang.*, Produk.*")
@@ -41,8 +30,28 @@ class KeranjangController extends Controller
         foreach($Acara as $items){
             $listAcara[$items->NamaAcara][] = $items;
         }
+        $namaAcara = "Semua Produk";
         // dd($listAcara);
-        return view("konsumen.keranjang",compact('listAcara'));
+        return view("konsumen.keranjang",compact('listAcara','namaAcara'));
+    }
+
+    public function detailKeranjang($IdAcara){
+        $listAcara = [];
+
+        $Acara = Acara::selectRaw("Acara.Nama AS NamaAcara, Keranjang.*, Produk.*")
+                                ->join("Keranjang","Keranjang.IdAcara","=","Acara.IdAcara")
+                                ->join("Produk","Produk.IdProduk","=","Keranjang.IdProduk")
+                                ->where("Acara.IdUser",Auth::User()->IdUser)
+                                ->where("Acara.IdAcara",$IdAcara)->get();
+        // dd($Acara);
+        $namaAcara = "";
+        foreach($Acara as $items){
+            $listAcara[$items->NamaAcara][] = $items;
+            $namaAcara = $items->NamaAcara;
+        }
+
+        // dd($listAcara);
+        return view("konsumen.keranjang",compact('listAcara','namaAcara'));
     }
 
     public function CartCount(){
@@ -120,7 +129,9 @@ class KeranjangController extends Controller
      */
     public function update(Request $request, Keranjang $keranjang)
     {
-        //
+        $data = $request->all();
+        Keranjang::where('IdKeranjang', $data['IdKeranjang'])->update(['Qty'=>$data['Qty']]);
+        return response()->json(['newQty'=>$data['Qty']]);
     }
 
     /**
@@ -133,5 +144,22 @@ class KeranjangController extends Controller
         $KeranjangItem = Keranjang::where('IdKeranjang',$IdKeranjang)->first();
         $KeranjangItem->delete();
         return response()->json(['status'=>'Product telah dihapus dari keranjang anda']);
+    }
+
+    public function checkout(Request $request){
+        // dd($request->IdKeranjangList);
+        $listAcara = [];
+
+        $Acara = Acara::selectRaw("Acara.Nama AS NamaAcara, Keranjang.*, Produk.*")
+                                ->join("Keranjang","Keranjang.IdAcara","=","Acara.IdAcara")
+                                ->join("Produk","Produk.IdProduk","=","Keranjang.IdProduk")
+                                ->whereIn("Keranjang.IdKeranjang",$request->IdKeranjangList)->get();
+        // dd($Acara);
+        foreach($Acara as $items){
+            $listAcara[$items->NamaAcara][] = $items;
+        }
+        $namaAcara = $request->NamaAcara;
+        // dd($listAcara);
+        return view("konsumen.pembayaran",compact('listAcara','namaAcara'));
     }
 }

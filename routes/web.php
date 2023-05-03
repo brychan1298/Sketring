@@ -9,6 +9,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\TransaksiDetailController;
 use App\Models\Keranjang;
 use App\Models\User;
 
@@ -49,6 +51,7 @@ Route::get('/editProfile', function(){
 });
 
 Route::get('/konsumen/keranjang', [KeranjangController::class, 'index']);
+Route::get('/konsumen/keranjang/{IdAcara}', [KeranjangController::class, 'detailKeranjang']);
 
 Route::get('/umkm', function(){
     return view('umkm.beranda');
@@ -129,6 +132,12 @@ Route::post('/konsumen/tambahAcara',[AcaraController::class,'store']);
 Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);
 Route::post('/konsumen/addtocart',[KeranjangController::class, 'store']);
 Route::post('/konsumen/deleteCart',[KeranjangController::class, 'destroy']);
+Route::post('/konsumen/updateCart',[KeranjangController::class, 'update']);
+Route::post('/konsumen/checkout', [KeranjangController::class, 'checkout']);
+Route::post('/konsumen/bayar', [TransaksiController::class, 'store']);
+Route::get('/konsumen/pembayaran/{IdTransaksi}', [TransaksiController::class, 'virtualaccount']);
+Route::get('/konsumen/pesanan', [TransaksiController::class, 'index']);
+Route::get('/konsumen/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
 
 Route::get('/loadCartCount',[KeranjangController::class, 'CartCount']);
 

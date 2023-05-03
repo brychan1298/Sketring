@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Acara extends Model
+class Transaksi extends Model
 {
     use HasFactory;
-    protected $table = 'Acara';
-    protected $primaryKey = 'IdAcara';
-    protected $guarded = ['IdAcara'];
-
-    public function Keranjang()
-    {
-        return $this->HasMany(Keranjang::class,'IdKeranjang');
-    }
+    protected $table = 'Transaksi';
+    protected $primaryKey = 'IdTransaksi';
+    protected $guarded = ['IdTransaksi'];
 
     public function User() {
         return $this->belongsTo(User::class,'IdUser');

@@ -47,7 +47,7 @@ class LoginController extends Controller
         }
 
         User::where('IdUser',Auth::User()->IdUser)->update($validatedData);
-        return redirect('/profilekonsumen')->with('success','Profile telah berhasil diedit');
+        return redirect('/profileKonsumen')->with('success','Profile telah berhasil diedit');
     }
 
     public function updateToko(Request $request){
