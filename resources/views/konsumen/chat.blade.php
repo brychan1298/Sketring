@@ -24,17 +24,16 @@
                 </g>
             </svg>
         </a>
-        <div class="flex h-[750px] max-md:h-[510px] antialiased text-gray-800 border-4 border-solid border-[#850000] rounded-xl mt-8">
+        <div class="flex h-[750px] max-md:h-[510px] antialiased text-gray-800 border-4 border-solid border-[#850000] rounded-xl mt-6">
             <div class="flex flex-row w-full h-full overflow-hidden">
-
                 {{-- kotak kiri --}}
-                <div class="flex flex-col flex-shrink-0 hidden w-1/4 h-full px-4 py-8 border-r-2 lg:block">
+                <div class="flex flex-col flex-shrink-0 hidden w-1/4 px-4 py-8 overflow-y-auto border-r-2 lg:block h-[97%]">
                     <div class="flex flex-row items-center justify-center">
                         <input type="text" placeholder="Cari..." class="w-full px-4 py-2 text-lg border border-gray-400 border-solid rounded-md">
                     </div>
                     <div class="mt-8 mb-5 border border-gray-300 border-solid line"></div>
                     <div class="flex flex-col">
-                        <div class="flex flex-col -mx-2 space-y-1 overflow-y-auto h-1/4">
+                        <div class="flex flex-col -mx-2 space-y-1">
                             <button class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
                                 <div class="flex-shrink-0">
                                     <img class="w-16 h-16 rounded-full" src="images/natfood.png"/>
