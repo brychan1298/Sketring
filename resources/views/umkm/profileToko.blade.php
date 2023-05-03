@@ -66,7 +66,7 @@
                         <p class="text-2xl font-bold">Rp {{Auth::User()->Saldo}}</p>
                     </div>
                 </div>
-                <a href="#">
+                <a href="/tarikSaldoUMKM">
                     <p class="font-bold text-center underline text-1xl">Tarik Saldo >></p>
                 </a>
             </div>
