@@ -3,10 +3,6 @@
 @section('description', 'Halaman Chat')
 @section('content')
 
-<style>
-
-</style>
-
 <div class="container mx-auto">
     <div class="px-10 py-24 max-md:py-16">
         <a href="/">

@@ -7,25 +7,35 @@
         <div class="content_VirtualAccount">
             <div class="w-full">
                 <a href="/">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
+                    <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <title>ionicons-v5-a</title>
+                            <polyline points="244 400 100 256 244 112"
+                                style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
+                            </polyline>
+                            <line x1="120" y1="256" x2="412" y2="256"
+                                style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
+                            </line>
+                        </g>
                     </svg>
                 </a>
             </div>
             {{-- Title --}}
-            <h1 class="sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-[3vw] text-center">Pembayaran</h1>
-            <div class="my-5 border border-solid border-gray-500 mb-[3vw]"></div>
+            <h1 class="mb-8 text-4xl font-bold text-center max-md:mb-12 max-md:text-2xl">Pembayaran</h1>
+            <div class="my-5 mb-12 border border-gray-500 border-solid max-md:mb-16"></div>
             {{-- Content --}}
-            <p class="font-bold text-center sm:text-xl md:text-xl lg:text-2xl xl:text-3xl">Terima Kasih Telah Berbelanja di S’ketring</p>
-            <p class="sm:text-xl md:text-xl lg:text-2xl xl:text-3xl mt-[2.5vw] text-center">Silahkan lakukan pembayaran melalui No. Virtual Account berikut ini :</p>
-            <div class="container bg-[#FFE6AE] border-2 border-[#850000] mx-auto mt-[2.5vw] flex justify-center items-center w-fit h-full">
-                <p class="sm:text-lg md:text-lg lg:text-xl xl:text-2xl px-[4vw] py-[1vw]">123813139083821</p>
+            <p class="mb-8 text-2xl font-bold text-center max-md:text-xl">Terima Kasih Telah Berbelanja di S’ketring</p>
+            <p class="text-2xl max-md:text-xl mt-[2.5vw] mb-8 text-center">Silahkan lakukan pembayaran melalui No. Virtual Account berikut ini :</p>
+            <div class="container bg-[#FFE6AE] border-2 border-[#850000] mx-auto mt-[2.5vw] flex justify-center items-center w-fit h-full mb-8">
+                <p class="text-2xl max-md:text-xl px-[4vw] py-[1vw]">123813139083821</p>
             </div>
-            <p class="sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mt-[2.5vw] text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p>
+            <p class="text-2xl max-md:text-xl mt-[2.5vw] text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p>
 
             {{-- Button --}}
             <div class="mt-[2.5vw] flex justify-center">
-                <button data-modal-target="staticModal" data-modal-toggle="staticModal" class="block  bg-[#DC0000] py-[1.5vw] px-[3vw] text-white font-bold uppercase sm:text-lg md:text-lg lg:text-xl xl:text-2xl rounded hover:bg-[#850000] hover:text-light text-center" type="button">
+                <button data-modal-target="staticModal" data-modal-toggle="staticModal" class="block  bg-[#DC0000] py-[1.5vw] px-[3vw] text-white font-bold uppercase text-2xl max-md:text-xl rounded hover:bg-[#850000] hover:text-light text-center" type="button">
                     Konfirmasi Pembayaran
                 </button>
             </div>
