@@ -31,7 +31,7 @@ Route::get('/', function () {
     return view('konsumen.beranda');
 });
 
-Route::get('/virtualAccount', function () {
+Route::get('/virtualaccount', function () {
     return view('konsumen.virtualAccount');
 });
 
