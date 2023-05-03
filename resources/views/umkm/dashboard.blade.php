@@ -14,9 +14,22 @@
         justify-content: center;
     }
 
-    @media(max-width: 800px){
+    @media(max-width: 767px){
         .tambahProduk{
-            background-color: red;
+            /* background-color: red; */
+            width: 85vw;
+            height: 300px;
+            padding: 5px 0px;
+        }
+
+        .konten{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .produksatu{
+            width: 85vw;
         }
     }
 </style>
@@ -52,7 +65,7 @@
         </div>
     </div>
 
-    <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 gap-20 mt-12 md:grid-cols-2 sm:grid-cols-1">
+    <div class="konten grid 2xl:grid-cols-4 lg:grid-cols-3 gap-20 mt-12 md:grid-cols-2 sm:grid-cols-1">
         <a href="/tambahProduk" class="bg-[#EBEBEB] rounded-md shadow-3xl tambahProduk py-32">
             <svg version="1.1" id="Capa_1"
             class="h-20 w-20"
@@ -71,75 +84,41 @@
         </a>
 
         @foreach ($produks as $produk)
-        <div class="rounded-md shadow-3xl">
+        <div class="rounded-md shadow-3xl produksatu">
             <img src="{{asset('storage/'.$produk->FotoProduk)}}" alt="" class="w-full h-[12vw] rounded-md">
             <div class="p-4">
-                <h1 class="font-bold my-1">{{$produk->Nama}}</h1>
-                <p class="font-normal text-xs mt-3">{{$produk->Deskripsi}}</p>
+                <h1 class="font-bold my-1 2xl:text-xl lg:text-xl md:text-2xl sm:text-sm">{{$produk->Nama}}</h1>
+                <p class="font-normal text-xs mt-3 2xl:text-sm mt-3 lg:text-base md:text-base sm:text-xl">{{$produk->Deskripsi}}</p>
                 <div class="flex justify-between mt-4">
-                    <h1 class="text-[#850000] text-sm">
+                    <h1 class="text-[#850000] text-sm 2xl:text-base lg:text-base sm:text-xl">
                         Rp {{$produk->Harga}}
                     </h1>
                 </div>
                 <a href="/editProduk/{{$produk->IdProduk}}">
-                    <div class="bg-[#850000] text-white py-2 px-10 text-center rounded-md mt-4">
+                    <div class="bg-[#850000] text-white py-2 px-10 text-center rounded-md mt-4 2xl:text-sm lg:text-base md:text-base sm:text-xl">
                         Edit
                     </div>
                 </a>
             </div>
         </div>
         @endforeach
-        <div class="rounded-md shadow-3xl">
-            <img src="images/secure.png" alt="" class="w-[12vw] h-[12vw]">
+        {{-- <div class="rounded-md shadow-3xl flex flex-col items-center produksatu">
+            <img src="https://source.unsplash.com/360x240/?web-programming" class="rounded-md">
             <div class="p-4">
-                <h1 class="font-bold my-1 2xl:text-sm sm:text-3xl">Paket Nasi Hainam</h1>
-                <p class="font-normal 2xl:text-xs mt-3 md:text-md sm:text-xl">Sebuah paket nasi dengan ayam dan hainam</p>
+                <h1 class="font-bold my-1 2xl:text-xl lg:text-xl md:text-2xl sm:text-sm">Paket Nasi Hainam</h1>
+                <p class="font-normal 2xl:text-sm mt-3 lg:text-base md:text-base sm:text-xl">Sebuah paket nasi dengan ayam dan hainam</p>
                 <div class="flex justify-between mt-4">
-                    <h1 class="text-[#850000] text-sm sm:text-xl">
+                    <h1 class="text-[#850000] text-sm 2xl:text-base lg:text-base sm:text-xl">
                         Rp 35000
                     </h1>
                 </div>
                 <a href="/editProduk">
-                    <button class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4 sm:text-xl">
+                    <button class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4 2xl:text-sm lg:text-base md:text-base sm:text-xl">
                         Edit
                     </button>
                 </a>
             </div>
-        </div>
-        <div class="rounded-md shadow-3xl">
-            <img src="images/secure.png" alt="" class="w-[12vw] h-[12vw]">
-            <div class="p-4">
-                <h1 class="font-bold my-1">Paket Nasi Hainam</h1>
-                <p class="font-normal text-xs mt-3">Sebuah paket nasi dengan ayam dan hainam</p>
-                <div class="flex justify-between mt-4">
-                    <h1 class="text-[#850000] text-sm">
-                        Rp 35000
-                    </h1>
-                </div>
-                <a href="/editProduk">
-                    <button class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4">
-                        Edit
-                    </button>
-                </a>
-            </div>
-        </div>
-        <div class="rounded-md shadow-3xl">
-            <img src="images/secure.png" alt="" class="w-[12vw] h-[12vw]">
-            <div class="p-4">
-                <h1 class="font-bold my-1">Paket Nasi Hainam</h1>
-                <p class="font-normal text-xs mt-3">Sebuah paket nasi dengan ayam dan hainam</p>
-                <div class="flex justify-between mt-4">
-                    <h1 class="text-[#850000] text-sm">
-                        Rp 35000
-                    </h1>
-                </div>
-                <a href="/editProduk">
-                    <button class="bg-[#850000] text-white py-2 px-10 rounded-md mt-4">
-                        Edit
-                    </button>
-                </a>
-            </div>
-        </div>
+        </div> --}}
 
     </div>
 
