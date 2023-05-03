@@ -343,7 +343,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="w-full col-start-6 col-end-13 mr-3 rounded-lg max-md:mb-12 max-sm:mb-2">
+                                    <div class="w-full col-start-6 col-end-13 mb-8 mr-3 rounded-lg max-md:mb-12 max-sm:mb-2">
                                         <div class="flex flex-row-reverse items-center justify-start">
                                             <div class="relative px-4 py-2 mr-3 text-sm bg-[#850000] text-white shadow rounded-xl">
                                                 <div class="text-lg max-md:text-base">
