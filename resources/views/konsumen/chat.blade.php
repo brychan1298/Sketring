@@ -331,8 +331,8 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="absolute bottom-0 grid w-full grid-cols-12">
-                                    <div class="col-start-1 col-end-8 mb-8 ml-3 rounded-lg max-md:mb-12">
+                                <div class="absolute bottom-0 grid w-full grid-cols-12 gap-5">
+                                    <div class="col-start-1 col-end-8 mb-8 ml-3 rounded-lg max-md:mb-12 max-sm:mb-8">
                                         <div class="flex flex-row items-center">
                                             <div class="relative px-4 py-2 ml-3 text-sm bg-gray-200 shadow rounded-xl">
                                                 <div class="text-lg max-md:text-base">Kak jadi kah pesanannya?</div>
@@ -343,7 +343,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-start-6 col-end-13 mr-3 rounded-lg -3 max-md:mb-12">
+                                    <div class="w-full col-start-6 col-end-13 mr-3 rounded-lg max-md:mb-12 max-sm:mb-2">
                                         <div class="flex flex-row-reverse items-center justify-start">
                                             <div class="relative px-4 py-2 mr-3 text-sm bg-[#850000] text-white shadow rounded-xl">
                                                 <div class="text-lg max-md:text-base">
@@ -361,7 +361,7 @@
                         <div class="flex flex-row items-center w-full h-16 px-4 rounded-xl">
                             <div class="flex-grow ml-4">
                                 <div class="relative w-full">
-                                    <textarea name="kotakPesan" placeholder="Ketik Pesan..." class="flex w-full h-12 pt-2 pl-4 border-2 border-gray-300 resize-none rounded-xl focus:outline-none focus:border-gray-500"/></textarea>
+                                    <textarea name="kotakPesan" placeholder="Ketik Pesan..." class="flex w-full h-12 pt-2 pl-4 border-2 border-gray-300 resize-none max-sm:text-xs rounded-xl focus:outline-none focus:border-gray-500"/></textarea>
                                     <button class="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-gray-400 hover:text-gray-600">
                                     </button>
                                 </div>
