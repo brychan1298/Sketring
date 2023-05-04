@@ -72,7 +72,7 @@
                         <a href="/konsumen/detailTransaksi/{{$Transaksi}}" class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                             Detail
                         </a>
-                        <a href="" class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                        <a href="/konsumen/pembayaran/{{$Transaksi}}" class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                             Bayar
                         </a>
                     </div>
