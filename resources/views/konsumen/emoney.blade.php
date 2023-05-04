@@ -46,15 +46,15 @@
     </div>
 
     <div class="mx-32 pb-6">
-        <h1 class="mt-16 text-2xl">Debit</h1>
+        <h1 class="mt-16 text-2xl">E-Money</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 
         <select id="debit" class="bg-[#F3F3F3] shadow-md text-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4">
-            <option selected disabled>Pilih Bank</option>
-            <option value="BCA">BCA</option>
-            <option value="Mandiri">Mandiri</option>
-            <option value="BRI">BRI</option>
-            <option value="BSI">BSI</option>
+            <option selected disabled>Pilih E-Money</option>
+            <option value="OVO">OVO</option>
+            <option value="GoPay">GoPay</option>
+            <option value="DANA">DANA</option>
+            <option value="Shopeepay">Shopeepay</option>
             <option value="BNI">BNI</option>
         </select>
 

@@ -15,8 +15,8 @@
             PROFIL ANDA
         </p>
     </div>
-    <div class="container-md flex flex-row justify-center gap-[32px] w-full px-[48px] pb-[48px]">
-        <div class="container-md flex flex-col w-[15%] gap-[32px]">
+    <div class="container-md xl:flex xl:flex-row justify-center gap-[32px] w-full px-[48px] pb-[48px]">
+        <div class="container-md flex flex-col xl:w-[15%] gap-[32px] md:w-[100%]">
             <div class="bg-[#FFE6AE] p-[24px] flex flex-col rounded-[10px] gap-[12px]">
                 <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -49,7 +49,7 @@
                 </a>
             </div>
         </div>
-        <div class="bg-[#850000] w-[75%] text-white flex flex-col gap-[16px] items-center p-[32px] rounded-[10px]">
+        <div class="bg-[#850000] xl:w-[75%] md:w-[100%] text-white flex flex-col gap-[16px] items-center p-[32px] rounded-[10px]">
             <div class="w-[100%] flex flex-row-reverse">
                 <a href="/editprofile" class="flex flex-row w-max">
                     <div class="flex flex-row bg-white w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">

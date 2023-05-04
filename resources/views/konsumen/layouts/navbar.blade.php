@@ -1,7 +1,16 @@
 <nav class="bg-[#850000] fixed w-full z-10">
+<<<<<<< HEAD
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="" class="flex items-center">
             <img src="images/logo.png" alt="" class="w-36">
+=======
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+        <a href="/" class="flex items-center">
+            <img src="images/LogoSketring.png" alt="" class="w-48">
+            {{-- <h1 class="text-white text-3xl">
+                Sketring
+            </h1> --}}
+>>>>>>> 7bd2f29716135817b719d3147e76fcfe7cf81b53
         </a>
         <div class="flex items-center md:order-2 gap-5">
             <a href="/listKeranjang">
@@ -47,7 +56,7 @@
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="/profilekonsumen"
+                            <a href="/profileKonsumen"
                                 class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
                         </li>
                         <li>
@@ -100,7 +109,7 @@
                                 ">Produk</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="/konsumen/pesanan"
                         class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 ">Pesanan</a>

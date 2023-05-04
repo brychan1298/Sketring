@@ -39,7 +39,7 @@
     </div>
 
     <p>
-        Sudah punya akun? <a href="/login" class="text-decoration-none">Login</a>
+        Sudah punya akun? <a href="/login" class="text-decoration-none font-bold hover:text-red-600">Login</a>
     </p>
 </div>
 @endsection
