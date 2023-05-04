@@ -1,9 +1,10 @@
 <nav class="bg-[#850000] fixed w-full z-10">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="" class="flex items-center">
-            <h1 class="text-white text-3xl">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+        <a href="/" class="flex items-center">
+            <img src="images/LogoSketring.png" alt="" class="w-48">
+            {{-- <h1 class="text-white text-3xl">
                 Sketring
-            </h1>
+            </h1> --}}
         </a>
         <div class="flex items-center md:order-2 gap-5">
             <a href="/listKeranjang">
