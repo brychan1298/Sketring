@@ -236,7 +236,7 @@
                 }
             }
             alert("berhasil");
-            return false;
+            // return false;
         }
     </script>
 @endsection
