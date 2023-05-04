@@ -29,7 +29,7 @@
         }
 
         form {
-            background-color: blue;
+            /* background-color: blue; */
             /* padding: 0px 50px; */
             width: 450px;
             align-items: center;
@@ -38,7 +38,7 @@
         @media(max-width: 768px){
             form{
                 /* width: 500px; */
-                background-color: red;
+                /* background-color: red; */
             }
         }
 
@@ -85,6 +85,10 @@
             height: auto;
             display: block;
         }
+
+        .container{
+            /* background-color: red; */
+        }
     </style>
 
     <script>
@@ -129,7 +133,7 @@
     </script>
 
     <div class="container m-auto mt-[100px]">
-        <div class="judulAddProduk flex items-center justify-center">
+        <div class="judulAddProduk flex items-center justify-center mx-5">
             <a href="/dashboard">
                 <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -145,12 +149,12 @@
                     </g>
                 </svg>
             </a>
-            <h2 class="textJudul text-4xl font-black">Tambah Produk</h2>
+            <h2 class="textJudul 2xl:text-4xl lg:text-4xl md:text-3xl font-black sm:text-3xl text-2xl">Tambah Produk</h2>
         </div>
 
-        <hr class="my-8">
+        <hr class="my-8 mx-5">
 
-        <div class="formProduk flex justify-center">
+        <div class="formProduk flex justify-center mx-5">
             <form class="/tambahProduk" enctype="multipart/form-data" method="post">
                 @csrf
                 <label for="file-upload" class="cursor-pointer rounded-md font-semibold hover:text-indigo-700">
@@ -184,7 +188,7 @@
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Nama Produk"><br>
 
-                <label class="font-semibold" for="Deskripsi">Deskrpsi:</label>
+                <label class="font-semibold" for="Deskripsi">Deskripsi:</label>
                 <textarea id="Deskripsi" name="Deskripsi" rows="4" required
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Deskripsi"></textarea><br>
@@ -194,17 +198,17 @@
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Harga"><br>
 
-                <label class="font-semibold" for="MaxOrder">Max Order:</label>
-                <input type="number" id="MaxOrder" required name="MaxOrder" value=""
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
-                    placeholder="Maximum Pemesanan"><br>
-
                 <label class="font-semibold" for="MinOrder">Min. Pemesanan:</label>
                 <input type="number" id="MinOrder" required name="MinOrder" value=""
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Minimum Pemesanan"><br>
 
-                <label class="font-semibold" for="MinimalWaktuPO">Minimal Waktu PO:</label>
+                <label class="font-semibold" for="MaxOrder">Max Order:</label>
+                <input type="number" id="MaxOrder" required name="MaxOrder" value=""
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
+                    placeholder="Maximum Pemesanan"><br>
+
+                <label class="font-semibold" for="MinimalWaktuPO">Minimal Waktu PO (hari):</label>
                 <input type="number" id="MinimalWaktuPO" required name="MinimalWaktuPO" value=""
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Minimum PO(Hari)"><br>
