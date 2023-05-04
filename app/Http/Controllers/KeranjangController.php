@@ -22,7 +22,7 @@ class KeranjangController extends Controller
                                 // ->get();
         $listAcara = [];
 
-        $Acara = Acara::selectRaw("Acara.Nama AS NamaAcara, Keranjang.*, Produk.*")
+        $Acara = Acara::selectRaw("Acara.Nama AS NamaAcara, Keranjang.*, Produk.*, Acara.IdAcara AS IdAcara")
                                 ->join("Keranjang","Keranjang.IdAcara","=","Acara.IdAcara")
                                 ->join("Produk","Produk.IdProduk","=","Keranjang.IdProduk")
                                 ->where("Acara.IdUser",Auth::User()->IdUser)->get();
