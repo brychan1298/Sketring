@@ -40,7 +40,7 @@ Route::get('/chat', function () {
 
 Route::get('/listKeranjang', [AcaraController::class, 'index'])->middleware('auth');
 
-Route::get('/profileKonsumen', function(){
+Route::get('/profilekonsumen', function(){
     return view('konsumen.profile');
 })->middleware("auth");
 
