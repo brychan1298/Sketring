@@ -81,7 +81,7 @@
                                         </svg>
                                     </div>
                                     <span class="text-center w-1/5 font-semibold text-sm SubTotal">@currency($KeranjangItems->Harga * $KeranjangItems->Qty)</span>
-                                    <input type="hidden" class="SubTotalProduk"
+                                    <input type="hidden" class="SubTotalProduk-{{ $idAcara }} SubTotalProduk"
                                         value="{{ $KeranjangItems->Harga * $KeranjangItems->Qty }}">
                                     <svg class="text-center w-1/5 font-semibold text-sm cursor-pointer deleteCart"
                                         width="28" height="29" viewBox="0 0 28 29" fill="none"
@@ -346,8 +346,6 @@
                         }
                     }
                     if (checks[index].checked == true) {
-
-                        // alert(checks[index].value);
                         TotalHarga = document.getElementById("TotalHarga").textContent;
                         TotalHargaHidden = document.getElementById("TotalHargaHidden").value;
                         TotalHarga = parseInt(TotalHargaHidden) + parseInt(SubTotalProduk[index].value);
@@ -392,16 +390,49 @@
             };
         }
 
-        function priceChange() {
+        function priceChange(IdAcara) {
             var TotalHarga = document.getElementById("TotalHarga").textContent;
             document.getElementById("TotalHarga").textContent = Intl.NumberFormat("id-ID", {
                 style: "currency",
                 currency: "IDR"
             }).format(TotalHarga);
             var TotalHargaHidden = document.getElementById("TotalHargaHidden").value;
+            document.getElementById("TotalHargaHidden").value = 0;
             var checks = document.getElementsByClassName("IdKeranjangList");
+            // var checks = document.querySelectorAll(`.checkbox-group-${IdAcara}`);
             var SubTotalProduk = document.getElementsByClassName("SubTotalProduk");
+
+
+            TotalHarga = document.getElementById("TotalHarga").textContent;
+            TotalHargaHidden = document.getElementById("TotalHargaHidden").value;
+            TotalHarga = parseInt(TotalHargaHidden);
+            document.getElementById("TotalHargaHidden").value = parseInt(TotalHargaHidden);
+            TotalAndOngkir = parseInt(TotalHarga) + 30000;
+            TotalAndOngkir = Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(TotalAndOngkir);
+            TotalHarga = Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(TotalHarga);
+            document.getElementById("TotalHarga").textContent = TotalHarga.toString();
+            document.getElementById("TotalAndOngkir").textContent = TotalAndOngkir.toString();
+            var count = 0;
+            for (var i = 0; i < checks.length; i++) {
+                if (checks[i].checked) {
+                    count++;
+                }
+            }
+            document.getElementById("JumlahBarang").textContent = count.toString();
+            document.getElementById("JumlahBarang2").textContent = count.toString();
             for (let index = 0; index < checks.length; index++) {
+                var count = 0;
+                for (var i = 0; i < checks.length; i++) {
+                    if (checks[i].checked) {
+                        count++;
+                    }
+                }
                 if (checks[index].checked == true) {
                     // alert(checks[index].value);
                     TotalHarga = document.getElementById("TotalHarga").textContent;
@@ -422,30 +453,30 @@
                     document.getElementById("TotalAndOngkir").textContent = TotalAndOngkir.toString();
                     document.getElementById("JumlahBarang").textContent = count.toString();
                     document.getElementById("JumlahBarang2").textContent = count.toString();
-
-                } else if (checks[index].checked == false) {
-                    TotalHarga = document.getElementById("TotalHarga").textContent;
-                    TotalHargaHidden = document.getElementById("TotalHargaHidden").value;
-                    TotalHarga = parseInt(TotalHargaHidden) - parseInt(SubTotalProduk[index].value);
-                    document.getElementById("TotalHargaHidden").value = parseInt(TotalHargaHidden) -
-                        parseInt(SubTotalProduk[index].value);
-                    TotalAndOngkir = parseInt(TotalHarga) + 30000;
-                    TotalAndOngkir = Intl.NumberFormat("id-ID", {
-                        style: "currency",
-                        currency: "IDR"
-                    }).format(TotalAndOngkir);
-                    TotalHarga = Intl.NumberFormat("id-ID", {
-                        style: "currency",
-                        currency: "IDR"
-                    }).format(TotalHarga);
-                    document.getElementById("TotalHarga").textContent = TotalHarga.toString();
-                    document.getElementById("TotalAndOngkir").textContent = TotalAndOngkir.toString();
-                    document.getElementById("JumlahBarang").textContent = count.toString();
-                    document.getElementById("JumlahBarang2").textContent = count.toString();
-                    // document.getElementById("checkAll").checked = false;
                 }
+
+                // else if (checks[index].checked == false) {
+                //     TotalHarga = document.getElementById("TotalHarga").textContent;
+                //     TotalHargaHidden = document.getElementById("TotalHargaHidden").value;
+                //     TotalHarga = parseInt(TotalHargaHidden) - parseInt(SubTotalProduk[index].value);
+                //     document.getElementById("TotalHargaHidden").value = parseInt(TotalHargaHidden) -
+                //         parseInt(SubTotalProduk[index].value);
+                //     TotalAndOngkir = parseInt(TotalHarga) + 30000;
+                //     TotalAndOngkir = Intl.NumberFormat("id-ID", {
+                //         style: "currency",
+                //         currency: "IDR"
+                //     }).format(TotalAndOngkir);
+                //     TotalHarga = Intl.NumberFormat("id-ID", {
+                //         style: "currency",
+                //         currency: "IDR"
+                //     }).format(TotalHarga);
+                //     document.getElementById("TotalHarga").textContent = TotalHarga.toString();
+                //     document.getElementById("TotalAndOngkir").textContent = TotalAndOngkir.toString();
+                //     document.getElementById("JumlahBarang").textContent = count.toString();
+                //     document.getElementById("JumlahBarang2").textContent = count.toString();
+                //     // document.getElementById("checkAll").checked = false;
+                // }
             };
-            return;
         }
 
         function checkCheckbox() {
@@ -466,19 +497,18 @@
         const checkAllBtns = document.querySelectorAll('[class^="check-all-btn-"]');
         checkAllBtns.forEach(checkAllBtn => {
             checkAllBtn.addEventListener('click', () => {
-                const storeId = checkAllBtn.classList[0].split('-')[3];
-                const checkboxes = document.querySelectorAll(`.checkbox-group-${storeId}`);
+                const IdAcara = checkAllBtn.classList[0].split('-')[3];
+                const checkboxes = document.querySelectorAll(`.checkbox-group-${IdAcara}`);
                 if (checkAllBtn.checked === true) {
-                    checkboxes.forEach(checkbox => {
+                    checkboxes.forEach(function(checkbox, i) {
                         checkbox.checked = true;
                     });
-                    priceChange();
-                }
-                else{
+                    priceChange(IdAcara);
+                } else {
                     checkboxes.forEach(checkbox => {
                         checkbox.checked = false;
                     });
-                    priceChange();
+                    priceChange(IdAcara);
                 }
             });
         });
@@ -486,17 +516,10 @@
         const checkboxes = document.querySelectorAll('[class^="checkbox-group-"]');
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', () => {
-                const storeId = checkbox.classList[0].split('-')[2];
-                const groupCheckBox = document.querySelector(`#check-all-btn-${storeId}`);
+                const IdAcara = checkbox.classList[0].split('-')[2];
+                const groupCheckBox = document.querySelector(`#check-all-btn-${IdAcara}`);
                 if (!checkbox.checked) {
                     groupCheckBox.checked = false;
-                    // const checkboxesInGroup = document.querySelectorAll(
-                    //     `.checkbox-group-${storeId}`);
-                    // checkboxesInGroup.forEach(otherCheckbox => {
-                    //     if (otherCheckbox !== checkbox) {
-                    //         otherCheckbox.checked = true;
-                    //     }
-                    // });
                 }
             });
         });
