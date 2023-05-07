@@ -53,9 +53,7 @@ Route::get('/editProfile', function(){
 Route::get('/konsumen/keranjang', [KeranjangController::class, 'index']);
 Route::get('/konsumen/keranjang/{IdAcara}', [KeranjangController::class, 'detailKeranjang']);
 
-Route::get('/umkm', function(){
-    return view('umkm.beranda');
-});
+Route::get('/umkm', [UserController::class, 'umkmHome']);
 
 Route::get('/cari', [ProdukController::class,'konsumenIndex']);
 
@@ -138,6 +136,11 @@ Route::post('/konsumen/bayar', [TransaksiController::class, 'store']);
 Route::get('/konsumen/pembayaran/{IdTransaksi}', [TransaksiController::class, 'virtualaccount']);
 Route::get('/konsumen/pesanan', [TransaksiController::class, 'index']);
 Route::get('/konsumen/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
+Route::post('/konsumen/bayar',[TransaksiController::class, 'pembayaranselesai']);
+
+Route::get('/konsumen/disiapkan', [TransaksiController::class, 'disiapkan']);
+Route::get('/konsumen/filter-pesanan',[TransaksiController::class, 'filterpesanan']);
+
 
 Route::get('/loadCartCount',[KeranjangController::class, 'CartCount']);
 
