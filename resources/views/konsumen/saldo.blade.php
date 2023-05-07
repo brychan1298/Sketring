@@ -66,7 +66,7 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <div class="container m-auto mt-[100px]">
-    <div class="judulAddProduk flex items-center justify-center">
+    <div class="flex items-center justify-center judulAddProduk">
         <a href="">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -82,16 +82,16 @@
                 </g>
             </svg>
         </a>
-        <h2 class="textJudul text-4xl font-black">Tarik Saldo</h2>
+        <h2 class="text-4xl font-black textJudul">Tarik Saldo</h2>
     </div>
 
     <hr class="my-8">
 
     <div class="flex justify-center">
-        <div class="relative btn-container bal flex w-1/6 items-center justify-center" x-data="{ show: true }">
+        <div class="relative flex items-center justify-center w-1/6 btn-container bal" x-data="{ show: true }">
             <h1 class="font-bold text-[#850000] text-xl">Rp</h1>
-            <h1 class="money text-[#850000] text-4xl px-2" id="saldo">35.000</h1>
-            <button id="toggle-btn" onclick="toggleBalance('35.000')">
+            <h1 class="money text-[#850000] text-4xl px-2" id="saldo">{{Auth::User()->Saldo}}</h1>
+            <button id="toggle-btn" onclick="toggleBalance('{{Auth::User()->Saldo}}')">
                 <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
                     :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
                     viewbox="0 0 576 512">
@@ -111,21 +111,21 @@
         </div>
     </div>
 
-    <div class="mx-32 pb-6">
+    <div class="pb-6 mx-32">
         <h1 class="mt-16 text-2xl">Tarik Saldo</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 
         <a href="/tarikDebit">
             <div class="debit bg-[#F3F3F3] shadow-md hover:shadow-lg my-5 py-2 pl-3 flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="#850000" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M17 10H7l3.438-3M7 14h10l-3.438 3"/></g></svg>
-                <h1 class="font-meidum text-xl px-2">Debit</h1>
+                <h1 class="px-2 text-xl font-meidum">Debit</h1>
             </div>
         </a>
 
         <a href="/tarikEmoney">
             <div class="emoney bg-[#F3F3F3] shadow-md hover:shadow-lg my-5 py-2 pl-3 flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36"><path fill="#850000" d="M32 15h-1V9a1 1 0 0 0-1-1H6a1 1 0 0 1-1-.82v-.36A1 1 0 0 1 6 6h23.58a1 1 0 0 0 0-2H6a3 3 0 0 0-3 3a3.08 3.08 0 0 0 0 .36v20.57A4.1 4.1 0 0 0 7.13 32H30a1 1 0 0 0 1-1v-6h1a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1Zm-3 15H7.13A2.11 2.11 0 0 1 5 27.93V9.88A3.11 3.11 0 0 0 6 10h23v5h-7a5 5 0 0 0 0 10h7Zm2-7h-9a3 3 0 0 1 0-6h9Z" class="clr-i-outline clr-i-outline-path-1"/><circle cx="23.01" cy="20" r="1.5" fill="#850000" class="clr-i-outline clr-i-outline-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg>
-                <h1 class="font-meidum text-xl px-2">E-Money</h1>
+                <h1 class="px-2 text-xl font-meidum">E-Money</h1>
             </div>
         </a>
     </div>
