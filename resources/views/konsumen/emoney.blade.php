@@ -17,7 +17,7 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
 <div class="container m-auto mt-[100px]">
-    <div class="judulAddProduk flex items-center justify-center">
+    <div class="flex items-center justify-center judulAddProduk">
         <a href="/tarikSaldo">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -33,19 +33,19 @@
                 </g>
             </svg>
         </a>
-        <h2 class="textJudul text-4xl font-black">Tarik Saldo</h2>
+        <h2 class="text-4xl font-black textJudul">Tarik Saldo</h2>
     </div>
 
     <hr class="my-8">
 
     <div class="flex justify-center">
-        <div class="relative btn-container bal flex w-1/6 items-center justify-center" x-data="{ show: true }">
+        <div class="relative flex items-center justify-center w-1/6 btn-container bal" x-data="{ show: true }">
             <h1 class="font-bold text-[#850000] text-xl">Rp</h1>
-            <h1 class="money text-[#850000] text-4xl px-2 font-bold" id="saldo">35.000</h1>
+            <h1 class="money text-[#850000] text-4xl px-2 font-bold" id="saldo">{{Auth::User()->Saldo}}</h1>
         </div>
     </div>
 
-    <div class="mx-32 pb-6">
+    <div class="pb-6 mx-32">
         <h1 class="mt-16 text-2xl">E-Money</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 
@@ -58,13 +58,13 @@
             <option value="BNI">BNI</option>
         </select>
 
-        <input type="text" id="nominal" placeholder="Rp Jumlah" class="p-2 text-lg w-1/3 border-b-2 border-gray-400 outline-none focus:border-black my-8">
+        <input type="text" id="nominal" placeholder="Rp Jumlah" class="w-1/3 p-2 my-8 text-lg border-b-2 border-gray-400 outline-none focus:border-black">
 
 
     </div>
 
     <div class="flex justify-center my-10">
-        <button class="text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
+        <button class="px-4 px-8 py-2 text-xl font-bold text-white bg-red-600 rounded hover:bg-red-800">
             TARIK
         </button>
     </div>
