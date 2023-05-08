@@ -55,7 +55,8 @@ Route::get('/konsumen/keranjang/{IdAcara}', [KeranjangController::class, 'detail
 
 Route::get('/umkm', [UserController::class, 'umkmHome']);
 
-Route::get('/cari', [ProdukController::class,'konsumenIndex']);
+Route::get('/konsumen/cari', [ProdukController::class,'konsumenIndex']);
+Route::get('/konsumen/filter-produk',[ProdukController::class, 'filterProduk']);
 
 Route::get('/pesananKonsumen', function(){
     return view('konsumen.pesanan');
@@ -142,9 +143,10 @@ Route::get('/konsumen/disiapkan', [TransaksiController::class, 'disiapkan']);
 Route::get('/konsumen/filter-pesanan',[TransaksiController::class, 'filterpesanan']);
 
 
-Route::get('/loadCartCount',[KeranjangController::class, 'CartCount']);
+Route::get('/loadCartCount', [KeranjangController::class, 'CartCount']);
 
 
+Route::get('/umkm/pesanan', [TransaksiController::class, 'umkmindex']);
 
 
 

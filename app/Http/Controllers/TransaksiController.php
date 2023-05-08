@@ -34,6 +34,18 @@ class TransaksiController extends Controller
         return view("konsumen.pesanan", compact('Transaction','ListTransaksi'));
     }
 
+    public function umkmindex(){
+        $Transaction = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
+                                ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                                ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                                ->where("Produk.IdUser",Auth::User()->IdUser)
+                                ->where("Transaksi.SudahBayar",1)
+                                ->get();
+        // dd($Transaction);
+        return view("umkm.pesanan", compact("Transaction"));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -129,7 +141,7 @@ class TransaksiController extends Controller
                     ->where("Transaksi.SudahBayar",1)
                     ->get();
 
-        return view("konsumen.pesanandisiapkan",compact('ListTransaksi','ListAcara'));
+        return view("konsumen.pesanan-disiapkan",compact('ListTransaksi','ListAcara'));
     }
 
     public function filterpesanan(Request $request){
