@@ -7,7 +7,7 @@
             </h1> --}}
         </a>
         <div class="flex items-center md:order-2 gap-5">
-            <a href="/listKeranjang">
+            <a href="/konsumen/listKeranjang">
                 <div class="relative p-1">
                     <svg class="" width="35" height="30" viewBox="0 0 35 30" fill="none"
                         xmlns="http://www.w3.org/2000/svg">

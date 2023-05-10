@@ -30,7 +30,7 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('konsumen.beranda');
-});
+})->middleware('forbidumkm');
 
 Route::get('/virtualaccount', function () {
     return view('konsumen.virtualAccount');
@@ -41,7 +41,7 @@ Route::get('/chat', function () {
 });
 
 
-Route::get('/listKeranjang', [AcaraController::class, 'index'])->middleware('auth');
+
 
 Route::get('/profileKonsumen', function(){
     return view('konsumen.profile');
@@ -51,10 +51,9 @@ Route::get('/editProfile', function(){
     return view('konsumen.editprofile');
 });
 
-Route::get('/konsumen/keranjang', [KeranjangController::class, 'index']);
-Route::get('/konsumen/keranjang/{IdAcara}', [KeranjangController::class, 'detailKeranjang']);
 
-Route::get('/umkm', [UserController::class, 'umkmHome']);
+
+
 
 Route::get('/konsumen/cari', [ProdukController::class,'konsumenIndex']);
 Route::get('/konsumen/filter-produk',[ProdukController::class, 'filterProduk']);
@@ -103,71 +102,74 @@ Route::get('/pesananUmkm', function(){
     return view('umkm.pesanan');
 });
 
-Route::get('/dashboard',[ProdukController::class,'index']);
-
-Route::get('/tambahProduk', function(){
-    return view('umkm.tambahProduk');
-});
-
-Route::get('/profileToko', function(){
-    return view('umkm.profileToko');
-});
 
 
-Route::get('/editProduk/{IdProduk}', [ProdukController::class,'edit']);
-Route::put('/umkm/updateProduk',[ProdukController::class,'update']);
 
-Route::get('/editProfileToko',[LoginController::class,'editToko']);
 
-Route::put('/umkm/update',[LoginController::class,'updateToko']);
 
+
+
+Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
+    Route::get('/', [UserController::class, 'umkmHome']);
+    Route::get('/dashboard',[ProdukController::class,'index']);
+    Route::get('/pesanan', [TransaksiController::class, 'umkmindex']);
+    Route::get('/terima-pesanan/{Id}', [TransaksiDetailController::class ,'umkmterimapesanan']);
+    Route::get('/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'umkmshow']);
+    Route::get('/tolak-pesanan/{IdTransaksi}', [TransaksiDetailController::class, "umkmtolakpesanan"]);
 
 Route::get('/konsumen/chat/{IdPerson}', [ChatController::class,'index'])->middleware('auth');
 Route::get('/umkm/chat/{IdPerson}', [ChatController::class,'index2'])->middleware('auth');
 Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);
+    Route::get('/profileToko', function(){
+        return view('umkm.profileToko');
+    });
+    Route::get('/tambahProduk', function(){
+        return view('umkm.tambahProduk');
+    });
+
+    Route::post('/tambahProduk',[ProdukController::class,'store']);
+    Route::get('/editProduk/{IdProduk}', [ProdukController::class,'edit']);
+    Route::put('/updateProduk',[ProdukController::class,'update']);
+    Route::get('/editProfileToko',[LoginController::class,'editToko']);
+    Route::put('/update',[LoginController::class,'updateToko']);
+});
 
 
 
+
+Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
+    // SESI KERANJANG
+    Route::get('/listKeranjang', [AcaraController::class, 'index']);
+    Route::post('/tambahAcara',[AcaraController::class,'store']);
+    Route::get('/keranjang', [KeranjangController::class, 'index']);
+    Route::get('/keranjang/{IdAcara}', [KeranjangController::class, 'detailKeranjang']);
+    Route::post('/addtocart',[KeranjangController::class, 'store']);
+
+    // SESI EDIT KERANJANG
+    Route::post('/deleteCart',[KeranjangController::class, 'destroy']);
+    Route::post('/updateCart',[KeranjangController::class, 'update']);
+    Route::post('/checkout', [KeranjangController::class, 'checkout']);
+    Route::post('/bayar', [TransaksiController::class, 'store']);
+    Route::get('/pembayaran/{IdTransaksi}', [TransaksiController::class, 'virtualaccount']);
+
+    Route::get('/pesanan', [TransaksiController::class, 'index'])->middleware('auth');
+    Route::get('/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
+    Route::post('/bayarselesai',[TransaksiController::class, 'pembayaranselesai']);
+    Route::get('/disiapkan', [TransaksiController::class, 'disiapkan']);
+    Route::get('/filter-pesanan',[TransaksiController::class, 'filterpesanan']);
+});
 
 Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show']);
-Route::post('/konsumen/tambahAcara',[AcaraController::class,'store']);
 Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);
-Route::post('/konsumen/addtocart',[KeranjangController::class, 'store']);
-Route::post('/konsumen/deleteCart',[KeranjangController::class, 'destroy']);
-Route::post('/konsumen/updateCart',[KeranjangController::class, 'update']);
-Route::post('/konsumen/checkout', [KeranjangController::class, 'checkout']);
-Route::post('/konsumen/bayar', [TransaksiController::class, 'store']);
-Route::get('/konsumen/pembayaran/{IdTransaksi}', [TransaksiController::class, 'virtualaccount']);
-Route::get('/konsumen/pesanan', [TransaksiController::class, 'index']);
-Route::get('/konsumen/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
-Route::post('/konsumen/bayar',[TransaksiController::class, 'pembayaranselesai']);
-
-Route::get('/konsumen/disiapkan', [TransaksiController::class, 'disiapkan']);
-Route::get('/konsumen/filter-pesanan',[TransaksiController::class, 'filterpesanan']);
-
-<<<<<<< HEAD
-=======
-
 Route::get('/loadCartCount', [KeranjangController::class, 'CartCount']);
 
 
-Route::get('/umkm/pesanan', [TransaksiController::class, 'umkmindex']);
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
->>>>>>> ffc388a730607354bb09ae0f030234a6e19296e5
 Route::post('/tambahProduk',[ProdukController::class,'store']);
 
 

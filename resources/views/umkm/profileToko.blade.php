@@ -15,12 +15,12 @@
 </div>
 
 <div class="w-full mt-5">
-    <img src="images/bannerToko.jpg" alt="">
+    <img src="/images/bannerToko.jpg" alt="">
     <div class="ml-20 text-center w-fit">
         @if (Auth::User()->FotoProfil)
             <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
         @else
-            <img src="images/profile.png" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
+            <img src="/images/profile.png" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
         @endif
         <p class="mt-8 text-2xl font-bold">{{Auth::User()->Nama}}</p>
     </div>
@@ -28,7 +28,7 @@
 
 <div class="flex flex-col w-full mx-auto container-md">
     <div class="w-[100%] flex flex-row-reverse mb-5 pr-28 bder">
-        <a href="/editProfileToko" class="flex flex-row w-max">
+        <a href="/umkm/editProfileToko" class="flex flex-row w-max">
             <div class="flex flex-row bg-white w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">
                 <p class="text-xl font-bold">SUNTING</p>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#DC0000" viewBox="0 0 16 16">

@@ -82,7 +82,7 @@ class ProdukController extends Controller
 
         Produk::create($validatedData);
 
-        return redirect('/dashboard')->with('success', 'Produk baru telah ditambahkan');
+        return redirect('/umkm/dashboard')->with('success', 'Produk baru telah ditambahkan');
     }
 
     /**
@@ -152,7 +152,7 @@ class ProdukController extends Controller
 
         Produk::where('IdProduk',request('IdProduk'))->update($validatedData);
         // return redirect('/dashboard');
-        return redirect('/editProduk/'.$idProduk)->with('success','Produk telah berhasil diedit');
+        return redirect('/umkm/editProduk/'.$idProduk)->with('success','Produk telah berhasil diedit');
     }
 
     /**

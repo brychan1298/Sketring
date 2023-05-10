@@ -112,7 +112,7 @@
                 <p class="text-2xl max-md:text-xl mt-[2.5vw] text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p>
                 {{-- Button --}}
                 <div class="mt-[2.5vw] flex justify-center">
-                    <form action="/konsumen/bayar" method="POST" id="bayar" onsubmit="submitForm(event)">
+                    <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
                         @csrf
                         <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
                         <button type="submit" data-modal-target="staticModal" data-modal-toggle="staticModal"

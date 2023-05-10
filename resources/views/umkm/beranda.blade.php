@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="mt-5">
-                    <a href="/dashboard" class="bg-[#850000] text-white py-2 px-10 rounded-md">
+                    <a href="/umkm/dashboard" class="bg-[#850000] text-white py-2 px-10 rounded-md">
                         Selengkapnya
                     </a>
                 </div>

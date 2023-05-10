@@ -70,7 +70,7 @@ class LoginController extends Controller
         }
 
         User::where('IdUser',Auth::User()->IdUser)->update($validatedData);
-        return redirect('/profileToko')->with('success','Profile telah berhasil diedit');
+        return redirect('/umkm/profileToko')->with('success','Profile telah berhasil diedit');
     }
 
     public function index(){
