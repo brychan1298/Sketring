@@ -1,4 +1,4 @@
-@extends('konsumen.layouts.master')
+@extends('umkm.layouts.master')
 @section('title', 'Chat')
 @section('description', 'Halaman Chat')
 @section('content')
@@ -23,12 +23,9 @@
         <div class="flex h-[750px] max-md:h-[510px] antialiased text-gray-800 border-4 border-solid border-[#850000] rounded-xl mt-6">
             <div class="flex flex-row w-full h-full overflow-hidden">
                 {{-- kotak kiri --}}
-                <div class="flex flex-col flex-shrink-0 hidden lg:block w-1/4 px-4 py-8 overflow-y-auto border-r-2 h-[97%] max-lg:w-full" id="chatMenu">
+                <div class="flex flex-col flex-shrink-0 hidden w-1/4 px-4 py-8 overflow-y-auto border-r-2 lg:block h-[97%]">
                     <div class="flex flex-row items-center justify-center">
-                        <input type="text" placeholder="Cari..." class="w-full px-4 py-2 text-lg border border-gray-400 border-solid rounded-md max-lg:mr-5">
-                        <button data-collapse-toggle="chatMenu" type="button"class="lg:hidden" aria-controls="chatMenu" aria-expanded="false">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
-                        </button>
+                        <input type="text" placeholder="Cari..." class="w-full px-4 py-2 text-lg border border-gray-400 border-solid rounded-md">
                     </div>
                     <div class="mt-8 mb-5 border border-gray-300 border-solid line"></div>
                     <div id="list-chat" class="flex flex-col">
@@ -37,7 +34,7 @@
                             $countId = 0;
                         @endphp
                         @foreach($lastChatRaw as $chatIds)
-                            <a href="/konsumen/chat/{{$chatIds->IdUser}}" class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
+                            <a href="/umkm/chat/{{$chatIds->IdUser}}" class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
                                 <div class="flex-shrink-0">
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $chatIds->FotoProfil) }}"/>
                                 </div>
@@ -68,23 +65,8 @@
                         {{-- Header --}}
                         <div class="flex items-center justify-between px-3 py-2 border-b-2 bg-grey-lighter">
                             <div class="flex items-center">
-<<<<<<< HEAD
                                 <div class="flex-shrink-0">
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $receiver->FotoProfil) }}"/>
-=======
-                                <button data-collapse-toggle="chatMenu" type="button"
-                                    class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none"
-                                    aria-controls="chatMenu" aria-expanded="false">
-                                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                                <div class="flex-shrink-0 ml-5">
-                                    <img class="w-16 h-16 rounded-full" src="images/natfood.png"/>
->>>>>>> ffc388a730607354bb09ae0f030234a6e19296e5
                                 </div>
                                 <div class="ml-4">
                                     <p class="text-2xl font-semibold max-md:text-lg">

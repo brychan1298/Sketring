@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -116,6 +117,9 @@ Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
     Route::get('/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'umkmshow']);
     Route::get('/tolak-pesanan/{IdTransaksi}', [TransaksiDetailController::class, "umkmtolakpesanan"]);
 
+Route::get('/konsumen/chat/{IdPerson}', [ChatController::class,'index'])->middleware('auth');
+Route::get('/umkm/chat/{IdPerson}', [ChatController::class,'index2'])->middleware('auth');
+Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);
     Route::get('/profileToko', function(){
         return view('umkm.profileToko');
     });
@@ -148,7 +152,6 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
     Route::post('/bayar', [TransaksiController::class, 'store']);
     Route::get('/pembayaran/{IdTransaksi}', [TransaksiController::class, 'virtualaccount']);
 
-
     Route::get('/pesanan', [TransaksiController::class, 'index'])->middleware('auth');
     Route::get('/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
     Route::post('/bayarselesai',[TransaksiController::class, 'pembayaranselesai']);
@@ -167,17 +170,7 @@ Route::get('/loadCartCount', [KeranjangController::class, 'CartCount']);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+Route::post('/tambahProduk',[ProdukController::class,'store']);
 
 
 Route::get('/editprofile',[LoginController::class,'edit']);

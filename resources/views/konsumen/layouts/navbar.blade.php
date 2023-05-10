@@ -1,5 +1,5 @@
 <nav class="bg-[#850000] fixed w-full z-10">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center">
             <img src="/images/LogoSketring.png" alt="" class="w-48">
             {{-- <h1 class="text-white text-3xl">

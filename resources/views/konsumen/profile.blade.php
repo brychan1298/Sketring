@@ -18,7 +18,7 @@
     <div class="container-md xl:flex xl:flex-row justify-center gap-[32px] w-full px-[48px] pb-[48px]">
         <div class="container-md flex flex-col xl:w-[15%] gap-[32px] md:w-[100%]">
             <div class="bg-[#FFE6AE] p-[24px] flex flex-col rounded-[10px] gap-[12px]">
-                <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px] bg-[#F8CB66]">
+                <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
