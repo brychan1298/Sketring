@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -42,7 +43,7 @@ Route::get('/chat', function () {
 
 Route::get('/listKeranjang', [AcaraController::class, 'index'])->middleware('auth');
 
-Route::get('/profilekonsumen', function(){
+Route::get('/profileKonsumen', function(){
     return view('konsumen.profile');
 })->middleware("auth");
 
@@ -122,7 +123,9 @@ Route::get('/editProfileToko',[LoginController::class,'editToko']);
 Route::put('/umkm/update',[LoginController::class,'updateToko']);
 
 
-
+Route::get('/konsumen/chat/{IdPerson}', [ChatController::class,'index'])->middleware('auth');
+Route::get('/umkm/chat/{IdPerson}', [ChatController::class,'index2'])->middleware('auth');
+Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);
 
 
 
@@ -140,22 +143,6 @@ Route::get('/konsumen/pesanan', [TransaksiController::class, 'index']);
 Route::get('/konsumen/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
 
 Route::get('/loadCartCount',[KeranjangController::class, 'CartCount']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Route::post('/tambahProduk',[ProdukController::class,'store']);
 

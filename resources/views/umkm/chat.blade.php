@@ -1,4 +1,4 @@
-@extends('konsumen.layouts.master')
+@extends('umkm.layouts.master')
 @section('title', 'Chat')
 @section('description', 'Halaman Chat')
 @section('content')
@@ -34,7 +34,7 @@
                             $countId = 0;
                         @endphp
                         @foreach($lastChatRaw as $chatIds)
-                            <a href="/konsumen/chat/{{$chatIds->IdUser}}" class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
+                            <a href="/umkm/chat/{{$chatIds->IdUser}}" class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
                                 <div class="flex-shrink-0">
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $chatIds->FotoProfil) }}"/>
                                 </div>
