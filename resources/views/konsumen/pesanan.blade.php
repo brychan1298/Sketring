@@ -1,27 +1,11 @@
 @extends('konsumen.layouts.master')
-@section('title', 'Pesanan Anda')
-@section('description', 'Daftar Pesanan Konsumen')
+@section('title', 'Pesanan yang belum dibayar')
+@section('description', 'Daftar Pesanan Konsumen Yang Belum Dibayar')
 @section('content')
     <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
         <div class="flex flex-col justify-center items-center w-max m-[2vw] gap-[1vw]">
             {{-- Status Selection --}}
-            <div
-                class="container flex flex-row gap-[2vw] items-center justify-center p-6 mx-auto text-white capitalize bg-[#850000] w-max rounded-[10px]">
-                <a href="#" class="text-white border-b-2 border-white font-bold mx-1.5 sm:mx-6">Belum Bayar</a>
-
-                <a href="#"
-                    class="border-b-2 border-transparent hover:text-white hover:border-white mx-1.5 sm:mx-6">Disiapkan</a>
-
-                <a href="#"
-                    class="border-b-2 border-transparent hover:text-white hover:border-white mx-1.5 sm:mx-6">Dikirimkan</a>
-
-                <a href="#"
-                    class="border-b-2 border-transparent hover:text-white hover:border-white mx-1.5 sm:mx-6">Selesai</a>
-
-                <a href="#"
-                    class="border-b-2 border-transparent hover:text-white hover:border-white mx-1.5 sm:mx-6">Dibatalkan</a>
-            </div>
-
+            @include('konsumen.layoutPesanan')
             {{-- Select Event --}}
             <div class="flex flex-row w-[100%] justify-end">
                 <select id="countries"
@@ -72,7 +56,7 @@
                         <a href="/konsumen/detailTransaksi/{{$Transaksi}}" class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                             Detail
                         </a>
-                        <a href="" class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                        <a href="/konsumen/pembayaran/{{$Transaksi}}" class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                             Bayar
                         </a>
                     </div>

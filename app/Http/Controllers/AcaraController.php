@@ -14,8 +14,21 @@ class AcaraController extends Controller
      */
     public function index()
     {
-        $daftarAcara = Acara::where('IdUser',Auth::User()->IdUser)->get();
-        return view("konsumen.ListKeranjang",compact('daftarAcara'));
+        $listAcara = [];
+        $daftarAcara = Acara::select("Keranjang.*","Produk.*","Acara.Nama AS NamaAcara","Acara.IdAcara AS IdAcara")
+                        ->leftJoin('Keranjang', function($join){
+                        $join->on('Acara.IdAcara', '=', 'Keranjang.IdAcara');
+                        })
+                        ->leftJoin('Produk',function($joins){
+                            $joins->on('Produk.IdProduk','=','Keranjang.IdProduk');
+                        })
+                        ->where('Acara.IdUser',Auth::User()->IdUser)->get();
+
+        foreach($daftarAcara as $items){
+            $listAcara[$items->NamaAcara][] = $items;
+        }
+        // dd($listAcara);
+        return view("konsumen.ListKeranjang",compact('daftarAcara','listAcara'));
     }
 
     /**
