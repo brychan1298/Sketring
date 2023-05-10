@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @vite(['resources/css/app.css'])
     <style>
         body{

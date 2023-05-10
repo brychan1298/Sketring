@@ -7,7 +7,13 @@
             <div class="flex flex-col w-max text-[#850000]">
                 <p class="font-bold">{{ $Transaksi->Nama }} ({{ $Transaksi->Qty }})</p>
                 <p>Keranjang: {{ $Transaksi->NamaAcara }}</p>
-                <p>Keterangan: Berdasarkan Status</p>
+                <p>Keterangan:
+                    @if($Transaksi->Status == 2)
+                        Menunggu Konfirmasi Penjual
+                    @else
+                        Penjual Sedang Menyiapkan Pesanan
+                    @endif
+                </p>
             </div>
         </div>
         {{-- Right hug content --}}

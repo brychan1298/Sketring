@@ -35,15 +35,37 @@ class TransaksiController extends Controller
     }
 
     public function umkmindex(){
+        $ListTransaksi = [];
+
         $Transaction = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
                                 ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
                                 ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
                                 ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
                                 ->where("Produk.IdUser",Auth::User()->IdUser)
-                                ->where("Transaksi.SudahBayar",1)
+                                ->where("TransaksiDetail.Status",2)
                                 ->get();
-        // dd($Transaction);
-        return view("umkm.pesanan", compact("Transaction"));
+
+        foreach($Transaction as $items){
+            $ListTransaksi[$items->IdTransaksi][] = $items;
+        }
+        return view("umkm.pesanan", compact("Transaction","ListTransaksi"));
+    }
+
+    public function umkmshow($IdTransaksi){
+        $ListProduks = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
+                                ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                                ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                                ->where("Produk.IdUser",Auth::User()->IdUser)
+                                ->where("TransaksiDetail.Status",2)
+                                ->where("Transaksi.IdTransaksi",$IdTransaksi)
+                                ->get();
+        $tanggal = Transaksi::where("IdTransaksi",$IdTransaksi)->first()->TanggalPesanan;
+        $DataTransaksiUser = Transaksi::where("IdTransaksi",$IdTransaksi)->first();
+        $TanggalPesanan = date_create($tanggal);
+        setlocale(LC_ALL, 'id_ID.utf8');
+        $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
+        return view("umkm.detailPesanan", compact("ListProduks","TanggalPesanan","DataTransaksiUser","IdTransaksi"));
     }
 
     /**

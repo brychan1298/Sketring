@@ -14,16 +14,16 @@
     </div>
 </div>
 
-<form action="umkm/update" enctype="multipart/form-data" method="post">
+<form action="update" enctype="multipart/form-data" method="post">
 @method('put')
 @csrf
 <div class="w-full mt-5">
-    <img src="images/bannerToko.jpg" alt="">
+    <img src="/images/bannerToko.jpg" alt="">
     <div class="ml-20 text-center w-fit">
         @if (Auth::User()->FotoProfil)
             <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
         @else
-            <img src="images/profile.png" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
+            <img src="/images/profile.png" alt="SyamsulKatering.id" class="img-preview rounded-full w-[18.75vw] h-[18.75vw] -mt-40">
         @endif
         <label for="FotoProfil">
         <div class="flex flex-col items-center justify-center absolute bg-[black] w-[18.75vw] h-[18.75vw] rounded-full bg-opacity-50 -mt-[18.75vw]">

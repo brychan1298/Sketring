@@ -24,7 +24,7 @@
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="/profileToko" class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil Toko</a>
+                            <a href="/umkm/profileToko" class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil Toko</a>
                         </li>
                         <li>
                             <a href="#" class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
@@ -59,7 +59,7 @@
                                 underline" aria-current="page">Beranda</a>
                 </li>
                 <li>
-                    <a href="/dashboard" class="block py-2 px-4 pr-4 text-white
+                    <a href="/umkm/dashboard" class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 ">Produk Saya</a>
                 </li>
