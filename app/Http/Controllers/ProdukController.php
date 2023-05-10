@@ -98,6 +98,23 @@ class ProdukController extends Controller
         return view('konsumen.detailProduk',compact('detailProduk','keranjang'));
     }
 
+    public function filterProduk(Request $request){
+        $TipeHarga = $request->input('TipeHarga');
+        if(Auth::check()){
+            $produks = Produk::select('Produk.*')->join('users','Produk.IdUser','=','users.IdUser')
+                        ->join('regencies','users.IdKota','=','regencies.id')
+                        ->where('users.IdKota','=',Auth::User()->IdKota)
+                        ->orderBy('Produk.Harga',$TipeHarga);
+        }else{
+            $produks = Produk::latest()->orderBy('Produk.Harga',$TipeHarga);
+        }
+
+        $produks = $produks->paginate(10)->withQueryString();
+        $view = view("konsumen.data-cari",['produks' => $produks]);
+        $html = $view->render();
+        return $html;
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

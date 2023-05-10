@@ -6,7 +6,7 @@
 =======
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
         <a href="/" class="flex items-center">
-            <img src="images/LogoSketring.png" alt="" class="w-48">
+            <img src="/images/LogoSketring.png" alt="" class="w-48">
             {{-- <h1 class="text-white text-3xl">
                 Sketring
             </h1> --}}
@@ -103,7 +103,7 @@
                         aria-current="page">Beranda</a>
                 </li>
                 <li>
-                    <a href="/cari"
+                    <a href="/konsumen/cari"
                         class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 ">Produk</a>
