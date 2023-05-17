@@ -23,9 +23,12 @@
         <div class="flex h-[750px] max-md:h-[510px] antialiased text-gray-800 border-4 border-solid border-[#850000] rounded-xl mt-6">
             <div class="flex flex-row w-full h-full overflow-hidden">
                 {{-- kotak kiri --}}
-                <div class="flex flex-col flex-shrink-0 hidden w-1/4 px-4 py-8 overflow-y-auto border-r-2 lg:block h-[97%]">
+                <div class="flex flex-col flex-shrink-0 hidden lg:block w-1/4 px-4 py-8 overflow-y-auto border-r-2 h-[97%] max-lg:w-full" id="chatMenu">
                     <div class="flex flex-row items-center justify-center">
-                        <input type="text" placeholder="Cari..." class="w-full px-4 py-2 text-lg border border-gray-400 border-solid rounded-md">
+                        <input type="text" placeholder="Cari..." class="w-full px-4 py-2 text-lg border border-gray-400 border-solid rounded-md max-lg:mr-5">
+                        <button data-collapse-toggle="chatMenu" type="button"class="lg:hidden" aria-controls="chatMenu" aria-expanded="false">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                        </button>
                     </div>
                     <div class="mt-8 mb-5 border border-gray-300 border-solid line"></div>
                     <div id="list-chat" class="flex flex-col">
@@ -65,7 +68,17 @@
                         {{-- Header --}}
                         <div class="flex items-center justify-between px-3 py-2 border-b-2 bg-grey-lighter">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0">
+                                <button data-collapse-toggle="chatMenu" type="button"
+                                    class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none"
+                                    aria-controls="chatMenu" aria-expanded="false">
+                                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                                <div class="flex-shrink-0 ml-5">
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $receiver->FotoProfil) }}"/>
                                 </div>
                                 <div class="ml-4">
@@ -88,13 +101,13 @@
                                 <div id="chat-container" class="absolute bottom-0 grid w-full grid-cols-12 gap-5 h-[100%] overflow-x-hidden overflow-y-auto">
                                     @foreach($chats as $chat)
                                         @if($chat->IdSender == $myId && $chat->IdReceiver == $IdPerson)
-                                            <div class="w-full col-start-6 col-end-13 mb-8 mr-3 rounded-lg max-md:mb-12 max-sm:mb-2">
+                                            <div class="w-full col-start-6 col-end-13 mt-5 mb-8 mr-3 rounded-lg max-md:mb-12 max-sm:mb-2">
                                                 <div class="flex flex-row-reverse items-center justify-start">
                                                     <div class="relative px-4 py-2 mr-3 text-sm bg-[#850000] text-white shadow rounded-xl">
                                                         <div class="text-lg max-md:text-base">
                                                             {{ $chat->text }}
                                                         </div>
-                                                        <div class="absolute bottom-0 left-0 mr-2 -mb-8 text-base text-gray-500 max-md:text-sm w-max text-right">
+                                                        <div class="absolute bottom-0 right-0 -mb-8 text-base text-right text-gray-500 max-md:text-sm w-max">
                                                             {{ \Carbon\Carbon::parse($chat->time)->format('H:i | d/m/Y') }}
                                                         </div>
                                                     </div>
@@ -103,11 +116,11 @@
                                         @elseif ($chat->IdReceiver == $myId && $chat->IdSender == $IdPerson)
                                             <div class="col-start-1 col-end-8 mb-8 ml-3 rounded-lg max-md:mb-12 max-sm:mb-8">
                                                 <div class="flex flex-row items-center">
-                                                    <div class="d-flex flex-col relative px-4 py-2 ml-3 text-sm bg-gray-200 shadow rounded-xl">
+                                                    <div class="relative flex-col px-4 py-2 ml-3 text-sm bg-gray-200 shadow d-flex rounded-xl">
                                                         <div class="text-lg max-md:text-base">
                                                             {{ $chat->text }}
                                                         </div>
-                                                        <div class="absolute bottom-0 right-0 mr-2 -mb-8 text-base text-gray-500 max-md:text-sm w-max">
+                                                        <div class="absolute bottom-0 left-0 -mb-8 text-base text-gray-500 max-md:text-sm w-max">
                                                             {{ \Carbon\Carbon::parse($chat->time)->format('H:i | d/m/Y') }}
                                                         </div>
                                                     </div>
