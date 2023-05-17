@@ -65,7 +65,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<div class="container m-auto mt-[100px]">
+<div class="container m-auto mt-[130px]">
     <div class="judulAddProduk flex items-center justify-center">
         <a href="">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">

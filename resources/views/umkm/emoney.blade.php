@@ -16,7 +16,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-<div class="container m-auto mt-[100px]">
+<div class="container m-auto mt-[130px]">
     <div class="judulAddProduk flex items-center justify-center">
         <a href="/tarikSaldoUMKM">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="mx-32 pb-6">
+    <div class="mx-32 pb-6 flex flex-col">
         <h1 class="mt-16 text-2xl">E-Money</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 
@@ -58,7 +58,9 @@
             <option value="BNI">BNI</option>
         </select>
 
-        <input type="text" id="nominal" placeholder="Rp Jumlah" class="p-2 text-lg w-1/3 border-b-2 border-gray-400 outline-none focus:border-black my-8">
+        <input type="text" id="nominal" placeholder="No Virtual Account" class="w-1/3 p-2 my-12 text-lg border-b-2 border-gray-400 outline-none focus:border-black">
+
+        <input type="text" id="nominal" placeholder="Rp Jumlah" class="w-1/3 p-2 my-8 text-lg border-b-2 border-gray-400 outline-none focus:border-black">
 
 
     </div>

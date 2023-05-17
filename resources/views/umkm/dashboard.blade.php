@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <div class="konten grid 2xl:grid-cols-4 lg:grid-cols-3 gap-20 mt-12 md:grid-cols-2 sm:grid-cols-1">
+        <div class="konten grid gap-20 mt-12 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center md:w-full bg-red-400">
             <a id="addProduct" href="/umkm/tambahProduk" class="bg-[#EBEBEB] rounded-md shadow-3xl tambahProduk py-32">
                 <svg id="addButton" version="1.1" id="Capa_1" class="h-20 w-20" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" fill="#000000">
@@ -84,8 +84,8 @@
             @foreach ($produks as $produk)
                 <div class="rounded-md shadow-3xl produksatu">
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}" alt=""
-                        class="w-full h-[12vw] rounded-md">
-                    <div class="p-4">
+                        class="w-full h-[220px] rounded-md">
+                    <div class="p-4 ">
                         <h1 class="font-bold my-1 2xl:text-xl lg:text-xl md:text-2xl sm:text-sm">{{ $produk->Nama }}</h1>
                         <p class="font-normal text-xs mt-3 2xl:text-sm mt-3 lg:text-base md:text-base sm:text-xl">
                             {{ $produk->Deskripsi }}</p>
