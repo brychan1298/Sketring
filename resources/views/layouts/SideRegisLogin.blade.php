@@ -13,7 +13,7 @@
 </style>
 <div class="container m-auto mt-[100px] mb-[60px]">
     <div class="flex">
-        <div class="w-1/2 flex justify-center items-center" id="left">
+        <div class="sm:w-1/2 max-lg:hidden flex justify-center items-center" id="left">
             <div class="bg-[#D9D9D9] bg-opacity-75 px-[8vw] py-[35%] text-center">
                 <h1 class="uppercase font-extrabold text-6xl my-auto">
                     S'KETRING
@@ -23,7 +23,7 @@
                 </p>
             </div>
         </div>
-        <div class="w-1/2" id="right">
+        <div class="lg:w-1/2 w-full" id="right">
             @yield('contents')
         </div>
     </div>

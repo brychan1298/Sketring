@@ -17,7 +17,7 @@
         <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
     </a>
 
-    <a href="/konsumen/pesananselesai"
+    <a href="/konsumen/selesai"
         class="border-b-2 border-transparent mx-1.5 sm:mx-6 group transition duration-200">
         Selesai
         <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>

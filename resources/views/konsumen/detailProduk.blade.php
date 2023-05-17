@@ -95,8 +95,8 @@
                                 class="w-[5vw] h-[5vw] rounded-full">
                             <div>
                                 <h1 class="text-xl font-black">{{ $detailProduk->User->Nama }}</h1>
-                                <div class="flex gap-3">
-                                    <a href="/chat"
+                                <div class="flex gap-3 mt-2">
+                                    <a href="/konsumen/chat/{{$detailProduk->IdUser}}"
                                         class="text-decoration-none border-2 text-[#850000] rounded-md border-[#850000] py-1 px-3 bg-white">
                                         Chat
                                     </a>

@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <div class="rounded-xl shadow-3xl">
+        <div class="rounded-xl shadow-3xl max-sm:mx-7 max-sm:mt-10">
             <div class="bg-[#850000] rounded-t-xl px-7 py-2">
                 <h1 class="text-2xl text-white">
                     Chat
@@ -109,35 +109,35 @@
         <p class="uppercase text-5xl mt-2">
             sketring
         </p>
-        <p class="mx-[35%] mt-5">
+        <p class="sm:mx-[35vw] mx-[15vw] mt-5">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem consequatur molestias dolorem dolores, maxime facilis expedita odit dolorum odio ipsam labore, impedit et, harum cum omnis a modi quas sit.
         </p>
     </div>
     <div class="container m-auto mt-[60px]">
         <div class="flex grid lg:grid-cols-3 gap-9 md:max-lg:grid-cols-2 sm:max-md:grid-cols-1">
-            <div class="shadow-3xl rounded-md px-11 py-12">
+            <div class="shadow-3xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                 <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
                     <img src="images/secure.png" alt="" class="mx-auto w-8">
                 </div>
-                <h1 class="font-bold">Pembelian Terjamin Aman</h1>
+                <h1 class="font-bold text-xl">Pembelian Terjamin Aman</h1>
                 <p class="font-light mt-8">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem consequatur molestias dolorem dolores, maxime facilis expedita odit dolorum odio ipsam labore, impedit et, harum cum omnis a modi quas sit.
                 </p>
             </div>
-            <div class="shadow-2xl rounded-md px-11 py-12">
+            <div class="shadow-2xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                 <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
                     <img src="images/secure.png" alt="" class="mx-auto w-8">
                 </div>
-                <h1 class="font-bold">Pembelian Terjamin Aman</h1>
+                <h1 class="font-bold text-xl">Pembelian Terjamin Aman</h1>
                 <p class="font-light mt-8">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem consequatur molestias dolorem dolores, maxime facilis expedita odit dolorum odio ipsam labore, impedit et, harum cum omnis a modi quas sit.
                 </p>
             </div>
-            <div class="shadow-2xl rounded-md px-11 py-12">
+            <div class="shadow-2xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                 <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
                     <img src="images/secure.png" alt="" class="mx-auto w-8">
                 </div>
-                <h1 class="font-bold">Pembelian Terjamin Aman</h1>
+                <h1 class="font-bold text-xl">Pembelian Terjamin Aman</h1>
                 <p class="font-light mt-8">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem consequatur molestias dolorem dolores, maxime facilis expedita odit dolorum odio ipsam labore, impedit et, harum cum omnis a modi quas sit.
                 </p>

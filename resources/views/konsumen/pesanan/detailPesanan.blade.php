@@ -141,9 +141,13 @@
         </div>
 
         <div class="flex md:justify-end my-16 justify-center">
-            <a href="" class="text-xl mx-2 px-8 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">
-                BATAL
-            </a>
+            <form action="/konsumen/batalkan/{{$IdTransaksi}}" method="get" onsubmit="return confirm('Apakah anda yakin ingin membatalkan pesanan ini?')">
+                @csrf
+                <button type="submit" class="text-xl mx-2 px-8 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">
+                    BATAL
+                </button>
+            </form>
+
 
             <a href="/konsumen/pembayaran/{{$IdTransaksi}}" class="text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
                 BAYAR

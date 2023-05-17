@@ -3,7 +3,7 @@
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
             <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[45vh] rounded-[10px]">
                 {{-- Product Image --}}
-                <img src="{{ asset('storage/' . $produk->FotoProduk) }}" class="rounded-[10px] w-[full] h-[9vw]"
+                <img src="{{ asset('storage/' . $produk->FotoProduk) }}" class="rounded-[10px] w-[full] h-[12vw] object-cover"
                     alt="">
                 {{-- Product Information --}}
                 <div class="flex flex-col w-[100%] gap-[0.5vw] p-[1vw]">

@@ -1,10 +1,7 @@
 <nav class="bg-[#850000] fixed w-full z-10">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center">
-            <img src="/images/LogoSketring.png" alt="" class="w-48">
-            {{-- <h1 class="text-white text-3xl">
-                Sketring
-            </h1> --}}
+            <img src="/images/LogoSketring.png" alt="" class="sm:w-48 w-24 max-sm:mx-7">
         </a>
         <div class="flex items-center md:order-2 gap-5">
             <a href="/konsumen/listKeranjang">
@@ -27,14 +24,14 @@
 
             @if (Auth::check())
                 <button type="button"
-                    class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    class="max-sm:hidden flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
+                    <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
                         alt="user photo">
                 </button>
-                <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+                <div class="max-sm:hidden z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
                     id="user-dropdown">
                     <div class="px-4 py-3 flex flex-row items-center gap-2">
                         <div class="w-25">
@@ -69,7 +66,7 @@
                     </ul>
                 </div>
             @else
-                <a href="/login" class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
+                <a href="/login" class="max-sm:hidden btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
                     Login
                 </a>
             @endif
@@ -107,6 +104,58 @@
                         class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 ">Pesanan</a>
+                </li>
+                <li class="block py-2 px-4 pr-4 sm:hidden">
+                    @if (Auth::check())
+                        <button type="button"
+                            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                            id="user-menu-button-2" aria-expanded="false" data-dropdown-toggle="user-dropdown-2"
+                            data-dropdown-placement="bottom">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
+                                alt="user photo">
+                        </button>
+                        <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+                            id="user-dropdown-2">
+                            <div class="px-4 py-3 flex flex-row items-center gap-2">
+                                <div class="w-25">
+                                    <img class="w-8 h-8 rounded-full"
+                                        src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
+                                </div>
+                                <div>
+                                    <span
+                                        class="block text-sm text-gray-900 text-[#c0c0c0]">{{ auth()->user()->Nama }}</span>
+                                    <span
+                                        class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ auth()->user()->Email }}</span>
+                                </div>
+
+                            </div>
+                            <ul class="py-2" aria-labelledby="user-menu-button-2">
+                                <li>
+                                    <a href="/profileKonsumen"
+                                        class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                </li>
+                                <li>
+                                    <form action="/logout" method="post">
+                                        @csrf
+                                        <button type="submit"
+                                            class="block w-full text-left px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    @else
+                        <a href="/login"
+                            class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
+                            Login
+                        </a>
+                    @endif
                 </li>
             </ul>
         </div>

@@ -70,9 +70,9 @@
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}" alt="" class="w-24 h-full object-cover aspect-square">
                 </div>
                 <div class="float-right mt-6">
-                    <button class="border-2 border-[#DC0000] rounded-xl text-[#DC0000] font-bold px-5 py-2">
+                    <a href="/konsumen/detailproduk/{{$produk->IdProduk}}" class="border-2 border-[#DC0000] rounded-xl text-[#DC0000] font-bold px-5 py-2">
                         Lihat Produk
-                    </button>
+                    </a>
                 </div>
             </div>
         @endforeach
