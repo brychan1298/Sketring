@@ -1,4 +1,4 @@
-@extends('umkm.layouts.master')
+@extends('konsumen.layouts.master')
 @section('title', 'Tarik Saldo Konsumen')
 @section('description', 'Halaman Tarik Saldo Konsumen')
 @section('content')
@@ -16,7 +16,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-<div class="container m-auto mt-[100px]">
+<div class="container m-auto mt-[130px]">
     <div class="flex items-center justify-center judulAddProduk">
         <a href="/tarikSaldo">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="pb-6 mx-32">
+    <div class="pb-6 mx-12 md:mx-24 lg:mx-32 flex flex-col">
         <h1 class="mt-16 text-2xl">Debit</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 
@@ -58,7 +58,9 @@
             <option value="BNI">BNI</option>
         </select>
 
-        <input type="text" id="nominal" placeholder="Rp Jumlah" class="w-1/3 p-2 my-8 text-lg border-b-2 border-gray-400 outline-none focus:border-black">
+        <input type="text" id="nominal" placeholder="No Rekening" class="2xl:w-1/3 w-4/5 md:w-3/5 lg:w-2/5 p-2 my-12 text-lg border-b-2 border-gray-400 outline-none focus:border-black">
+
+        <input type="text" id="nominal" placeholder="Rp Jumlah" class="2xl:w-1/3 w-4/5 md:w-3/5 lg:w-2/5 p-2 my-8 text-lg border-b-2 border-gray-400 outline-none focus:border-black">
 
 
     </div>
