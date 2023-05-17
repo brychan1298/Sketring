@@ -19,4 +19,8 @@ class UserController extends Controller
         $ProdukUMKM = Produk::where('IdUser',Auth::User()->IdUser)->take(3)->get();
         return view("umkm.beranda",compact("ProdukUMKM"));
     }
+
+    public function showsaldo(){
+        return view("konsumen.saldo");
+    }
 }

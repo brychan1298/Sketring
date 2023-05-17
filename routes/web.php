@@ -172,9 +172,9 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
 
     Route::get('/batalkan/{IdTransaksi}', [TransaksiController::class, 'batalkan']);
     Route::get('/dibatalkan', [TransaksiController::class, 'dibatalkan']);
-
-
     Route::get('/chat/{IdPerson}', [ChatController::class,'index'])->middleware('auth');
+
+    Route::get('/tariksaldo', [UserController::class, 'showsaldo']);
 });
 
 Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);

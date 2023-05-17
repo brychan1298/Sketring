@@ -2,6 +2,7 @@
 @section('title', 'Cari Produk')
 @section('description', 'Cari Produk Katering di Kota Anda')
 @section('content')
+
     <div class="container-md mx-auto flex flex-col items-center mt-[82px] w-full">
         {{-- Search and Sort --}}
         <div class="flex flex-row justify-center items-center gap-[5vw] w-full p-[2vw]">
@@ -36,13 +37,6 @@
                     <option value="ASC">Rendah ke Tinggi</option>
                     <option value="DESC">Tinggi ke Rendah</option>
                 </select>
-                {{-- <select id="countries"
-                    class="w-[10vw] bg-[#FFDB89] border border-[#FFDB89] text-[#850000] font-bold text-sm rounded-[10px] border-2 focus:ring-[#DC0000] focus:border-[#DC0000] block w-full p-[1vw]">
-                    <option selected>OPSI PENGIRIMAN</option>
-                    <option value="US">Bisa Keduanya</option>
-                    <option value="CA">Bisa Delivery</option>
-                    <option value="CA">Bisa Pickup</option>
-                </select> --}}
             </div>
         </div>
         {{-- Product List --}}

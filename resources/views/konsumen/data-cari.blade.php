@@ -1,10 +1,25 @@
+<style>
+    card-image {
+        transition: all 1s ease-in-out;
+    }
+
+    .card-produk {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-produk:hover .card-image{
+        transform: scale(1.1)
+    }
+</style>
+
 <div class="grid grid-cols-4 gap-[2vw] bg-white px-[8vw] w-full items-center">
     @foreach ($produks as $produk)
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
-            <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[45vh] rounded-[10px]">
+            <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[45vh] rounded-[10px] card-produk">
                 {{-- Product Image --}}
-                <img src="{{ asset('storage/' . $produk->FotoProduk) }}" class="rounded-[10px] w-[full] h-[12vw] object-cover"
-                    alt="">
+                <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
+                    class="rounded-[10px] w-[full] h-[12vw] object-cover card-image" alt="">
                 {{-- Product Information --}}
                 <div class="flex flex-col w-[100%] gap-[0.5vw] p-[1vw]">
                     <p class="font-bold text-2xl pb-[0.5vw]">{{ $produk->Nama }}</p>

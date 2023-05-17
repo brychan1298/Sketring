@@ -19,8 +19,8 @@
         <form action="/konsumen/update" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
-            <div class="container-md flex flex-row justify-center gap-[32px] w-full px-[48px] pb-[48px]">
-                <div class="container-md flex flex-col w-[15%] gap-[32px]">
+            <div class="container-md xl:flex xl:flex-row justify-center gap-[32px] w-full px-[48px] pb-[48px]">
+                <div class="container-md flex flex-col xl:w-[15%] gap-[32px] md:w-[100%]">
                     <div class="bg-[#FFE6AE] p-[24px] flex flex-col rounded-[10px] gap-[12px]">
                         <div
                             class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px] bg-[#F8CB66]">
@@ -39,7 +39,7 @@
                             <p class="font-bold text-1xl">KELUAR</p>
                         </div>
                     </div>
-                    <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443]">
+                    <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] mb-10">
                         <div class="flex flex-col">
                             <div class="w-[100%] text-center">
                                 <p class="font-bold text-2xl">SALDO:</p>
@@ -61,15 +61,16 @@
                     </div>
                 </div>
 
-                <div class="bg-[#850000] w-[75%] text-white flex flex-col gap-[16px] items-center p-[32px] rounded-[10px]">
+                <div class="bg-[#850000] md:w-[75%] w-[100%] text-white flex flex-col gap-[16px] items-center p-[32px] rounded-[10px]">
                     <label for="FotoProfil">
                         <div class="flex flex-col relative">
-                            <input type="hidden" name="oldImage" value="{{Auth::User()->FotoProfil}}">
+                            <input type="hidden" name="oldImage" value="{{ Auth::User()->FotoProfil }}">
                             @if (Auth::User()->FotoProfil)
-                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images" src="{{asset('storage/'.Auth::User()->FotoProfil)}}"
-                                    alt="">
+                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images"
+                                    src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="">
                             @else
-                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images" src="images/profile.png" alt="">
+                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images"
+                                    src="images/profile.png" alt="">
                             @endif
                             <div
                                 class="flex flex-col items-center justify-center absolute bg-[black] w-[360px] h-[360px] rounded-full bg-opacity-50">
@@ -107,7 +108,8 @@
                             </svg>
                             <p class="font-bold">Alamat</p>
                         </div>
-                        <input type="text" name="Alamat" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
+                        <input type="text" name="Alamat"
+                            class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
                             value="{{ Auth::User()->Alamat }}">
                     </div>
                     <div class="w-[100%] flex flex-col gap-[8px]">
@@ -154,7 +156,8 @@
                             </svg>
                             <p class="font-bold">Email</p>
                         </div>
-                        <input type="email" name="Email" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
+                        <input type="email" name="Email"
+                            class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
                             value="{{ Auth::User()->Email }}">
                     </div>
                     <div class="w-[100%] flex flex-col gap-[8px]">
@@ -165,14 +168,17 @@
                             </svg>
                             <p class="font-bold">No Telepon</p>
                         </div>
-                        <input type="text" name="Nohp" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
+                        <input type="text" name="Nohp"
+                            class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
                             value="{{ Auth::User()->Nohp }}">
                     </div>
                     <div class="flex gap-5">
-                        <a href="/profilekonsumen" class="font-bold border-2 text-2xl px-7 py-2 my-5 rounded-md hover:text-[#DC0000] hover:bg-white">
+                        <a href="/profileKonsumen"
+                            class="font-bold border-2 text-2xl px-7 py-2 my-5 rounded-md hover:text-[#DC0000] hover:bg-white">
                             BATAL
                         </a>
-                        <button type="submit" class="border-2 text-[#DC0000] bg-white px-7 py-2 text-2xl rounded-md my-5 hover:bg-[#850000] hover:text-white">
+                        <button type="submit"
+                            class="border-2 text-[#DC0000] bg-white px-7 py-2 text-2xl rounded-md my-5 hover:bg-[#850000] hover:text-white">
                             SIMPAN
                         </button>
                     </div>
@@ -209,18 +215,17 @@
             });
         });
 
-        function previewImage(){
+        function previewImage() {
             const image = document.querySelector('#FotoProfil');
             const previewed = document.querySelector('.img-preview');
 
             const oFReader = new FileReader();
             oFReader.readAsDataURL(image.files[0]);
 
-            oFReader.onload = function(oFREvent){
+            oFReader.onload = function(oFREvent) {
                 previewed.src = oFREvent.target.result
             }
         }
-
     </script>
 
 @endsection
