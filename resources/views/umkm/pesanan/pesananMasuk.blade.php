@@ -1,4 +1,4 @@
-@extends('konsumen.layouts.master')
+@extends('umkm.layouts.master')
 @section('title','Pesanan Masuk')
 @section('description','Pesanan Masuk')
 @section('content')

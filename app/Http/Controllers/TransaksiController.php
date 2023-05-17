@@ -31,41 +31,7 @@ class TransaksiController extends Controller
         foreach($Transaction as $items){
             $ListTransaksi[$items->IdTransaksi][] = $items;
         }
-        return view("konsumen.pesanan", compact('Transaction','ListTransaksi'));
-    }
-
-    public function umkmindex(){
-        $ListTransaksi = [];
-
-        $Transaction = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
-                                ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
-                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
-                                ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
-                                ->where("Produk.IdUser",Auth::User()->IdUser)
-                                ->where("TransaksiDetail.Status",2)
-                                ->get();
-
-        foreach($Transaction as $items){
-            $ListTransaksi[$items->IdTransaksi][] = $items;
-        }
-        return view("umkm.pesanan", compact("Transaction","ListTransaksi"));
-    }
-
-    public function umkmshow($IdTransaksi){
-        $ListProduks = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
-                                ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
-                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
-                                ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
-                                ->where("Produk.IdUser",Auth::User()->IdUser)
-                                ->where("TransaksiDetail.Status",2)
-                                ->where("Transaksi.IdTransaksi",$IdTransaksi)
-                                ->get();
-        $tanggal = Transaksi::where("IdTransaksi",$IdTransaksi)->first()->TanggalPesanan;
-        $DataTransaksiUser = Transaksi::where("IdTransaksi",$IdTransaksi)->first();
-        $TanggalPesanan = date_create($tanggal);
-        setlocale(LC_ALL, 'id_ID.utf8');
-        $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
-        return view("umkm.detailPesanan", compact("ListProduks","TanggalPesanan","DataTransaksiUser","IdTransaksi"));
+        return view("konsumen.pesanan.pesanan", compact('Transaction','ListTransaksi'));
     }
 
     /**
@@ -136,7 +102,7 @@ class TransaksiController extends Controller
             $ListProduks[$items->NamaAcara][] = $items;
         }
 
-        return view("konsumen.detailPesanan", compact('ListProduks','TanggalPesanan','IdTransaksi'));
+        return view("konsumen.pesanan.detailPesanan", compact('ListProduks','TanggalPesanan','IdTransaksi'));
     }
 
     public function pembayaranselesai(Request $request){
@@ -153,23 +119,71 @@ class TransaksiController extends Controller
 
     public function disiapkan(Request $request){
         $ListAcara = Acara::where("IdUser",Auth::User()->IdUser)->get();
+        $ListTransaksi = [];
 
-        $ListTransaksi = TransaksiDetail::
+        $Transaksi = TransaksiDetail::
                     selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
                     ->join("Transaksi","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
                     ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
                     ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
                     ->where("Transaksi.IdUser","=",Auth::User()->IdUser)
                     ->where("Transaksi.SudahBayar",1)
+                    ->where(function ($query){
+                        $query->where("TransaksiDetail.Status",2)
+                                ->orWhere("TransaksiDetail.Status",3);
+                    })
                     ->get();
 
-        return view("konsumen.pesanan-disiapkan",compact('ListTransaksi','ListAcara'));
+        foreach($Transaksi as $items){
+            $ListTransaksi[$items->IdTransaksi][] = $items;
+        }
+
+        return view("konsumen.pesanan.pesanan-disiapkan",compact('ListTransaksi','ListAcara'));
+    }
+
+    public function dikirimkan(Request $request){
+        $ListAcara = Acara::where("IdUser",Auth::User()->IdUser)->get();
+        $ListTransaksi = [];
+
+        $Transaksi = TransaksiDetail::
+                    selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*, Produk.IdUser As IdToko")
+                    ->join("Transaksi","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                    ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                    ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                    ->where("Transaksi.IdUser","=",Auth::User()->IdUser)
+                    ->where("Transaksi.SudahBayar",1)
+                    ->where(function ($query){
+                        $query->where("TransaksiDetail.Status",4);
+                        $query->orWhere("TransaksiDetail.Status",5);
+                    })
+                    ->get();
+
+                    $ListTransaksi = [];
+
+        foreach($Transaksi as $items){
+            $ListTransaksi[$items->IdTransaksi][] = $items;
+        }
+
+        return view("konsumen.pesanan.pesanan-dikirimkan",compact('ListTransaksi','ListAcara'));
+    }
+
+    public function diterima($IdDetail){
+        $TransaksiDetail = TransaksiDetail::
+            where("TransaksiDetail.Id",$IdDetail)
+            ->update(
+            ["Status"=>6]
+        );
+
+        return redirect('konsumen/pesanan-dikirimkan')->with("selesai", "Anda telah menerima pesanan");
     }
 
     public function filterpesanan(Request $request){
         $ListAcara = Acara::where("IdUser",Auth::User()->IdUser)->get();
         $IdAcara = $request->input('IdAcara');
-        $ListTransaksi = TransaksiDetail::
+
+        $ListTransaksi = [];
+
+        $Transaksi = TransaksiDetail::
                     selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
                     ->join("Transaksi","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
                     ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
@@ -177,20 +191,32 @@ class TransaksiController extends Controller
                     ->where("Transaksi.IdUser","=",Auth::User()->IdUser)
                     ->where("Transaksi.SudahBayar",1)
                     ->where("TransaksiDetail.IdAcara",$IdAcara)
+                    ->where(function ($query){
+                        $query->where("TransaksiDetail.Status",2)
+                                ->orWhere("TransaksiDetail.Status",3);
+                    })
                     ->get();
 
         if($IdAcara == 0){
-            $ListTransaksi = TransaksiDetail::
-                    selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
-                    ->join("Transaksi","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
-                    ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
-                    ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
-                    ->where("Transaksi.IdUser","=",Auth::User()->IdUser)
-                    ->where("Transaksi.SudahBayar",1)
-                    ->get();
+            $Transaksi = TransaksiDetail::
+                            selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*, Produk.IdUser As IdToko, Transaksi.IdTransaksi As IdTransaksi")
+                            ->join("Transaksi","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                            ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                            ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                            ->where("Transaksi.IdUser","=",Auth::User()->IdUser)
+                            ->where("Transaksi.SudahBayar",1)
+                            ->where(function ($query){
+                                $query->where("TransaksiDetail.Status",2)
+                                        ->orWhere("TransaksiDetail.Status",3);
+                            })
+                            ->get();
         }
 
-        $view = view("konsumen.datapesanandisiapkan",['ListTransaksi' => $ListTransaksi]);
+        foreach($Transaksi as $items){
+            $ListTransaksi[$items->IdTransaksi][] = $items;
+        }
+
+        $view = view("konsumen.pesanan.datapesanandisiapkan",['ListTransaksi' => $ListTransaksi]);
         $html = $view->render();
         return $html;
     }

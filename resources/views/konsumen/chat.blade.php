@@ -68,10 +68,6 @@
                         {{-- Header --}}
                         <div class="flex items-center justify-between px-3 py-2 border-b-2 bg-grey-lighter">
                             <div class="flex items-center">
-<<<<<<< HEAD
-                                <div class="flex-shrink-0">
-                                    <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $receiver->FotoProfil) }}"/>
-=======
                                 <button data-collapse-toggle="chatMenu" type="button"
                                     class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none"
                                     aria-controls="chatMenu" aria-expanded="false">
@@ -84,7 +80,6 @@
                                 </button>
                                 <div class="flex-shrink-0 ml-5">
                                     <img class="w-16 h-16 rounded-full" src="images/natfood.png"/>
->>>>>>> ffc388a730607354bb09ae0f030234a6e19296e5
                                 </div>
                                 <div class="ml-4">
                                     <p class="text-2xl font-semibold max-md:text-lg">

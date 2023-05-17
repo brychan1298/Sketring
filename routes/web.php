@@ -12,6 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\TransaksiDetailController;
+use App\Http\Controllers\UmkmPesananController;
 use App\Models\Keranjang;
 use App\Models\User;
 
@@ -112,14 +113,16 @@ Route::get('/pesananUmkm', function(){
 Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
     Route::get('/', [UserController::class, 'umkmHome']);
     Route::get('/dashboard',[ProdukController::class,'index']);
-    Route::get('/pesanan', [TransaksiController::class, 'umkmindex']);
-    Route::get('/terima-pesanan/{Id}', [TransaksiDetailController::class ,'umkmterimapesanan']);
-    Route::get('/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'umkmshow']);
-    Route::get('/tolak-pesanan/{IdTransaksi}', [TransaksiDetailController::class, "umkmtolakpesanan"]);
+    Route::get('/pesanan', [UmkmPesananController::class, 'umkmindex']);
+    Route::get('/terima-pesanan/{Id}', [UmkmPesananController::class ,'umkmterimapesanan']);
+    Route::get('/detailTransaksi/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow']);
+    Route::get('/tolak-pesanan/{IdTransaksi}', [UmkmPesananController::class, "umkmtolakpesanan"]);
+    Route::get('/pesanan-disiapkan',[UmkmPesananController::class, 'umkmdisiapkan']);
+    Route::get('/kirim-pesanan/{IdTransaksi}', [UmkmPesananController::class, 'umkmkirimpesanan']);
+    Route::get('/pesanan-dikirimkan', [UmkmPesananController::class, 'umkmdikirimkan']);
+    Route::get('/pesanan-sampai/{IdTransaksi}', [UmkmPesananController::class, 'umkmpesanansampai']);
 
-Route::get('/konsumen/chat/{IdPerson}', [ChatController::class,'index'])->middleware('auth');
-Route::get('/umkm/chat/{IdPerson}', [ChatController::class,'index2'])->middleware('auth');
-Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);
+    Route::get('/chat/{IdPerson}', [ChatController::class,'index2'])->middleware('auth');
     Route::get('/profileToko', function(){
         return view('umkm.profileToko');
     });
@@ -157,7 +160,13 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
     Route::post('/bayarselesai',[TransaksiController::class, 'pembayaranselesai']);
     Route::get('/disiapkan', [TransaksiController::class, 'disiapkan']);
     Route::get('/filter-pesanan',[TransaksiController::class, 'filterpesanan']);
+    Route::get('/dikirimkan', [TransaksiController::class, 'dikirimkan']);
+    Route::get('/diterima/{IdDetail}',[TransaksiController::class, 'diterima']);
+
+    Route::get('/chat/{IdPerson}', [ChatController::class,'index'])->middleware('auth');
 });
+
+Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);
 
 Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show']);
 Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);

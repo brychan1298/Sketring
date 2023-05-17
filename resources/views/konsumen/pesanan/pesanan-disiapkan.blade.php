@@ -5,7 +5,7 @@
     <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
         <div class="flex flex-col justify-center items-center w-max m-[2vw] gap-[1vw]">
             {{-- Status Selection --}}
-            @include('konsumen.layoutPesanan')
+            @include('konsumen.pesanan.layoutPesanan')
             {{-- Select Event --}}
             <div class="flex flex-row w-[100%] justify-end">
                 <select id="IdAcara" onchange="filterData()"
@@ -18,9 +18,8 @@
             </div>
 
             {{-- Order List --}}
-            <div class="w-full h-[2px] bg-[#850000]"></div>
             <div id="ListTransaksi" class="w-full">
-                @include('konsumen.datapesanandisiapkan', ['ListTransaksi' => $ListTransaksi])
+                @include('konsumen.pesanan.datapesanandisiapkan', ['ListTransaksi' => $ListTransaksi])
             </div>
         </div>
     </div>
