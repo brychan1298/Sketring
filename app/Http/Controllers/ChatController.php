@@ -14,6 +14,7 @@ class ChatController extends Controller
 {
     public function index($IdPerson)
     {
+
         $chats = Chat::where('IdSender', Auth::User()->IdUser)
                      ->orWhere('IdReceiver', Auth::User()->IdUser)
                      ->orderBy('time', 'asc')
@@ -30,6 +31,7 @@ class ChatController extends Controller
         })
         ->distinct()
         ->get();
+
 
         $myId = Auth::User()->IdUser;
 

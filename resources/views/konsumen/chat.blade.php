@@ -79,7 +79,7 @@
                                     </svg>
                                 </button>
                                 <div class="flex-shrink-0 ml-5">
-                                    <img class="w-16 h-16 rounded-full" src="images/natfood.png"/>
+                                    <img class="w-16 h-16 rounded-full" src="/images/natfood.png"/>
                                 </div>
                                 <div class="ml-4">
                                     <p class="text-2xl font-semibold max-md:text-lg">
@@ -107,20 +107,20 @@
                                                         <div class="text-lg max-md:text-base">
                                                             {{ $chat->text }}
                                                         </div>
-                                                        <div class="absolute bottom-0 left-0 mr-2 -mb-8 text-base text-gray-500 max-md:text-sm w-max text-right">
+                                                        <div class="absolute bottom-0 right-0 -mb-8 text-base text-right text-gray-500 max-md:text-sm w-max">
                                                             {{ \Carbon\Carbon::parse($chat->time)->format('H:i | d/m/Y') }}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         @elseif ($chat->IdReceiver == $myId && $chat->IdSender == $IdPerson)
-                                            <div class="col-start-1 col-end-8 mb-8 ml-3 rounded-lg max-md:mb-12 max-sm:mb-8">
+                                            <div class="col-start-1 col-end-8 mt-5 mb-8 ml-3 rounded-lg max-md:mb-12 max-sm:mb-8">
                                                 <div class="flex flex-row items-center">
-                                                    <div class="d-flex flex-col relative px-4 py-2 ml-3 text-sm bg-gray-200 shadow rounded-xl">
+                                                    <div class="relative flex-col px-4 py-2 ml-3 text-sm bg-gray-200 shadow d-flex rounded-xl">
                                                         <div class="text-lg max-md:text-base">
                                                             {{ $chat->text }}
                                                         </div>
-                                                        <div class="absolute bottom-0 right-0 mr-2 -mb-8 text-base text-gray-500 max-md:text-sm w-max">
+                                                        <div class="absolute bottom-0 left-0 mr-2 -mb-8 text-base text-gray-500 max-md:text-sm w-max">
                                                             {{ \Carbon\Carbon::parse($chat->time)->format('H:i | d/m/Y') }}
                                                         </div>
                                                     </div>
