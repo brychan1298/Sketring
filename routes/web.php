@@ -29,9 +29,7 @@ use App\Models\User;
 
 // Route::get('/',[KeranjangController::class, 'CartCount']);
 
-Route::get('/', function () {
-    return view('konsumen.beranda');
-})->middleware('forbidumkm');
+Route::get('/', [UserController::class, 'home'])->middleware('forbidumkm');
 
 Route::get('/virtualaccount', function () {
     return view('konsumen.virtualAccount');

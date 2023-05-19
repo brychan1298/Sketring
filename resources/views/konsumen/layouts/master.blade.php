@@ -12,8 +12,15 @@
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     @vite(['resources/css/app.css'])
     <style>
-        body{
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             font-family: 'Open Sans';
+        }
+
+        footer {
+            margin-top: auto;
         }
     </style>
 </head>

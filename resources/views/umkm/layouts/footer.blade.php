@@ -1,4 +1,4 @@
-<footer class="w-[100%] bg-[#850000] flex flex-col items-center p-[4vh] gap-2 mt-[100px]">
+<footer class="w-[100%] bg-[#850000] flex flex-col items-center p-[4vh] gap-2">
     <p class="font-bold text-2xl text-white">S'Ketring</p>
     <p class="w-[50%] text-center text-[#D9D9D9] text-1xl">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est consequatur labore totam sunt distinctio iure et tempore, quibusdam temporibus nobis.</p>
     <div class="w-[25%] h-[1px] bg-white my-[1vh]"></div>

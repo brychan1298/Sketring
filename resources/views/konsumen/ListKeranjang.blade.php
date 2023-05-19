@@ -79,8 +79,16 @@
                 <a href="/konsumen/keranjang/{{ $IdAcara }}">
                     <div>
                         <div class="rounded-md shadow-3xl">
+                            @if($fotoProduk)
                             <img src="{{ asset('storage/' . $fotoProduk) }}" alt=""
                                 class="w-full aspect-square rounded-xl">
+                            @else
+                            <div class="w-full">
+                                <img src="/images/empty-cart.png" alt=""
+                                class="w-full m-auto aspect-square rounded-xl">
+                            </div>
+
+                            @endif
                         </div>
                         <h1 class="font-bold mt-5">
                             {{ $acara }}
