@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-@include('konsumen.layouts.navbar');
+@include('konsumen.layouts.navbar')
 <div>
     @yield('content')
 </div>

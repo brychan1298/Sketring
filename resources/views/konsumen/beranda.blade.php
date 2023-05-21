@@ -99,7 +99,7 @@
                 maxime facilis expedita odit dolorum odio ipsam labore, impedit et, harum cum omnis a modi quas sit.
             </p>
         </div>
-        <div class="container m-auto mt-[60px] mb-[100px]">
+        <div class="container m-auto mt-[60px]">
             <div class="flex grid lg:grid-cols-3 gap-9 md:max-lg:grid-cols-2 sm:max-md:grid-cols-1">
                 <div class="shadow-3xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                     <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">

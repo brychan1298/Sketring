@@ -3,10 +3,6 @@
 @section('description', 'Halaman Dashboard UMKM')
 @section('content')
     <style>
-        .pagination {
-            color: #850000;
-        }
-
         .tambahProduk {
             display: flex;
             flex-direction: column;
@@ -16,7 +12,6 @@
 
         @media(max-width: 767px) {
             .tambahProduk {
-                /* background-color: red; */
                 width: 85vw;
                 height: 300px;
                 padding: 5px 0px;
@@ -42,7 +37,7 @@
         }
     </style>
 
-    <div class="container m-auto mt-[100px]">
+    <div class="container m-auto mt-[140px]">
         <div class="mb-3">
             <div class="relative mb-4 flex w-full flex-wrap items-stretch">
                 <input type="search"
@@ -62,7 +57,7 @@
             </div>
         </div>
 
-        <div class="konten grid gap-20 mt-12 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center md:w-full bg-red-400">
+        <div class="konten grid gap-20 mt-12 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center md:w-full">
             <a id="addProduct" href="/umkm/tambahProduk" class="bg-[#EBEBEB] rounded-md shadow-3xl tambahProduk py-32">
                 <svg id="addButton" version="1.1" id="Capa_1" class="h-20 w-20" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" fill="#000000">

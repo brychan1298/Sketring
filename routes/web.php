@@ -146,6 +146,7 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
     Route::post('/tambahAcara',[AcaraController::class,'store']);
     Route::get('/keranjang', [KeranjangController::class, 'index']);
     Route::get('/keranjang/{IdAcara}', [KeranjangController::class, 'detailKeranjang']);
+    Route::put('/hapus-keranjang', [KeranjangController::class, 'hapuskeranjang']);
     Route::post('/addtocart',[KeranjangController::class, 'store']);
 
     // SESI EDIT KERANJANG
