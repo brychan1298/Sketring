@@ -39,33 +39,5 @@
                 }
             })
         }
-
-  // Get all the star SVGs
-const stars = document.querySelectorAll('.star-svg');
-
-// Function to handle the click event
-function handleClick(event) {
-  const clickedStarId = event.currentTarget.id;
-
-  // Loop through all the stars
-  stars.forEach(star => {
-    const starId = star.id;
-
-    // Change the class based on the clicked star and its position
-    if (clickedStarId === starId || (clickedStarId.startsWith('star-') && starId.startsWith('star-') && starId <= clickedStarId)) {
-      star.classList.remove('text-gray-500');
-      star.classList.add('text-yellow-500');
-    } else {
-      star.classList.remove('text-yellow-500');
-      star.classList.add('text-gray-500');
-    }
-  });
-}
-
-// Attach the click event listener to each star SVG
-stars.forEach(star => {
-  star.addEventListener('click', handleClick);
-});
-
     </script>
 @endsection

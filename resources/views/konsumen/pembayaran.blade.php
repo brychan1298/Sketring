@@ -35,9 +35,9 @@
         </span>
     </div>
     @endif
-    <div class="container m-auto mt-[140px]">
+    <div class="container m-auto mt-[100px]">
         <div class="judulAddProduk flex items-center justify-center mx-5">
-            <a href="/konsumen/keranjang">
+            <a href="/keranjang">
                 <svg class="md:w-10 md:h-10 w-8 h-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
