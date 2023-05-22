@@ -18,8 +18,8 @@
     </style>
 </head>
 <body>
-@include('konsumen.layouts.navbar');
-<div>
+@include('konsumen.layouts.navbar')
+<div class="mt-12">
     @yield('content')
 </div>
 @include('konsumen.layouts.footer')
