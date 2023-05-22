@@ -98,7 +98,7 @@
         } else if (nominal <= 0) {
             event.preventDefault();
             alert("Jumlah saldo yang ingin ditarik tidak valid!");
-        } else if (nominal > 0 && nominal > {{ Auth::User()->IdUser }}) {
+        } else if (nominal > 0 && nominal > {{ Auth::User()->Saldo }}) {
             event.preventDefault();
             alert("Maaf, saldo Anda tidak mencukupi!");
         } else {
