@@ -23,12 +23,4 @@ class UserController extends Controller
     public function showsaldo(){
         return view("konsumen.saldo");
     }
-
-    public function tarikSaldo(request $request, User $user, $IdUser){
-        $user = User::find($IdUser);
-        $user->Saldo = $request->nominal;
-        $user->save();
-
-        return redirect('/tarikSaldo');
-    }
 }
