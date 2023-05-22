@@ -3,7 +3,7 @@
 @section('description', 'Halaman Chat')
 @section('content')
 
-<div class="container mx-auto mt-12">
+<div class="container mx-auto">
     <div class="px-10 py-24 max-md:py-16">
         <a href="/">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">

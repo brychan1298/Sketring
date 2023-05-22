@@ -90,9 +90,8 @@
 
     <div class="flex justify-center">
         <div class="relative flex items-center justify-center w-1/6 btn-container bal" x-data="{ show: true }">
-            <h1 class="font-bold text-[#850000] text-xl">Rp</h1>
-            <h1 class="money text-[#850000] text-4xl px-2" id="saldo">{{Auth::User()->Saldo}}</h1>
-            <button id="toggle-btn" onclick="toggleBalance('{{Auth::User()->Saldo}}')">
+            <h1 class="money text-[#850000] text-3xl px-2" id="saldo">@currency(Auth::User()->Saldo)</h1>
+            <button id="toggle-btn" onclick="toggleBalance('@currency(Auth::User()->Saldo)')">
                 <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
                     :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
                     viewbox="0 0 576 512">

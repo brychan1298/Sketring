@@ -12,7 +12,7 @@
     <form action="/konsumen/checkout" method="POST" onsubmit="return checkCheckbox()">
         @csrf
         <div class="container m-auto items-start">
-            <div class="mt-[140px] grid grid-cols-3 border-b-2 pb-5">
+            <div class="mt-[100px] grid grid-cols-3 border-b-2 pb-5">
                 <a href="/konsumen/listKeranjang">
                     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

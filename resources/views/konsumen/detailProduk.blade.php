@@ -10,7 +10,7 @@
         }
     </style>
 
-    <div class="container mx-auto mt-[140px]">
+    <div class="container mt-[100px] mx-auto">
         <div class="flex">
             <div class="w-1/2 p-10">
                 <img src="{{ asset('storage/' . $detailProduk->FotoProduk) }}" alt="">

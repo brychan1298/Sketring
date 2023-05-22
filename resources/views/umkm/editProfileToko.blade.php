@@ -160,7 +160,7 @@
         </div>
     </div>
     <div class="flex justify-center gap-5 mb-16">
-        <a href="/umkm/profileToko" class="font-bold border-2 border-solid border-[#DC0000] text-[#DC0000] text-2xl px-7 py-2 my-5 rounded-md hover:text-[#850000] hover:border-[#850000]">
+        <a href="/profileToko" class="font-bold border-2 border-solid border-[#DC0000] text-[#DC0000] text-2xl px-7 py-2 my-5 rounded-md hover:text-[#850000] hover:border-[#850000]">
             BATAL
         </a>
         <button type="submit" class="border-2 text-white bg-[#DC0000] px-7 py-2 text-2xl rounded-md my-5 hover:bg-[#850000] hover:text-white">
@@ -174,30 +174,6 @@
 
     <script>
         $(document).ready(function() {
-            var idProvince = document.querySelector("#Province-dropdown").value;
-            $("#kota-dropdown").html('');
-            $.ajax({
-                url: "{{ url('api/fetch-kota') }}",
-                type: "POST",
-                data: {
-                    Province_id: idProvince,
-                    _token: '{{ csrf_token() }}'
-                },
-                dataType: 'json',
-                success: function(result) {
-                    $('#kota-dropdown').html(
-                        '<option value="">Pilih Kota</option>');
-                    $.each(result.states, function(key, value) {
-                        if (value.id == {{ Auth::User()->IdKota }}) {
-                            $("#kota-dropdown").append('<option selected value="' + value
-                                .id + '">' + value.name + '</option>');
-                        }
-                        $("#kota-dropdown").append('<option value="' + value
-                            .id + '">' + value.name + '</option>');
-                    });
-                }
-            });
-
             $('#Province-dropdown').on('change', function() {
                 var idProvince = this.value;
                 $("#kota-dropdown").html('');

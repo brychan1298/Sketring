@@ -3,7 +3,7 @@
 @section('description', 'Halaman Daftar Keranjang')
 @section('content')
     <div class="container m-auto">
-        <div class="grid grid-cols-3 border-b-2 pb-5 mt-[140px]">
+        <div class="mt-[100px] grid grid-cols-3 border-b-2 pb-5">
             <h1></h1>
             <h1 class="text-center font-bold text-2xl">Keranjang Belanja</h1>
             <div class="text-right">
@@ -78,33 +78,9 @@
                 @endforeach
                 <a href="/konsumen/keranjang/{{ $IdAcara }}">
                     <div>
-                        <div class="rounded-xl shadow-3xl relative">
-                            @if ($fotoProduk)
-                                <img src="{{ asset('storage/' . $fotoProduk) }}" alt=""
-                                    class="w-full aspect-square rounded-xl">
-                            @else
-                                <div class="w-full">
-                                    <img src="/images/empty-cart.png" alt=""
-                                        class="w-full m-auto aspect-square rounded-xl object-cover">
-                                </div>
-                            @endif
-                            <form action="/konsumen/hapus-keranjang" method="POST"
-                                onsubmit="return confirm('Apa anda ingin menghapus Keranjang {{ $acara }} ?')">
-                                @method('PUT')
-                                @csrf
-                                <input type="hidden" name="IdAcara" value="{{ $IdAcara }}">
-                                <button type="submit" class="absolute top-[5%] right-[5%] ">
-                                    <svg onclick=""
-                                        class="text-center w-full font-semibold text-sm cursor-pointer deleteCart"
-                                        width="28=" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.68114 1.52061L8.25175 2.31539H2.52656C1.47098 2.31539 0.618164 3.11017 0.618164 4.09391C0.618164 5.07766 1.47098 5.87244 2.52656 5.87244H25.4273C26.4829 5.87244 27.3357 5.07766 27.3357 4.09391C27.3357 3.11017 26.4829 2.31539 25.4273 2.31539H19.7021L19.2727 1.52061C18.9507 0.914802 18.2887 0.536865 17.5671 0.536865H10.3868C9.66516 0.536865 9.00318 0.914802 8.68114 1.52061ZM25.4273 7.65096H2.52656L3.79087 26.4922C3.88629 27.8983 5.13868 28.9932 6.64751 28.9932H21.3064C22.8152 28.9932 24.0676 27.8983 24.163 26.4922L25.4273 7.65096Z"
-                                            fill="#888888" />
-                                    </svg>
-                                </button>
-                            </form>
-
+                        <div class="rounded-md shadow-3xl">
+                            <img src="{{ asset('storage/' . $fotoProduk) }}" alt=""
+                                class="w-full aspect-square rounded-xl">
                         </div>
                         <h1 class="font-bold mt-5">
                             {{ $acara }}
