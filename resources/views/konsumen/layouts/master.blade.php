@@ -26,7 +26,7 @@
 </head>
 <body>
 @include('konsumen.layouts.navbar')
-<div>
+<div class="mt-12">
     @yield('content')
 </div>
 @include('konsumen.layouts.footer')
