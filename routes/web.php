@@ -104,10 +104,11 @@ Route::get('/pesananUmkm', function(){
 });
 
 
+Route::put('/tarikSaldoDebit/{id}', [UserController::class, 'tarikSaldoKonsumen']);
+Route::put('/tarikSaldoEmoney/{id}', [UserController::class, 'tarikSaldoKonsumen']);
 
-
-
-
+Route::put('/tarikSaldoDebitUMKM/{id}', [UserController::class, 'tarikSaldoUMKM']);
+Route::put('/tarikSaldoEmoneyUMKM/{id}', [UserController::class, 'tarikSaldoUMKM']);
 
 
 Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
