@@ -174,6 +174,33 @@
 
     <script>
         $(document).ready(function() {
+            var idProvince = document.querySelector("#Province-dropdown").value;
+            $("#kota-dropdown").html('');
+            $.ajax({
+                url: "{{ url('api/fetch-kota') }}",
+                type: "POST",
+                data: {
+                    Province_id: idProvince,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#kota-dropdown').html(
+                        '<option value="">Pilih Kota</option>');
+                    $.each(result.states, function(key, value) {
+                        if (value.id == {{ Auth::User()->IdKota }}) {
+                            $("#kota-dropdown").append('<option selected value="' + value
+                                .id + '">' + value.name + '</option>');
+                        }
+                        else{
+                            $("#kota-dropdown").append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                        }
+
+                    });
+                }
+            });
+
             $('#Province-dropdown').on('change', function() {
                 var idProvince = this.value;
                 $("#kota-dropdown").html('');
