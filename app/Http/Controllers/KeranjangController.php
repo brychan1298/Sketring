@@ -25,9 +25,7 @@ class KeranjangController extends Controller
         $Acara = Acara::selectRaw("Acara.Nama AS NamaAcara, Keranjang.*, Produk.*, Acara.IdAcara AS IdAcara")
                                 ->join("Keranjang","Keranjang.IdAcara","=","Acara.IdAcara")
                                 ->join("Produk","Produk.IdProduk","=","Keranjang.IdProduk")
-                                ->where("Acara.IdUser",Auth::User()->IdUser)
-                                ->where("Acara.Show",1)
-                                ->get();
+                                ->where("Acara.IdUser",Auth::User()->IdUser)->get();
         // dd($Acara);
         foreach($Acara as $items){
             $listAcara[$items->NamaAcara][] = $items;
@@ -44,8 +42,7 @@ class KeranjangController extends Controller
                                 ->join("Keranjang","Keranjang.IdAcara","=","Acara.IdAcara")
                                 ->join("Produk","Produk.IdProduk","=","Keranjang.IdProduk")
                                 ->where("Acara.IdUser",Auth::User()->IdUser)
-                                ->where("Acara.IdAcara",$IdAcara)
-                                ->get();
+                                ->where("Acara.IdAcara",$IdAcara)->get();
         // dd($Acara);
         $namaAcara = "";
         foreach($Acara as $items){
@@ -55,16 +52,6 @@ class KeranjangController extends Controller
 
         // dd($listAcara);
         return view("konsumen.keranjang",compact('listAcara','namaAcara'));
-    }
-
-    public function hapuskeranjang(Request $request){
-        $IdAcara = $request->IdAcara;
-
-        $Acara = Acara::find($IdAcara);
-        $Acara->Show = 0;
-        $Acara->save();
-
-        return redirect("/konsumen/listKeranjang");
     }
 
     public function CartCount(){

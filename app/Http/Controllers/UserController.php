@@ -24,15 +24,21 @@ class UserController extends Controller
         return view("konsumen.saldo");
     }
 
-    public function home(){
-        $produk = Produk::select("Produk.*");
-        if(Auth::check()){
-            $produk = $produk->join('users','Produk.IdUser','=','users.IdUser')
-                        ->join('regencies','users.IdKota','=','regencies.id')
-                        ->where('users.IdKota','=',Auth::User()->IdKota);
-        }
-        $produk = $produk->latest()->take(2)->get();
-        // dd($produk);
-        return view('konsumen.beranda', compact('produk'));
+    public function tarikSaldoKonsumen(request $request, User $user, $IdUser){
+        $user = User::find($IdUser);
+        $input = $request->nominal;
+        $user->Saldo = $user->Saldo - $input;
+        $user->save();
+
+        return redirect('/tarikSaldo');
+    }
+
+    public function tarikSaldoUMKM(request $request, User $user, $IdUser){
+        $user = User::find($IdUser);
+        $input = $request->nominal;
+        $user->Saldo = $user->Saldo - $input;
+        $user->save();
+
+        return redirect('/tarikSaldoUMKM');
     }
 }

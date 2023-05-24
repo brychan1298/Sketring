@@ -22,9 +22,7 @@ class AcaraController extends Controller
                         ->leftJoin('Produk',function($joins){
                             $joins->on('Produk.IdProduk','=','Keranjang.IdProduk');
                         })
-                        ->where('Acara.IdUser',Auth::User()->IdUser)
-                        ->where('Acara.Show',1)
-                        ->get();
+                        ->where('Acara.IdUser',Auth::User()->IdUser)->get();
 
         foreach($daftarAcara as $items){
             $listAcara[$items->NamaAcara][] = $items;

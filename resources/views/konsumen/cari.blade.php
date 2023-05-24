@@ -2,13 +2,14 @@
 @section('title', 'Cari Produk')
 @section('description', 'Cari Produk Katering di Kota Anda')
 @section('content')
-    <div class="container-md mx-auto flex flex-col items-center w-full mt-[120px]">
+
+    <div class="container-md mx-auto flex flex-col items-center mt-[82px] w-full">
         {{-- Search and Sort --}}
         <div class="flex flex-row justify-center items-center gap-[5vw] w-full p-[2vw]">
             {{-- Search Bar --}}
             <div class="flex w-[50%]">
                 <div class="relative w-full">
-                    <form action="/konsumen/cari">
+                    <form action="/cari">
                         {{-- @csrf --}}
                         <input value="{{ request('search') }}" name="search" type="search" id="location-search"
                             class="block p-[1vw] w-full z-20 text-sm text-black bg-white focus:ring-[#DC0000] rounded-[10px] border border-2 border-[#DC0000] focus:border-[#DC0000]"

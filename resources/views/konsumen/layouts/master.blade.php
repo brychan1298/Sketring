@@ -12,21 +12,14 @@
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     @vite(['resources/css/app.css'])
     <style>
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        body{
             font-family: 'Open Sans';
-        }
-
-        footer {
-            margin-top: auto;
         }
     </style>
 </head>
 <body>
 @include('konsumen.layouts.navbar')
-<div>
+<div class="pt-24">
     @yield('content')
 </div>
 @include('konsumen.layouts.footer')
