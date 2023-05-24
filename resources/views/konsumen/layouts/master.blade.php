@@ -19,7 +19,7 @@
 </head>
 <body>
 @include('konsumen.layouts.navbar')
-<div class="mt-12">
+<div class="pt-24">
     @yield('content')
 </div>
 @include('konsumen.layouts.footer')
