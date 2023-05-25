@@ -210,9 +210,11 @@
                         if (value.id == {{ Auth::User()->IdKota }}) {
                             $("#kota-dropdown").append('<option selected value="' + value
                                 .id + '">' + value.name + '</option>');
-                        }
-                        $("#kota-dropdown").append('<option value="' + value
+                        }else{
+                            $("#kota-dropdown").append('<option value="' + value
                             .id + '">' + value.name + '</option>');
+                        }
+
                     });
                 }
             });
