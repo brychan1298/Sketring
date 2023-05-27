@@ -2,7 +2,7 @@
 @section('title', 'Profil')
 @section('description', 'Deskripsi Profil Anda')
 @section('content')
-    <div class="container-md mx-auto flex flex-col mt-[48px] w-full">
+    <div class="container-md mx-auto flex flex-col mt-[140px] w-full">
         <div class="flex flex-row w-full h-max justify-start py-[48px]">
             <a href="/" class="z-50">
                 <div class="px-[48px]">

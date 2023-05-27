@@ -79,7 +79,7 @@
             @foreach ($produks as $produk)
                 <div class="rounded-md shadow-3xl produksatu flex md:flex-col">
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}" alt=""
-                        class="w-1/2 md:w-full h-auto rounded-md">
+                        class="w-1/2 md:w-full h-64 object-cover rounded-md">
                     <div class="p-4 flex flex-col justify-center">
                         <h1 class="font-bold my-1 2xl:text-xl lg:text-xl md:text-2xl sm:text-2xl text-xl">{{ $produk->Nama }}</h1>
                         <p class="font-normal text-md mt-3 2xl:text-sm mt-3 lg:text-base md:text-base">

@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function home(){
+        $produk = Produk::select("Produk.*");
+        if(Auth::check()){
+            $produk = $produk->join('users','Produk.IdUser','=','users.IdUser')
+                        ->join('regencies','users.IdKota','=','regencies.id')
+                        ->where('users.IdKota','=',Auth::User()->IdKota);
+        }
+        $produk = $produk->latest()->take(2)->get();
+        // dd($produk);
+        return view('konsumen.beranda', compact('produk'));
+    }
+
+
     public function detailToko($IdToko){
         $detailToko = User::findOrFail($IdToko);
         $listProduks = Produk::where('IdUser',$IdToko)->get();
