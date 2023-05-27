@@ -7,19 +7,14 @@
             color: #850000;
         }
 
-        .tambahProduk {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+
 
         @media(max-width: 767px) {
             .tambahProduk {
                 /* background-color: red; */
                 width: 85vw;
-                height: 300px;
-                padding: 5px 0px;
+                /* height: 300px; */
+                /* padding: 5px 0px; */
             }
 
             .konten {
@@ -62,8 +57,8 @@
             </div>
         </div>
 
-        <div class="konten grid gap-20 mt-12 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center md:w-full bg-red-400">
-            <a id="addProduct" href="/umkm/tambahProduk" class="bg-[#EBEBEB] rounded-md shadow-3xl tambahProduk py-32">
+        <div class="konten grid gap-20 mt-12 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center ">
+            <a id="addProduct" href="/umkm/tambahProduk" class="tambahProduk bg-[#EBEBEB] rounded-md shadow-3xl flex flex-row items-center justify-center gap-5 md:gap-0 md:flex-col py-12 md:py-48 lg:py-40 xl:py-52 2xl:py-44">
                 <svg id="addButton" version="1.1" id="Capa_1" class="h-20 w-20" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -82,15 +77,15 @@
             </a>
 
             @foreach ($produks as $produk)
-                <div class="rounded-md shadow-3xl produksatu">
+                <div class="rounded-md shadow-3xl produksatu flex md:flex-col">
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}" alt=""
-                        class="w-full h-[220px] rounded-md">
-                    <div class="p-4 ">
-                        <h1 class="font-bold my-1 2xl:text-xl lg:text-xl md:text-2xl sm:text-sm">{{ $produk->Nama }}</h1>
-                        <p class="font-normal text-xs mt-3 2xl:text-sm mt-3 lg:text-base md:text-base sm:text-xl">
+                        class="w-1/2 md:w-full h-auto rounded-md">
+                    <div class="p-4 flex flex-col justify-center">
+                        <h1 class="font-bold my-1 2xl:text-xl lg:text-xl md:text-2xl sm:text-2xl text-xl">{{ $produk->Nama }}</h1>
+                        <p class="font-normal text-md mt-3 2xl:text-sm mt-3 lg:text-base md:text-base">
                             {{ $produk->Deskripsi }}</p>
                         <div class="flex justify-between mt-4">
-                            <h1 class="text-[#850000] text-sm 2xl:text-base lg:text-base sm:text-xl">
+                            <h1 class="text-[#850000] text-md 2xl:text-base lg:text-base sm:text-xl">
                                 Rp {{ $produk->Harga }}
                             </h1>
                         </div>
