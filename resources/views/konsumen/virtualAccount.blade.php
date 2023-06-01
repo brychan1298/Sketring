@@ -78,10 +78,10 @@
             text-align: center;
         }
     </style>
-    <div class="mx-auto container-md">
+    <div class="mx-auto container-md mt-12">
         <div class="px-10 py-24">
             <div class="content_VirtualAccount">
-                <div class="w-full">
+                <div class="w-full flex justify-between">
                     <a href="/">
                         <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -97,9 +97,11 @@
                             </g>
                         </svg>
                     </a>
+                    <h1 class="mb-8 text-4xl font-bold text-center max-md:mb-12 max-md:text-2xl">Pembayaran</h1>
+                    <h1></h1>
                 </div>
                 {{-- Title --}}
-                <h1 class="mb-8 text-4xl font-bold text-center max-md:mb-12 max-md:text-2xl">Pembayaran</h1>
+
                 <div class="my-5 mb-12 border border-gray-500 border-solid max-md:mb-16"></div>
                 {{-- Content --}}
                 <p class="mb-8 text-2xl font-bold text-center max-md:text-xl">Terima Kasih Telah Berbelanja di S’ketring</p>

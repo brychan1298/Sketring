@@ -25,20 +25,26 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
 
-    @if(session()->has('status'))
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-        <span>
-            {{session('status')}}
-        </span>
-        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-        <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-        </span>
-    </div>
+    @if (session()->has('status'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <span>
+                {{ session('status') }}
+            </span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20">
+                    <title>Close</title>
+                    <path
+                        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                </svg>
+            </span>
+        </div>
     @endif
-    <div class="container m-auto mt-[100px]">
+    <div class="container m-auto mt-[140px]">
         <div class="judulAddProduk flex items-center justify-center mx-5">
-            <a href="/keranjang">
-                <svg class="md:w-10 md:h-10 w-8 h-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+            <a href="/konsumen/keranjang">
+                <svg class="md:w-10 md:h-10 w-8 h-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
@@ -80,60 +86,25 @@
                             <h2>Alamat Pengiriman</h2>
                         </div>
                         <div class="detailAlamat p-3 px-4 border-solid border-black border my-3 rounded-xl text-xl">
-                            <input type="text" value="{{Auth::User()->Nama}}" disabled> <br>
-                            <input type="text" value="{{Auth::User()->Nohp}}" disabled class="my-2">
-                            <textarea name="AlamatKirim" id="" cols="30" rows="10" readonly class="w-full h-24 text-left" style="resize:none">{{ Auth::User()->Alamat }}, {{ Auth::User()->Regency->name }}, {{ Auth::User()->Regency->Province->name }}</textarea>
+                            <input type="text" value="{{ Auth::User()->Nama }}" disabled> <br>
+                            <input type="text" value="{{ Auth::User()->Nohp }}" disabled class="my-2">
+                            <textarea name="AlamatKirim" id="" cols="30" rows="10" readonly class="w-full h-24 text-left"
+                                style="resize:none">{{ Auth::User()->Alamat }}, {{ Auth::User()->Regency->name }}, {{ Auth::User()->Regency->Province->name }}</textarea>
 
                         </div>
                     </div>
 
                     <div class="lg:w-1/3 w-full">
                         <h2>Nama Keranjang</h2>
-                        <h1 id="namaKeranjang" class="border-black border rounded-lg p-3 my-2">{{$namaAcara}}</h1>
+                        <h1 id="namaKeranjang" class="border-black border rounded-lg p-3 my-3">{{ $namaAcara }}</h1>
                         <h2>Masukan Tanggal & Jam Pesanan</h2>
-                        <div class="flex items-center justify-between my-2">
-                            <div class="time">
-                                <div class="inline-flex text-lg border rounded-md shadow-lg p-2">
-                                    <input type="date" name="TanggalPesanan" id="TanggalPesanan"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                                    {{-- <select name="" id=""
-                                        class="px-2 outline-none appearance-none bg-transparent">
-                                        <option value="00">00</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                    <span class="px-2">:</span>
-                                    <select name="" id=""
-                                        class="px-2 outline-none appearance-none bg-transparent">
-                                        <option value="00">00</option>
-                                        <option value="05">05</option>
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option>
-                                        <option value="25">25</option>
-                                        <option value="30">30</option>
-                                        <option value="35">35</option>
-                                        <option value="40">40</option>
-                                        <option value="45">45</option>
-                                        <option value="50">50</option>
-                                        <option value="55">55</option>
-                                    </select>
-                                    <select name="" id=""
-                                        class="px-2 outline-none appearance-none bg-transparent">
-                                        <option value="AM">AM</option>
-                                        <option value="PM">PM</option>
-                                    </select> --}}
-                                </div>
+                        <div class="flex items-center justify-between my-3">
+                            <div class="flex text-lg gap-10 w-full justify-center">
+                                <input type="date" name="TanggalPesanan" id="TanggalPesanan"
+                                    class="border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
+                                    placeholder="Select date">
+                                <input type="time" name="waktuPesanan"
+                                    class="text-sm rounded-lg border border-black w-full px-2">
                             </div>
                         </div>
                     </div>
@@ -151,7 +122,8 @@
                         </h2>
 
                         @foreach ($items as $listBarang)
-                            <input type="checkbox" name="listIdKeranjang[]" checked value="{{$listBarang->IdKeranjang}}" class="hidden" id="">
+                            <input type="checkbox" name="listIdKeranjang[]" checked value="{{ $listBarang->IdKeranjang }}"
+                                class="hidden" id="">
                             <div class="my-5 lg:flex justify-between">
                                 <img src="{{ asset('storage/' . $listBarang->FotoProduk) }}"
                                     class="w-52 h-52 rounded-lg mr-5">
@@ -161,7 +133,8 @@
                                         <h1 id="hargaProduk">@currency($listBarang->Harga)</h1>
                                         <h1 id="jumlahPesanan">Jumlah Pesanan: {{ $listBarang->Qty }}</h1>
                                     </div>
-                                    <input type="text" value="{{$listBarang->MinimalWaktuPO}}" name="" id="" class="hidden MinimalWaktuPO">
+                                    <input type="text" value="{{ $listBarang->MinimalWaktuPO }}" name=""
+                                        id="" class="hidden MinimalWaktuPO">
 
                                     <div class="detail2 py-10">
                                         <h1 class="text-end ">Total:</h1>
@@ -204,7 +177,8 @@
                 </div>
 
                 <div class="flex md:justify-end my-16 justify-center">
-                    <button type="submit" class="text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
+                    <button type="submit"
+                        class="text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
                         BAYAR
                     </button>
                 </div>
@@ -218,7 +192,7 @@
 
             var checks = document.getElementsByClassName("MinimalWaktuPO");
             var tglpesanan = document.getElementById("TanggalPesanan").value;
-            if(!tglpesanan){
+            if (!tglpesanan) {
                 alert("Tolong pilih tanggal pesanan terlebih dahulu");
                 return false;
             }
@@ -228,8 +202,9 @@
             var selisihHari = Math.round(selisih / (1000 * 60 * 60 * 24));
             // alert(selisihHari);
             for (let index = 0; index < checks.length; index++) {
-                if(checks[index].value > selisihHari){
-                    alert("Minimal waktu PO untuk " + checks.length + " barang ini adalah " + checks[index].value + " hari");
+                if (checks[index].value > selisihHari) {
+                    alert("Minimal waktu PO untuk " + checks.length + " barang ini adalah " + checks[index].value +
+                    " hari");
                     return false;
                 }
             }

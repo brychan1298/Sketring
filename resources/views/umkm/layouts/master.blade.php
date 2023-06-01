@@ -11,8 +11,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @vite(['resources/css/app.css'])
     <style>
-        body{
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             font-family: 'Open Sans';
+        }
+
+        footer {
+            margin-top: auto;
         }
     </style>
 </head>

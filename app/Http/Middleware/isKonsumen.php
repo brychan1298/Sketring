@@ -15,6 +15,9 @@ class isKonsumen
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!auth()->check()){
+            return redirect('/login');
+        }
         if(!auth()->check() || auth()->User()->Role !== 'konsumen'){
             abort(403);
         }

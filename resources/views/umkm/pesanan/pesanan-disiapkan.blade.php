@@ -68,7 +68,7 @@
                 @endforeach
                 <div class="gap-[0.5vw] mb-5">
                     <div class="flex flex-row w-max gap-[1vw] font-bold float-right">
-                        <a href="/umkm/detailTransaksi/{{ $Transaksis }}"
+                        <a href="/umkm/detailTransaksi-2/{{ $Transaksis }}"
                             class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                             DETAIL
                         </a>
