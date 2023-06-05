@@ -16,7 +16,7 @@
 <div class="grid grid-cols-4 gap-[2vw] bg-white px-[8vw] w-full items-center">
     @foreach ($produks as $produk)
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
-            <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[45vh] rounded-[10px] card-produk">
+            <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[52vh] rounded-[10px] card-produk">
                 {{-- Product Image --}}
                 <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
                     class="rounded-[10px] w-[full] h-[12vw] object-cover card-image" alt="">
@@ -48,7 +48,7 @@
                             <path fill="#8F8F8F"
                                 d="M5.5 7A1.5 1.5 0 0 1 4 5.5A1.5 1.5 0 0 1 5.5 4A1.5 1.5 0 0 1 7 5.5A1.5 1.5 0 0 1 5.5 7m15.91 4.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.11 0-2 .89-2 2v7c0 .55.22 1.05.59 1.41l8.99 9c.37.36.87.59 1.42.59c.55 0 1.05-.23 1.41-.59l7-7c.37-.36.59-.86.59-1.41c0-.56-.23-1.06-.59-1.42Z" />
                         </svg>
-                        <p>Rp {{ $produk->Harga }}</p>
+                        <p>@currency($produk->Harga)</p>
                     </div>
                 </div>
             </div>

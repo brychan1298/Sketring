@@ -57,8 +57,28 @@ class UmkmPesananController extends Controller
         $TanggalPesanan = date_create($tanggal);
         setlocale(LC_ALL, 'id_ID.utf8');
         $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
-        // dd($ListProduks);
-        return view("umkm.pesanan.detailPesanan", compact("ListProduks","TanggalPesanan","DataTransaksiUser","IdTransaksi"));
+        $statusView = "sudahbayar";
+        return view("umkm.pesanan.detailPesanan", compact("ListProduks","TanggalPesanan","DataTransaksiUser","IdTransaksi","statusView"));
+    }
+    public function umkmshow2($IdTransaksi){
+        $ListProduks = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
+                                ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                                ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                                ->where("Produk.IdUser",Auth::User()->IdUser)
+                                ->where(function ($query){
+                                    $query->where("TransaksiDetail.Status",2);
+                                    $query->orWhere("TransaksiDetail.Status",3);
+                                })
+                                ->where("Transaksi.IdTransaksi",$IdTransaksi)
+                                ->get();
+        $tanggal = Transaksi::where("IdTransaksi",$IdTransaksi)->first()->TanggalPesanan;
+        $DataTransaksiUser = Transaksi::where("IdTransaksi",$IdTransaksi)->first();
+        $TanggalPesanan = date_create($tanggal);
+        setlocale(LC_ALL, 'id_ID.utf8');
+        $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
+        $statusView = "disiapkan";
+        return view("umkm.pesanan.detailPesanan", compact("ListProduks","TanggalPesanan","DataTransaksiUser","IdTransaksi","statusView"));
     }
 
     public function umkmtolakpesanan($IdTransaksi){

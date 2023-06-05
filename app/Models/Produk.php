@@ -11,6 +11,10 @@ class Produk extends Model
     protected $table = 'Produk';
     protected $primaryKey = 'IdProduk';
     protected $guarded = ['IdProduk'];
+    // protected $fillable = [
+    //     'rating',
+    //     'jumlah_rating',
+    // ];
 
     public function User() {
         return $this->belongsTo(User::class,'IdUser');

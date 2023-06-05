@@ -6,6 +6,8 @@ use App\Models\Transaksi;
 use App\Models\Acara;
 use App\Models\Keranjang;
 use App\Models\TransaksiDetail;
+use App\Models\Produk;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -58,6 +60,7 @@ class TransaksiController extends Controller
         $Transaksi->TanggalPesanan = $date;
         $Transaksi->SudahBayar = 0;
         $Transaksi->AlamatKirim = $request->AlamatKirim;
+        $Transaksi->waktuPesanan = $request->waktuPesanan;
         $Transaksi->save();
 
         $LatestTransaksi = Transaksi::latest()->first();
@@ -174,6 +177,19 @@ class TransaksiController extends Controller
             ->update(
             ["Status"=>6]
         );
+
+        $DataProduk = Produk::join("TransaksiDetail","TransaksiDetail.IdProduk","=","Produk.IdProduk")
+                        ->where("TransaksiDetail.Id",$IdDetail)
+                        ->first();
+
+        $User = User::where("IdUser",$DataProduk->IdUser)->first();
+        $saldo = $User->Saldo;
+        $newSaldo = $saldo + ($DataProduk->Qty * $DataProduk->Harga);
+        User::where("IdUser",$DataProduk->IdUser)
+            ->update([
+                'Saldo' => $newSaldo
+            ]);
+        // dd($DataProduk);
 
         return redirect('konsumen/dikirimkan')->with("selesai", "Anda telah menerima pesanan");
     }

@@ -24,13 +24,13 @@
             <div class="flex flex-row w-full h-full overflow-hidden">
                 {{-- kotak kiri --}}
                 <div class="flex flex-col flex-shrink-0 hidden lg:block w-1/4 px-4 py-8 overflow-y-auto border-r-2 h-[97%] max-lg:w-full" id="chatMenu">
-                    <div class="flex flex-row items-center justify-center">
+                    {{-- <div class="flex flex-row items-center justify-center">
                         <input type="text" placeholder="Cari..." class="w-full px-4 py-2 text-lg border border-gray-400 border-solid rounded-md max-lg:mr-5">
                         <button data-collapse-toggle="chatMenu" type="button"class="lg:hidden" aria-controls="chatMenu" aria-expanded="false">
                             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
                         </button>
-                    </div>
-                    <div class="mt-8 mb-5 border border-gray-300 border-solid line"></div>
+                    </div> --}}
+                    {{-- <div class="mt-8 mb-5 border border-gray-300 border-solid line"></div> --}}
                     <div id="list-chat" class="flex flex-col">
                         <div class="flex flex-col -mx-2 space-y-1">
                         @php
@@ -64,7 +64,7 @@
 
                 {{-- kotak kanan | message --}}
                 <div class="flex flex-col flex-auto h-full">
-                    <div class="flex flex-col flex-auto flex-shrink-0 h-full p-4 rounded-2xl">
+                    <div class="flex flex-col flex-auto flex-shrink-0 h-full p-6 rounded-2xl">
                         {{-- Header --}}
                         <div class="flex items-center justify-between px-3 py-2 border-b-2 bg-grey-lighter">
                             <div class="flex items-center">
@@ -98,12 +98,12 @@
                                         </p>
                                     </div>
                                 </div> --}}
-                                <div id="chat-container" class="absolute bottom-0 grid w-full grid-cols-12 gap-5 h-[100%] overflow-x-hidden overflow-y-auto">
+                                <div id="chat-container" class="absolute bottom-0 w-full h-full overflow-x-hidden overflow-y-auto">
                                     @foreach($chats as $chat)
                                         @if($chat->IdSender == $myId && $chat->IdReceiver == $IdPerson)
-                                            <div class="w-full col-start-6 col-end-13 mb-8 mr-3 rounded-lg max-md:mb-12 max-sm:mb-2">
+                                            <div class="w-full col-start-6 col-end-13 my-12 rounded-lg max-md:mb-12 max-sm:mb-2 h-fit">
                                                 <div class="flex flex-row-reverse items-center justify-start">
-                                                    <div class="relative px-4 py-2 mr-3 text-sm bg-[#850000] text-white shadow rounded-xl">
+                                                    <div class="relative px-4 py-2 text-sm bg-[#850000] text-white shadow rounded-xl">
                                                         <div class="text-lg max-md:text-base">
                                                             {{ $chat->text }}
                                                         </div>
@@ -114,9 +114,9 @@
                                                 </div>
                                             </div>
                                         @elseif ($chat->IdReceiver == $myId && $chat->IdSender == $IdPerson)
-                                            <div class="col-start-1 col-end-8 mt-5 mb-8 ml-3 rounded-lg max-md:mb-12 max-sm:mb-8">
+                                            <div class="col-start-1 col-end-8 my-12 rounded-lg max-md:mb-12 max-sm:mb-8 h-fit">
                                                 <div class="flex flex-row items-center">
-                                                    <div class="relative flex-col px-4 py-2 ml-3 text-sm bg-gray-200 shadow d-flex rounded-xl">
+                                                    <div class="relative flex-col px-4 py-2 text-sm bg-gray-200 shadow d-flex rounded-xl">
                                                         <div class="text-lg max-md:text-base">
                                                             {{ $chat->text }}
                                                         </div>

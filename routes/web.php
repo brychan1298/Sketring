@@ -29,9 +29,10 @@ use App\Models\User;
 
 // Route::get('/',[KeranjangController::class, 'CartCount']);
 
-Route::get('/', function () {
-    return view('konsumen.beranda');
-})->middleware('forbidumkm');
+// Route::get('/', function () {
+//     return view('konsumen.beranda');
+// })->middleware('forbidumkm');
+Route::get('/', [UserController::class, 'home'])->middleware('forbidumkm');
 
 Route::get('/virtualaccount', function () {
     return view('konsumen.virtualAccount');
@@ -117,7 +118,8 @@ Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
     Route::get('/pesanan', [UmkmPesananController::class, 'umkmindex']);
     Route::get('/terima-pesanan/{Id}', [UmkmPesananController::class ,'umkmterimapesanan']);
     Route::get('/detailTransaksi/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow']);
-    Route::get('/tolak-pesanan/{IdTransaksi}', [UmkmPesananController::class, "umkmtolakpesanan"]);
+    Route::get('/detailTransaksi-2/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow2']);
+    Route::post('/tolak-pesanan/{IdTransaksi}', [UmkmPesananController::class, "umkmtolakpesanan"]);
     Route::get('/pesanan-disiapkan',[UmkmPesananController::class, 'umkmdisiapkan']);
     Route::get('/kirim-pesanan/{IdTransaksi}', [UmkmPesananController::class, 'umkmkirimpesanan']);
     Route::get('/pesanan-dikirimkan', [UmkmPesananController::class, 'umkmdikirimkan']);
@@ -149,6 +151,7 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
     Route::post('/tambahAcara',[AcaraController::class,'store']);
     Route::get('/keranjang', [KeranjangController::class, 'index']);
     Route::get('/keranjang/{IdAcara}', [KeranjangController::class, 'detailKeranjang']);
+    Route::put('/hapus-keranjang', [KeranjangController::class, 'hapuskeranjang']);
     Route::post('/addtocart',[KeranjangController::class, 'store']);
 
     // SESI EDIT KERANJANG

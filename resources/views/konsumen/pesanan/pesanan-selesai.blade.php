@@ -1,6 +1,6 @@
 @extends('konsumen.layouts.master')
-@section('title', 'Pesanan yang sedang disiapkan')
-@section('description', 'Daftar Pesanan Konsumen Yang Sedang Disiapkan')
+@section('title', 'Pesanan yang sudah selesai')
+@section('description', 'Daftar Pesanan Konsumen Yang Sudah Selesai')
 @section('content')
     <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
         <div class="flex flex-col justify-center items-center w-max m-[2vw] gap-[1vw]">
@@ -40,32 +40,43 @@
             })
         }
 
-  // Get all the star SVGs
-const stars = document.querySelectorAll('.star-svg');
+        // Get all the star SVGs
+        const stars = document.querySelectorAll('.star-svg');
 
-// Function to handle the click event
-function handleClick(event) {
-  const clickedStarId = event.currentTarget.id;
+        // Function to handle the click event
+        function handleClick(event) {
+        const clickedStarId = event.currentTarget.id;
 
-  // Loop through all the stars
-  stars.forEach(star => {
-    const starId = star.id;
+        // Loop through all the stars
+        stars.forEach(star => {
+            const starId = star.id;
 
-    // Change the class based on the clicked star and its position
-    if (clickedStarId === starId || (clickedStarId.startsWith('star-') && starId.startsWith('star-') && starId <= clickedStarId)) {
-      star.classList.remove('text-gray-500');
-      star.classList.add('text-yellow-500');
-    } else {
-      star.classList.remove('text-yellow-500');
-      star.classList.add('text-gray-500');
-    }
-  });
-}
+            // Change the class based on the clicked star and its position
+            if (clickedStarId === starId || (clickedStarId.startsWith('star-') && starId.startsWith('star-') && starId <= clickedStarId)) {
+            star.classList.remove('text-gray-500');
+            star.classList.add('text-yellow-500');
+            } else {
+            star.classList.remove('text-yellow-500');
+            star.classList.add('text-gray-500');
+            }
+        });
+        }
 
-// Attach the click event listener to each star SVG
-stars.forEach(star => {
-  star.addEventListener('click', handleClick);
-});
+        // Attach the click event listener to each star SVG
+        stars.forEach(star => {
+            star.addEventListener('click', handleClick);
+            star.addEventListener('click', () => {
+                // Reset all stars
+                stars.forEach(star => star.classList.remove('checked'));
 
+                // Set the clicked star and update the hidden input value
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.add('checked');
+                }
+
+                // Update the hidden input value with the rating
+                document.getElementById('rating-input').value = index + 1;
+            });
+        });
     </script>
 @endsection

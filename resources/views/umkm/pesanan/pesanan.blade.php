@@ -2,7 +2,7 @@
 @section('title', 'Pesanan Anda')
 @section('description', 'Pesanan dari para konsumen')
 @section('content')
-    <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
+    <div class="container-md mx-auto flex flex-col items-center mt-[40px] w-full">
         @if (session()->has('Success'))
             <div id="alert"
                 class="flex mt-12 bg-success border border-green-700 text-green-700 px-4 py-3 rounded relative alert alert-success"
@@ -22,7 +22,7 @@
         @endif
         @if (session()->has('Delete'))
             <div id="alert"
-                class="flex mt-5 bg-warning border border-red-700 text-red-700 px-4 py-3 rounded relative alert alert-success"
+                class="flex mt-12 bg-warning border border-red-700 text-red-700 px-4 py-3 rounded relative alert alert-success"
                 role="alert">
                 <span>
                     {{ session('Delete') }}

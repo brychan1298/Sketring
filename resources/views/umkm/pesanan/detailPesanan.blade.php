@@ -26,7 +26,7 @@
             font-size: 20px;
         }
     </style>
-    <div class="container m-auto mt-[100px]">
+    <div class="container m-auto mt-[140px]">
         <div class="judulAddProduk flex items-center justify-center mx-5">
             <a href="/umkm/pesanan">
                 <svg class="md:w-10 md:h-10 w-8 h-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
@@ -68,6 +68,15 @@
                                 d="M5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Zm7-6q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18Z" />
                         </svg>
                         <h2 id="tanggalPesanan" class="mx-3">{{ $TanggalPesanan }}</h2>
+                    </div>
+                    <div class="waktu flex items-center my-3">
+                        <svg width="26" height="26" viewBox="0 0 50 50" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M25 0C38.8075 0 50 11.1925 50 25C50 38.8075 38.8075 50 25 50C11.1925 50 0 38.8075 0 25C0 11.1925 11.1925 0 25 0ZM25 5C19.6957 5 14.6086 7.10714 10.8579 10.8579C7.10714 14.6086 5 19.6957 5 25C5 30.3043 7.10714 35.3914 10.8579 39.1421C14.6086 42.8929 19.6957 45 25 45C30.3043 45 35.3914 42.8929 39.1421 39.1421C42.8929 35.3914 45 30.3043 45 25C45 19.6957 42.8929 14.6086 39.1421 10.8579C35.3914 7.10714 30.3043 5 25 5ZM25 10C25.6123 10.0001 26.2033 10.2249 26.6609 10.6318C27.1185 11.0387 27.4109 11.5994 27.4825 12.2075L27.5 12.5V23.965L34.2675 30.7325C34.7159 31.1824 34.9762 31.7861 34.9956 32.421C35.015 33.0558 34.792 33.6743 34.3719 34.1507C33.9518 34.6271 33.3661 34.9258 32.7338 34.986C32.1015 35.0462 31.47 34.8635 30.9675 34.475L30.7325 34.2675L23.2325 26.7675C22.8439 26.3786 22.5944 25.8725 22.5225 25.3275L22.5 25V12.5C22.5 11.837 22.7634 11.2011 23.2322 10.7322C23.7011 10.2634 24.337 10 25 10Z"
+                                fill="black" />
+                        </svg>
+                        <h2 class="mx-3">{{ $DataTransaksiUser->waktuPesanan }}</h2>
                     </div>
                 </div>
 
@@ -144,19 +153,43 @@
                 <h1 class="text-2xl text-[#850000] font-black" id="totalharga">@currency($SubTotal + 30000)</h1>
             </div>
 
-            <div class="flex md:justify-end my-16 justify-center">
-                <a href="/umkm/tolak-pesanan/{{ $IdTransaksi }}"
-                    class="text-xl mx-2 px-8 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">
-                    TOLAK
-                </a>
-                <form action="/umkm/terima-pesanan/{{ $IdTransaksi }}" method="get">
-                    @csrf
-                    <button type="submit"
-                    class="text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
-                        TERIMA
-                    </button>
-                </form>
-            </div>
+            @if ($statusView == 'sudahbayar')
+                <div class="flex md:justify-end my-16 justify-center">
+                    <form action="/umkm/tolak-pesanan/{{ $IdTransaksi }}" method="POST"
+                        onsubmit="return confirm('Anda akan menolak pesanan untuk transaksi #{{ $IdTransaksi }}?')">
+                        @csrf
+                        <button type="submit" href="/umkm/tolak-pesanan/{{ $IdTransaksi }}"
+                            class="text-xl mx-2 px-8 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 border border-red-600 hover:border-transparent rounded">
+                            TOLAK
+                        </button>
+                    </form>
+                    <form action="/umkm/terima-pesanan/{{ $IdTransaksi }}" method="get">
+                        @csrf
+                        <button type="submit"
+                            onsubmit="return confirm('Anda akan menerima transaksi #{{ $IdTransaksi }}?')"
+                            class="text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 rounded">
+                            TERIMA
+                        </button>
+                    </form>
+                </div>
+            @endif
+
+            @if ($statusView == 'disiapkan')
+                <div class="flex md:justify-end my-16 justify-center">
+                    <a href="/umkm/chat/{{ $DataTransaksiUser->IdUser }}"
+                        class="text-xl mx-2 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">
+                        CHAT
+                    </a>
+                    <form action="/umkm/kirim-pesanan/{{ $IdTransaksi }}" method="get"
+                        onsubmit="return confirm('Anda akan mengirim transaksi #{{ $IdTransaksi }}?')">
+                        @csrf
+                        <button type="submit"
+                            class="text-white px-8 bg-[#DC0000] py-2 px-4 border border-2 border-[#DC0000] text-xl font-semibold rounded-md">
+                            KIRIM
+                        </button>
+                    </form>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

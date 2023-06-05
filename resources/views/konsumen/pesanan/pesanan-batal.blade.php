@@ -1,6 +1,6 @@
 @extends('konsumen.layouts.master')
-@section('title', 'Pesanan yang sedang disiapkan')
-@section('description', 'Daftar Pesanan Konsumen Yang Sedang Disiapkan')
+@section('title', 'Pesanan yang dibatalkan')
+@section('description', 'Daftar Pesanan Konsumen Yang Dibatalkan')
 @section('content')
     <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
         <div class="flex flex-col justify-center items-center w-max m-[2vw] gap-[1vw]">
