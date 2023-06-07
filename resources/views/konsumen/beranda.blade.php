@@ -51,22 +51,51 @@
                             </div>
                         </div>
                         <div>
-                            <button class="bg-[#850000] text-white px-5 py-2 rounded-md font-semibold">
+                            <a href="/konsumen/detailproduk/{{ $item->IdProduk }}"
+                                class="bg-[#850000] text-white px-5 py-2 rounded-md font-semibold">
                                 Lihat Detail
-                            </button>
+                            </a>
                         </div>
                     </div>
                 @endforeach
             </div>
 
-            <div class="rounded-xl shadow-3xl max-sm:mx-7 max-sm:mt-10">
+            <div class="rounded-xl shadow-3xl h-full">
                 <div class="bg-[#850000] rounded-t-xl px-7 py-2">
                     <h1 class="text-2xl text-white">
                         Chat
                     </h1>
                 </div>
-                <div class="mx-7 py-5 flex border-b-2 items-center justify-between">
-                    <div class="flex gap-5">
+                @if (Auth::check())
+                    <div class="mx-7 py-5 items-center justify-between">
+                        @php
+                            $countId = 0;
+                        @endphp
+                        @foreach ($lastChatRaw as $chatIds)
+                            <a href="/konsumen/chat/{{ $chatIds->IdUser }}"
+                                class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
+                                <div class="flex-shrink-0">
+                                    <img class="w-16 h-16 rounded-full"
+                                        src="{{ asset('storage/' . $chatIds->FotoProfil) }}" />
+                                </div>
+                                <div class="ml-2">
+                                    <h1 class="text-lg font-semibold text-left">{{ $chatIds->Nama }}</h1>
+                                    <p class="text-sm text-left text-gray-500">
+                                        {{ \Illuminate\Support\Str::limit($chatIds->text, 30, '...') }}</p>
+                                </div>
+                                <div class="ml-auto notif">
+                                    @if ($unread[$countId]->Count > 0)
+                                        <span
+                                            class="flex justify-center w-6 h-6 text-white bg-red-500 rounded-full">{{ $unread[$countId]->Count }}</span>
+                                    @endif
+                                </div>
+                            </a>
+                            <div class="my-3 border border-gray-300 border-solid line"></div>
+                            @php
+                                $countId++;
+                            @endphp
+                        @endforeach
+                        {{-- <div class="flex gap-5">
                         <img class="w-12 h-12 rounded-full bg-gray" src="">
                         <div class="">
                             <h1 class="font-semibold">
@@ -79,8 +108,20 @@
                     </div>
                     <div>
                         1
+                    </div> --}}
                     </div>
-                </div>
+                @else
+                    <div class="grid place-items-center py-24">
+
+                        <h2 class="text-center font-bold mx-24 mt-5 text-xl text-[#850000]">
+                            SILAHKAN LOGIN TERLEBIH DAHULU UNTUK CHAT
+                        </h2>
+                        <a href="/login" class="px-8 py-2 mt-5 rounded-md bg-[#850000] text-white text-xl">
+                            Login
+                        </a>
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>

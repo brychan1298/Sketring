@@ -3,7 +3,7 @@
 @section('description', 'Halaman Toko')
 @section('content')
 
-<div class="container m-auto mt-[100px]">
+<div class="container m-auto mt-[140px] mb-[60px]">
     <div>
         <a href="{{ URL::previous() }}">
             <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,9 +47,9 @@
         <div class="flex-grow border-t border-[#850000]"></div>
     </div>
 
-    <div class="mt-10 grid grid-cols-4 gap-6">
+    <div class="mt-10 grid md:max-xl:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-6">
         @foreach ($listProduks as $produk)
-            <div class="rounded-md shadow-3xl p-5">
+            <div class="rounded-md shadow-3xl p-5 max-sm:mx-8">
                 <div class="flex justify-between items-start">
                     <div>
                         <h1 class="font-extrabold text-xl mb-4 h-[5vh]">
@@ -67,7 +67,7 @@
                             </p>
                         </div>
                     </div>
-                    <img src="{{ asset('storage/' . $produk->FotoProduk) }}" alt="" class="w-24 h-full object-cover aspect-square">
+                    <img src="{{ asset('storage/' . $produk->FotoProduk) }}" alt="" class="sm:w-[7vw] sm:h-[7vw] w-[28vw] h-[28vw] h-full object-cover aspect-square">
                 </div>
                 <div class="float-right mt-6">
                     <a href="/konsumen/detailproduk/{{$produk->IdProduk}}" class="border-2 border-[#DC0000] rounded-xl text-[#DC0000] font-bold px-5 py-2">
