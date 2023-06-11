@@ -81,6 +81,25 @@ class UmkmPesananController extends Controller
         return view("umkm.pesanan.detailPesanan", compact("ListProduks","TanggalPesanan","DataTransaksiUser","IdTransaksi","statusView"));
     }
 
+    public function umkmshow3($IdTransaksi){
+        $ListProduks = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
+                                ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                                ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                                ->where("Produk.IdUser",Auth::User()->IdUser)
+                                ->where(function ($query){
+                                    $query->where("TransaksiDetail.Status",6);
+                                })
+                                ->where("Transaksi.IdTransaksi",$IdTransaksi)
+                                ->get();
+        $tanggal = Transaksi::where("IdTransaksi",$IdTransaksi)->first()->TanggalPesanan;
+        $DataTransaksiUser = Transaksi::where("IdTransaksi",$IdTransaksi)->first();
+        $TanggalPesanan = date_create($tanggal);
+        setlocale(LC_ALL, 'id_ID.utf8');
+        $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
+        $statusView = "selesai";
+        return view("umkm.pesanan.detailPesanan", compact("ListProduks","TanggalPesanan","DataTransaksiUser","IdTransaksi","statusView"));
+    }
     public function umkmtolakpesanan($IdTransaksi){
         $TransaksiDetail = TransaksiDetail::
             join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")

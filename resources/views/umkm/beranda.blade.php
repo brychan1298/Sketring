@@ -3,7 +3,7 @@
 @section('description', 'Halaman Beranda UMKM')
 @section('content')
 
-    <div class="container m-auto mt-[100px]">
+    <div class="container m-auto mt-[140px]">
         <div class="rounded-md shadow-3xl py-10">
             <p class="text-[#C0C0C0] font-semibold text-center ">
                 {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd, D MMMM YYYY') }}

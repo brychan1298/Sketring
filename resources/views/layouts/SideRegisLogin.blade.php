@@ -11,7 +11,7 @@
         background-color: white;
     }
 </style>
-<div class="container m-auto mt-[100px] mb-[60px]">
+<div class="container m-auto mt-[160px] mb-[60px]">
     <div class="flex">
         <div class="sm:w-1/2 max-lg:hidden flex justify-center items-center" id="left">
             <div class="bg-[#D9D9D9] bg-opacity-75 px-[8vw] py-[35%] text-center">

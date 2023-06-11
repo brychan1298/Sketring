@@ -10,7 +10,14 @@
         }
     </style>
 
-    <div class="container mt-[100px] mx-auto">
+    <div class="container mt-[140px] mx-auto">
+        <div>
+            <a href={{URL("konsumen/cari")}}>
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
+                </svg>
+            </a>
+        </div>
         <div class="flex">
             <div class="w-1/2 p-10">
                 <img src="{{ asset('storage/' . $detailProduk->FotoProduk) }}" alt="">
@@ -82,9 +89,6 @@
                     <div class="flex gap-3 mt-7 font-black">
                         <button class="addtocart bg-white border-2 border-[#DC0000] text-[#DC0000] py-1 px-4 rounded-lg">
                             MASUKKAN KERANJANG
-                        </button>
-                        <button class="bg-[#DC0000] text-white py-1 px-4 rounded-md">
-                            BELI SEKARANG
                         </button>
                     </div>
 
