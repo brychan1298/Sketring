@@ -9,11 +9,11 @@
             {{-- Search Bar --}}
             <div class="flex w-[50%]">
                 <div class="relative w-full">
-                    <form action="/konsumen/cari">
+                    <form action="/konsumen/cari" method="GET">
                         {{-- @csrf --}}
                         <input value="{{ request('search') }}" name="search" type="search" id="location-search"
                             class="block p-[1vw] w-full z-20 text-sm text-black bg-white focus:ring-[#DC0000] rounded-[10px] border border-2 border-[#DC0000] focus:border-[#DC0000]"
-                            placeholder="Cari nama produk atau lokasi" required>
+                            placeholder="Cari nama produk" required>
                         <button type="submit"
                             class="absolute top-0 right-0 p-[1vw] text-sm font-medium text-white bg-[#DC0000] rounded-r-lg border border-2 border-[#DC0000] hover:bg-[#850000] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
 

@@ -22,9 +22,6 @@
             width: 50%;
         }
     </style>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
-
     @if (session()->has('status'))
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <span>
@@ -204,7 +201,7 @@
             for (let index = 0; index < checks.length; index++) {
                 if (checks[index].value > selisihHari) {
                     alert("Minimal waktu PO untuk " + checks.length + " barang ini adalah " + checks[index].value +
-                    " hari");
+                        " hari");
                     return false;
                 }
             }

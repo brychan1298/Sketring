@@ -39,8 +39,7 @@ class ProdukController extends Controller
 
         if(request('search')){
             // dd(request('search'));
-            $produks->where('Produk.Nama','like','%'.request('search').'%')
-                ->orWhere('regencies.name','like','%'.request('search').'%');
+            $produks = $produks->where('Produk.Nama','like','%'.request('search').'%');
         }
 
         $produks = $produks->paginate(10)->withQueryString();
