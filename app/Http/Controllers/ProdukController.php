@@ -26,7 +26,6 @@ class ProdukController extends Controller
 
     public function konsumenIndex(Request $request)
     {
-
         if(Auth::check()){
             $produks = Produk::select('Produk.*')->join('users','Produk.IdUser','=','users.IdUser')
                         ->join('regencies','users.IdKota','=','regencies.id')
@@ -37,14 +36,28 @@ class ProdukController extends Controller
             $produks = Produk::latest();
         }
 
-        if(request('search')){
-            // dd(request('search'));
-            $produks = $produks->where('Produk.Nama','like','%'.request('search').'%');
-        }
+
 
         $produks = $produks->paginate(10)->withQueryString();
 
         return view("konsumen.cari",compact('produks'));
+    }
+
+    public function konsumenSearch(Request $request){
+        if(Auth::check()){
+            $produks = Produk::select('Produk.*')->join('users','Produk.IdUser','=','users.IdUser')
+                        ->join('regencies','users.IdKota','=','regencies.id')
+                        ->where('users.IdKota','=',Auth::User()->IdKota);
+        }else{
+            $produks = Produk::latest();
+        }
+        if(request('search') != ""){
+            $produks = $produks->where('Produk.Nama','like','%'.request('search').'%');
+        }
+        $produks = $produks->paginate(10)->withQueryString();
+        $view = view("konsumen.data-cari",['produks' => $produks]);
+        $html = $view->render();
+        return $html;
     }
 
     /**

@@ -9,22 +9,18 @@
             {{-- Search Bar --}}
             <div class="flex w-[50%]">
                 <div class="relative w-full">
-                    <form action="/konsumen/cari" method="GET">
-                        {{-- @csrf --}}
-                        <input value="{{ request('search') }}" name="search" type="search" id="location-search"
-                            class="block p-[1vw] w-full z-20 text-sm text-black bg-white focus:ring-[#DC0000] rounded-[10px] border border-2 border-[#DC0000] focus:border-[#DC0000]"
-                            placeholder="Cari nama produk" required>
-                        <button type="submit"
-                            class="absolute top-0 right-0 p-[1vw] text-sm font-medium text-white bg-[#DC0000] rounded-r-lg border border-2 border-[#DC0000] hover:bg-[#850000] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-
-                            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                            <span class="sr-only">Search</span>
-                        </button>
-                    </form>
+                    <input value="{{ request('search') }}" name="search" type="search" id="search"
+                        class="block p-[1vw] w-full z-20 text-sm text-black bg-white focus:ring-[#DC0000] rounded-[10px] border border-2 border-[#DC0000] focus:border-[#DC0000]"
+                        placeholder="Cari nama produk" required>
+                    <button type="submit"
+                        class="absolute top-0 right-0 p-[1vw] text-sm font-medium text-white bg-[#DC0000] rounded-r-lg border border-2 border-[#DC0000] hover:bg-[#850000] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <span class="sr-only">Search</span>
+                    </button>
                 </div>
             </div>
 
@@ -67,5 +63,21 @@
                 }
             })
         }
+
+        $(document).ready(function(){
+                $('#search').on('keyup', function(){
+                    var query = $(this).val();
+                    $.ajax({
+                        url:"/konsumen/search",
+                        type:"GET",
+                        data:{
+                            search:query
+                        },
+                        success: function(data){
+                            $('#produk').html(data);
+                        }
+                    })
+                })
+            })
     </script>
 @endsection

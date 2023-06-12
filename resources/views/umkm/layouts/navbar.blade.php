@@ -71,8 +71,7 @@
                 <li>
                     <a href="/umkm"
                         class="block py-2 px-4 pr-4 text-white
-                                md:bg-transparent md:text-white-700
-                                underline"
+                                md:bg-transparent md:text-white-700"
                         aria-current="page">Beranda</a>
                 </li>
                 <li>

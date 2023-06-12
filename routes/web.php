@@ -58,6 +58,7 @@ Route::get('/editProfile', function(){
 
 
 Route::get('/konsumen/cari', [ProdukController::class,'konsumenIndex']);
+Route::get('/konsumen/search', [ProdukController::class,'konsumenSearch']);
 Route::get('/konsumen/filter-produk',[ProdukController::class, 'filterProduk']);
 
 Route::get('/pesananKonsumen', function(){
