@@ -4,8 +4,10 @@
 @section('content')
     <div class="">
         <div id="" class="container-md mx-auto">
-            <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill mt-12"
-                style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
+            {{-- <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill mt-12"
+                style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)"> --}}
+                <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill mt-12"
+                style="background-image: url(images/home_banner.png)">
                 <div class="md:w-1/2 px-[5.5%]">
                     <p class="font-bold text-sm uppercase">Selamat datang</p>
                     <p class="text-7xl font-bold mt-4">Sketring</p>
@@ -135,7 +137,7 @@
             <p class="uppercase text-5xl mt-2">
                 sketring
             </p>
-            <p class="sm:mx-[35vw] mx-[15vw] mt-5">
+            <p class="sm:mx-[32vw] mx-[15vw] mt-5">
                 Kami adalah platform inovatif yang didedikasikan untuk membantu UMKM katering dan memfasilitasi konsumen
                 dalam menemukan katering terbaik di daerah mereka. Kami memahami betapa pentingnya makanan yang lezat dan
                 berkualitas untuk setiap acara spesial Anda. Dengan Sketring, Anda dapat menjelajahi beragam pilihan

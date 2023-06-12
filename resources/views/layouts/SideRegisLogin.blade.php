@@ -14,12 +14,10 @@
 <div class="container m-auto mt-[160px] mb-[60px]">
     <div class="flex">
         <div class="sm:w-1/2 max-lg:hidden flex justify-center items-center" id="left">
-            <div class="bg-[#D9D9D9] bg-opacity-75 px-[8vw] py-[35%] text-center">
-                <h1 class="uppercase font-extrabold text-6xl my-auto">
-                    S'KETRING
-                </h1>
-                <p class="text-3xl mt-5">
-                    Ring My Katering
+            <div class="bg-[black] bg-opacity-50 px-[8vw] py-[35%] text-center">
+                <img src="/images/LogoSketring.png" alt="" class="sm:w-72 align-middle">
+                <p class="text-3xl mt-5 text-white font-bold">
+                    "RING MY KATERING!"
                 </p>
             </div>
         </div>
