@@ -89,7 +89,8 @@
                 <li>
                     <a href="/"
                         class="block py-2 px-4 pr-4 text-white
-                                md:bg-transparent md:text-white-700"
+                                md:bg-transparent md:text-white-700
+                                {{ set_active(['beranda']) }}"
                         aria-current="page">Beranda</a>
                 </li>
                 <li>
