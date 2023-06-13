@@ -1,6 +1,6 @@
-@extends('konsumen.layouts.master')
-@section('title', 'Tarik Saldo Konsumen')
-@section('description', 'Halaman Tarik Saldo Konsumen')
+@extends('umkm.layouts.master')
+@section('title', 'Tarik Saldo UMKM')
+@section('description', 'Halaman Tarik Saldo UMKM')
 @section('content')
 
 <style>
