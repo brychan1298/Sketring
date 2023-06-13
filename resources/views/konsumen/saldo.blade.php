@@ -83,16 +83,16 @@
                 </g>
             </svg>
         </a>
-        <h2 class="text-4xl font-black textJudul">Tarik Saldo</h2>
+        <h2 class="text-4xl font-black max-md:text-2xl max-lg:text-3xl textJudul">Tarik Saldo</h2>
     </div>
 
     <hr class="my-8">
 
     <div class="flex justify-center">
-        <div class="relative flex items-center justify-center w-1/6 btn-container bal" x-data="{ show: true }">
-            <h1 class="money text-[#850000] text-3xl px-2" id="saldo">@currency(Auth::User()->Saldo)</h1>
+        <div class="relative flex items-center justify-center w-1/2 btn-container bal" x-data="{ show: true }">
+            <h1 class="money text-[#850000] text-3xl max-lg:text-2xl px-2" id="saldo">@currency(Auth::User()->Saldo)</h1>
             <button id="toggle-btn" onclick="toggleBalance('@currency(Auth::User()->Saldo)')">
-                <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
+                <svg class="h-6 text-gray-700 max-lg:h-4" fill="none" @click="show = !show"
                     :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
                     viewbox="0 0 576 512">
                     <path fill="currentColor"
@@ -100,7 +100,7 @@
                     </path>
                 </svg>
 
-                <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
+                <svg class="h-6 text-gray-700 max-lg:h-4" fill="none" @click="show = !show"
                     :class="{'block': !show, 'hidden':show }" xmlns="http://www.w3.org/2000/svg"
                     viewbox="0 0 640 512">
                     <path fill="currentColor"

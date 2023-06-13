@@ -1,4 +1,4 @@
-@extends('umkm.layouts.master')
+@extends('konsumen.layouts.master')
 @section('title', 'Tarik Saldo Konsumen')
 @section('description', 'Halaman Tarik Saldo Konsumen')
 @section('content')
@@ -65,6 +65,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
 <div class="container m-auto mt-[130px]">
     <div class="flex items-center justify-center judulAddProduk">
         <a href="">
@@ -82,16 +83,16 @@
                 </g>
             </svg>
         </a>
-        <h2 class="text-4xl font-black textJudul">Tarik Saldo</h2>
+        <h2 class="text-4xl font-black max-md:text-2xl max-lg:text-3xl textJudul">Tarik Saldo</h2>
     </div>
 
     <hr class="my-8">
 
     <div class="flex justify-center">
-        <div class="relative flex items-center justify-center w-1/6 btn-container bal" x-data="{ show: true }">
-            <h1 class="money text-[#850000] text-3xl px-2" id="saldo">@currency(Auth::User()->Saldo)</h1>
+        <div class="relative flex items-center justify-center w-1/2 btn-container bal" x-data="{ show: true }">
+            <h1 class="money text-[#850000] text-3xl max-lg:text-2xl px-2" id="saldo">@currency(Auth::User()->Saldo)</h1>
             <button id="toggle-btn" onclick="toggleBalance('@currency(Auth::User()->Saldo)')">
-                <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
+                <svg class="h-6 text-gray-700 max-lg:h-4" fill="none" @click="show = !show"
                     :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
                     viewbox="0 0 576 512">
                     <path fill="currentColor"
@@ -99,7 +100,7 @@
                     </path>
                 </svg>
 
-                <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
+                <svg class="h-6 text-gray-700 max-lg:h-4" fill="none" @click="show = !show"
                     :class="{'block': !show, 'hidden':show }" xmlns="http://www.w3.org/2000/svg"
                     viewbox="0 0 640 512">
                     <path fill="currentColor"
@@ -110,7 +111,7 @@
         </div>
     </div>
 
-    <div class="pb-6 mx-32">
+    <div class="pb-6 mx-12 md:mx-24 lg:mx-32 2xl:mx-64">
         <h1 class="mt-16 text-2xl">Tarik Saldo</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 
