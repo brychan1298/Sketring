@@ -83,8 +83,25 @@ class TransaksiController extends Controller
     }
 
     public function virtualaccount($IdTransaksi){
+        $ListProduks = [];
+        $ListProduk = Acara::selectRaw("Acara.Nama AS NamaAcara, Transaksi.*, Produk.*, TransaksiDetail.*")
+                                ->join("TransaksiDetail","TransaksiDetail.IdAcara","=","Acara.IdAcara")
+                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                                ->join("Transaksi","Transaksi.IdTransaksi","=","TransaksiDetail.IdTransaksi")
+                                ->where("Transaksi.IdTransaksi",$IdTransaksi)->get();
+        $tanggal = Transaksi::where("IdTransaksi",$IdTransaksi)->first()->TanggalPesanan;
+        $TanggalPesanan = date_create($tanggal);
+        setlocale(LC_ALL, 'id_ID.utf8');
+        $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
+        $TanggalTemp = $TanggalPesanan;
+        $TanggalTemp = strtotime($TanggalPesanan);
+        $TanggalBesok = $TanggalTemp + (24 * 60 * 60);
+        $TanggalBesokFinal = strftime('%e %B %Y', $TanggalBesok);
+        foreach($ListProduk as $items){
+            $ListProduks[$items->NamaAcara][] = $items;
+        }
 
-        return view("konsumen.virtualAccount", compact('IdTransaksi'));
+        return view("konsumen.virtualAccount", compact('IdTransaksi', 'ListProduks', 'TanggalBesokFinal'));
     }
 
     /**

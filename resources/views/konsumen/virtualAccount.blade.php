@@ -81,7 +81,7 @@
     <div class="mx-auto mt-12 container-md">
         <div class="px-10 py-24 max-sm:py-16">
             <div class="content_VirtualAccount">
-                <div class="flex justify-between w-full">
+                <div class="inline-flex w-full">
                     <a href="/">
                         <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -97,65 +97,62 @@
                             </g>
                         </svg>
                     </a>
-                    <h1 class="mb-8 text-4xl font-bold text-center max-md:text-2xl">Pembayaran</h1>
-                    <h1></h1>
+                    <h1 class="mx-auto mb-8 text-4xl font-bold max-md:text-2xl">Pembayaran</h1>
                 </div>
-                {{-- Title --}}
-
                 <div class="my-5 mb-12 border border-gray-500 border-solid max-md:mb-8"></div>
-                {{-- Content --}}
-                <p class="mb-8 text-2xl font-bold text-center max-md:text-xl">Terima Kasih Telah Berbelanja di S’ketring</p>
-                <p class="mb-8 text-2xl text-center max-md:text-xl">Silahkan lakukan pembayaran melalui No.
-                    Virtual Account berikut ini :</p>
-                <div class="inline-flex items-center justify-center w-full mx-auto gap-x-2 max-md:gap-x-1">
-                    <div class="container bg-[#FFE6AE] border-2 border-[#850000] w-fit h-full mb-8">
-                        <p class="text-2xl max-md:text-xl px-[4vw] py-[1vw]">123813139083821</p>
+                {{-- Title --}}
+                @foreach ($ListProduks as $acaras => $items)
+                    {{-- Content --}}
+                    <p class="mb-8 text-2xl text-center max-md:text-xl">Terima Kasih Telah Berbelanja di S’ketring</p>
+                    {{-- <p class="mb-8 text-2xl text-center max-md:text-xl">Silahkan lakukan pembayaran sampai batas waktu (?)</p> --}}
+                    {{-- <div class="w-full"> --}}
+                    @foreach ($items as $listBarang)
+                    <input type="checkbox" name="listIdKeranjang[]" checked value="{{$listBarang->IdKeranjang}}" class="hidden" id="">
+                    @endforeach
+                    {{-- </div> --}}
+                    <p class="mb-8 text-2xl max-md:text-xl text-center text-[#DC0000]">Silahkan lakukan pembayaran sebelum: {{$TanggalBesokFinal}}</p>
+                    <p class="text-2xl font-bold text-center max-md:text-xl">Total Harga: @currency($listBarang->Harga * $listBarang->Qty + 30000)</p>
+                @endforeach
+                    {{-- Button --}}
+                    <div class="flex justify-center mt-8">
+                        <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
+                            @csrf
+                            <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
+                            <button type="submit" data-modal-target="staticModal" data-modal-toggle="staticModal"
+                                class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
+                                type="button">
+                                Konfirmasi Pembayaran
+                            </button>
+                        </form>
                     </div>
-                    <button>
-                        <svg class = "-mt-6 max-lg:-mt-8 w-fit" xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24"><g fill="none" stroke="#850000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M8 10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></g></svg>
-                    </button>
-                </div>
-                <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p>
-                {{-- Button --}}
-                <div class="flex justify-center mt-8">
-                    <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
-                        @csrf
-                        <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
-                        <button type="submit" data-modal-target="staticModal" data-modal-toggle="staticModal"
-                            class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
-                            type="button">
-                            Konfirmasi Pembayaran
-                        </button>
-                    </form>
-                </div>
 
-                {{-- Pop Up --}}
-                <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-                    class="fixed inset-0 top-0 left-0 right-0 z-50 hidden w-full max-h-full p-4 overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-40">
-                    <div id="loader"></div>
-                    <div class="relative w-full max-w-2xl max-h-full" id="myDiv" class="animate-bottom">
-                        <div class="relative rounded-lg shadow bg-[#F8CB66]">
-                            <div class="p-6 space-y-6">
+                    {{-- Pop Up --}}
+                    <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+                        class="fixed inset-0 top-0 left-0 right-0 z-50 hidden w-full max-h-full p-4 overflow-x-hidden overflow-y-auto bg-gray-500 bg-opacity-40">
+                        <div id="loader"></div>
+                        <div class="relative w-full max-w-2xl max-h-full" id="myDiv" class="animate-bottom">
+                            <div class="relative rounded-lg shadow bg-[#F8CB66]">
+                                <div class="p-6 space-y-6">
 
-                                <div class="p-6 text-center" >
-                                    <h3 class="mb-16 text-4xl font-bold text-[#850000]">Pembayaran Berhasil</h3>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-16" width="200"
-                                        height="200" viewBox="0 0 512 512">
-                                        <path fill="#850000"
-                                            d="M460 160h-88v-12A116.13 116.13 0 0 0 258.89 32h-5.78A116.13 116.13 0 0 0 140 148v12H52a4 4 0 0 0-4 4v300a16 16 0 0 0 16 16h384a16 16 0 0 0 16-16V164a4 4 0 0 0-4-4Zm-280-11c0-41.84 33.41-76.56 75.25-77A76.08 76.08 0 0 1 332 148v12H180Zm156 187H176v-32h160Z" />
-                                    </svg>
-                                    <h6 class="mb-16 text-4xl font-bold text-[#850000]">Mohon Tunggu Sebentar</h6>
-                                    {{-- <a href="/">
-                                        <button data-modal-hide="popup-modal" type="button"
-                                            class="text-white text-xl font-bold bg-[#DC0000] hover:bg-[#850000] focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 rounded-lg text-sm inline-flex items-center px-10 py-5 text-center">
-                                            KEMBALI KE BERANDA
-                                        </button>
-                                    </a> --}}
+                                    <div class="p-6 text-center" >
+                                        <h3 class="mb-16 text-4xl font-bold text-[#850000]">Pembayaran Berhasil</h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-16" width="200"
+                                            height="200" viewBox="0 0 512 512">
+                                            <path fill="#850000"
+                                                d="M460 160h-88v-12A116.13 116.13 0 0 0 258.89 32h-5.78A116.13 116.13 0 0 0 140 148v12H52a4 4 0 0 0-4 4v300a16 16 0 0 0 16 16h384a16 16 0 0 0 16-16V164a4 4 0 0 0-4-4Zm-280-11c0-41.84 33.41-76.56 75.25-77A76.08 76.08 0 0 1 332 148v12H180Zm156 187H176v-32h160Z" />
+                                        </svg>
+                                        <h6 class="mb-16 text-4xl font-bold text-[#850000]">Mohon Tunggu Sebentar</h6>
+                                        {{-- <a href="/">
+                                            <button data-modal-hide="popup-modal" type="button"
+                                                class="text-white text-xl font-bold bg-[#DC0000] hover:bg-[#850000] focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 rounded-lg text-sm inline-flex items-center px-10 py-5 text-center">
+                                                KEMBALI KE BERANDA
+                                            </button>
+                                        </a> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
