@@ -83,7 +83,7 @@
             <div class="content_VirtualAccount">
                 <div class="inline-flex w-full">
                     <a href="/">
-                        <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                        <svg class="w-10 h-10 max-md:w-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
@@ -114,12 +114,12 @@
                     <p class="text-2xl font-bold text-center max-md:text-xl">Total Harga: @currency($listBarang->Harga * $listBarang->Qty + 30000)</p>
                 @endforeach
                     {{-- Button --}}
-                    <div class="flex justify-center mt-8">
+                    <div class="flex justify-center mt-16">
                         <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
                             @csrf
                             <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
                             <button type="submit" data-modal-target="staticModal" data-modal-toggle="staticModal"
-                                class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
+                                class="block  bg-[#DC0000] p-4 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
                                 type="button">
                                 Konfirmasi Pembayaran
                             </button>
