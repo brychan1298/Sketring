@@ -53,7 +53,7 @@ class AcaraController extends Controller
 
         Acara::create($validatedData);
 
-        return redirect('/listKeranjang')->with("success","Jenis keranjang/acara berhasil ditambahkan");
+        return redirect('/konsumen/listKeranjang')->with("success","Jenis keranjang/acara berhasil ditambahkan");
     }
 
     /**

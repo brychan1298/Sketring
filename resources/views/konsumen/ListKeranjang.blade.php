@@ -17,7 +17,7 @@
                             data-dropdown-toggle="dropdown">
                             +
                         </div>
-                        <div id="dropdown" class="hidden rounded-lg border-2 border-[#850000] bg-[#BBBBBB] p-5">
+                        <div id="dropdown" class="hidden z-10 rounded-lg border-2 border-[#850000] bg-[#BBBBBB] p-5">
                             <form action="/konsumen/tambahAcara" method="post">
                                 @csrf
                                 <div>
@@ -49,6 +49,12 @@
                             @if (!empty($acara->FotoProduk))
                                 <img src="{{ asset('storage/' . $acara->FotoProduk) }}" alt=""
                                     class="w-1/2 aspect-square rounded-xl">
+                                @php
+                                    $countImg++;
+                                @endphp
+                            @else
+                                <img src="/images/empty-cart.png" alt=""
+                                    class="w-1/2 m-auto aspect-square rounded-xl object-cover">
                                 @php
                                     $countImg++;
                                 @endphp

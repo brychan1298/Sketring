@@ -2,7 +2,7 @@
 @section('title','Pilih Role')
 @section('description','Halaman Pemilihan Role Sketring')
 @section('contents')
-<div class="text-center pt-8">
+<div class="text-center py-8">
     <h1 class="m-12 text-3xl font-bold">
         REGISTRASI
     </h1>

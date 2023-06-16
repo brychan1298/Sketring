@@ -33,15 +33,14 @@
                 </g>
             </svg>
         </a>
-        <h2 class="text-4xl font-black textJudul">Tarik Saldo</h2>
+        <h2 class="text-4xl font-black max-md:text-2xl max-lg:text-3xl textJudul">Tarik Saldo</h2>
     </div>
 
     <hr class="my-8">
 
     <div class="flex justify-center">
-        <div class="relative flex items-center justify-center w-1/6 btn-container bal" x-data="{ show: true }">
-            <h1 class="font-bold text-[#850000] text-xl">Rp</h1>
-            <h1 class="money text-[#850000] text-3xl px-2 font-bold" id="saldo">@currency(Auth::User()->Saldo)</h1>
+        <div class="relative flex items-center justify-center w-1/2 btn-container bal" x-data="{ show: true }">
+            <h1 class="money text-[#850000] text-3xl max-lg:text-2xl px-2 font-bold" id="saldo">@currency(Auth::User()->Saldo)</h1>
         </div>
     </div>
 

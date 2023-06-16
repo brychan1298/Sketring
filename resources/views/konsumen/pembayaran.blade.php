@@ -21,10 +21,43 @@
         .date {
             width: 50%;
         }
+
+        input#TanggalPesanan {
+            display: inline-block;
+            position: relative;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
+
+        input#waktuPesanan {
+            display: inline-block;
+            position: relative;
+        }
+
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
     </style>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
-
     @if (session()->has('status'))
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <span>
@@ -65,9 +98,7 @@
 
         <form action="/konsumen/bayar" method="POST" onsubmit="return CHECK()">
             @csrf
-
             <div class="detil1 mx-14 md:mx-28 my-14">
-
                 <div class="pengiriman flex items-center my-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                         <path fill="currentColor"
@@ -103,7 +134,7 @@
                                 <input type="date" name="TanggalPesanan" id="TanggalPesanan"
                                     class="border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                                     placeholder="Select date">
-                                <input type="time" name="waktuPesanan"
+                                <input type="time" name="waktuPesanan" id="waktuPesanan"
                                     class="text-sm rounded-lg border border-black w-full px-2">
                             </div>
                         </div>
@@ -189,11 +220,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
     <script>
         function CHECK() {
-
             var checks = document.getElementsByClassName("MinimalWaktuPO");
             var tglpesanan = document.getElementById("TanggalPesanan").value;
+            var waktupesanan = document.getElementById("waktuPesanan").value;
             if (!tglpesanan) {
                 alert("Tolong pilih tanggal pesanan terlebih dahulu");
+                return false;
+            }
+            if (!waktupesanan){
+                alert("Tolong pilih waktu pesanan terlebih dahulu");
                 return false;
             }
             tglPesanan = new Date(tglpesanan);
@@ -204,12 +239,11 @@
             for (let index = 0; index < checks.length; index++) {
                 if (checks[index].value > selisihHari) {
                     alert("Minimal waktu PO untuk " + checks.length + " barang ini adalah " + checks[index].value +
-                    " hari");
+                        " hari");
                     return false;
                 }
             }
             alert("berhasil");
-            // return false;
         }
     </script>
 @endsection
