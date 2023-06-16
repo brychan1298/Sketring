@@ -83,6 +83,8 @@ class TransaksiController extends Controller
     }
 
     public function virtualaccount($IdTransaksi){
+        $DataTransaksi = Transaksi::find($IdTransaksi);
+        $DataTransaksiDetail = TransaksiDetail::where("IdTransaksi",$IdTransaksi)->get();
         $ListProduks = [];
         $ListProduk = Acara::selectRaw("Acara.Nama AS NamaAcara, Transaksi.*, Produk.*, TransaksiDetail.*")
                                 ->join("TransaksiDetail","TransaksiDetail.IdAcara","=","Acara.IdAcara")
@@ -101,7 +103,36 @@ class TransaksiController extends Controller
             $ListProduks[$items->NamaAcara][] = $items;
         }
 
-        return view("konsumen.virtualAccount", compact('IdTransaksi', 'ListProduks', 'TanggalBesokFinal'));
+        $grossAmount = 0;
+        foreach($DataTransaksiDetail as $Transaksi){
+            $grossAmount += ($Transaksi->Produk->Harga * $Transaksi->Qty);
+        }
+        $grossAmount += 30000;
+
+        \Midtrans\Config::$serverKey = "SB-Mid-server-X9fofavHBv3Q41d6DCD6r4Xr";
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $IdTransaksi,
+                'gross_amount' => $grossAmount,
+            ),
+            'customer_details' => array(
+                'first_name' => $DataTransaksi->User->Nama,
+                'email' => $DataTransaksi->User->email,
+                'phone' => $DataTransaksi->User->Nohp,
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        // dd($snapToken);
+
+        return view("konsumen.virtualAccount", compact('IdTransaksi','snapToken',  'ListProduks', 'TanggalBesokFinal'));
     }
 
     /**
