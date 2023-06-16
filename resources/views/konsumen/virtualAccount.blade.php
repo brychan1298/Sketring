@@ -78,6 +78,8 @@
             text-align: center;
         }
     </style>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="SB-Mid-client--BKo6w-_jm1pdVFw"></script>
     <div class="mx-auto mt-12 container-md">
         <div class="px-10 py-24 max-sm:py-16">
             <div class="content_VirtualAccount">
@@ -112,7 +114,14 @@
                         <p class="text-2xl max-md:text-xl px-[4vw] py-[1vw]">123813139083821</p>
                     </div>
                     <button>
-                        <svg class = "-mt-6 max-lg:-mt-8 w-fit" xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24"><g fill="none" stroke="#850000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M8 10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></g></svg>
+                        <svg class="-mt-6 max-lg:-mt-8 w-fit" xmlns="http://www.w3.org/2000/svg" width="42"
+                            height="42" viewBox="0 0 24 24">
+                            <g fill="none" stroke="#850000" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path d="M8 10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z" />
+                                <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+                            </g>
+                        </svg>
                     </button>
                 </div>
                 <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p>
@@ -120,8 +129,13 @@
                 <div class="flex justify-center mt-8">
                     <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
                         @csrf
-                        <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
-                        <button type="submit" data-modal-target="staticModal" data-modal-toggle="staticModal"
+                        <input type="hidden" name="IdTransaksi" value="{{ $IdTransaksi }}">
+                        {{-- <button id="pay-button" data-modal-target="staticModal" data-modal-toggle="staticModal"
+                            class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
+                            type="button">
+                            Konfirmasi Pembayaran
+                        </button> --}}
+                        <button id="pay-button"
                             class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
                             type="button">
                             Konfirmasi Pembayaran
@@ -137,7 +151,7 @@
                         <div class="relative rounded-lg shadow bg-[#F8CB66]">
                             <div class="p-6 space-y-6">
 
-                                <div class="p-6 text-center" >
+                                <div class="p-6 text-center">
                                     <h3 class="mb-16 text-4xl font-bold text-[#850000]">Pembayaran Berhasil</h3>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-16" width="200"
                                         height="200" viewBox="0 0 512 512">
@@ -159,26 +173,52 @@
             </div>
         </div>
     </div>
-
     <script>
-        function submitForm(event) {
-            myFunction();
-            event.preventDefault();
+        // function submitForm(event) {
+        //     myFunction();
+        //     event.preventDefault();
 
-            setTimeout(function() {
-                document.getElementById("bayar").submit();
-            }, 4000);
-        }
+        //     setTimeout(function() {
+        //         document.getElementById("bayar").submit();
+        //     }, 4000);
+        // }
 
-        var myVar;
+        // var myVar;
 
-        function myFunction() {
-            myVar = setTimeout(showPage, 2000);
-        }
+        // function myFunction() {
+        //     myVar = setTimeout(showPage, 2000);
+        // }
 
-        function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("myDiv").style.display = "block";
-        }
+        // function showPage() {
+        //     document.getElementById("loader").style.display = "none";
+        //     document.getElementById("myDiv").style.display = "block";
+        // }
+
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function() {
+            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+            window.snap.pay('{{ $snapToken }}', {
+                onSuccess: function(result) {
+                    /* You may add your own implementation here */
+                    alert("Pembayaran Berhasil!");
+                    document.getElementById("bayar").submit();
+                    console.log(result);
+                },
+                onPending: function(result) {
+                    /* You may add your own implementation here */
+                    alert("wating your payment!");
+                    console.log(result);
+                },
+                onError: function(result) {
+                    /* You may add your own implementation here */
+                    alert("payment failed!");
+                    console.log(result);
+                },
+                onClose: function() {
+                    /* You may add your own implementation here */
+                    alert('you closed the popup without finishing the payment');
+                }
+            })
+        });
     </script>
 @endsection
