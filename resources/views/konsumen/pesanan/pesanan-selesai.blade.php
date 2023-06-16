@@ -32,7 +32,7 @@
                 type: "GET",
                 url: '/konsumen/filter-pesanan-selesai',
                 data: {
-                    IdAcara : selectedIdAcara
+                    IdAcara: selectedIdAcara
                 },
                 success: function(data) {
                     $('#ListTransaksi').html(data);
@@ -42,25 +42,81 @@
 
         // Get all the star SVGs
         const stars = document.querySelectorAll('.star-svg');
-
+        let lastClickedId = 'star-6';
         // Function to handle the click event
         function handleClick(event) {
-        const clickedStarId = event.currentTarget.id;
+            const clickedStarId = event.currentTarget.id;
+            // const lastClickedId = event.currentTarget.id;
 
-        // Loop through all the stars
-        stars.forEach(star => {
-            const starId = star.id;
 
-            // Change the class based on the clicked star and its position
-            if (clickedStarId === starId || (clickedStarId.startsWith('star-') && starId.startsWith('star-') && starId <= clickedStarId)) {
-            star.classList.remove('text-gray-500');
-            star.classList.add('text-yellow-500');
-            } else {
-            star.classList.remove('text-yellow-500');
-            star.classList.add('text-gray-500');
-            }
-        });
+            lastClickedId = clickedStarId;
+            // Loop through all the stars
+            stars.forEach(star => {
+                const starId = star.id;
+
+                // Change the class based on the clicked star and its position
+                if (clickedStarId === starId || (clickedStarId.startsWith('star-') && starId.startsWith('star-') &&
+                        starId <= clickedStarId)) {
+                    star.classList.remove('text-gray-500');
+                    star.classList.add('text-yellow-500');
+                } else {
+                    star.classList.remove('text-yellow-500');
+                    star.classList.add('text-gray-500');
+                }
+            });
         }
+
+        var itemId = 0;
+        var idx = 0;
+
+        window.onload = () => {
+            var rateBtn = document.getElementsByClassName('berirating');
+            var list = document.getElementsByClassName("list");
+            for (let index = 0; index < rateBtn.length; index++) {
+                rateBtn[index].onclick = function() {
+                    itemId = list[index].value;
+                    idx = index;
+                    // console.log(itemId);`
+                }
+            }
+        }
+
+        $('.rateBtn').on('click', function() {
+            // console.log(itemId);
+            var rateId = lastClickedId.split("-");
+            var rateId = rateId[1];
+            // var idProd = document.getElementById("idProdukSelected").value;
+            // var idTransaksi = document.getElementById("idTransaksiSelected").value;
+            var list = document.getElementsByClassName("list");
+            // console.log(itemId);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            $.ajax({
+                url: "/konsumen/rating",
+                method: 'POST',
+                data: {
+                    // _token: "{{ csrf_token() }}",
+                    rate: rateId,
+                    transaksiId: itemId
+                },
+                success: function(response) {
+                    console.log("berhasil");
+                    var rateBtn = document.getElementsByClassName('berirating');
+                    rateBtn[idx].classList = "hidden";
+                    // do something here, like clear the textarea or show a success message
+                },
+                error: function(xhr, status, error) {
+                    console.log("error");
+                }
+            });
+
+        });
 
         // Attach the click event listener to each star SVG
         stars.forEach(star => {
@@ -78,5 +134,16 @@
                 document.getElementById('rating-input').value = index + 1;
             });
         });
+
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var submitButton = document.querySelector('button[type="submit"]');
+        //     var svgIdInput = document.getElementById('svg-id-input');
+        //     var svgElement = document.getElementById('my-svg-id');
+
+        //     submitButton.addEventListener('click', function() {
+        //         var svgId = svgElement.getAttribute('id');
+        //         svgIdInput.value = svgId;
+        //     });
+        // });
     </script>
 @endsection

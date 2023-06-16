@@ -389,6 +389,49 @@ class TransaksiController extends Controller
         return $html;
     }
 
+    // public function rating(Request $request, $IdProduk, $IdRating){
+    //     $produk = Produk::findOrFail($IdProduk);
+    //     $jumlahRatingBaru = $produk->JumlahRating + 1;
+
+    //     $ratingBaru = ($produk->Rating * $produk->JumlahRating + $rating) / $jumlahRatingBaru;
+
+    //     $produk->Rating = $ratingBaru;
+    //     $produk->JumlahRating = $jumlahRatingBaru;
+    //     $produk->save();
+
+    //     return redirect();
+    // }
+
+    public function rating(Request $request){
+        $rating = intval($request->input('rate'));
+        $transaksiId = $request->transaksiId;
+        $transaksi = TransaksiDetail::find($transaksiId);
+
+        $produk = Produk::find($transaksi->IdProduk);
+        // dd($produk->IdProduk);
+
+        $jumlahRatingBaru = $produk->JumlahRating + 1;
+        $ratingBaru = ($produk->Rating * $produk->JumlahRating + $rating) / $jumlahRatingBaru;
+
+        $produk->Rating = $ratingBaru;
+        $produk->JumlahRating = $jumlahRatingBaru;
+        // $produk = [
+        //     'Rating' => $ratingBaru,
+        //     'JumlahRating' => $jumlahRatingBaru
+        // ];
+
+        $produk->update();
+
+        $transaksi->statusRated = 1;
+        // $transaksi = [
+        //     'statusRated' => 1
+        // ];
+
+        $transaksi->update();
+
+        return response()->json(['success' => true]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

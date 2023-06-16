@@ -174,6 +174,7 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
     Route::get('/diterima/{IdDetail}',[TransaksiController::class, 'diterima']);
     Route::get('/selesai', [TransaksiController::class, 'selesai']);
     Route::get('/filter-pesanan-selesai',[TransaksiController::class, 'filterpesananselesai']);
+    Route::post('/rating', [TransaksiController::class, 'rating']);
 
     Route::get('/batalkan/{IdTransaksi}', [TransaksiController::class, 'batalkan']);
     Route::get('/dibatalkan', [TransaksiController::class, 'dibatalkan']);
