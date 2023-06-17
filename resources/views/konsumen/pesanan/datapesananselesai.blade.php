@@ -33,33 +33,33 @@
                         </a>
                     </div>
                     <p class="text-[#DC0000] text-sm underline">
-                        {{-- <a href="">
-                            Beri Rating >>
-                        </a> --}}
-                        @if ($item->statusRated == 0)
+                        @if ($item->StatusRated == 0)
                             <button data-modal-target="defaultModal" id="beriRating" data-modal-toggle="defaultModal"
                                 class="berirating block text-[#DC0000] bg-white font-medium rounded-lg text-sm px-0 py-0 text-center"
                                 type="button">
                                 Beri Rating >>
                             </button>
-                        @elseif($item->statusRated == 1)
+                        @elseif($item->StatusRated == 1)
                             <button data-modal-target="defaultModal" id="beriRating" data-modal-toggle="defaultModal"
                                 class="berirating hidden text-[#DC0000] bg-white font-medium rounded-lg text-sm px-0 py-0 text-center"
                                 type="button">
                                 Beri Rating >>
                             </button>
                         @endif
-                        <!-- Main modal -->
+                    </p>
+                    <!-- Main modal -->
+
+
                     <div id="defaultModal" tabindex="-1" aria-hidden="true"
                         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full bg-[#00000050]">
                         <div class="relative w-full max-w-2xl max-h-full">
                             <!-- Modal content -->
-                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            <div class="relative bg-white rounded-lg shadow">
                                 <!-- Modal header -->
                                 <div
-                                    class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        Terms of Service
+                                    class="flex items-start justify-between p-4 border-b rounded-t">
+                                    <h3 class="text-xl font-semibold text-gray-900">
+                                        Berikan Rating
                                     </h3>
                                     <button type="button"
                                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -74,13 +74,8 @@
                                     </button>
                                 </div>
                                 <!-- Modal body -->
-                                {{-- <form method="POST" action="/rating/{{ $item->id }}">
-                                        @csrf
-                                        @method('PUT') --}}
-                                {{-- <form action="/rating/{{ $item->Id }}" method="POST"> --}}
                                 <div class="p-6 space-y-6 flex flex-col items-center">
-                                    <p>How was the Food?</p>
-                                    {{--  hover:text-yellow-500 --}}
+                                    <p>Berapa Rating Anda?</p>
                                     <div class="flex space-x-3 z-50 tes">
                                         @csrf
                                         <svg id="star-1" class="star-svg w-12 h-12 text-gray-500 p-0"
@@ -112,20 +107,6 @@
                                             value="{{ $item->IdProduk }}">
                                         <input type="hidden" name="transaksiId" id="idTransaksiSelected" class="list"
                                             value="{{ $item->Id }}">
-                        <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%)] max-h-full bg-[#00000050]">
-                            <div class="relative w-full max-w-2xl max-h-full">
-                                <!-- Modal content -->
-                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                    <!-- Modal header -->
-                                    <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                            Terms of Service
-                                        </h3>
-                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
-                                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                            <span class="sr-only">Close modal</span>
-                                        </button>
-                                    </div>
                                     </div>
                                 </div>
                                 <!-- Modal footer -->
@@ -142,17 +123,15 @@
                                         </button>
                                     </div>
                                 </div>
-                                {{-- </form> --}}
-
                             </div>
                         </div>
                     </div>
-                    </p>
                 </div>
             </div>
             <div class="w-full h-[2px] bg-[#850000]"></div>
         @endforeach
     </div>
+
     {{-- <div class="flex flex-col w-max items-end gap-[0.5vw] justify-center my-5">
         <div class="flex flex-row w-max gap-[1vw] font-bold">
             <a href="/konsumen/detailTransaksi/{{ $Transaksi }}"
