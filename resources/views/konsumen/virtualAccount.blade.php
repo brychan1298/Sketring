@@ -77,10 +77,14 @@
             display: none;
             text-align: center;
         }
+
+        hr {
+            border: 0.1px solid rgb(110, 110, 110);
+        }
     </style>
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key="SB-Mid-client--BKo6w-_jm1pdVFw"></script>
-    <div class="container px-[8vw] mx-auto mt-[7.5vw]">
+    <div class="container px-[8vw] mx-auto mt-32">
         <div class="content_VirtualAccount">
             <div class="inline-flex w-full">
                 <a href="/">
@@ -98,63 +102,63 @@
                         </g>
                     </svg>
                 </a>
-                <h1 class="mx-auto mb-8 text-4xl font-bold max-md:text-2xl">Pembayaran</h1>
+                <h1 class="mx-auto text-4xl font-bold max-md:text-2xl">Pembayaran</h1>
             </div>
-            <div class="mb-12 border border-gray-500 border-solid max-md:mb-8"></div>
-            {{-- Title --}}
-            @foreach ($ListProduks as $acaras => $items)
-                {{-- Content --}}
-                <p class="mb-8 text-2xl text-center max-md:text-xl">Terima Kasih Telah Berbelanja di S’ketring</p>
-                {{-- <p class="mb-8 text-2xl text-center max-md:text-xl">Silahkan lakukan pembayaran sampai batas waktu (?)</p> --}}
-                {{-- <div class="w-full"> --}}
-                @foreach ($items as $listBarang)
-                <input type="checkbox" name="listIdKeranjang[]" checked value="{{$listBarang->IdKeranjang}}" class="hidden" id="">
-                @endforeach
-                {{-- </div> --}}
-                <p class="mb-8 text-2xl max-md:text-xl text-center text-[#DC0000]">Silahkan lakukan pembayaran sebelum: {{$TanggalBesokFinal}}</p>
-                <p class="text-2xl font-bold text-center max-md:text-xl">Total Harga: @currency($listBarang->Harga * $listBarang->Qty + 30000)</p>
-            @endforeach
-                {{-- Button --}}
-                {{-- <div class="flex justify-center mt-16">
-                    <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
-                        @csrf
-                        <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
-                        <button type="submit" data-modal-target="staticModal" data-modal-toggle="staticModal"
-                            class="block  bg-[#DC0000] p-4 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
-                            type="button">
-                            Konfirmasi Pembayaran
-                        </button>
-                    </form>
+            <hr class="my-8">
+
+            <div class="container flex items-center py-12 max-md:py-8 max-sm:py-0 max-sm:pb-12">
+                <div class="mx-auto text-center">
+                    @foreach ($ListProduks as $acaras => $items)
+                        <p class="mb-8 text-2xl text-center max-md:text-xl">Terima Kasih Telah Berbelanja di S’ketring</p>
+                        @foreach ($items as $listBarang)
+                        <input type="checkbox" name="listIdKeranjang[]" checked value="{{$listBarang->IdKeranjang}}" class="hidden" id="">
+                        @endforeach
+                        <p class="mb-8 text-2xl max-md:text-xl text-center text-[#DC0000]">Silahkan lakukan pembayaran sebelum: {{$TanggalBesokFinal}}</p>
+                        <p class="text-2xl font-bold text-center max-md:text-xl">Total Harga: @currency($listBarang->Harga * $listBarang->Qty + 30000)</p>
+                    @endforeach
+                        {{-- Button --}}
+                        {{-- <div class="flex justify-center mt-16">
+                            <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
+                                @csrf
+                                <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
+                                <button type="submit" data-modal-target="staticModal" data-modal-toggle="staticModal"
+                                    class="block  bg-[#DC0000] p-4 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
+                                    type="button">
+                                    Konfirmasi Pembayaran
+                                </button>
+                            </form>
+                        </div>
+                        <button>
+                            <svg class="-mt-6 max-lg:-mt-8 w-fit" xmlns="http://www.w3.org/2000/svg" width="42"
+                                height="42" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#850000" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2">
+                                    <path d="M8 10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z" />
+                                    <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+                                </g>
+                            </svg>
+                        </button> --}}
+                        <div class="flex justify-center mt-8">
+                            <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
+                                @csrf
+                                <input type="hidden" name="IdTransaksi" value="{{ $IdTransaksi }}">
+                                {{-- <button id="pay-button" data-modal-target="staticModal" data-modal-toggle="staticModal"
+                                    class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
+                                    type="button">
+                                    Konfirmasi Pembayaran
+                                </button> --}}
+                                <button id="pay-button"
+                                    class="block  bg-[#DC0000] px-6 py-4 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
+                                    type="button">
+                                    Konfirmasi Pembayaran
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <button>
-                    <svg class="-mt-6 max-lg:-mt-8 w-fit" xmlns="http://www.w3.org/2000/svg" width="42"
-                        height="42" viewBox="0 0 24 24">
-                        <g fill="none" stroke="#850000" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2">
-                            <path d="M8 10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z" />
-                            <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
-                        </g>
-                    </svg>
-                </button> --}}
+                {{-- <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p> --}}
             </div>
-            {{-- <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p> --}}
-            {{-- Button --}}
-            <div class="flex justify-center mt-8">
-                <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
-                    @csrf
-                    <input type="hidden" name="IdTransaksi" value="{{ $IdTransaksi }}">
-                    {{-- <button id="pay-button" data-modal-target="staticModal" data-modal-toggle="staticModal"
-                        class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
-                        type="button">
-                        Konfirmasi Pembayaran
-                    </button> --}}
-                    <button id="pay-button"
-                        class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
-                        type="button">
-                        Konfirmasi Pembayaran
-                    </button>
-                </form>
-            </div>
+
 
             {{-- Pop Up --}}
             <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
