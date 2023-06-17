@@ -116,7 +116,7 @@
                     <p class="text-2xl font-bold text-center max-md:text-xl">Total Harga: @currency($listBarang->Harga * $listBarang->Qty + 30000)</p>
                 @endforeach
                     {{-- Button --}}
-                    <div class="flex justify-center mt-16">
+                    {{-- <div class="flex justify-center mt-16">
                         <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
                             @csrf
                             <input type="hidden" name="IdTransaksi" value="{{$IdTransaksi}}">
@@ -136,9 +136,9 @@
                                 <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
                             </g>
                         </svg>
-                    </button>
+                    </button> --}}
                 </div>
-                <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p>
+                {{-- <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p> --}}
                 {{-- Button --}}
                 <div class="flex justify-center mt-8">
                     <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
