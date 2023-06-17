@@ -31,7 +31,6 @@ return new class extends Migration
 
             $table->integer('Qty');
             $table->integer('Status');
-            $table->integer('StatusRated')->default(0);
             $table->timestamps();
         });
     }
