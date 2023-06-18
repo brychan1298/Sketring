@@ -154,7 +154,7 @@
         </div>
     </div>
     <div class="flex justify-center gap-5 mb-16">
-        <a href="/profileToko" class="max-md:text-lg font-bold border-2 border-solid border-[#DC0000] text-[#DC0000] text-2xl px-7 py-2 my-5 rounded-md hover:text-[#850000] hover:border-[#850000]">
+        <a href="/umkm/profileToko" class="max-md:text-lg font-bold border-2 border-solid border-[#DC0000] text-[#DC0000] text-2xl px-7 py-2 my-5 rounded-md hover:text-[#850000] hover:border-[#850000]">
             BATAL
         </a>
         <button type="submit" class="max-md:text-lg border-2 text-white bg-[#DC0000] px-7 py-2 text-2xl rounded-md my-5 hover:bg-[#850000] hover:text-white">
