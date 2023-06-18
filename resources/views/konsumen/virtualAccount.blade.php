@@ -152,7 +152,7 @@
                         <button id="pay-button"
                             class="block  bg-[#DC0000] p-6 text-white font-bold uppercase text-xl max-md:text-base rounded hover:bg-[#850000] hover:text-light text-center"
                             type="button">
-                            Konfirmasi Pembayaran
+                            BAYAR SEKARANG
                         </button>
                     </form>
                 </div>

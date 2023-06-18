@@ -28,7 +28,7 @@
             width: 100%;
         }
 
-        form {
+        .form {
             /* background-color: blue; */
             /* padding: 0px 50px; */
             width: 450px;
@@ -85,37 +85,9 @@
             height: auto;
             display: block;
         }
-
-        .container{
-            /* background-color: red; */
-        }
     </style>
 
     <script>
-        // JavaScript code
-        // function displayPhoto(event) {
-        //   // Get the input element
-        //   var input = event.target;
-
-        //   // Create a FileReader
-        //   var reader = new FileReader();
-
-        //   // Set the function to run when the file is loaded
-        //   reader.onload = function(){
-        //     // Create an image element and set the source to the loaded file
-        //     var img = document.createElement("img");
-        //     img.src = reader.result;
-
-        //     // Add the image to the preview div
-        //     var previewDiv = document.getElementById("photoPreview");
-        //     previewDiv.innerHTML = "";
-        //     previewDiv.appendChild(img);
-        //   };
-
-        //   // Load the file as a data URL
-        //   reader.readAsDataURL(input.files[0]);
-        // }
-
         function displayPhoto() {
             const image = document.querySelector('#file-upload');
             const previewed = document.querySelector('.img-preview');
@@ -155,7 +127,7 @@
         <hr class="my-8 mx-5">
 
         <div class="formProduk flex justify-center mx-5">
-            <form class="/tambahProduk" enctype="multipart/form-data" method="post">
+            <form action="/tambahProduk" class="form" enctype="multipart/form-data" method="post">
                 @csrf
                 <label for="file-upload" class="cursor-pointer rounded-md font-semibold hover:text-indigo-700">
                     <div
