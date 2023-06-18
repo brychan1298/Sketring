@@ -16,7 +16,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-<div class="container m-auto mt-[130px]">
+<div class="container mx-auto mt-[7.5vw] px-[8vw]">
     <div class="flex items-center justify-center judulAddProduk">
         <a href="/tarikSaldo">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
