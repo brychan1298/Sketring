@@ -34,7 +34,7 @@
 
         form {
             /* background-color: blue; */
-            width: 30%;
+            width: 100%;
             align-items: center;
             /* display: flex; */
             /* flex-direction: column; */
@@ -126,7 +126,7 @@
         }
     </script>
 
-    <div class="container m-auto mt-[100px]">
+    <div class="container mx-auto mt-32 px-[8vw]">
         <div class="judulAddProduk flex items-center justify-center">
             <a href="/umkm/dashboard">
                 <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">

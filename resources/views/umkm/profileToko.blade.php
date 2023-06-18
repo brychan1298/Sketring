@@ -3,8 +3,8 @@
 @section('description', 'Profil Toko Anda')
 @section('content')
 
-<div class="flex flex-col w-full mx-auto container-md">
-    <div class="inline-flex px-10 pt-32 max-md:pt-28 max-sm:pt-16">
+<div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36">
+    <div class="inline-flex max-sm:pt-16">
         <a href="/">
             <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
@@ -14,20 +14,23 @@
     </div>
 </div>
 
-<div class="w-full mt-8">
-    <img src="/images/bannerToko.jpg" alt="" class="max-md:h-[185px]">
-    <div class="ml-20 text-center w-fit max-lg:mx-auto">
-        @if (Auth::User()->FotoProfil)
-            <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
-        @else
-            <img src="/images/profile.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
-        @endif
-        <p class="mt-8 text-2xl font-bold max-md:text-lg max-md:mt-4">{{Auth::User()->Nama}}</p>
+<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10">
+<div class="container mx-auto w-max">
+    <div class="w-full">
+        <div class="text-center w-fit max-lg:mx-auto">
+            @if (Auth::User()->FotoProfil)
+                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
+            @else
+                <img src="/images/profile.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
+            @endif
+            <p class="mt-8 text-2xl font-bold max-md:text-lg max-md:mt-4">{{Auth::User()->Nama}}</p>
+        </div>
     </div>
 </div>
 
-<div class="flex flex-col w-full mx-auto container-md">
-    <div class="w-[100%] flex flex-row-reverse mb-5 pr-28 max-md:pr-0">
+
+<div class="flex flex-col w-full mx-auto container px-36 max-lg:px-8">
+    <div class="w-[100%] flex flex-row-reverse mb-5 max-md:mb-2">
         <a href="/umkm/editProfileToko" class="flex flex-row w-max">
             <div class="flex flex-row bg-white w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">
                 <p class="text-xl font-bold max-md:text-base">SUNTING</p>
@@ -37,41 +40,39 @@
             </div>
         </a>
     </div>
-    <div class="container-md flex flex-row justify-center gap-40 w-full px-[48px] pb-[48px] max-xl:gap-16 max-lg:gap-8 max-md:grid max-md:grid-cols-1">
+    <div class="container-md flex flex-row w-full justify-between pb-[48px] max-xl:gap-12 max-lg:gap-8 max-md:grid max-md:grid-cols-1">
         <div class="container-md flex flex-col gap-[32px] max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1">
-            <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443]">
+            <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] max-lg:ml-0">
                 <div class="flex flex-col">
-                    <div class="w-[100%] text-center">
-                        <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">SALDO:</p>
-                    </div>
                     <div class="w-[100%] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"/>
                             <path d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"/>
                         </svg>
-                        <p class="text-xl font-bold max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
+                        <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">SALDO:</p>
                     </div>
+                    <p class="mt-2 text-xl font-bold text-center max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
                 </div>
                 <a href="/tarikSaldoUMKM">
-                    <p class="text-xl font-bold text-center underline max-md:text-lg">Tarik Saldo >></p>
+                    <p class="text-xl font-bold text-center hover:underline max-md:text-lg">Tarik Saldo >></p>
                 </a>
             </div>
-            <button class="bg-[#FFE6AE] p-[24px] flex flex-col rounded-[10px] gap-[12px]">
+            <button class="bg-[#FFE6AE] flex flex-col rounded-[10px] max-lg:ml-0 justify-center">
                 {{-- <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px] bg-[#F8CB66]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
                     <p class="text-xl font-bold">Profil</p>
                 </div> --}}
-                <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
+                <div class="w-[100%] p-4 flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
                     </svg>
-                    <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">LOGOUT</p>
+                    <p class="text-xl font-bold max-lg:text-xl max-md:text-lg hover:underline">Log Out</p>
                 </div>
             </button>
         </div>
-        <div class="bg-[#850000] w-4/6 text-white flex flex-col gap-[2.5vw] items-center p-[3vw] rounded-[10px] max-md:w-full max-md:p-6 max-md:gap-6">
+        <div class="bg-[#850000] w-9/12 text-white flex flex-col gap-[2.5vw] items-center p-[3vw] rounded-[10px] max-md:w-full max-md:p-6 max-md:gap-6">
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
