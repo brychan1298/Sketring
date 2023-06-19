@@ -47,6 +47,8 @@
                                     <div class="font-light">
                                         @if ($item->JumlahRating == 0)
                                             N/A
+                                        @else
+                                            {{$item->JumlahRating}}
                                         @endif
                                     </div>
                                 </div>
