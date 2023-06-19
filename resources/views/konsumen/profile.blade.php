@@ -10,7 +10,7 @@
                 <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
             </svg>
         </a>
-        <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL ANDA</p>
+        <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL TOKO</p>
     </div>
 </div>
 
@@ -41,7 +41,7 @@
         </a>
     </div>
     <div class="container-md flex flex-row w-full justify-between pb-[48px] max-xl:gap-12 max-lg:gap-8 max-md:grid max-md:grid-cols-1">
-        <div class="container-md flex flex-col gap-[32px] max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1">
+        <div class="container-md flex flex-col gap-[32px] max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1 w-1/5 max-md:w-full">
             <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] max-lg:ml-0">
                 <div class="flex flex-col">
                     <div class="w-[100%] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
