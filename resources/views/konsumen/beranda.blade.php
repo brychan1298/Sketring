@@ -48,7 +48,7 @@
                                         @if ($item->JumlahRating == 0)
                                             N/A
                                         @else
-                                            {{$item->JumlahRating}}
+                                            {{$item->Rating}}
                                         @endif
                                     </div>
                                 </div>
