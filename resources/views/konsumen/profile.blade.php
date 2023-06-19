@@ -1,6 +1,6 @@
 @extends('konsumen.layouts.master')
-@section('title', 'Profil Toko')
-@section('description', 'Profil Toko Anda')
+@section('title', 'Profil Konsumen')
+@section('description', 'Profil Konsumen Sketring')
 @section('content')
 
 <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
@@ -52,10 +52,10 @@
                         <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">SALDO:</p>
                     </div>
                     <p class="mt-2 text-xl font-bold text-center max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
+                    <a href="/konsumen/tariksaldo">
+                        <p class="font-bold text-center underline text-1xl">Tarik Saldo >></p>
+                    </a>
                 </div>
-                <a href="/konsumen/tariksaldo">
-                    <p class="text-xl font-bold text-center hover:underline max-md:text-lg">Tarik Saldo >></p>
-                </a>
             </div>
             <button class="bg-[#FFE6AE] flex flex-col rounded-[10px] max-lg:ml-0 justify-center">
                 {{-- <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px] bg-[#F8CB66]">
