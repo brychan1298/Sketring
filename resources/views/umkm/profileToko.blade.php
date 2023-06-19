@@ -3,8 +3,8 @@
 @section('description', 'Profil Toko Anda')
 @section('content')
 
-<div class="container flex flex-col w-full mx-auto">
-    <div class="inline-flex px-[8vw] pt-28 max-sm:pt-16">
+<div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36 max-sm:px-12">
+    <div class="inline-flex max-sm:pt-16">
         <a href="/">
             <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
@@ -14,8 +14,8 @@
     </div>
 </div>
 
-<img src="/images/bannerToko.jpg" alt="" class="max-md:h-[185px] mt-8 max-sm:mt-4">
-<div class="container mx-auto px-[8vw]">
+<img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-48">
+<div class="container mx-auto w-max">
     <div class="w-full">
         <div class="text-center w-fit max-lg:mx-auto">
             @if (Auth::User()->FotoProfil)
@@ -29,7 +29,7 @@
 </div>
 
 
-<div class="flex flex-col w-full mx-auto container px-[8vw]">
+<div class="container flex flex-col w-full mx-auto px-36 max-lg:px-8">
     <div class="w-[100%] flex flex-row-reverse mb-5 max-md:mb-2">
         <a href="/umkm/editProfileToko" class="flex flex-row w-max">
             <div class="flex flex-row bg-white w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">
@@ -40,9 +40,9 @@
             </div>
         </a>
     </div>
-    <div class="container-md flex flex-row justify-center w-full gap-16 pb-[48px] max-xl:gap-12 max-lg:gap-8 max-md:grid max-md:grid-cols-1">
+    <div class="container-md flex flex-row w-full justify-between pb-[48px] max-xl:gap-12 max-lg:gap-8 max-md:grid max-md:grid-cols-1">
         <div class="container-md flex flex-col gap-[32px] max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1">
-            <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] ml-16 max-lg:ml-0">
+            <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] max-lg:ml-0">
                 <div class="flex flex-col">
                     <div class="w-[100%] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -51,24 +51,24 @@
                         </svg>
                         <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">SALDO:</p>
                     </div>
-                    <p class="mt-2 text-xl font-bold text-center max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
+                    <p class="mt-2 text-xl font-bold text-center max-xl:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
                 </div>
                 <a href="/tarikSaldoUMKM">
-                    <p class="text-xl font-bold text-center underline max-md:text-lg">Tarik Saldo >></p>
+                    <p class="text-xl font-bold text-center hover:underline max-md:text-lg">Tarik Saldo >></p>
                 </a>
             </div>
-            <button class="bg-[#FFE6AE] p-[24px] flex flex-col rounded-[10px] gap-[12px] ml-16 max-lg:ml-0">
+            <button class="bg-[#FFE6AE] flex flex-col rounded-[10px] max-lg:ml-0 justify-center">
                 {{-- <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px] bg-[#F8CB66]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
                     <p class="text-xl font-bold">Profil</p>
                 </div> --}}
-                <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
+                <div class="w-[100%] p-4 flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
                     </svg>
-                    <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">LOGOUT</p>
+                    <p class="text-xl font-bold max-lg:text-xl max-md:text-lg hover:underline">Log Out</p>
                 </div>
             </button>
         </div>
