@@ -10,7 +10,7 @@
                 <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
             </svg>
         </a>
-        <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL TOKO</p>
+        <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL ANDA</p>
     </div>
 </div>
 
