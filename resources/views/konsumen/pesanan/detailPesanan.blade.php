@@ -22,7 +22,7 @@
         }
     </style>
     <div class="container px-[8vw] mx-auto mt-[152px]">
-        <div class="judulAddProduk flex items-center justify-center mx-5">
+        <div class="judulAddProduk flex items-center justify-center">
             <a href="/konsumen/pesanan">
                 <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

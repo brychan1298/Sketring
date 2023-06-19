@@ -105,7 +105,7 @@
     </script>
 
     <div class="container px-[8vw] mx-auto mt-32">
-        <div class="judulAddProduk flex items-center justify-center mx-5">
+        <div class="judulAddProduk flex items-center justify-center">
             <a href="/umkm/dashboard">
                 <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

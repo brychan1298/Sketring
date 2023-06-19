@@ -111,7 +111,7 @@
         </div>
     </div>
 
-    <div class="pb-6 mx-12 md:mx-24 lg:mx-32 2xl:mx-64">
+    <div class="pb-6">
         <h1 class="mt-16 text-2xl">Tarik Saldo</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 

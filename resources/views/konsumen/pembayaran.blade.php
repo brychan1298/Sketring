@@ -74,8 +74,8 @@
         </div>
     @endif
 
-    <div class="container px-[8vw] mx-auto mt-32">
-        <div class="judulAddProduk flex items-center justify-center mx-5">
+    <div class="container px-[8vw] mx-auto mt-[152px]">
+        <div class="judulAddProduk flex items-center justify-center">
             <a href="/konsumen/keranjang">
                 <svg class="md:w-10 md:h-10 w-8 h-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
                     fill="#000000">
@@ -99,7 +99,7 @@
 
         <form action="/konsumen/bayar" method="POST" onsubmit="return CHECK()">
             @csrf
-            <div class="detil1 mx-14 md:mx-28 my-14">
+            <div class="detil1 my-14">
                 <div class="pengiriman flex items-center my-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                         <path fill="currentColor"

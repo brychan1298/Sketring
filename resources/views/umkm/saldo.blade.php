@@ -68,7 +68,7 @@
 
 <div class="container px-[8vw] mx-auto mt-32">
     <div class="flex items-center justify-center judulAddProduk">
-        <a href="/profileToko">
+        <a href="/umkm/profileToko">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
