@@ -1,6 +1,6 @@
 @extends('konsumen.layouts.master')
-@section('title', 'Profil Toko')
-@section('description', 'Profil Toko Anda')
+@section('title', 'Profil Konsumen')
+@section('description', 'Profil Konsumen Sketring')
 @section('content')
 
 <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
@@ -52,23 +52,6 @@
                         <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">SALDO:</p>
                     </div>
                     <p class="mt-2 text-xl font-bold text-center max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
-                </div>
-                <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] mb-10">
-                    <div class="flex flex-col">
-                        <div class="w-[100%] text-center">
-                            <p class="text-2xl font-bold">SALDO:</p>
-                        </div>
-                        <div class="w-[100%] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z" />
-                                <path
-                                    d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z" />
-                            </svg>
-                            <p class="text-2xl font-bold">@currency( Auth::User()->Saldo )</p>
-                        </div>
-                    </div>
                     <a href="/konsumen/tariksaldo">
                         <p class="font-bold text-center underline text-1xl">Tarik Saldo >></p>
                     </a>
