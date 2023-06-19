@@ -32,7 +32,7 @@
         }
     </style>
 
-    <div class="container m-auto mt-[100px]">
+    <div class="container px-[8vw] mx-auto mt-32">
         <div class="mb-3">
             <div class="relative mb-4 flex w-full flex-wrap items-stretch">
                 <input type="search"
@@ -52,8 +52,8 @@
             </div>
         </div>
 
-        <div class="konten grid gap-20 mt-12 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center ">
-            <a id="addProduct" href="/umkm/tambahProduk" class="tambahProduk bg-[#EBEBEB] rounded-md shadow-3xl flex flex-row items-center justify-center gap-5 md:gap-0 md:flex-col py-12 w-11/12 md:py-40 lg:py-40 xl:py-40 2xl:py-36">
+        <div class="konten grid gap-5 mt-12 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center ">
+            <a id="addProduct" href="/umkm/tambahProduk" class="tambahProduk bg-[#EBEBEB] rounded-md shadow-3xl flex flex-row items-center justify-center gap-5 md:gap-0 md:flex-col py-12 w-[85vw] md:w-[290px] lg:w-[260px] xl:w-[325px] 2xl:w-[290px] md:py-40 lg:py-40 xl:py-40 2xl:py-36">
                 <svg id="addButton" version="1.1" id="Capa_1" class="h-20 w-20" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -97,7 +97,7 @@
 
         </div>
 
-        <div class="pagination mt-20 justify-center items-center flex">
+        <div class="pagination my-20 justify-center items-center flex">
             <nav aria-label="Page navigation example">
                 <ul class="list-style-none flex">
                     <li>

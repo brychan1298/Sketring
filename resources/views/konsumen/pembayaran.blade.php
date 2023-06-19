@@ -73,8 +73,9 @@
             </span>
         </div>
     @endif
-    <div class="container m-auto mt-[140px]">
-        <div class="judulAddProduk flex items-center justify-center mx-5">
+
+    <div class="container px-[8vw] mx-auto mt-[152px]">
+        <div class="judulAddProduk flex items-center justify-center">
             <a href="/konsumen/keranjang">
                 <svg class="md:w-10 md:h-10 w-8 h-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
                     fill="#000000">
@@ -94,17 +95,17 @@
             <h2 class="textJudul 2xl:text-4xl lg:text-4xl md:text-3xl font-black sm:text-3xl text-2xl">Pembayaran</h2>
         </div>
 
-        <hr class="my-8 mx-5">
+        <hr class="my-8">
 
         <form action="/konsumen/bayar" method="POST" onsubmit="return CHECK()">
             @csrf
-            <div class="detil1 mx-14 md:mx-28 my-14">
+            <div class="detil1 my-14">
                 <div class="pengiriman flex items-center my-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                         <path fill="currentColor"
                             d="M3 4a2 2 0 0 0-2 2v11h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2v-5l-3-4h-3V4m-7 2l4 4l-4 4v-3H4V9h6m7 .5h2.5l1.97 2.5H17M6 15.5A1.5 1.5 0 0 1 7.5 17A1.5 1.5 0 0 1 6 18.5A1.5 1.5 0 0 1 4.5 17A1.5 1.5 0 0 1 6 15.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5Z" />
                     </svg>
-                    <h2 class="mx-3">Delivery</h2>
+                    <h1 class="mx-3 font-bold text-xl">Delivery</h1>
                 </div>
 
                 <div class="flex justify-between flex-col lg:flex-row">
@@ -114,10 +115,10 @@
                                 <path fill="currentColor"
                                     d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z" />
                             </svg>
-                            <h2>Alamat Pengiriman</h2>
+                            <h1 class="mx-3 font-bold text-xl">Alamat Pengiriman</h1>
                         </div>
                         <div class="detailAlamat p-3 px-4 border-solid border-black border my-3 rounded-xl text-xl">
-                            <input type="text" value="{{ Auth::User()->Nama }}" disabled> <br>
+                            <input type="text"  value="{{ Auth::User()->Nama }}" disabled> <br>
                             <input type="text" value="{{ Auth::User()->Nohp }}" disabled class="my-2">
                             <textarea name="AlamatKirim" id="" cols="30" rows="10" readonly class="w-full h-24 text-left"
                                 style="resize:none">{{ Auth::User()->Alamat }}, {{ Auth::User()->Regency->name }}, {{ Auth::User()->Regency->Province->name }}</textarea>
@@ -126,9 +127,9 @@
                     </div>
 
                     <div class="lg:w-1/3 w-full">
-                        <h2>Nama Keranjang</h2>
+                        <h1 class="font-bold text-xl">Nama Keranjang</h1>
                         <h1 id="namaKeranjang" class="border-black border rounded-lg p-3 my-3">{{ $namaAcara }}</h1>
-                        <h2>Masukan Tanggal & Jam Pesanan</h2>
+                        <h1 class="font-bold text-xl">Masukan Tanggal & Jam Pesanan</h1>
                         <div class="flex items-center justify-between my-3">
                             <div class="flex text-lg gap-10 w-full justify-center">
                                 <input type="date" name="TanggalPesanan" id="TanggalPesanan"
@@ -148,9 +149,9 @@
                         $SubTotal = 0;
                     @endphp
                     @foreach ($listAcara as $acaras => $items)
-                        <h2 class="mt-4 text-2xl text-[#850000] font-bold">
+                        <h1 class="mt-4 text-xl text-[#850000] font-bold">
                             Keranjang: {{ $acaras }}
-                        </h2>
+                        </h1>
 
                         @foreach ($items as $listBarang)
                             <input type="checkbox" name="listIdKeranjang[]" checked value="{{ $listBarang->IdKeranjang }}"
@@ -160,16 +161,16 @@
                                     class="w-52 h-52 rounded-lg mr-5">
                                 <div class="detailProduk flex justify-between w-full items-center">
                                     <div class="detail1">
-                                        <h1 id="namaProduk">{{ $listBarang->Nama }}</h1>
-                                        <h1 id="hargaProduk">@currency($listBarang->Harga)</h1>
-                                        <h1 id="jumlahPesanan">Jumlah Pesanan: {{ $listBarang->Qty }}</h1>
+                                        <h1 id="namaProduk" class="text-2xl font-bold">{{ $listBarang->Nama }}</h1>
+                                        <h1 id="hargaProduk" class="text-lg">@currency($listBarang->Harga)</h1>
+                                        <h1 id="jumlahPesanan" class="text-lg">Jumlah Pesanan: {{ $listBarang->Qty }}</h1>
                                     </div>
                                     <input type="text" value="{{ $listBarang->MinimalWaktuPO }}" name=""
                                         id="" class="hidden MinimalWaktuPO">
 
                                     <div class="detail2 py-10">
-                                        <h1 class="text-end ">Total:</h1>
-                                        <h1 id="totalHarga">@currency($listBarang->Harga * $listBarang->Qty)</h1>
+                                        <h1 class="text-end text-2xl">Total:</h1>
+                                        <h1 id="totalHarga" class="text-xl">@currency($listBarang->Harga * $listBarang->Qty)</h1>
                                     </div>
                                 </div>
                             </div>
@@ -184,11 +185,16 @@
 
                 <div class="subOngkir">
                     <div class="flex justify-between">
-                        <h1 class="text-2xl font-extrabold">Subtotal</h1>
-                        <h1 id="subtotal">@currency($SubTotal)</h1>
+                        <h1 class="text-xl font-bold">Subtotal</h1>
+                        <h1 id="subtotal" class="font-bold text-lg">@currency($SubTotal)</h1>
                     </div>
 
                     <div class="flex justify-between my-4">
+                        <h1 class="text-xl font-bold">Ongkos Kirim</h1>
+                        <h1 id="ongkir" class="font-bold text-lg">Rp 30.000,00</h1>
+                    </div>
+
+                    {{-- <div class="flex justify-between my-4">
                         <div class="flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -197,7 +203,7 @@
                             <h1 class="mx-3">Ongkos Kirim</h1>
                         </div>
                         <h1 id="ongkir">Rp 30.000,00</h1>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <hr class="my-8 border-[#850000] border-2">

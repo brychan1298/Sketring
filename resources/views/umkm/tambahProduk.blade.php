@@ -3,9 +3,6 @@
 @section('description', 'Halaman Tambah Produk')
 @section('content')
     <style>
-        .judulAddProduk {
-            /* background-color: red; */
-        }
 
         .textJudul {
             text-align: center;
@@ -31,15 +28,8 @@
         .form {
             /* background-color: blue; */
             /* padding: 0px 50px; */
-            width: 450px;
+            /* width: 450px; */
             align-items: center;
-        }
-
-        @media(max-width: 768px){
-            form{
-                /* width: 500px; */
-                /* background-color: red; */
-            }
         }
 
         .formProduk input[type=number] {
@@ -56,7 +46,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 20%
+            /* width: 20% */
         }
 
         input[type="file"] {
@@ -104,8 +94,8 @@
         }
     </script>
 
-    <div class="container m-auto mt-[100px]">
-        <div class="judulAddProduk flex items-center justify-center mx-5">
+    <div class="container px-[8vw] mx-auto mt-32">
+        <div class="judulAddProduk flex items-center justify-center">
             <a href="/umkm/dashboard">
                 <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -124,15 +114,14 @@
             <h2 class="textJudul 2xl:text-4xl lg:text-4xl md:text-3xl font-black sm:text-3xl text-2xl">Tambah Produk</h2>
         </div>
 
-        <hr class="my-8 mx-5">
+        <hr class="my-8">
 
-        <div class="formProduk flex justify-center mx-5">
-            <form action="/tambahProduk" class="form" enctype="multipart/form-data" method="post">
+        <div class="formProduk flex justify-center">
+            <form action="/tambahProduk" class=" w-full form" enctype="multipart/form-data" method="post">
                 @csrf
-                <label for="file-upload" class="cursor-pointer rounded-md font-semibold hover:text-indigo-700">
-                    <div
-                        class="uploadFoto bg-[#BCBCBC] mt-2 flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
-                        <div class="text-center bg-">
+                <label for="file-upload" class="cursor-pointer rounded-md font-semibold">
+                    <div class="uploadFoto bg-[#BCBCBC] flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
+                        <div class="text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="90" height="90" color="white"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -149,9 +138,7 @@
                                         accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
                     </div><br>
                 </label>
-                <p id="Preview" class="font-black hidden">
-                    Preview :
-                </p>
+                <p id="Preview" class="font-black hidden">Preview :</p>
                 <img src="" alt="" class="img-preview mb-4">
 
 
