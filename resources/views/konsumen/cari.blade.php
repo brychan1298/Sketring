@@ -10,10 +10,10 @@
             <div class="flex w-[50%]">
                 <div class="relative w-full">
                     <input value="{{ request('search') }}" name="search" type="search" id="search"
-                        class="block p-[1vw] w-full z-20 text-sm text-black bg-white focus:ring-[#DC0000] rounded-[10px] border border-2 border-[#DC0000] focus:border-[#DC0000]"
+                        class="block p-[1vw] w-full z-20 text-sm text-black bg-white rounded-[10px] border border-2 border-[#DC0000] focus:outline-none"
                         placeholder="Cari nama produk" required>
                     <button type="submit"
-                        class="absolute top-0 right-0 p-[1vw] text-sm font-medium text-white bg-[#DC0000] rounded-r-lg border border-2 border-[#DC0000] hover:bg-[#850000] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        class="absolute top-0 right-0 p-[1vw] text-sm font-medium text-white bg-[#DC0000] rounded-r-lg border border-2 border-[#DC0000] hover:bg-[#850000] focus:outline-none">
                         <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,7 +37,7 @@
         </div>
         {{-- Product List --}}
         @if (!request('search') && Auth::check())
-            <div class="my-4 text-2xl">
+            <div class="mb-10 text-2xl">
                 Katering terdekat di
                 <input type="text" value="{{ Auth::User()->Regency->name }}" disabled>
             </div>
