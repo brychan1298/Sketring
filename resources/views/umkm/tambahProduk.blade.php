@@ -3,9 +3,6 @@
 @section('description', 'Halaman Tambah Produk')
 @section('content')
     <style>
-        .judulAddProduk {
-            /* background-color: red; */
-        }
 
         .textJudul {
             text-align: center;
@@ -35,13 +32,6 @@
             align-items: center;
         }
 
-        @media(max-width: 768px){
-            form{
-                /* width: 500px; */
-                /* background-color: red; */
-            }
-        }
-
         .formProduk input[type=number] {
             /* background-color: purple; */
             width: 100%;
@@ -56,7 +46,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 20%
+            /* width: 20% */
         }
 
         input[type="file"] {
