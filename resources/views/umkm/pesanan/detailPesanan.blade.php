@@ -13,11 +13,6 @@
             border: 0.1px solid rgb(110, 110, 110);
         }
 
-        .atas h2 {
-            font-weight: 800;
-            font-size: 18px;
-        }
-
         .listPesanan h1 {
             font-size: 20px;
         }
@@ -26,8 +21,8 @@
             font-size: 20px;
         }
     </style>
-    <div class="container m-auto mt-[140px]">
-        <div class="judulAddProduk flex items-center justify-center mx-5">
+    <div class="container px-[8vw] mx-auto mt-32">
+        <div class="judulAddProduk flex items-center justify-center">
             <a href="/umkm/pesanan">
                 <svg class="md:w-10 md:h-10 w-8 h-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -43,60 +38,53 @@
                     </g>
                 </svg>
             </a>
-            <h2 class="textJudul 2xl:text-4xl lg:text-4xl md:text-3xl font-black sm:text-3xl text-2xl">Detail Pesanan</h2>
+            <h2 class="text-2xl font-black textJudul 2xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl">Detail Pesanan</h2>
         </div>
 
-        <hr class="my-8 mx-5">
+        <hr class="my-8">
 
-        <div class="mx-14 md:mx-28 my-14">
+        <div class="my-14">
             <div class="atas flex justify-between flex-col lg:flex-row">
                 <div class="tokoTanggal">
                     {{-- <div class="toko flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><path fill="currentColor" d="M464 448V267.85a104.76 104.76 0 0 1-33.56 6.58c-1.18 0-2.3.05-3.4.05a108 108 0 0 1-56.86-16a108 108 0 0 1-56.85 16a106.16 106.16 0 0 1-56.51-16.2a107.84 107.84 0 0 1-57.2 16.2a106.14 106.14 0 0 1-56.85-16.42a106.14 106.14 0 0 1-56.85 16.42c-1.09 0-2.19 0-3.37-.05h-.06A104.66 104.66 0 0 1 48 267.49V448H16v32h480v-32Zm-240-64h-96v-76a4 4 0 0 1 4-4h88a4 4 0 0 1 4 4Zm160 64h-80V308a4 4 0 0 1 4-4h72a4 4 0 0 1 4 4Zm108.57-277.72L445.89 64C432 32 432 32 400 32H112c-32 0-32 0-45.94 32L19.38 170.28c-9 19.41 2.89 39.34 2.9 39.35l.41.66c.42.66 1.13 1.75 1.62 2.37c.1.13.19.27.28.4l5.24 6.39l5.31 5.14l.42.36a69.65 69.65 0 0 0 9.44 6.78v.05a74 74 0 0 0 36 10.67h2.47a76.08 76.08 0 0 0 51.89-20.31a72.38 72.38 0 0 0 5.77-6a74.18 74.18 0 0 0 5.78 6a76.08 76.08 0 0 0 51.89 20.31c23.28 0 44.07-10 57.63-25.56a.11.11 0 0 1 .15 0l5.66 5.26a76.09 76.09 0 0 0 51.9 20.31c23.29 0 44.11-10 57.66-25.61c13.56 15.61 34.37 25.61 57.67 25.61h2.49a71.35 71.35 0 0 0 35-10.7c.95-.57 1.86-1.17 2.78-1.77A71.33 71.33 0 0 0 488 212.17l2-3c.9-2.04 11.21-20.3 2.57-38.89Z"/></svg>
-                    <h2 id="namaToko" class="mx-3"> Syamsul Katering</h2>
-                </div> --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><path fill="currentColor" d="M464 448V267.85a104.76 104.76 0 0 1-33.56 6.58c-1.18 0-2.3.05-3.4.05a108 108 0 0 1-56.86-16a108 108 0 0 1-56.85 16a106.16 106.16 0 0 1-56.51-16.2a107.84 107.84 0 0 1-57.2 16.2a106.14 106.14 0 0 1-56.85-16.42a106.14 106.14 0 0 1-56.85 16.42c-1.09 0-2.19 0-3.37-.05h-.06A104.66 104.66 0 0 1 48 267.49V448H16v32h480v-32Zm-240-64h-96v-76a4 4 0 0 1 4-4h88a4 4 0 0 1 4 4Zm160 64h-80V308a4 4 0 0 1 4-4h72a4 4 0 0 1 4 4Zm108.57-277.72L445.89 64C432 32 432 32 400 32H112c-32 0-32 0-45.94 32L19.38 170.28c-9 19.41 2.89 39.34 2.9 39.35l.41.66c.42.66 1.13 1.75 1.62 2.37c.1.13.19.27.28.4l5.24 6.39l5.31 5.14l.42.36a69.65 69.65 0 0 0 9.44 6.78v.05a74 74 0 0 0 36 10.67h2.47a76.08 76.08 0 0 0 51.89-20.31a72.38 72.38 0 0 0 5.77-6a74.18 74.18 0 0 0 5.78 6a76.08 76.08 0 0 0 51.89 20.31c23.28 0 44.07-10 57.63-25.56a.11.11 0 0 1 .15 0l5.66 5.26a76.09 76.09 0 0 0 51.9 20.31c23.29 0 44.11-10 57.66-25.61c13.56 15.61 34.37 25.61 57.67 25.61h2.49a71.35 71.35 0 0 0 35-10.7c.95-.57 1.86-1.17 2.78-1.77A71.33 71.33 0 0 0 488 212.17l2-3c.9-2.04 11.21-20.3 2.57-38.89Z"/></svg>
+                        <h2 id="namaToko" class="mx-3"> Syamsul Katering</h2>
+                    </div> --}}
                     <div class="pengiriman flex items-center my-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M3 4a2 2 0 0 0-2 2v11h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2v-5l-3-4h-3V4m-7 2l4 4l-4 4v-3H4V9h6m7 .5h2.5l1.97 2.5H17M6 15.5A1.5 1.5 0 0 1 7.5 17A1.5 1.5 0 0 1 6 18.5A1.5 1.5 0 0 1 4.5 17A1.5 1.5 0 0 1 6 15.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5Z" />
-                        </svg>
-                        <h2 class="mx-3">Delivery</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4a2 2 0 0 0-2 2v11h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2v-5l-3-4h-3V4m-7 2l4 4l-4 4v-3H4V9h6m7 .5h2.5l1.97 2.5H17M6 15.5A1.5 1.5 0 0 1 7.5 17A1.5 1.5 0 0 1 6 18.5A1.5 1.5 0 0 1 4.5 17A1.5 1.5 0 0 1 6 15.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5Z" /></svg>
+                        <h1 class="mx-3 font-bold text-xl">Delivery</h1>
                     </div>
                     <div class="tanggal flex items-center my-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Zm7-6q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18Z" />
-                        </svg>
-                        <h2 id="tanggalPesanan" class="mx-3">{{ $TanggalPesanan }}</h2>
+                        {{-- <svg class="bg-red-200" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"> <path fill="currentColor" d="M5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Zm7-6q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18Z" /></svg> --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20"><path fill="currentColor" d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"/></svg>
+                        <h2 id="tanggalPesanan" class="mx-3 font-bold text-xl">{{ $TanggalPesanan }}</h2>
                     </div>
+
                     <div class="waktu flex items-center my-3">
-                        <svg width="26" height="26" viewBox="0 0 50 50" fill="none"
+                        <svg width="28" height="28" viewBox="0 0 50 50" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M25 0C38.8075 0 50 11.1925 50 25C50 38.8075 38.8075 50 25 50C11.1925 50 0 38.8075 0 25C0 11.1925 11.1925 0 25 0ZM25 5C19.6957 5 14.6086 7.10714 10.8579 10.8579C7.10714 14.6086 5 19.6957 5 25C5 30.3043 7.10714 35.3914 10.8579 39.1421C14.6086 42.8929 19.6957 45 25 45C30.3043 45 35.3914 42.8929 39.1421 39.1421C42.8929 35.3914 45 30.3043 45 25C45 19.6957 42.8929 14.6086 39.1421 10.8579C35.3914 7.10714 30.3043 5 25 5ZM25 10C25.6123 10.0001 26.2033 10.2249 26.6609 10.6318C27.1185 11.0387 27.4109 11.5994 27.4825 12.2075L27.5 12.5V23.965L34.2675 30.7325C34.7159 31.1824 34.9762 31.7861 34.9956 32.421C35.015 33.0558 34.792 33.6743 34.3719 34.1507C33.9518 34.6271 33.3661 34.9258 32.7338 34.986C32.1015 35.0462 31.47 34.8635 30.9675 34.475L30.7325 34.2675L23.2325 26.7675C22.8439 26.3786 22.5944 25.8725 22.5225 25.3275L22.5 25V12.5C22.5 11.837 22.7634 11.2011 23.2322 10.7322C23.7011 10.2634 24.337 10 25 10Z"
                                 fill="black" />
                         </svg>
-                        <h2 class="mx-3">{{ $DataTransaksiUser->waktuPesanan }}</h2>
+                        <h2 class="mx-3 font-bold text-xl">{{ $DataTransaksiUser->waktuPesanan }}</h2>
                     </div>
                 </div>
 
                 <div class="alamat lg:w-1/2 w-full">
-                    <div class="judulAlamat flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z" />
-                        </svg>
-                        <h2 class="">Alamat Pengiriman</h2>
+                    <div class="judulAlamat flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor"d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z" /></svg>
+                        <h2 class="font-bold text-xl">Alamat Pengiriman</h2>
                     </div>
                     <div class="detailAlamat p-3 px-4 border-solid border-black border my-3 rounded-xl">
-                        <h1 id="namaKonsumen">{{ $DataTransaksiUser->User->Nama }}</h1>
-                        <h1 id="teleponKonsumen">{{ $DataTransaksiUser->User->Nohp }}</h1>
-                        <h1 id="alamatKonsumen">{{ $DataTransaksiUser->AlamatKirim }}</h1>
+                        <h1 id="namaKonsumen" class="text-xl">{{ $DataTransaksiUser->User->Nama }}</h1>
+                        <h1 id="teleponKonsumen" class="text-xl">{{ $DataTransaksiUser->User->Nohp }}</h1>
+                        <h1 id="alamatKonsumen" class="text-lg">{{ $DataTransaksiUser->AlamatKirim }}</h1>
                     </div>
                 </div>
             </div>
 
-            <h1 class="text-2xl font-extrabold pt-16">Ringkasan Belanja</h1>
+            <h1 class="pt-16 text-2xl font-extrabold">Ringkasan Belanja</h1>
 
             <div class="listPesanan">
                 @php
@@ -107,16 +95,16 @@
                         <img src="{{ asset('storage/' . $listBarang->FotoProduk) }}" class="w-52 h-52 rounded-lg mr-5">
                         <div class="detailProduk flex justify-between w-full items-center">
                             <div class="detail1">
-                                <h2 id="namaProduk">{{ $listBarang->Nama }}</h2>
-                                <h2 id="hargaProduk">@currency($listBarang->Harga)</h2>
-                                <h2 id="jumlahPesanan">Jumlah Pesanan: {{ $listBarang->Qty }}</h2>
+                                <h2 id="namaProduk" class="text-2xl font-bold">{{ $listBarang->Nama }}</h2>
+                                <h2 id="hargaProduk" class="text-lg">@currency($listBarang->Harga)</h2>
+                                <h2 id="jumlahPesanan" class="text-lg">x {{ $listBarang->Qty }}</h2>
                             </div>
                             <input type="text" value="{{ $listBarang->MinimalWaktuPO }}" name="" id=""
                                 class="hidden MinimalWaktuPO">
 
                             <div class="detail2 py-10">
-                                <h2 class="text-end ">Total:</h2>
-                                <h2 id="totalHarga">@currency($listBarang->Harga * $listBarang->Qty)</h2>
+                                <h2 class="text-end text-2xl">Total:</h2>
+                                <h2 id="totalHarga" class="text-xl">@currency($listBarang->Harga * $listBarang->Qty)</h2>
                             </div>
                         </div>
                     </div>
@@ -130,20 +118,19 @@
 
             <div class="subOngkir">
                 <div class="flex justify-between">
-                    <h1 class="text-2xl font-extrabold">Subtotal</h1>
-                    <h2 id="subtotal">@currency($SubTotal)</h2>
+                    <h1 class="text-xl font-bold">Subtotal</h1>
+                    <h1 id="subtotal" class="font-bold text-lg">@currency($SubTotal)</h1>
                 </div>
 
                 <div class="flex justify-between my-4">
-                    <div class="flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M3 4a2 2 0 0 0-2 2v11h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2v-5l-3-4h-3V4m-7 2l4 4l-4 4v-3H4V9h6m7 .5h2.5l1.97 2.5H17M6 15.5A1.5 1.5 0 0 1 7.5 17A1.5 1.5 0 0 1 6 18.5A1.5 1.5 0 0 1 4.5 17A1.5 1.5 0 0 1 6 15.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5Z" />
-                        </svg>
-                        <h2 class="mx-3">Ongkos Kirim</h2>
-                    </div>
-                    <h2 id="ongkir">Rp 30.000,00</h2>
+                    <h1 class="text-xl font-bold">Ongkos Kirim</h1>
+                    <h1 id="ongkir" class="font-bold text-lg">Rp 30.000,00</h1>
                 </div>
+
+                {{-- <div class="flex justify-between">
+                    <h1 class="text-2xl font-extrabold">Subtotal</h1>
+                    <h2 id="subtotal">@currency($SubTotal)</h2>
+                </div>--}}
             </div>
 
             <hr class="my-8 border-[#850000] border-2">
@@ -177,7 +164,7 @@
             @if ($statusView == 'disiapkan')
                 <div class="flex md:justify-end my-16 justify-center">
                     <a href="/umkm/chat/{{ $DataTransaksiUser->IdUser }}"
-                        class="text-xl mx-2 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">
+                        class="text-xl px-8 mx-2 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">
                         CHAT
                     </a>
                     <form action="/umkm/kirim-pesanan/{{ $IdTransaksi }}" method="get"
