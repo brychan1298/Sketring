@@ -16,7 +16,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-<div class="container m-auto mt-[130px]">
+<div class="container mx-auto mt-[7.5vw] px-[8vw] max-xl:mt-[13vw] max-2xl:mt-[10vw] max-lg:mt-[18vw] max-md:mt-[24vw]">
     <div class="flex items-center justify-center judulAddProduk">
         <a href="/tarikSaldo">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col pb-6 mx-12 md:mx-24 lg:mx-32">
+    <div class="flex flex-col pb-6">
         <h1 class="mt-16 text-2xl">E-Money</h1>
         <hr class="h-px my-3 bg-gray-500 border-0">
 

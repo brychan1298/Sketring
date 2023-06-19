@@ -89,7 +89,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
-                    <p class="text-xl font-bold max-md:text-lg">Nama Lengkap</p>
+                    <p class="text-xl font-bold max-md:text-lg">Nama Toko</p>
                 </div>
                 <input type="text" name="Nama" class="max-md:text-base px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nama Lengkap Anda" value="{{Auth::User()->Nama}}">
             </div>
