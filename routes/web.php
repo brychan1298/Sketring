@@ -164,6 +164,8 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
     Route::get('/pembayaran/{IdTransaksi}', [TransaksiController::class, 'virtualaccount']);
 
     Route::get('/pesanan', [TransaksiController::class, 'index'])->middleware('auth');
+    Route::get('/filter-pesanan-belum-bayar',[TransaksiController::class, 'filterpesananbelumbayar']);
+
     Route::get('/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
     Route::post('/bayarselesai',[TransaksiController::class, 'pembayaranselesai']);
     Route::get('/disiapkan', [TransaksiController::class, 'disiapkan']);

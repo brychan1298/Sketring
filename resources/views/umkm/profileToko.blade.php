@@ -2,8 +2,7 @@
 @section('title', 'Profil Toko')
 @section('description', 'Profil Toko Anda')
 @section('content')
-
-<div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36">
+<div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36 max-sm:px-12">
     <div class="inline-flex max-sm:pt-16">
         <a href="/">
             <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,8 +12,7 @@
         <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL TOKO</p>
     </div>
 </div>
-
-<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10">
+<img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-48">
 <div class="container mx-auto w-max">
     <div class="w-full">
         <div class="text-center w-fit max-lg:mx-auto">
@@ -28,8 +26,7 @@
     </div>
 </div>
 
-
-<div class="flex flex-col w-full mx-auto container px-36 max-lg:px-8">
+<div class="container flex flex-col w-full mx-auto px-36 max-lg:px-8">
     <div class="w-[100%] flex flex-row-reverse mb-5 max-md:mb-2">
         <a href="/umkm/editProfileToko" class="flex flex-row w-max">
             <div class="flex flex-row bg-white w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">
@@ -51,7 +48,7 @@
                         </svg>
                         <p class="text-2xl font-bold max-lg:text-xl max-md:text-lg">SALDO:</p>
                     </div>
-                    <p class="mt-2 text-xl font-bold text-center max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
+                    <p class="mt-2 text-xl font-bold text-center max-xl:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
                 </div>
                 <a href="/tarikSaldoUMKM">
                     <p class="text-xl font-bold text-center hover:underline max-md:text-lg">Tarik Saldo >></p>
