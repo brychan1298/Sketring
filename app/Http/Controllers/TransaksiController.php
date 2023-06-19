@@ -20,7 +20,7 @@ class TransaksiController extends Controller
     public function index()
     {
         // $Transaction = Transaksi::where("IdUser",Auth::User()->IdUser)->where("SudahBayar",0);
-
+        $ListAcara = Acara::where("IdUser",Auth::User()->IdUser)->get();
         $ListTransaksi = [];
         $Transaction = Transaksi::selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
                                 ->join("TransaksiDetail","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
@@ -34,7 +34,7 @@ class TransaksiController extends Controller
         foreach($Transaction as $items){
             $ListTransaksi[$items->IdTransaksi][] = $items;
         }
-        return view("konsumen.pesanan.pesanan", compact('Transaction','ListTransaksi'));
+        return view("konsumen.pesanan.pesanan", compact('ListAcara','Transaction','ListTransaksi'));
     }
 
     /**
@@ -302,6 +302,48 @@ class TransaksiController extends Controller
         }
 
         return view("konsumen.pesanan.pesanan-batal",compact('ListTransaksi','ListAcara'));
+    }
+
+    public function filterpesananbelumbayar(Request $request){
+        $ListAcara = Acara::where("IdUser",Auth::User()->IdUser)->get();
+        $IdAcara = $request->input('IdAcara');
+
+        $ListTransaksi = [];
+
+        $Transaksi = TransaksiDetail::
+                    selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*")
+                    ->join("Transaksi","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                    ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                    ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                    ->where("Transaksi.IdUser","=",Auth::User()->IdUser)
+                    ->where("Transaksi.SudahBayar",0)
+                    ->where("TransaksiDetail.IdAcara",$IdAcara)
+                    ->where(function ($query){
+                        $query->where("TransaksiDetail.Status",1);
+                    })
+                    ->get();
+
+        if($IdAcara == 0){
+            $Transaksi = TransaksiDetail::
+                            selectRaw("TransaksiDetail.*,Transaksi.*, Acara.Nama as NamaAcara, Produk.*, Produk.IdUser As IdToko, Transaksi.IdTransaksi As IdTransaksi")
+                            ->join("Transaksi","TransaksiDetail.IdTransaksi","=","Transaksi.IdTransaksi")
+                            ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                            ->join("Acara","Acara.IdAcara","=","TransaksiDetail.IdAcara")
+                            ->where("Transaksi.IdUser","=",Auth::User()->IdUser)
+                            ->where("Transaksi.SudahBayar",0)
+                            ->where(function ($query){
+                                $query->where("TransaksiDetail.Status",1);
+                            })
+                            ->get();
+        }
+
+        foreach($Transaksi as $items){
+            $ListTransaksi[$items->IdTransaksi][] = $items;
+        }
+
+        $view = view("konsumen.pesanan.datapesanan",['ListTransaksi' => $ListTransaksi]);
+        $html = $view->render();
+        return $html;
     }
 
     public function filterpesanan(Request $request){

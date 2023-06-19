@@ -26,69 +26,35 @@
             @include('konsumen.pesanan.layoutPesanan')
             {{-- Select Event --}}
             <div class="flex flex-row w-[100%] justify-end">
-                <select id="countries"
+                <select id="IdAcara" onchange="filterData()"
                     class="bg-[#850000] text-white text-sm rounded-[10px] focus:ring-blue-500 focus:border-blue-500 block w-[30%] p-[0.5vw]">
-                    <option selected>Semua Keranjang</option>
-                    <option value="1">Keranjang 1</option>
-                    <option value="2">Keranjang 2</option>
-                    <option value="3">Keranjang 3</option>
-                    <option value="4">Keranjang 4</option>
+                    <option selected value="0">Semua Keranjang</option>
+                    @foreach ($ListAcara as $Acara)
+                        <option value="{{ $Acara->IdAcara }}">{{ $Acara->Nama }}</option>
+                    @endforeach
                 </select>
             </div>
 
             {{-- Order List --}}
             <div id="ListTransaksi" class="w-full">
-                @foreach ($ListTransaksi as $Transaksi => $items)
-                    <h1 class="text-xl text-[#850000] mb-5">
-                        Transaksi #{{ $Transaksi }}
-                    </h1>
-                    @foreach ($items as $item)
-                        <div href="#"
-                            class="flex flex-row justify-between w-[100%] p-[1vw] items-center mb-[-1vw] mt-[-1vw]">
-                            {{-- Left hug content --}}
-                            <div class="flex flex-row w-max gap-[0.5vw]">
-                                <img class="w-[4vw] h-[4vw] rounded-[10px]"
-                                    src="{{ asset('storage/' . $item->FotoProduk) }}" alt="">
-                                <div class="flex flex-col w-max text-[#850000]">
-                                    <p class="font-bold">{{ $item->Nama }} ({{ $item->Qty }})</p>
-                                    <p>Keranjang: {{ $item->NamaAcara }}</p>
-                                    <p class="text-sm">
-                                        Keterangan: Berdasarkan Status
-                                    </p>
-                                </div>
-                            </div>
-                            {{-- Right hug content --}}
-                            <div class="flex flex-col w-max items-end gap-[0.5vw]">
-                                <div class="flex flex-row w-max gap-[1vw] font-bold">
-                                    <button type="submit"
-                                        class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
-                                        BUTTON 1
-                                    </button>
-                                    <button type="submit"
-                                        class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
-                                        BUTTON 2
-                                    </button>
-                                </div>
-                                <p class="text-[#DC0000] text-sm">Keterangan: Berdasarkan Status</p>
-                            </div>
-                        </div>
-                        <div class="w-full h-[2px] bg-[#850000] mt-4"></div>
-                    @endforeach
-                    <div class="flex flex-col w-max items-end gap-[0.5vw] justify-center my-5">
-                        <div class="flex flex-row w-max gap-[1vw] font-bold">
-                            <a href="/konsumen/detailTransaksi/{{ $Transaksi }}"
-                                class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
-                                Detail
-                            </a>
-                            <a href="/konsumen/pembayaran/{{ $Transaksi }}"
-                                class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
-                                Bayar
-                            </a>
-                        </div>
-                        <p class="text-[#DC0000] text-sm">Keterangan: Belum Bayar</p>
-                    </div>
-                @endforeach
+                @include('konsumen.pesanan.datapesanan', ['ListTransaksi' => $ListTransaksi])
             </div>
         </div>
     </div>
+    <script>
+        function filterData() {
+            var selectedIdAcara = document.getElementById("IdAcara").value;
+
+            $.ajax({
+                type: "GET",
+                url: '/konsumen/filter-pesanan-belum-bayar',
+                data: {
+                    IdAcara: selectedIdAcara
+                },
+                success: function(data) {
+                    $('#ListTransaksi').html(data);
+                }
+            })
+        }
+    </script>
 @endsection
