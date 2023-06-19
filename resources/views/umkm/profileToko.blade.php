@@ -2,7 +2,6 @@
 @section('title', 'Profil Toko')
 @section('description', 'Profil Toko Anda')
 @section('content')
-
 <div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36 max-sm:px-12">
     <div class="inline-flex max-sm:pt-16">
         <a href="/">
@@ -13,7 +12,6 @@
         <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL TOKO</p>
     </div>
 </div>
-
 <img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-48">
 <div class="container mx-auto w-max">
     <div class="w-full">
@@ -27,7 +25,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="container flex flex-col w-full mx-auto px-36 max-lg:px-8">
     <div class="w-[100%] flex flex-row-reverse mb-5 max-md:mb-2">

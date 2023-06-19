@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-86 max-sm:h-52">
+<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10">
 
 <form action="update" enctype="multipart/form-data" method="post">
 @method('put')
@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div class="container flex flex-col w-full mx-auto px-36 max-lg:px-8">
+<div class="flex flex-col w-full mx-auto container px-36 max-lg:px-8">
     {{-- <div class="w-[100%] flex flex-row-reverse mb-5 max-md:mb-2">
         <a href="/umkm/profileToko" class="flex flex-row w-max">
             <div class="flex flex-row bg-[#F8CB66] w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">
@@ -89,7 +89,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
-                    <p class="text-xl font-bold max-md:text-lg">Nama Lengkap</p>
+                    <p class="text-xl font-bold max-md:text-lg">Nama Toko</p>
                 </div>
                 <input type="text" name="Nama" class="max-md:text-base px-[24px] py-[16px] text-black bg-white rounded-[10px] text-lg" placeholder="Masukan Nama Lengkap Anda" value="{{Auth::User()->Nama}}">
             </div>
