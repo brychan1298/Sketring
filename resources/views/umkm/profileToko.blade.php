@@ -38,7 +38,7 @@
         </a>
     </div>
     <div class="container-md flex flex-row w-full justify-between pb-[48px] max-xl:gap-12 max-lg:gap-8 max-md:grid max-md:grid-cols-1">
-        <div class="container-md flex flex-col gap-[32px] max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1">
+        <div class="container-md flex flex-col gap-[32px] max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1 w-1/5 max-md:w-full">
             <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] max-lg:ml-0">
                 <div class="flex flex-col">
                     <div class="w-[100%] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
