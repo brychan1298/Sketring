@@ -28,7 +28,7 @@
         .form {
             /* background-color: blue; */
             /* padding: 0px 50px; */
-            width: 450px;
+            /* width: 450px; */
             align-items: center;
         }
 
@@ -117,11 +117,11 @@
         <hr class="my-8">
 
         <div class="formProduk flex justify-center">
-            <form action="/tambahProduk" class="w-full form" enctype="multipart/form-data" method="post">
+            <form action="/tambahProduk" class=" w-full form" enctype="multipart/form-data" method="post">
                 @csrf
                 <label for="file-upload" class="cursor-pointer rounded-md font-semibold">
-                    <div class="uploadFoto bg-[#BCBCBC] mt-2 flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
-                        <div class="text-center bg-">
+                    <div class="uploadFoto bg-[#BCBCBC] flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
+                        <div class="text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="90" height="90" color="white"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -138,9 +138,7 @@
                                         accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
                     </div><br>
                 </label>
-                <p id="Preview" class="font-black hidden">
-                    Preview :
-                </p>
+                <p id="Preview" class="font-black hidden">Preview :</p>
                 <img src="" alt="" class="img-preview mb-4">
 
 
