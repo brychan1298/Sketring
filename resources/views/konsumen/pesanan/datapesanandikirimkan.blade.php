@@ -27,11 +27,13 @@
                 <div class="flex flex-col w-max items-end gap-[0.5vw]">
                     <div class="flex flex-row w-max gap-[1vw] font-bold">
                         @if ($item->Status == 5)
-                            <form action="/konsumen/diterima/{{ $item->Id }}" method="get"
-                                onsubmit="return confirm('{{$item->Nama}} sejumlah {{$item->Qty}} sudah sampai?')">
+                            <form action="/konsumen/diterima/{{ $item->Id }}" method="get">
+                                {{-- onsubmit="return confirm('{{$item->Nama}} sejumlah {{$item->Qty}} sudah sampai?')" --}}
                                 @csrf
-                                <button type="submit"
-                                    class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                                <input type="hidden" class="ItemNama" value="{{ $item->Nama }}">
+                                <input type="hidden" class="ItemQty" value="{{ $item->Qty }}">
+                                <button type="button"
+                                    class="btnTerimaPesanan text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                                     DITERIMA
                                 </button>
                             </form>

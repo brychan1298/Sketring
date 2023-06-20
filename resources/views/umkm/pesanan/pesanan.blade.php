@@ -43,6 +43,7 @@
             @include('umkm.pesanan.layoutPesanan')
 
             {{-- Order List --}}
+            <div class="w-full h-[2px] bg-[#850000]"></div>
             @foreach ($ListTransaksi as $Transaksis => $items)
                 <h1 class="text-xl text-[#850000]">
                     Transaksi #{{ $Transaksis }}
@@ -89,12 +90,11 @@
                             class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                             DETAIL
                         </a>
-                        <form action="/umkm/terima-pesanan/{{ $Transaksis }}"
-                            method="get"
-                            onsubmit="return confirm('Anda akan menerima transaksi #{{$Transaksis}}?')">
+                        <form action="/umkm/terima-pesanan/{{ $Transaksis }}" method="get">
                             @csrf
-                            <button type="submit"
-                                class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                            <input type="hidden" class="IdTransaksi" value="{{$Transaksis}}">
+                            <button type="button"
+                                class="btnTerimaPesanan text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                                 TERIMA
                             </button>
                         </form>
@@ -107,6 +107,30 @@
     <script>
         $(document).ready(function() {
             $('.alert-success').fadeIn().delay(10000).fadeOut();
+        });
+
+        $('.btnTerimaPesanan').click(function(event) {
+            var form = $(this).closest("form");
+            var IdTransaksi = $(this).closest("form").find(".IdTransaksi").val();
+            event.preventDefault();
+            Swal.fire({
+                    title: `Apakah anda ingin menerima Transaksi #` + IdTransaksi + ` ?`,
+                    // text: "If you delete this, it will be gone forever.",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Tidak",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
         });
     </script>
 @endsection

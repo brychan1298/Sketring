@@ -12,9 +12,11 @@
 
     <div class="container mt-[140px] mx-auto">
         <div>
-            <a href={{URL("konsumen/cari")}}>
+            <a href={{ URL('konsumen/cari') }}>
                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
+                    <path
+                        d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z"
+                        fill="#850000" />
                 </svg>
             </a>
         </div>
@@ -73,7 +75,8 @@
                                 </button>
                                 <input type="number" id="Qty" value="{{ $detailProduk->MinOrder }}"
                                     class="Qty outline-none text-center focus:outline-none text-center w-full text-md border-2 border-[#850000]"
-                                    name="Qty" min="{{ $detailProduk->MinOrder }}" max="{{ $detailProduk->MaxOrder }}">
+                                    name="Qty" min="{{ $detailProduk->MinOrder }}"
+                                    max="{{ $detailProduk->MaxOrder }}">
                                 <button id="addButton" onclick="addAmount()"
                                     class="bg-[#850000] h-full w-20 rounded-r cursor-pointer">
                                     <span class="m-auto text-2xl font-thin text-white">+</span>
@@ -100,7 +103,7 @@
                             <div>
                                 <h1 class="text-xl font-black">{{ $detailProduk->User->Nama }}</h1>
                                 <div class="flex gap-3 mt-2">
-                                    <a href="/konsumen/chat/{{$detailProduk->IdUser}}"
+                                    <a href="/konsumen/chat/{{ $detailProduk->IdUser }}"
                                         class="text-decoration-none border-2 text-[#850000] rounded-md border-[#850000] py-1 px-3 bg-white">
                                         Chat
                                     </a>
@@ -116,6 +119,7 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -147,6 +151,7 @@
             }
 
             $('.addtocart').click(function(e) {
+
                 e.preventDefault();
 
                 var IdProduk = $(this).closest('.DataProduk').find('#IdProduk').val();
@@ -168,7 +173,10 @@
                         'IdAcara': IdAcara
                     },
                     success: function(response) {
-                        alert(response.status);
+                        Swal.fire({
+                            icon: 'error',
+                            title: response.status,
+                        })
                         loadCart();
                     }
                 })

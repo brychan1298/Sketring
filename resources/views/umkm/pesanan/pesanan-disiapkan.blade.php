@@ -72,11 +72,12 @@
                             class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                             DETAIL
                         </a>
-                        <form action="/umkm/kirim-pesanan/{{ $Transaksis }}" method="get"
-                            onsubmit="return confirm('Anda akan mengirim transaksi #{{ $Transaksis }}?')">
+                        <form action="/umkm/kirim-pesanan/{{ $Transaksis }}" method="get">
+                            {{-- onsubmit="return confirm('Anda akan mengirim transaksi #{{ $Transaksis }}?')" --}}
                             @csrf
-                            <button type="submit"
-                                class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                            <input type="hidden" class="IdTransaksi" value="{{ $Transaksis }}">
+                            <button type="button"
+                                class="btnKirimPesanan text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                                 KIRIM
                             </button>
                         </form>
@@ -86,4 +87,29 @@
             @endforeach
         </div>
     </div>
+    <script>
+        $('.btnKirimPesanan').click(function(event) {
+            var form = $(this).closest("form");
+            var IdTransaksi = $(this).closest("form").find(".IdTransaksi").val();
+            event.preventDefault();
+            Swal.fire({
+                    title: `Anda akan mengirim Transaksi #` + IdTransaksi + ` ?`,
+                    // text: "If you delete this, it will be gone forever.",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Batal",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
+        });
+    </script>
 @endsection

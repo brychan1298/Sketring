@@ -80,15 +80,16 @@
                 @endforeach
                 <div class="gap-[0.5vw] mb-5">
                     <div class="flex flex-row w-max gap-[1vw] font-bold float-right">
-                        <a href="/umkm/chat/{{ $IdKonsumen }}"
+                        <a href="/umkm/detailTransaksi-4/{{ $Transaksis }}"
                             class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
-                            CHAT
+                            DETAIL
                         </a>
-                        <form action="/umkm/pesanan-sampai/{{ $Transaksis }}" method="get"
-                            onsubmit="return confirm('Pesanan untuk transaksi #{{ $Transaksis }} sudah sampai?')">
+                        <form action="/umkm/pesanan-sampai/{{ $Transaksis }}" method="get">
+                            {{-- onsubmit="return confirm('Pesanan untuk transaksi #{{ $Transaksis }} sudah sampai?')" --}}
                             @csrf
-                            <button type="submit"
-                                class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                            <input type="hidden" class="IdTransaksi" value="{{ $Transaksis }}">
+                            <button type="button"
+                                class="btnPesananSampai text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                                 SAMPAI
                             </button>
                         </form>
@@ -98,4 +99,29 @@
             @endforeach
         </div>
     </div>
+    <script>
+        $('.btnPesananSampai').click(function(event) {
+            var form = $(this).closest("form");
+            var IdTransaksi = $(this).closest("form").find(".IdTransaksi").val();
+            event.preventDefault();
+            Swal.fire({
+                    title: `Pesanan untuk Transaksi #` + IdTransaksi + ` sudah sampai?`,
+                    // text: "If you delete this, it will be gone forever.",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Tidak",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
+        });
+    </script>
 @endsection

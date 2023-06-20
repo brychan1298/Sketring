@@ -1,3 +1,5 @@
-import './bootstrap';
+// import './bootstrap';
+import swal from 'sweetalert2';
+window.Swal = swal;
 
-import '../sass/app.scss'
+// import '../sass/app.scss'

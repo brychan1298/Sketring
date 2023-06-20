@@ -51,7 +51,7 @@
                 </button>
             </div>
             <div class="text-center">
-                Belum punya akun? <a href="/register" class="font-bold hover:text-red-600">Register</a>
+                Belum punya akun? <a href="/register" class="font-bold text-blue-500 hover:text-red-600">Register</a>
             </div>
         </form>
     </div>

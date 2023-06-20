@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css','resources/js/app.js'])
     <style>
 
         body {

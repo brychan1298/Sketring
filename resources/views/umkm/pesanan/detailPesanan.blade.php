@@ -51,12 +51,18 @@
                         <h2 id="namaToko" class="mx-3"> Syamsul Katering</h2>
                     </div> --}}
                     <div class="pengiriman flex items-center my-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4a2 2 0 0 0-2 2v11h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2v-5l-3-4h-3V4m-7 2l4 4l-4 4v-3H4V9h6m7 .5h2.5l1.97 2.5H17M6 15.5A1.5 1.5 0 0 1 7.5 17A1.5 1.5 0 0 1 6 18.5A1.5 1.5 0 0 1 4.5 17A1.5 1.5 0 0 1 6 15.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5Z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M3 4a2 2 0 0 0-2 2v11h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2v-5l-3-4h-3V4m-7 2l4 4l-4 4v-3H4V9h6m7 .5h2.5l1.97 2.5H17M6 15.5A1.5 1.5 0 0 1 7.5 17A1.5 1.5 0 0 1 6 18.5A1.5 1.5 0 0 1 4.5 17A1.5 1.5 0 0 1 6 15.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5Z" />
+                        </svg>
                         <h1 class="mx-3 font-bold text-xl">Delivery</h1>
                     </div>
                     <div class="tanggal flex items-center my-3">
                         {{-- <svg class="bg-red-200" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"> <path fill="currentColor" d="M5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Zm7-6q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18Z" /></svg> --}}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20"><path fill="currentColor" d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20">
+                            <path fill="currentColor"
+                                d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z" />
+                        </svg>
                         <h2 id="tanggalPesanan" class="mx-3 font-bold text-xl">{{ $TanggalPesanan }}</h2>
                     </div>
 
@@ -73,7 +79,10 @@
 
                 <div class="alamat lg:w-1/2 w-full">
                     <div class="judulAlamat flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor"d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                            <path
+                                fill="currentColor"d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z" />
+                        </svg>
                         <h2 class="font-bold text-xl">Alamat Pengiriman</h2>
                     </div>
                     <div class="detailAlamat p-3 px-4 border-solid border-black border my-3 rounded-xl">
@@ -130,7 +139,7 @@
                 {{-- <div class="flex justify-between">
                     <h1 class="text-2xl font-extrabold">Subtotal</h1>
                     <h2 id="subtotal">@currency($SubTotal)</h2>
-                </div>--}}
+                </div> --}}
             </div>
 
             <hr class="my-8 border-[#850000] border-2">
@@ -142,19 +151,20 @@
 
             @if ($statusView == 'sudahbayar')
                 <div class="flex md:justify-end my-16 justify-center">
-                    <form action="/umkm/tolak-pesanan/{{ $IdTransaksi }}" method="POST"
-                        onsubmit="return confirm('Anda akan menolak pesanan untuk transaksi #{{ $IdTransaksi }}?')">
+                    <form action="/umkm/tolak-pesanan/{{ $IdTransaksi }}" method="POST">
                         @csrf
-                        <button type="submit" href="/umkm/tolak-pesanan/{{ $IdTransaksi }}"
-                            class="text-xl mx-2 px-8 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 border border-red-600 hover:border-transparent rounded">
+                        <input type="hidden" class="IdTransaksi" value="{{$IdTransaksi}}">
+                        <button type="button"
+                            class="btnTolakPesanan text-xl mx-2 px-8 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 border border-red-600 hover:border-transparent rounded">
                             TOLAK
                         </button>
                     </form>
                     <form action="/umkm/terima-pesanan/{{ $IdTransaksi }}" method="get">
                         @csrf
-                        <button type="submit"
+                        <input type="hidden" class="IdTransaksi" value="{{$IdTransaksi}}">
+                        <button type="button"
                             onsubmit="return confirm('Anda akan menerima transaksi #{{ $IdTransaksi }}?')"
-                            class="text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 rounded">
+                            class="btnTerimaPesanan text-xl px-8 bg-red-600 hover:bg-red-800 text-white font-bold py-2 rounded">
                             TERIMA
                         </button>
                     </form>
@@ -177,6 +187,97 @@
                     </form>
                 </div>
             @endif
+
+            @if ($statusView == 'dikirimkan')
+                <div class="flex md:justify-end my-16 justify-center">
+                    <a href="/umkm/chat/{{ $DataTransaksiUser->IdUser }}"
+                        class="text-xl px-8 mx-2 bg-transparent hover:bg-red-800 text-red-600 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">
+                        CHAT
+                    </a>
+                    <form action="/umkm/kirim-pesanan/{{ $IdTransaksi }}" method="get"
+                        onsubmit="return confirm('Anda akan mengirim transaksi #{{ $IdTransaksi }}?')">
+                        @csrf
+                        <input type="hidden" class="IdTransaksi" value="{{ $IdTransaksi }}">
+                        <button type="button"
+                            class="btnPesananSampai text-white px-8 bg-[#DC0000] py-2 px-4 border border-2 border-[#DC0000] text-xl font-semibold rounded-md">
+                            SAMPAI
+                        </button>
+                    </form>
+                </div>
+            @endif
         </div>
     </div>
+    <script>
+        $('.btnTolakPesanan').click(function(event) {
+            var form = $(this).closest("form");
+            var IdTransaksi = $(this).closest("form").find(".IdTransaksi").val();
+            event.preventDefault();
+            Swal.fire({
+                    title: `Apakah anda yakin ingin menolak Transaksi #` + IdTransaksi + ` ?`,
+                    // text: "If you delete this, it will be gone forever.",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Tidak",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
+        });
+
+        $('.btnTerimaPesanan').click(function(event) {
+            var form = $(this).closest("form");
+            var IdTransaksi = $(this).closest("form").find(".IdTransaksi").val();
+            event.preventDefault();
+            Swal.fire({
+                    title: `Apakah anda ingin menerima Transaksi #` + IdTransaksi + ` ?`,
+                    // text: "If you delete this, it will be gone forever.",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Tidak",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
+        });
+
+        $('.btnPesananSampai').click(function(event) {
+            var form = $(this).closest("form");
+            var IdTransaksi = $(this).closest("form").find(".IdTransaksi").val();
+            event.preventDefault();
+            Swal.fire({
+                    title: `Pesanan untuk Transaksi #` + IdTransaksi + ` sudah sampai?`,
+                    // text: "If you delete this, it will be gone forever.",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Tidak",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
+        });
+    </script>
 @endsection

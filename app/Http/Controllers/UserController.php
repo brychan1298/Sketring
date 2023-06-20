@@ -89,7 +89,52 @@ class UserController extends Controller
 
     public function umkmHome(){
         $ProdukUMKM = Produk::where('IdUser',Auth::User()->IdUser)->take(3)->get();
-        return view("umkm.beranda",compact("ProdukUMKM"));
+        $lastChatRaw = "";
+        $unread = "";
+
+        if(Auth::check()){
+            $myId = Auth::User()->IdUser;
+
+            $allID = DB::select("SELECT DISTINCT users.IdUser
+            FROM users
+            JOIN chat ON (users.IdUser = chat.IdSender AND chat.IdReceiver = '$myId')
+                        OR (users.IdUser = chat.IdReceiver AND chat.IdSender = '$myId')");
+
+
+            $allID = array_map(function($item) {
+                return (int) $item->IdUser;
+            }, $allID);
+
+            $allID = implode(",",$allID);
+
+            $lastChatRaw = DB::select("
+            SELECT c.*, u.IdUser, u.Nama, u.FotoProfil
+            FROM chat c
+            JOIN users u ON (u.IdUser = c.IdSender OR u.IdUser = c.IdReceiver)
+            WHERE (c.IdSender = ? OR c.IdReceiver = ?)
+                AND (c.IdSender IN ($allID) OR c.IdReceiver IN ($allID))
+                AND c.time IN (
+                SELECT MAX(time)
+                FROM chat
+                WHERE (IdSender = ? OR IdReceiver = ?)
+                    AND (IdSender IN ($allID) OR IdReceiver IN ($allID))
+                GROUP BY CASE
+                    WHEN IdSender = ? THEN IdReceiver
+                    ELSE IdSender
+                END
+                )
+                AND u.IdUser IN ($allID)
+            ORDER BY c.time DESC;", [$myId,$myId,$myId,$myId,$myId]);
+
+            $unread = DB::select("
+            SELECT u.IdUser, COALESCE(COUNT(c.readStatus), 0) AS Count
+            FROM users u
+            LEFT JOIN chat c ON (u.IdUser = c.IdSender AND c.IdReceiver = ? AND c.readStatus = 0)
+            WHERE u.IdUser IN ($allID)
+            GROUP BY u.IdUser;
+            ",[$myId]);
+        }
+        return view("umkm.beranda",compact("ProdukUMKM",'lastChatRaw','unread'));
     }
 
     public function showsaldo(){

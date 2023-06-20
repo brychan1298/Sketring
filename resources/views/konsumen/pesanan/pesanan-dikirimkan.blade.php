@@ -57,5 +57,30 @@
                 }
             })
         }
+
+        $('.btnTerimaPesanan').click(function(event) {
+            var form = $(this).closest("form");
+            var ItemNama = $(this).closest("form").find(".ItemNama").val();
+            var ItemQty = $(this).closest("form").find(".ItemQty").val();
+            event.preventDefault();
+            Swal.fire({
+                    // title: `Pesanan untuk Transaksi #` + IdTransaksi + ` sudah sampai?`,
+                    text: ItemNama + " sejumlah " + ItemQty + " sudah sampai?",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Tidak",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
+        });
     </script>
 @endsection
