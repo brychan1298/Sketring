@@ -27,12 +27,15 @@
 
     <div class="container m-auto mt-[140px]" id="bannerUMKM">
         <div class="rounded-md shadow-3xl py-10" id="bannerUMKM-child">
-            <p class="font-semibold text-center text-lg">
-                {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd, D MMMM YYYY') }}
-            </p>
-            <h1 class="font-normal text-3xl mt-3 text-center ">
-                Halo, <label class="font-black drop-shadow-lg shadow-black text-[#850000]">{{ Auth::User()->Nama }}</label>
-            </h1>
+            <div class="bg-[white] w-fit m-auto px-4 py-2 rounded-xl bg-opacity-20 backdrop-blur-sm">
+                <p class="font-semibold text-center text-lg">
+                    {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd, D MMMM YYYY') }}
+                </p>
+                <h1 class="font-normal text-3xl mt-3 text-center ">
+                    Halo, <label class="font-black drop-shadow-lg shadow-black text-[#850000]">{{ Auth::User()->Nama }}</label>
+                </h1>
+            </div>
+
             <div
                 class="rounded-md
                 shadow-3xl py-5 px-5
@@ -136,7 +139,7 @@
                         $countId = 0;
                     @endphp
                     @foreach ($lastChatRaw as $chatIds)
-                        <a href="/konsumen/chat/{{ $chatIds->IdUser }}"
+                        <a href="/umkm/chat/{{ $chatIds->IdUser }}"
                             class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
                             <div class="flex-shrink-0">
                                 <img class="w-16 h-16 rounded-full"

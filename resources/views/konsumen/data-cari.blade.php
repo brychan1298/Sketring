@@ -8,8 +8,12 @@
         overflow: hidden;
     }
 
+    .card-image{
+        transition: ease-in-out 0.3s;
+    }
+
     .card-produk:hover .card-image{
-        transform: scale(1.1)
+        transform: scale(1.2)
     }
 </style>
 
@@ -18,8 +22,11 @@
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
             <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[52vh] rounded-[10px] card-produk">
                 {{-- Product Image --}}
-                <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
-                    class="rounded-[10px] w-[full] h-[12vw] object-cover card-image" alt="">
+                <div class="overflow-hidden rounded-[10px]">
+                    <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
+                    class="rounded-[10px] w-[100%] h-[12vw] object-cover card-image" alt="">
+                </div>
+
                 {{-- Product Information --}}
                 <div class="flex flex-col w-[100%] gap-[0.5vw] p-[1vw]">
                     <p class="font-bold text-2xl pb-[0.5vw]">{{ $produk->Nama }}</p>
