@@ -116,19 +116,19 @@ Route::put('/tarikSaldoEmoneyUMKM/{id}', [UserController::class, 'tarikSaldoUMKM
 Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
     Route::get('/', [UserController::class, 'umkmHome']);
     Route::get('/dashboard',[ProdukController::class,'index']);
-    Route::get('/pesanan', [UmkmPesananController::class, 'umkmindex']);
+    Route::get('/pesanan', [UmkmPesananController::class, 'umkmindex'])->name('pesanan');
     Route::get('/terima-pesanan/{Id}', [UmkmPesananController::class ,'umkmterimapesanan']);
     Route::get('/detailTransaksi/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow']);
     Route::get('/detailTransaksi-2/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow2']);
     Route::get('/detailTransaksi-3/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow3']);
     Route::get('/detailTransaksi-4/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow4']);
     Route::post('/tolak-pesanan/{IdTransaksi}', [UmkmPesananController::class, "umkmtolakpesanan"]);
-    Route::get('/pesanan-disiapkan',[UmkmPesananController::class, 'umkmdisiapkan']);
+    Route::get('/pesanan-disiapkan',[UmkmPesananController::class, 'umkmdisiapkan'])->name("pesanan-disiapkan");
     Route::get('/kirim-pesanan/{IdTransaksi}', [UmkmPesananController::class, 'umkmkirimpesanan']);
-    Route::get('/pesanan-dikirimkan', [UmkmPesananController::class, 'umkmdikirimkan']);
+    Route::get('/pesanan-dikirimkan', [UmkmPesananController::class, 'umkmdikirimkan'])->name("pesanan-dikirimkan");
     Route::get('/pesanan-sampai/{IdTransaksi}', [UmkmPesananController::class, 'umkmpesanansampai']);
-    Route::get('/pesanan-selesai', [UmkmPesananController::class, 'umkmpesananselesai']);
-    Route::get('/pesanan-dibatalkan', [UmkmPesananController::class, 'umkmdibatalkan']);
+    Route::get('/pesanan-selesai', [UmkmPesananController::class, 'umkmpesananselesai'])->name("pesanan-selesai");
+    Route::get('/pesanan-dibatalkan', [UmkmPesananController::class, 'umkmdibatalkan'])->name("pesanan-dibatalkan");
 
     Route::get('/chat/{IdPerson}', [ChatController::class,'index2'])->middleware('auth');
     Route::get('/profileToko', function(){
@@ -164,24 +164,24 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
     Route::post('/bayar', [TransaksiController::class, 'store']);
     Route::get('/pembayaran/{IdTransaksi}', [TransaksiController::class, 'virtualaccount']);
 
-    Route::get('/pesanan', [TransaksiController::class, 'index'])->middleware('auth');
+    Route::get('/pesanan', [TransaksiController::class, 'index'])->middleware('auth')->name("pesanan");
     Route::get('/filter-pesanan-belum-bayar',[TransaksiController::class, 'filterpesananbelumbayar']);
 
     Route::get('/detailTransaksi/{IdTransaksi}', [TransaksiController::class, 'show']);
     Route::post('/bayarselesai',[TransaksiController::class, 'pembayaranselesai']);
-    Route::get('/disiapkan', [TransaksiController::class, 'disiapkan']);
+    Route::get('/disiapkan', [TransaksiController::class, 'disiapkan'])->name("pesanan-disiapkan");
     Route::get('/filter-pesanan',[TransaksiController::class, 'filterpesanan']);
 
-    Route::get('/dikirimkan', [TransaksiController::class, 'dikirimkan']);
+    Route::get('/dikirimkan', [TransaksiController::class, 'dikirimkan'])->name("pesanan-dikirimkan");
     Route::get('/filter-pesanan-dikirimkan',[TransaksiController::class, 'filterpesanandikirimkan']);
 
     Route::get('/diterima/{IdDetail}',[TransaksiController::class, 'diterima']);
-    Route::get('/selesai', [TransaksiController::class, 'selesai']);
+    Route::get('/selesai', [TransaksiController::class, 'selesai'])->name("pesanan-selesai");
     Route::get('/filter-pesanan-selesai',[TransaksiController::class, 'filterpesananselesai']);
     Route::post('/rating', [TransaksiController::class, 'rating']);
 
     Route::get('/batalkan/{IdTransaksi}', [TransaksiController::class, 'batalkan']);
-    Route::get('/dibatalkan', [TransaksiController::class, 'dibatalkan']);
+    Route::get('/dibatalkan', [TransaksiController::class, 'dibatalkan'])->name("pesanan-dibatalkan");
     Route::get('/chat/{IdPerson}', [ChatController::class,'index'])->middleware('auth');
 
     Route::get('/tariksaldo', [UserController::class, 'showsaldo']);

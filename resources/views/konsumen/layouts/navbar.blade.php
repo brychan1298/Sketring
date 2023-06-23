@@ -40,8 +40,7 @@
                         </div>
                         <div>
                             <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
-                            <span
-                                class="block text-sm text-black">{{ auth()->user()->Email }}</span>
+                            <span class="block text-sm text-black">{{ auth()->user()->Email }}</span>
                         </div>
 
                     </div>
@@ -90,16 +89,25 @@
                     <a href="/"
                         class="block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
-                                {{ set_active(['beranda']) }}"
-                        aria-current="page">Beranda</a>
+                                group transition duration-200"
+                        aria-current="page">Beranda
+                        <span
+                            class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
                 </li>
                 <li>
                     <a href="/konsumen/cari"
-                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 ">Produk</a>
+                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Produk
+                        <span
+                            class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
                 </li>
                 <li>
                     <a href="/konsumen/pesanan"
-                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 ">Pesanan</a>
+                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Pesanan
+                        <span
+                            class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
                 </li>
                 <li class="block px-4 py-2 pr-4 sm:hidden">
                     @if (Auth::check())
@@ -119,10 +127,8 @@
                                         src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
                                 </div>
                                 <div>
-                                    <span
-                                        class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
-                                    <span
-                                        class="block text-sm text-black">{{ auth()->user()->Email }}</span>
+                                    <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
+                                    <span class="block text-sm text-black">{{ auth()->user()->Email }}</span>
                                 </div>
 
                             </div>
@@ -147,8 +153,7 @@
                             </ul>
                         </div>
                     @else
-                        <a href="/login"
-                            class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
+                        <a href="/login" class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
                             Login
                         </a>
                     @endif

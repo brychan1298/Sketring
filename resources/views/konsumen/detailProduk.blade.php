@@ -173,10 +173,17 @@
                         'IdAcara': IdAcara
                     },
                     success: function(response) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: response.status,
-                        })
+                        if (response.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: response.status,
+                            })
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: response.status,
+                            })
+                        }
                         loadCart();
                     }
                 })
