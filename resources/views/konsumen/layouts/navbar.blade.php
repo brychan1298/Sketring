@@ -87,26 +87,40 @@
                 class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
                     <a href="/"
-                        class="block py-2 px-4 pr-4 text-white
+                        class="{{ set_active_2('beranda') }} block py-2 px-4 pr-4 text-white
                                 md:bg-transparent md:text-white-700
                                 group transition duration-200"
                         aria-current="page">Beranda
                         <span
-                            class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                            class="{{ set_active('beranda') }} block group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
                     </a>
                 </li>
                 <li>
                     <a href="/konsumen/cari"
-                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Produk
+                        class="{{ set_active_2('cari') }}
+                        {{ set_active_2('detailProduk') }}
+                        block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Produk
                         <span
-                            class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                            class="{{ set_active('cari') }}
+                            {{ set_active('detailProduk') }}
+                            block group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
                     </a>
                 </li>
                 <li>
                     <a href="/konsumen/pesanan"
-                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Pesanan
+                        class="{{ set_active_2('pesanan') }}
+                            {{ set_active_2('pesanan-disiapkan') }}
+                            {{ set_active_2('pesanan-dikirimkan') }}
+                            {{ set_active_2('pesanan-selesai') }}
+                            {{ set_active_2('pesanan-dibatalkan') }}
+                        block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Pesanan
                         <span
-                            class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                            class="{{ set_active('pesanan') }}
+                            {{ set_active('pesanan-disiapkan') }}
+                            {{ set_active('pesanan-dikirimkan') }}
+                            {{ set_active('pesanan-selesai') }}
+                            {{ set_active('pesanan-dibatalkan') }}
+                            block group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
                     </a>
                 </li>
                 <li class="block px-4 py-2 pr-4 sm:hidden">
@@ -116,8 +130,8 @@
                             id="user-menu-button-2" aria-expanded="false" data-dropdown-toggle="user-dropdown-2"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
-                                alt="user photo">
+                            <img class="w-12 h-12 rounded-full"
+                                src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
                         </button>
                         <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-300 rounded-lg shadow"
                             id="user-dropdown-2">

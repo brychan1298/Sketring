@@ -27,7 +27,7 @@
 
     <div class="container m-auto mt-[140px]" id="bannerUMKM">
         <div class="rounded-md shadow-3xl py-10" id="bannerUMKM-child">
-            <div class="bg-[white] w-fit m-auto px-4 py-2 rounded-xl bg-opacity-20 backdrop-blur-sm">
+            <div class="bg-[white] shadow-xl w-fit m-auto px-4 py-2 rounded-xl bg-opacity-20 backdrop-blur-sm">
                 <p class="font-semibold text-center text-lg">
                     {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd, D MMMM YYYY') }}
                 </p>

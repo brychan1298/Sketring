@@ -22,8 +22,7 @@
                         </div>
                         <div>
                             <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
-                            <span
-                                class="block text-sm text-black">{{ auth()->user()->Email }}</span>
+                            <span class="block text-sm text-black">{{ auth()->user()->Email }}</span>
                         </div>
 
                     </div>
@@ -70,16 +69,44 @@
                 class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
                     <a href="/umkm"
-                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700"
-                        aria-current="page">Beranda</a>
+                        class="{{ umkm_set_active_2('berandaumkm') }} block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200"
+                        aria-current="page">Beranda
+                        <span
+                            class="{{ umkm_set_active('berandaumkm') }} block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
                 </li>
                 <li>
                     <a href="/umkm/dashboard"
-                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 ">Produk Saya</a>
+                        class="{{ umkm_set_active_2('dashboardumkm') }}
+                        {{ umkm_set_active_2('tambahProduk') }}
+                        {{ umkm_set_active_2('editProduk') }}
+                        block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Produk
+                        Saya
+                        <span
+                            class="{{ umkm_set_active('dashboardumkm') }}
+                            {{ umkm_set_active('tambahProduk') }}
+                            {{ umkm_set_active('editProduk') }}
+                            block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
+
                 </li>
                 <li>
                     <a href="/umkm/pesanan"
-                        class="block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 ">Pesanan</a>
+                        class="{{ umkm_set_active_2('pesanan') }}
+                        {{ umkm_set_active_2('pesanan-disiapkan') }}
+                        {{ umkm_set_active_2('pesanan-dikirimkan') }}
+                        {{ umkm_set_active_2('pesanan-selesai') }}
+                        {{ umkm_set_active_2('pesanan-dibatalkan') }}
+                        block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Pesanan
+                        <span
+                            class="{{ umkm_set_active('pesanan') }}
+                            {{ umkm_set_active('pesanan-disiapkan') }}
+                            {{ umkm_set_active('pesanan-dikirimkan') }}
+                            {{ umkm_set_active('pesanan-selesai') }}
+                            {{ umkm_set_active('pesanan-dibatalkan') }}
+                            block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
+
                 </li>
                 <li class="block px-4 py-2 pr-4 sm:hidden">
                     @if (Auth::check())
@@ -88,8 +115,8 @@
                             id="user-menu-button-2" aria-expanded="false" data-dropdown-toggle="user-dropdown-2"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
-                                alt="user photo">
+                            <img class="w-12 h-12 rounded-full"
+                                src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
                         </button>
                         <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-300 rounded-lg shadow"
                             id="user-dropdown-2">
@@ -99,10 +126,8 @@
                                         src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
                                 </div>
                                 <div>
-                                    <span
-                                        class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
-                                    <span
-                                        class="block text-sm text-black">{{ auth()->user()->Email }}</span>
+                                    <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
+                                    <span class="block text-sm text-black">{{ auth()->user()->Email }}</span>
                                 </div>
 
                             </div>
@@ -127,8 +152,7 @@
                             </ul>
                         </div>
                     @else
-                        <a href="/login"
-                            class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
+                        <a href="/login" class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
                             Login
                         </a>
                     @endif
