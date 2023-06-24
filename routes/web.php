@@ -32,7 +32,7 @@ use App\Models\User;
 // Route::get('/', function () {
 //     return view('konsumen.beranda');
 // })->middleware('forbidumkm');
-Route::get('/', [UserController::class, 'home'])->middleware('forbidumkm');
+Route::get('/', [UserController::class, 'home'])->middleware('forbidumkm')->name('beranda');
 
 Route::get('/virtualaccount', function () {
     return view('konsumen.virtualAccount');
@@ -57,7 +57,7 @@ Route::get('/editProfile', function(){
 
 
 
-Route::get('/konsumen/cari', [ProdukController::class,'konsumenIndex']);
+Route::get('/konsumen/cari', [ProdukController::class,'konsumenIndex'])->name('cari');
 Route::get('/konsumen/search', [ProdukController::class,'konsumenSearch']);
 Route::get('/konsumen/filter-produk',[ProdukController::class, 'filterProduk']);
 
@@ -114,8 +114,8 @@ Route::put('/tarikSaldoEmoneyUMKM/{id}', [UserController::class, 'tarikSaldoUMKM
 
 
 Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
-    Route::get('/', [UserController::class, 'umkmHome']);
-    Route::get('/dashboard',[ProdukController::class,'index']);
+    Route::get('/', [UserController::class, 'umkmHome'])->name("berandaumkm");
+    Route::get('/dashboard',[ProdukController::class,'index'])->name("dashboardumkm");
     Route::get('/pesanan', [UmkmPesananController::class, 'umkmindex'])->name('pesanan');
     Route::get('/terima-pesanan/{Id}', [UmkmPesananController::class ,'umkmterimapesanan']);
     Route::get('/detailTransaksi/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow']);
@@ -136,10 +136,10 @@ Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
     });
     Route::get('/tambahProduk', function(){
         return view('umkm.tambahProduk');
-    });
+    })->name("tambahProduk");
 
     Route::post('/tambahProduk',[ProdukController::class,'store']);
-    Route::get('/editProduk/{IdProduk}', [ProdukController::class,'edit']);
+    Route::get('/editProduk/{IdProduk}', [ProdukController::class,'edit'])->name("editProduk");
     Route::put('/updateProduk',[ProdukController::class,'update']);
     Route::get('/editProfileToko',[LoginController::class,'editToko']);
     Route::put('/update',[LoginController::class,'updateToko']);
@@ -189,7 +189,7 @@ Route::group(["prefix" => "konsumen", "middleware" => "konsumen"], function(){
 
 Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);
 
-Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show']);
+Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show'])->name('detailProduk');
 Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);
 Route::get('/loadCartCount', [KeranjangController::class, 'CartCount']);
 
