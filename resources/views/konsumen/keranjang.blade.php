@@ -8,25 +8,38 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        hr {
+            border: 0.1px solid rgb(110, 110, 110);
+        }
+        .ProductData:hover{
+            scale: 1.004;
+        }
     </style>
     <form action="/konsumen/checkout" method="POST" onsubmit="return checkCheckbox()">
         @csrf
-        <div class="container m-auto items-start mb-[80px]">
-            <div class="mt-[140px] grid grid-cols-3 border-b-2 pb-5">
+        <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
+            <div class="inline-flex max-sm:pt-16">
                 <a href="/konsumen/listKeranjang">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z"
-                            fill="#850000" />
-                    </svg>
+                    <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <title>ionicons-v5-a</title>
+                        <polyline points="244 400 100 256 244 112"
+                            style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
+                        </polyline>
+                        <line x1="120" y1="256" x2="412" y2="256"
+                            style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
+                        </line>
+                    </g>
+                </svg>
                 </a>
-                <h1 class="text-center font-bold text-2xl">{{ $namaAcara }}</h1>
+                <h1 class="mx-auto text-2xl font-bold text-center max-md:text-lg">{{ $namaAcara }}</h1>
                 <input type="hidden" name="NamaAcara" value="{{ $namaAcara }}">
-                <h1>
-
-                </h1>
             </div>
-            <div class="container flex mt-8 gap-7">
+            <hr class="my-8">
+            <div class="container flex gap-16">
                 <div class="w-3/4">
                     @foreach ($listAcara as $acaras => $items)
                         @php
@@ -38,25 +51,25 @@
                                 break;
                             @endphp
                         @endforeach
-                        <div class="px-10 bg-[#D9D9D9] rounded mb-10 ">
-                            <div class="flex items-center -mx-8 px-6 py-5 border-b-2">
-                                <div class="flex w-2/5">
+                        <div class="mb-10 border-2 border-gray-200 shadow-lg rounded-xl">
+                            <div class="flex items-center px-6 py-5 border-b-2 border-gray-200">
+                                <div class="inline-flex items-center w-2/5">
                                     <input type="checkbox" class="check-all-btn-{{ $idAcara }} w-4 h-4 mr-4 "
                                         id="check-all-btn-{{ $idAcara }}">
-                                    <h1 class="ml-5">{{ $acaras }}</h1>
+                                    <h1>{{ $acaras }}</h1>
                                 </div>
                             </div>
                             @foreach ($items as $KeranjangItems)
-                                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5 border-b-2 ProductData">
+                                <div class="flex items-center px-6 py-5 rounded hover:bg-gray-200 ProductData">
                                     <input type="hidden" name="IdProduk" value="{{ $KeranjangItems->IdKeranjang }}"
                                         class="IdKeranjang" onchange="AddCheck({{ $KeranjangItems->Harga }})">
-                                    <div class="flex w-2/5 items-center">
+                                    <div class="flex items-center w-2/5">
                                         <input type="checkbox" value="{{ $KeranjangItems->IdKeranjang }}"
                                             name="IdKeranjangList[]"
                                             id="store-{{ $idAcara }}-checkbox-{{ $KeranjangItems->IdKeranjang }}"
                                             class="checkbox-group-{{ $idAcara }} w-4 h-4 mr-4 IdKeranjangList ">
                                         <div class="">
-                                            <img class="w-24 h-24 object-contain"
+                                            <img class="object-contain w-24 h-24"
                                                 src="{{ asset('storage/' . $KeranjangItems->FotoProduk) }}" alt="">
                                         </div>
                                         <div class="flex flex-col justify-between ml-4">
@@ -64,26 +77,26 @@
                                         </div>
                                     </div>
                                     <div class="flex justify-center w-1/5 DataQty">
-                                        <svg class="fill-current text-gray-600 w-3 decreaseItem cursor-pointer"
+                                        <svg class="w-3 text-gray-600 cursor-pointer fill-current decreaseItem"
                                             viewBox="0 0 448 512">
                                             <path
                                                 d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                                         </svg>
 
-                                        <input class="mx-2 border text-center w-12 rounded-lg qtyItem" type="number"
+                                        <input class="w-12 mx-2 text-center border rounded-lg qtyItem" type="number"
                                             value="{{ $KeranjangItems->Qty }}" min="{{ $KeranjangItems->MinOrder }}"
                                             max="{{ $KeranjangItems->MaxOrder }}">
 
-                                        <svg class="fill-current text-gray-600 w-3 increaseItem cursor-pointer"
+                                        <svg class="w-3 text-gray-600 cursor-pointer fill-current increaseItem"
                                             viewBox="0 0 448 512">
                                             <path
                                                 d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                                         </svg>
                                     </div>
-                                    <span class="text-center w-1/5 font-semibold text-sm SubTotal">@currency($KeranjangItems->Harga * $KeranjangItems->Qty)</span>
+                                    <span class="w-1/5 text-sm font-semibold text-center SubTotal">@currency($KeranjangItems->Harga * $KeranjangItems->Qty)</span>
                                     <input type="hidden" class="SubTotalProduk-{{ $idAcara }} SubTotalProduk"
                                         value="{{ $KeranjangItems->Harga * $KeranjangItems->Qty }}">
-                                    <svg class="text-center w-1/5 font-semibold text-sm cursor-pointer deleteCart"
+                                    <svg class="w-1/5 text-sm font-semibold text-center cursor-pointer deleteCart"
                                         width="28" height="29" viewBox="0 0 28 29" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -99,7 +112,7 @@
                 <div id="summary" class="w-1/4">
                     <div class="border-2 px-4 py-4 border-[#850000] rounded-2xl">
 
-                        <h1 class="font-extrabold text-lg mb-5">
+                        <h1 class="mb-5 text-lg font-extrabold">
                             Ringkasan Belanja
                         </h1>
 
@@ -121,8 +134,8 @@
                             </div>
                         </div>
 
-                        <div class="flex justify-between text-sm mt-2 mb-9">
-                            <div class="font-extrabold text-lg">
+                        <div class="flex justify-between mt-2 text-sm mb-9">
+                            <div class="text-lg font-extrabold">
                                 Total Harga
                             </div>
                             <div id="TotalAndOngkir">
