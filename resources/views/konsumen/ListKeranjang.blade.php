@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-4 mt-12 gap-7 mx-auto mb-[100px]">
+        <div class="grid xl:grid-cols-4 md:grid-cols-3 max-sm:mx-5 grid-cols-2 mt-12 gap-7 mx-auto mb-[100px]">
             <a href="/konsumen/keranjang">
                 <div>
                     <div class="rounded-md shadow-3xl flex flex-wrap">
