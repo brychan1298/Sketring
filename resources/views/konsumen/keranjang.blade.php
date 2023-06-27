@@ -8,39 +8,41 @@
             -webkit-appearance: none;
             margin: 0;
         }
+
         hr {
             border: 0.1px solid rgb(110, 110, 110);
         }
-        .ProductData:hover{
+
+        .ProductData:hover {
             scale: 1.004;
         }
     </style>
     <form action="/konsumen/checkout" method="POST" onsubmit="return checkCheckbox()">
         @csrf
-        <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
+        <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-4 xl:px-36 mb-[100px]">
             <div class="inline-flex max-sm:pt-16">
                 <a href="/konsumen/listKeranjang">
                     <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
-                    fill="#000000">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <title>ionicons-v5-a</title>
-                        <polyline points="244 400 100 256 244 112"
-                            style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
-                        </polyline>
-                        <line x1="120" y1="256" x2="412" y2="256"
-                            style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
-                        </line>
-                    </g>
-                </svg>
+                        fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <title>ionicons-v5-a</title>
+                            <polyline points="244 400 100 256 244 112"
+                                style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
+                            </polyline>
+                            <line x1="120" y1="256" x2="412" y2="256"
+                                style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
+                            </line>
+                        </g>
+                    </svg>
                 </a>
                 <h1 class="mx-auto text-2xl font-bold text-center max-md:text-lg">{{ $namaAcara }}</h1>
                 <input type="hidden" name="NamaAcara" value="{{ $namaAcara }}">
             </div>
             <hr class="my-8">
-            <div class="container flex gap-16">
-                <div class="w-3/4">
+            <div class="container lg:flex gap-16">
+                <div class="w-full lg:w-3/4">
                     @foreach ($listAcara as $acaras => $items)
                         @php
                             $idAcara = 0;
@@ -109,7 +111,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div id="summary" class="w-1/4">
+                <div id="summary" class="w-full lg:w-1/4">
                     <div class="border-2 px-4 py-4 border-[#850000] rounded-2xl">
 
                         <h1 class="mb-5 text-lg font-extrabold">
@@ -154,34 +156,79 @@
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        $('.confirmDelete').click(function(event) {
+            var form = $(this).closest("form");
+            var acara = $(this).closest("form").find(".NamaAcara").val();
+            event.preventDefault();
+            Swal.fire({
+                    title: `Apakah anda yakin ingin menghapus keranjang ` + acara + ` ?`,
+                    // text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Tidak",
+                    dangerMode: true,
+                    buttons: true
+                })
+                .then((result) => {
+                    if (result.value) {
+                        form.submit();
+                    } else {
+                        result.dismiss === Swal.DismissReason.cancel
+                    }
+                });
+            return false;
+        });
         $(document).ready(function() {
             $('.deleteCart').click(function(e) {
                 e.preventDefault();
 
-                if (confirm("Apakah anda yakin ingin menghapus produk ini?")) {
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                Swal.fire({
+                        title: `Apakah anda yakin ingin menghapus produk ini?`,
+                        // text: "If you delete this, it will be gone forever.",
+                        icon: "question",
+                        showCancelButton: true,
+                        confirmButtonText: "Ya",
+                        cancelButtonText: "Tidak",
+                        dangerMode: true,
+                        buttons: true
+                    })
+                    .then((result) => {
+                        if (result.value) {
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
+
+                            var IdKeranjang = $(this).closest('.ProductData').find('.IdKeranjang')
+                                .val();
+
+                            // alert(IdKeranjang);
+                            $.ajax({
+                                method: "POST",
+                                url: "/konsumen/deleteCart",
+                                data: {
+                                    'IdKeranjang': IdKeranjang,
+                                },
+                                success: function(response) {
+                                    // alert("tes");
+
+                                    Swal.fire({
+                                        title: response.status,
+                                        // text: "If you delete this, it will be gone forever.",
+                                        icon: "success",
+                                    }).then((result) => {
+                                        window.location.reload();
+                                    })
+                                    // swal("", response.status, "success");
+                                }
+                            })
+                        } else {
+                            result.dismiss === Swal.DismissReason.cancel
                         }
                     });
-
-                    var IdKeranjang = $(this).closest('.ProductData').find('.IdKeranjang').val();
-
-                    // alert(IdKeranjang);
-                    $.ajax({
-                        method: "POST",
-                        url: "/konsumen/deleteCart",
-                        data: {
-                            'IdKeranjang': IdKeranjang,
-                        },
-                        success: function(response) {
-                            // alert("tes");
-                            window.location.reload();
-                            alert(response.status);
-                            // swal("", response.status, "success");
-                        }
-                    })
-                }
+                return false;
             })
 
             $('.decreaseItem').click(function(e) {
