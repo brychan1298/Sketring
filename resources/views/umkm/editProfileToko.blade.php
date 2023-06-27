@@ -23,7 +23,7 @@
     <div class="w-full">
         <div class="text-center w-fit max-lg:mx-auto">
             @if (Auth::User()->FotoProfil)
-                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
+                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 object-cover rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
             @else
                 <img src="/images/profile.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
             @endif
