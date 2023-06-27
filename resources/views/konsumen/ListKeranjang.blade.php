@@ -5,9 +5,9 @@
     <div class="container m-auto">
         <div class="grid grid-cols-3 border-b-2 pb-5 mt-[140px]">
             <h1></h1>
-            <h1 class="text-center font-bold text-2xl">Keranjang Belanja</h1>
+            <h1 class="text-2xl font-bold text-center">Keranjang Belanja</h1>
             <div class="text-right">
-                <div class="flex float-right items-center gap-3">
+                <div class="flex items-center float-right gap-3">
                     <h1 class="">
                         Tambah Koleksi
                     </h1>
@@ -21,11 +21,11 @@
                             <form action="/konsumen/tambahAcara" method="post">
                                 @csrf
                                 <div>
-                                    <p class="text-left font-extrabold">
+                                    <p class="font-extrabold text-left">
                                         Nama Koleksi
                                     </p>
                                     <input name="Nama" type="text"
-                                        class="shadow mt-3 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        class="w-full px-3 py-2 mt-3 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                         id="username" type="text" placeholder="">
                                     <button type="submit" class="bg-[#850000] text-white px-8 py-2 rounded mt-8">
                                         Ok
@@ -41,7 +41,7 @@
         <div class="grid grid-cols-4 mt-12 gap-7 mx-auto mb-[100px]">
             <a href="/konsumen/keranjang">
                 <div>
-                    <div class="rounded-md shadow-3xl flex flex-wrap">
+                    <div class="flex flex-wrap rounded-md shadow-3xl">
                         @php
                             $countImg = 0;
                         @endphp
@@ -54,7 +54,7 @@
                                 @endphp
                             @else
                                 <img src="/images/empty-cart.png" alt=""
-                                    class="w-1/2 m-auto aspect-square rounded-xl object-cover">
+                                    class="object-cover w-1/2 m-auto aspect-square rounded-xl">
                                 @php
                                     $countImg++;
                                 @endphp
@@ -69,7 +69,7 @@
                             <img src="images/bannerToko.jpg" alt="" class="w-1/2 aspect-square rounded-xl">
                         @endfor
                     </div>
-                    <h1 class="font-bold mt-5">
+                    <h1 class="mt-5 font-bold">
                         Semua Produk
                     </h1>
                 </div>
@@ -84,14 +84,14 @@
                 @endforeach
                 <a href="/konsumen/keranjang/{{ $IdAcara }}">
                     <div>
-                        <div class="rounded-xl shadow-3xl relative">
+                        <div class="relative rounded-xl shadow-3xl">
                             @if ($fotoProduk)
                                 <img src="{{ asset('storage/' . $fotoProduk) }}" alt=""
                                     class="w-full aspect-square rounded-xl">
                             @else
                                 <div class="w-full">
                                     <img src="/images/empty-cart.png" alt=""
-                                        class="w-full m-auto aspect-square rounded-xl object-cover">
+                                        class="object-cover w-full m-auto aspect-square rounded-xl">
                                 </div>
                             @endif
                             <form action="/konsumen/hapus-keranjang" method="POST">
@@ -102,7 +102,7 @@
                                 <input type="hidden" class="NamaAcara" value="{{ $acara }}">
                                 <button type="button" class="absolute top-[5%] right-[5%] confirmDelete">
                                     <svg onclick=""
-                                        class="text-center w-full font-semibold text-sm cursor-pointer deleteCart"
+                                        class="w-full text-sm font-semibold text-center cursor-pointer deleteCart"
                                         width="28" height="29" viewBox="0 0 28 29" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -113,7 +113,7 @@
                             </form>
 
                         </div>
-                        <h1 class="font-bold mt-5">
+                        <h1 class="mt-5 font-bold">
                             {{ $acara }}
                         </h1>
                     </div>

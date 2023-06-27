@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10">
+<img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-84">
 
 <form action="update" enctype="multipart/form-data" method="post">
 @method('put')
@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div class="flex flex-col w-full mx-auto container px-36 max-lg:px-8">
+<div class="container flex flex-col w-full mx-auto px-36 max-lg:px-8">
     {{-- <div class="w-[100%] flex flex-row-reverse mb-5 max-md:mb-2">
         <a href="/umkm/profileToko" class="flex flex-row w-max">
             <div class="flex flex-row bg-[#F8CB66] w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">
