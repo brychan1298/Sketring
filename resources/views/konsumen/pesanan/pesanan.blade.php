@@ -2,9 +2,9 @@
 @section('title', 'Pesanan yang belum dibayar')
 @section('description', 'Daftar Pesanan Konsumen Yang Belum Dibayar')
 @section('content')
-    <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
+    <div class="container mx-auto flex flex-col items-center w-full px-36">
 
-        <div class="flex flex-col justify-center items-center w-max m-[2vw] gap-[1vw]">
+        <div class="flex flex-col justify-center items-center w-full m-[2vw] gap-[1vw]">
             @if (session()->has('batalkan'))
                 <div id="alert"
                     class="flex mt-12 bg-danger border border-red-700 text-red-700 px-4 py-3 rounded relative alert alert-success"
@@ -22,6 +22,19 @@
                     </span>
                 </div>
             @endif
+
+            <div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-12 justify-between">
+                <div class="inline-flex max-sm:pt-16">
+                    <a href="/profileKonsumen">
+                        <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
+                        </svg>
+                    </a>
+                    <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PESANAN ANDA</p>
+                </div>
+            </div>
+            <hr class="my-2">
+
             {{-- Status Selection --}}
             @include('konsumen.pesanan.layoutPesanan')
             {{-- Select Event --}}
