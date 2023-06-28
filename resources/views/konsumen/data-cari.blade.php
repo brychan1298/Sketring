@@ -34,18 +34,17 @@
 </style>
 
 <div class="grid items-center gap-8 mt-12 konten 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-
     @foreach ($produks as $produk)
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
             <div class="flex rounded-md w-72 shadow-3xl produksatu md:flex-col card-produk">
                 {{-- Product Image --}}
-                <div class="overflow-hidden rounded-[10px] max-md:w-5/6">
+                <div class="overflow-hidden rounded-[10px] max-md:w-5/6 ">
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
-                    class="object-cover w-full h-64 rounded-md " alt="">
+                    class="object-cover w-full h-64 rounded-md card-image" alt="">
                 </div>
                 {{-- Product Information --}}
                 <div class="flex flex-col w-full gap-[0.5vw] p-[1vw] max-md:pl-5 max-md:pt-10">
-                    <p class="font-bold text-2xl pb-[0.5vw]">{{ $produk->Nama }}</p>
+                    <p class="font-bold text-2xl pb-[0.5vw] md:h-[5vw]">{{ $produk->Nama }}</p>
                     <div class="flex flex-row w-[100%] gap-[0.5vw]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="#8F8F8F"
@@ -95,10 +94,13 @@
             </div>
         </a>
     @endforeach
+    <div>
 
+    </div>
 
 </div>
-
 <div class="mt-[50px]">
     {{ $produks->links() }}
 </div>
+
+

@@ -41,7 +41,6 @@
                         <div class="">
                             <p class="my-px text-lg break-normal">
                                 {{$detailToko->Alamat}}, {{$detailToko->Regency->name}}, {{$detailToko->Regency->Province->name}}
-
                             </p>
                         </div>
                     </div>
@@ -93,7 +92,11 @@
         @include('konsumen.toko-filter', ['produks' => $produks])
     </div> --}}
 
-    <div class="mt-6 mb-24 grid md:max-xl:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-16">
+    <div id="produk" class="mb-[100px]">
+        @include('konsumen.toko-filter', ['listProduks' => $listProduks])
+    </div>
+
+    {{-- <div class="mt-6 mb-24 grid md:max-xl:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-16">
         @foreach ($listProduks as $produk)
 
             <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
@@ -124,6 +127,6 @@
                 </div>
             </a>
         @endforeach
-    </div>
+    </div> --}}
 </div>
 @endsection
