@@ -74,7 +74,7 @@
         </div>
     @endif
 
-    <div class="container px-[8vw] mx-auto mt-[152px]">
+    <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
         <div class="flex items-center justify-center judulAddProduk">
             <a href="/konsumen/keranjang">
                 <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
