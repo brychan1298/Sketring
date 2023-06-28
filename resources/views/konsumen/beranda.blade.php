@@ -42,8 +42,8 @@
                                     <img src="images/location.png" alt="">
                                     <div class="font-light">3.5 km</div>
                                 </div> --}}
-                                <div class="flex gap-2 mt-1">
-                                    <img src="images/export.png" alt="">
+                                <div class="flex gap-2 mt-1 items-center">
+                                    <img src="images/export.png" class="w-5 h-5" alt="">
                                     <div class="font-light">
                                         @if ($item->JumlahRating == 0)
                                             N/A

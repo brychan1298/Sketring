@@ -191,6 +191,7 @@ Route::post('/send-message/{IdPerson}', [ChatController::class,'sendChat']);
 
 Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show'])->name('detailProduk');
 Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);
+Route::get('/konsumen/toko/filter-produk',[ProdukController::class, 'filterToko']);
 Route::get('/loadCartCount', [KeranjangController::class, 'CartCount']);
 
 
