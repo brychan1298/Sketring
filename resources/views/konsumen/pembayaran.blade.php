@@ -118,7 +118,7 @@
                             <h1 class="mx-3 text-xl font-bold">Alamat Pengiriman</h1>
                         </div>
                         <div class="p-3 px-4 my-3 text-xl border border-black border-solid detailAlamat rounded-xl">
-                            <input type="text"  value="{{ Auth::User()->Nama }}" disabled> <br>
+                            <input type="text" value="{{ Auth::User()->Nama }}" disabled> <br>
                             <input type="text" value="{{ Auth::User()->Nohp }}" disabled class="my-2">
                             <textarea name="AlamatKirim" id="" cols="30" rows="10" readonly class="w-full h-24 text-left"
                                 style="resize:none">{{ Auth::User()->Alamat }}, {{ Auth::User()->Regency->name }}, {{ Auth::User()->Regency->Province->name }}</textarea>
@@ -234,11 +234,17 @@
             var tglpesanan = document.getElementById("TanggalPesanan").value;
             var waktupesanan = document.getElementById("waktuPesanan").value;
             if (!tglpesanan) {
-                alert("Tolong pilih tanggal pesanan terlebih dahulu");
+                Swal.fire({
+                    icon: 'warning',
+                    title: "Tolong pilih tanggal pesanan terlebih dahulu",
+                });
                 return false;
             }
-            if (!waktupesanan){
-                alert("Tolong pilih waktu pesanan terlebih dahulu");
+            if (!waktupesanan) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: "Tolong pilih waktu pesanan terlebih dahulu",
+                });
                 return false;
             }
             tglPesanan = new Date(tglpesanan);
@@ -248,12 +254,21 @@
             // alert(selisihHari);
             for (let index = 0; index < checks.length; index++) {
                 if (checks[index].value > selisihHari) {
-                    alert("Minimal waktu PO untuk " + checks.length + " barang ini adalah " + checks[index].value +
-                        " hari");
+                    Swal.fire({
+                        icon: 'warning',
+                        title: "Minimal waktu PO untuk " + checks.length + " barang ini adalah " + checks[index]
+                            .value +
+                            " hari",
+                    });
+                    // alert();
                     return false;
                 }
             }
-            alert("berhasil");
+            Swal.fire({
+                icon: 'success',
+                title: "Berhasil",
+                text: "Silahkan lanjutkan pembayaran untuk pesanan ini"
+            });
         }
     </script>
 @endsection
