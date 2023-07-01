@@ -84,21 +84,6 @@
         <div class="">
             <div class="content_VirtualAccount">
                 <div class="inline-flex w-full max-sm:pt-16">
-                    <a href="/">
-                        <svg class="w-10 h-10 max-md:w-8" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <title>ionicons-v5-a</title>
-                                <polyline points="244 400 100 256 244 112"
-                                    style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
-                                </polyline>
-                                <line x1="120" y1="256" x2="412" y2="256"
-                                    style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
-                                </line>
-                            </g>
-                        </svg>
-                    </a>
                     <h1 class="w-full mx-auto text-4xl font-bold text-center mx-automb-8 max-md:text-2xl">Pembayaran</h1>
                 </div>
                 <div class="mt-5 mb-16 border border-gray-500 border-solid max-md:mb-10"></div>

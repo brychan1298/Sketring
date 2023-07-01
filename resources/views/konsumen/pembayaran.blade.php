@@ -76,22 +76,6 @@
 
     <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
         <div class="flex items-center justify-center judulAddProduk">
-            <a href="/konsumen/keranjang">
-                <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"
-                    fill="#000000">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <title>ionicons-v5-a</title>
-                        <polyline points="244 400 100 256 244 112"
-                            style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
-                        </polyline>
-                        <line x1="120" y1="256" x2="412" y2="256"
-                            style="fill:none;stroke:#850000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
-                        </line>
-                    </g>
-                </svg>
-            </a>
             <h2 class="mx-auto text-2xl font-bold text-center max-md:text-lg">Pembayaran</h2>
         </div>
 
