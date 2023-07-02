@@ -39,7 +39,7 @@
     </div>
 
     <p class="pb-6">
-        Sudah punya akun? <a href="/login" class="text-decoration-none font-bold hover:text-red-600">Login</a>
+        Sudah punya akun? <a href="/login" class="font-bold text-[#850000] underline text-md hover:text-red-600">Login</a>
     </p>
 </div>
 @endsection
