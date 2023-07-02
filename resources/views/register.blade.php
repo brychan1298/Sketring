@@ -85,13 +85,13 @@
             -moz-appearance: textfield;
         }
     </style>
-    <div class="flex items-center justify-between p-5">
-        <svg width="24" height="24" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="flex items-center justify-center p-5">
+        {{-- <svg width="24" height="24" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z"
                 fill="#000000" />
-        </svg>
-        <h1 class="text-2xl">
+        </svg> --}}
+        <h1 class="text-2xl font-bold">
             REGISTRASI
         </h1>
         <h1></h1>
@@ -265,7 +265,7 @@
                         <select required id="kota-dropdown" name="IdKota"
                             class="
                             text-[#850000] border-[#850000] border text-sm
-                            peer block min-h-[auto] w-full rounded bg-transparent px-1 pb-[0.32rem] transition-all duration-200 ease-linear placeholder:opacity-0 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none
+                            peer block w-full rounded bg-transparent pb-[0.32rem] transition-all duration-200 ease-linear placeholder:opacity-0 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none
                             focus:outline-none focus:shadow-outline
                             focus:ring-0 focus:border-[#dc0000]"
                             onchange="checkInputSelect(this)" onfocus="focusInput(this)" onblur="blurInput(this)">
@@ -301,12 +301,12 @@
                 </div>
             </div> --}}
 
-            <div class="flex mb-8 justify-center">
+            {{-- <div class="flex mb-8 justify-center">
                 <input type="checkbox" name="" id="" class="mr-3 w-5">
                 <p>
                     Saya setuju dengan <a href="" class="text-decoration-none font-bold">Syarat dan Ketentuan</a>
                 </p>
-            </div>
+            </div> --}}
             <div class="mb-4 flex justify-center">
                 <button type="submit" class="bg-[#DC0000] px-10 py-3 text-white rounded-xl">
                     DAFTAR
