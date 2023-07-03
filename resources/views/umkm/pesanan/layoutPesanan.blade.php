@@ -1,5 +1,5 @@
 <div
-    class="mt-12 container flex flex-row gap-[2vw] items-center justify-center p-6 mx-auto text-white capitalize bg-[#850000] w-max rounded-[10px]">
+    class="container flex flex-wrap gap-8 items-center justify-around p-6 mx-auto text-white capitalize bg-[#850000] w-full rounded-[10px] mb-8">
     <a href="/umkm/pesanan"
         class="{{ umkm_set_active_pesanan_2('pesanan') }} border-b-2 border-transparent mx-1.5 sm:mx-6 group transition duration-200">
         Masuk

@@ -33,10 +33,10 @@
         }
 </style>
 
-<div class="grid items-center gap-8 mt-12 konten 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+<div class="grid items-center grid-cols-4 w-fit gap-10 mt-12 konten max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 max-2xl:gap-20 max-xl:gap-8 max-sm:gap-7">
     @foreach ($produks as $produk)
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
-            <div class="flex rounded-md w-72 shadow-3xl produksatu md:flex-col card-produk">
+            <div class="flex rounded-md w-72 max-2xl:w-64 max-xl:w-48 shadow-3xl produksatu md:flex-col card-produk">
                 {{-- Product Image --}}
                 <div class="overflow-hidden rounded-[10px] max-md:w-5/6 ">
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
@@ -94,9 +94,6 @@
             </div>
         </a>
     @endforeach
-    <div>
-
-    </div>
 
 </div>
 <div class="mt-[50px]">
