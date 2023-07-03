@@ -10,11 +10,11 @@
                 <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
             </svg>
         </a>
-        <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL TOKO</p>
+        <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL ANDA</p>
     </div>
 </div>
 
-<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10">
+<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10 object-cover">
 <div class="container mx-auto w-max">
     <div class="w-full">
         <div class="text-center w-fit max-lg:mx-auto">
@@ -53,7 +53,7 @@
                     </div>
                     <p class="mt-2 text-xl font-bold text-center max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
                     <a href="/konsumen/tariksaldo">
-                        <p class="font-bold text-center underline text-1xl">Tarik Saldo >></p>
+                        <p class="font-bold text-center hover:underline text-1xl">Tarik Saldo >></p>
                     </a>
                 </div>
             </div>

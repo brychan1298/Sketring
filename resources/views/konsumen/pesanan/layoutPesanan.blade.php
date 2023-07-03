@@ -1,5 +1,5 @@
 <div
-    class="mt-16 container flex flex-row gap-[2vw] items-center justify-center p-6 mx-auto text-white capitalize bg-[#850000] w-max rounded-[10px]">
+    class="container flex flex-wrap gap-8 items-center justify-around p-6 mx-auto text-white capitalize bg-[#850000] w-full rounded-[10px]">
     <a href="/konsumen/pesanan" class="{{ set_active_pesanan_2('pesanan') }} text-white border-white mx-1.5 sm:mx-6 group transition duration-200">
         Belum Bayar
         <span class="{{ set_active_pesanan('pesanan') }} block group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
