@@ -56,7 +56,7 @@
                         <div class="mb-10 border-2 border-gray-200 shadow-lg rounded-xl">
                             <div class="flex items-center px-6 py-5 border-b-2 border-gray-200">
                                 <div class="inline-flex items-center w-2/5">
-                                    <input type="checkbox" class="check-all-btn-{{ $idAcara }} w-4 h-4 mr-4 "
+                                    <input type="checkbox" autocomplete="off" class="check-all-btn-{{ $idAcara }} w-4 h-4 mr-4 "
                                         id="check-all-btn-{{ $idAcara }}">
                                     <h1>{{ $acaras }}</h1>
                                 </div>
@@ -66,7 +66,7 @@
                                     <input type="hidden" name="IdProduk" value="{{ $KeranjangItems->IdKeranjang }}"
                                         class="IdKeranjang" onchange="AddCheck({{ $KeranjangItems->Harga }})">
                                     <div class="flex items-center w-2/5">
-                                        <input type="checkbox" value="{{ $KeranjangItems->IdKeranjang }}"
+                                        <input type="checkbox" autocomplete="off" value="{{ $KeranjangItems->IdKeranjang }}"
                                             name="IdKeranjangList[]"
                                             id="store-{{ $idAcara }}-checkbox-{{ $KeranjangItems->IdKeranjang }}"
                                             class="checkbox-group-{{ $idAcara }} w-4 h-4 mr-4 IdKeranjangList ">
