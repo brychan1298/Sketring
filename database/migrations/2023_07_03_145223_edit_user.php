@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('Nohp',15)->nullable()->change();
             $table->char('IdKota', 4)->nullable()->change();
             $table->enum('Role', ['umkm', 'konsumen'])->default('konsumen')->change();
+            $table->string('password')->nullable()->change();
         });
     }
 
