@@ -2,14 +2,24 @@
 @section('title', 'Pesanan yang sudah selesai')
 @section('description', 'Daftar Pesanan Konsumen Yang Sudah Selesai')
 @section('content')
-    <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
-        <div class="flex flex-col justify-center items-center w-max m-[2vw] gap-[1vw]">
+    <div class="container mx-auto flex flex-col items-center px-36 max-lg:px-12 w-full">
+        <div class="flex flex-col justify-center items-center w-full gap-2">
+            <div class="container flex flex-col w-full mx-auto mt-36 mb-8 max-sm:mt-12 justify-between">
+                <div class="inline-flex max-sm:pt-16">
+                    <a href="/profileKonsumen">
+                        <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
+                        </svg>
+                    </a>
+                    <p class="mx-auto text-2xl font-bold text-center">PESANAN ANDA</p>
+                </div>
+            </div>
             {{-- Status Selection --}}
             @include('konsumen.pesanan.layoutPesanan')
             {{-- Select Event --}}
             <div class="flex flex-row w-[100%] justify-end">
                 <select id="IdAcara" onchange="filterData()"
-                    class="bg-[#850000] text-white text-sm rounded-[10px] focus:ring-blue-500 focus:border-blue-500 block w-[30%] p-[0.5vw]">
+                    class="bg-[#850000] text-white text-sm rounded-[10px] focus:ring-blue-500 focus:border-blue-500 block w-48 p-2">
                     <option selected value="0">Semua Keranjang</option>
                     @foreach ($ListAcara as $Acara)
                         <option value="{{ $Acara->IdAcara }}">{{ $Acara->Nama }}</option>

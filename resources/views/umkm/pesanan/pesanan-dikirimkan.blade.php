@@ -2,7 +2,7 @@
 @section('title', 'Pesanan Anda')
 @section('description', 'Pesanan dari para konsumen')
 @section('content')
-    <div class="container-md mx-auto flex flex-col items-center mt-[48px] w-full">
+<div class="container mx-auto flex flex-col items-center px-36 max-lg:px-12 w-full">
         @if (session()->has('sampai'))
             <div id="alert"
                 class="flex mt-12 bg-primary border border-blue-700 text-blue-700 px-4 py-3 rounded relative alert alert-success"
@@ -20,14 +20,25 @@
                 </span>
             </div>
         @endif
-        <div class="flex flex-col w-max m-[2vw] gap-[1vw]">
+        <div class="flex flex-col justify-center items-center w-full gap-2">
+            <div class="container flex flex-col w-full mx-auto mt-32 mb-8 max-sm:mt-12 justify-between">
+                <div class="inline-flex max-sm:pt-16">
+                    <a href="/umkm/profileToko">
+                        <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
+                        </svg>
+                    </a>
+                    <p class="mx-auto text-2xl font-bold text-center">PESANAN ANDA</p>
+                </div>
+            </div>
             {{-- Status Selection --}}
             @include('umkm.pesanan.layoutPesanan')
 
             {{-- Order List --}}
-            <div class="w-full h-[2px] bg-[#850000]"></div>
-            @foreach ($ListTransaksi as $Transaksis => $items)
-                <h1 class="text-xl text-[#850000]">
+            <div class="w-full">
+                @foreach ($ListTransaksi as $Transaksis => $items)
+                <div class="bg-white shadow-xl flex flex-col mb-8 p-8 rounded-[10px]">
+                <h1 class="text-xl text-[#850000] font-bold">
                     Transaksi #{{ $Transaksis }}
                 </h1>
                 @foreach ($items as $Transaksi)
@@ -36,13 +47,12 @@
                             $IdKonsumen = $Transaksi->IdKonsumen;
                         @endphp
                     @endif
-                    <div href="#"
-                        class="flex flex-row justify-between w-[100%] p-[1vw] items-center mb-[-1vw] mt-[-1vw]">
+                    <div class="flex flex-row justify-between w-[100%] py-4 items-center max-sm:flex-col max-sm:items-start max-sm:gap-4">
                         {{-- Left hug content --}}
-                        <div class="flex flex-row w-max gap-[0.5vw]">
-                            <img class="w-[4vw] h-[4vw] rounded-[10px]"
+                        <div class="flex flex-row w-max gap-2 max-sm:text-sm max-sm:flex-col max-sm:items-center max-sm:self-center">
+                            <img class="w-24 h-24 rounded-[10px] object-cover"
                                 src="{{ asset('storage/' . $Transaksi->FotoProduk) }}" alt="">
-                            <div class="flex flex-col w-max text-[#850000]">
+                            <div class="flex flex-col w-max text-[#850000] justify-center max-sm:text-center">
                                 <p class="font-bold">{{ $Transaksi->Nama }} ({{ $Transaksi->Qty }})</p>
                                 <p>Keranjang: {{ $Transaksi->NamaAcara }}</p>
                                 <p>
@@ -70,18 +80,22 @@
                                     </button>
                                 </form>
                             </div> --}}
-                            <p class="text-[#DC0000] text-sm">
+                            {{-- <p class="text-[#DC0000] text-sm">
                                 Pesanan Untuk Tanggal:
                                 {{ \Carbon\Carbon::parse($Transaksi->TanggalPesanan)->locale('id')->isoFormat('D MMMM YYYY') }}
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                     <div class="w-full h-[2px] bg-[#850000]"></div>
                 @endforeach
-                <div class="gap-[0.5vw] mb-5">
+                <div class="flex flex-col w-max items-center self-center max-sm:items-center max-sm:self-center gap-[0.5vw] justify-center mt-5">
+                    <p class="text-[#DC0000] text-sm max-sm:self-center mb-2">
+                        Pesanan Untuk Tanggal:
+                        {{ \Carbon\Carbon::parse($Transaksi->TanggalPesanan)->locale('id')->isoFormat('D MMMM YYYY') }}
+                    </p>
                     <div class="flex flex-row w-max gap-[1vw] font-bold float-right">
                         <a href="/umkm/detailTransaksi-4/{{ $Transaksis }}"
-                            class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                            class="text-[#DC0000] border border-2 border-[#DC0000] px-4 py-2 text-sm rounded-md hover:bg-[#850000] hover:text-white">
                             DETAIL
                         </a>
                         <form action="/umkm/pesanan-sampai/{{ $Transaksis }}" method="get">
@@ -89,13 +103,14 @@
                             @csrf
                             <input type="hidden" class="IdTransaksi" value="{{ $Transaksis }}">
                             <button type="button"
-                                class="btnPesananSampai text-white bg-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
+                                class="btnPesananSampai text-white bg-[#DC0000] border border-2 border-[#DC0000] px-4 py-2 text-sm rounded-md hover:bg-[#850000] hover:border-[#850000]">
                                 SAMPAI
                             </button>
                         </form>
                     </div>
                     {{-- <p class="text-[#DC0000] text-sm">Keterangan: Belum Bayar</p> --}}
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
