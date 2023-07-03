@@ -10,11 +10,11 @@
         }
     </style>
 
-    <div class="container px-[8vw] mx-auto mt-[152px] mb-[130px] flex gap-8">
+    <div class="DataProduk  container px-[8vw] mx-auto mt-[152px] mb-[130px] flex gap-8">
         <div class="h-96 w-96 flex-shrink-0">
             <img class="block w-full h-full object-cover rounded-lg" src="{{ asset('storage/' . $detailProduk->FotoProduk) }}" alt="" >
         </div>
-        <div class="DataProduk py-8 w-full">
+        <div class="py-8 w-full">
             <input type="hidden" name="IdProduk" id="IdProduk" class="IdProduk" value="{{ $detailProduk->IdProduk }}">
             <div>
                 <h1 class="text-3xl font-black">
