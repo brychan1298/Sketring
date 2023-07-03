@@ -112,7 +112,7 @@ class KeranjangController extends Controller
             $Keranjang->Qty = $Qty;
             $Keranjang->save();
 
-            return response()->json(['status' => 'Item berhasil ditambahkan ke keranjang']);
+            return response()->json(['status' => 'Item berhasil ditambahkan ke keranjang','success'=>'success']);
         }else{
             return response()->json(['status' => 'Silahkan login terlebih dahulu']);
         }

@@ -1,46 +1,45 @@
 <nav class="bg-[#850000] fixed w-full z-10">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="/" class="flex items-center">
-            <img src="/images/LogoSketring.png" alt="" class="sm:w-48 w-24 max-sm:mx-7">
+            <img src="/images/LogoSketring.png" alt="" class="w-24 sm:w-48 max-sm:mx-7">
         </a>
-        <div class="flex items-center md:order-2 gap-5">
+        <div class="flex items-center gap-5 md:order-2">
             @if (Auth::check())
                 <button type="button"
-                    class="max-sm:hidden flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    class="flex mr-3 text-sm bg-gray-800 rounded-full max-sm:hidden md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
                     <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
                         alt="user photo">
                 </button>
-                <div class="max-sm:hidden z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+                <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-300 rounded-lg shadow max-sm:hidden"
                     id="user-dropdown">
-                    <div class="px-4 py-3 flex flex-row items-center gap-2">
+                    <div class="flex flex-row items-center gap-2 px-4 py-3">
                         <div class="w-25">
                             <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
                                 alt="user photo">
                         </div>
                         <div>
-                            <span class="block text-sm text-gray-900 text-[#c0c0c0]">{{ auth()->user()->Nama }}</span>
-                            <span
-                                class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ auth()->user()->Email }}</span>
+                            <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
+                            <span class="block text-sm text-black">{{ auth()->user()->Email }}</span>
                         </div>
 
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
                             <a href="/umkm/profileToko"
-                                class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
+                                class="block px-4 py-2 text-sm text-black dark:hover:bg-[#850000] dark:hover:text-white">Profil</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#"
                                 class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <form action="/logout" method="post">
                                 @csrf
                                 <button type="submit"
-                                    class="block w-full text-left px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    class="block w-full text-left px-4 py-2 text-sm text-black dark:hover:bg-[#850000] dark:hover:text-white">
                                     Logout
                                 </button>
                             </form>
@@ -65,66 +64,87 @@
                 </svg>
             </button>
         </div>
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 z-10" id="mobile-menu-2">
+        <div class="z-10 items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
             <ul
-                class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+                class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
                     <a href="/umkm"
-                        class="block py-2 px-4 pr-4 text-white
-                                md:bg-transparent md:text-white-700"
-                        aria-current="page">Beranda</a>
+                        class="{{ umkm_set_active_2('berandaumkm') }} block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200"
+                        aria-current="page">Beranda
+                        <span
+                            class="{{ umkm_set_active('berandaumkm') }} block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
                 </li>
                 <li>
                     <a href="/umkm/dashboard"
-                        class="block py-2 px-4 pr-4 text-white
-                                md:bg-transparent md:text-white-700
-                                ">Produk Saya</a>
+                        class="{{ umkm_set_active_2('dashboardumkm') }}
+                        {{ umkm_set_active_2('tambahProduk') }}
+                        {{ umkm_set_active_2('editProduk') }}
+                        block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Produk
+                        Saya
+                        <span
+                            class="{{ umkm_set_active('dashboardumkm') }}
+                            {{ umkm_set_active('tambahProduk') }}
+                            {{ umkm_set_active('editProduk') }}
+                            block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
+
                 </li>
                 <li>
                     <a href="/umkm/pesanan"
-                        class="block py-2 px-4 pr-4 text-white
-                                md:bg-transparent md:text-white-700
-                                ">Pesanan</a>
+                        class="{{ umkm_set_active_2('pesanan') }}
+                        {{ umkm_set_active_2('pesanan-disiapkan') }}
+                        {{ umkm_set_active_2('pesanan-dikirimkan') }}
+                        {{ umkm_set_active_2('pesanan-selesai') }}
+                        {{ umkm_set_active_2('pesanan-dibatalkan') }}
+                        block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Pesanan
+                        <span
+                            class="{{ umkm_set_active('pesanan') }}
+                            {{ umkm_set_active('pesanan-disiapkan') }}
+                            {{ umkm_set_active('pesanan-dikirimkan') }}
+                            {{ umkm_set_active('pesanan-selesai') }}
+                            {{ umkm_set_active('pesanan-dibatalkan') }}
+                            block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                    </a>
+
                 </li>
-                <li class="block py-2 px-4 pr-4 sm:hidden">
+                <li class="block px-4 py-2 pr-4 sm:hidden">
                     @if (Auth::check())
                         <button type="button"
                             class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                             id="user-menu-button-2" aria-expanded="false" data-dropdown-toggle="user-dropdown-2"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
-                                alt="user photo">
+                            <img class="w-12 h-12 rounded-full"
+                                src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
                         </button>
-                        <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+                        <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-300 rounded-lg shadow"
                             id="user-dropdown-2">
-                            <div class="px-4 py-3 flex flex-row items-center gap-2">
+                            <div class="flex flex-row items-center gap-2 px-4 py-3">
                                 <div class="w-25">
                                     <img class="w-8 h-8 rounded-full"
                                         src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
                                 </div>
                                 <div>
-                                    <span
-                                        class="block text-sm text-gray-900 text-[#c0c0c0]">{{ auth()->user()->Nama }}</span>
-                                    <span
-                                        class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ auth()->user()->Email }}</span>
+                                    <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
+                                    <span class="block text-sm text-black">{{ auth()->user()->Email }}</span>
                                 </div>
 
                             </div>
                             <ul class="py-2" aria-labelledby="user-menu-button-2">
                                 <li>
                                     <a href="/umkm/profileToko"
-                                        class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
+                                        class="block px-4 py-2 text-sm text-black dark:hover:bg-[#850000] dark:hover:text-white">Profil</a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="#"
                                         class="block px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <form action="/logout" method="post">
                                         @csrf
                                         <button type="submit"
-                                            class="block w-full text-left px-4 py-2 text-sm text-[#c0c0c0] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                            class="block w-full text-left px-4 py-2 text-sm text-black dark:hover:bg-[#850000] dark:hover:text-white">
                                             Logout
                                         </button>
                                     </form>
@@ -132,8 +152,7 @@
                             </ul>
                         </div>
                     @else
-                        <a href="/login"
-                            class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
+                        <a href="/login" class="btn bg-white px-10 py-2 font-light rounded-md text-[#850000]">
                             Login
                         </a>
                     @endif
