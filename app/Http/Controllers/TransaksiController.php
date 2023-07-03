@@ -132,7 +132,7 @@ class TransaksiController extends Controller
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         // dd($snapToken);
 
-        return view("konsumen.virtualAccount", compact('IdTransaksi','snapToken',  'ListProduks', 'TanggalBesokFinal'));
+        return view("konsumen.virtualAccount", compact('IdTransaksi','snapToken',  'ListProduks', 'TanggalBesokFinal', 'grossAmount'));
     }
 
     /**
