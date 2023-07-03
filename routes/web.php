@@ -7,6 +7,7 @@ use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -193,6 +194,11 @@ Route::get('/konsumen/detailproduk/{IdProduk}',[ProdukController::class, 'show']
 Route::get('/konsumen/toko/{IdToko}',[UserController::class, 'detailToko']);
 Route::get('/konsumen/toko/filter-produk',[ProdukController::class, 'filterToko']);
 Route::get('/loadCartCount', [KeranjangController::class, 'CartCount']);
+
+Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackgoogle']);
+
+// require __DIR__.'/auth.php';
 
 
 

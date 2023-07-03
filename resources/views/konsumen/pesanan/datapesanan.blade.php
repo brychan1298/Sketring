@@ -25,7 +25,7 @@
             {{-- Right hug content --}}
             <div class="flex flex-col w-max items-end max-sm:self-end">
                 <div class="flex flex-row w-max font-bold">
-                    <a href="/konsumen/chat/{{ $item->IdToko }}"
+                    <a href="/konsumen/chat/{{ $item->IdUser }}"
                         class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-4 py-1 text-sm rounded-md hover:bg-[#850000] hover:border-[#850000]">
                         CHAT PENJUAL
                     </a>

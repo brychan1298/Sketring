@@ -28,7 +28,7 @@
                             class="text-[#DC0000] border border-2 border-[#DC0000] px-2 py-1 text-sm rounded-md">
                             DETAIL
                         </button>
-                        <a href="/konsumen/chat/{{ $item->IdToko }}"
+                        <a href="/konsumen/chat/{{ $item->IdUser }}"
                             class="text-white bg-[#DC0000] border border-2 border-[#DC0000] px-2 py-1 text-sm rounded-md">
                             CHAT
                         </a>

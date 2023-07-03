@@ -172,7 +172,7 @@
             </div>
             {{-- <p class="text-center mb-6">atau masuk menggunakan</p> --}}
             <div class="flex gap-5 justify-between mx-4 grid grid-cols-2">
-                <a href="https://www.google.com/" class="">
+                <a href="{{ route('google-auth') }}" class="">
                     <div
                         class="flex items-center text-[0.9vw] shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                         <svg width="22" height="22" viewBox="0 0 60 60" fill="none"

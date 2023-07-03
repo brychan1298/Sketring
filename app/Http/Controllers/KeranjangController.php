@@ -8,11 +8,13 @@ use App\Models\Acara;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+
 class KeranjangController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         // $listAcara = Keranjang::select("*")->join("Acara","Keranjang.IdAcara","=","Acara.IdAcara")
@@ -111,6 +113,15 @@ class KeranjangController extends Controller
             $Keranjang->IdProduk = $IdProduk;
             $Keranjang->Qty = $Qty;
             $Keranjang->save();
+
+            $refName = 'keranjang';
+
+            $postData = [
+                'IdAcara' => $IdAcara,
+                'IdProduk' => $IdProduk,
+                'Qty' => $Qty
+            ];
+            // $postRef = $this->database->getReference($refName)->push($postData);
 
             return response()->json(['status' => 'Item berhasil ditambahkan ke keranjang','success'=>'success']);
         }else{
