@@ -88,18 +88,12 @@
                 </div>
                 <div class="mt-5 mb-16 border border-gray-500 border-solid max-md:mb-10"></div>
                 {{-- Title --}}
-                @foreach ($ListProduks as $acaras => $items)
-                    {{-- Content --}}
+                {{-- Content --}}
+                <div class="mt-12">
                     <p class="mb-8 text-2xl text-center max-md:text-xl">Terima Kasih Telah Berbelanja di S’ketring</p>
-                    {{-- <p class="mb-8 text-2xl text-center max-md:text-xl">Silahkan lakukan pembayaran sampai batas waktu (?)</p> --}}
-                    {{-- <div class="w-full"> --}}
-                    @foreach ($items as $listBarang)
-                    <input type="checkbox" name="listIdKeranjang[]" checked value="{{$listBarang->IdKeranjang}}" class="hidden" id="">
-                    @endforeach
-                    {{-- </div> --}}
                     <p class="mb-8 text-2xl max-md:text-xl text-center text-[#DC0000]">Silahkan lakukan pembayaran sebelum: {{$TanggalBesokFinal}}</p>
-                    <p class="text-2xl font-bold text-center max-md:text-xl">Total Harga: @currency($listBarang->Harga * $listBarang->Qty + 30000)</p>
-                @endforeach
+                    <p class="text-2xl font-bold text-center max-md:text-xl">Total Harga: @currency($grossAmount)</p>
+                </div>
                     {{-- Button --}}
                     {{-- <div class="flex justify-center mt-16">
                         <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
@@ -125,7 +119,7 @@
                 </div>
                 {{-- <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p> --}}
                 {{-- Button --}}
-                <div class="flex justify-center mt-10 max-sm:mb-10">
+                <div class="flex justify-center mt-10 mb-10">
                     <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
                         @csrf
                         <input type="hidden" name="IdTransaksi" value="{{ $IdTransaksi }}">
