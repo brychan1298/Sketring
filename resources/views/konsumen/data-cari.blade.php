@@ -15,21 +15,36 @@
     .card-produk:hover .card-image{
         transform: scale(1.2)
     }
+
+    @media(max-width: 767px) {
+            /* .tambahProduk {
+                width: 85vw;
+            } */
+
+            .konten {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .produksatu {
+                width: 85vw;
+            }
+        }
 </style>
 
-<div class="grid grid-cols-4 gap-[2vw] bg-white px-[8vw] w-full items-center">
+<div class="grid grid-cols-4 gap-10 mt-12 w-fit konten max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 max-2xl:gap-20 max-xl:gap-8">
     @foreach ($produks as $produk)
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
-            <div class="bg-white drop-shadow-lg flex flex-col w-[18vw] h-[52vh] rounded-[10px] card-produk">
+            <div class="flex rounded-md w-72 max-2xl:w-64 max-xl:w-48 shadow-3xl produksatu md:flex-col card-produk">
                 {{-- Product Image --}}
-                <div class="overflow-hidden rounded-[10px]">
+                <div class="overflow-hidden rounded-[10px] max-md:w-5/6">
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
-                    class="rounded-[10px] w-[100%] h-[12vw] object-cover card-image" alt="">
+                    class="object-cover w-full h-64 rounded-md max-xl:h-52 card-image" alt="">
                 </div>
-
                 {{-- Product Information --}}
-                <div class="flex flex-col w-[100%] gap-[0.5vw] p-[1vw]">
-                    <p class="font-bold text-2xl pb-[0.5vw]">{{ $produk->Nama }}</p>
+                <div class="flex flex-col w-full gap-[0.5vw] p-5 max-md:pl-5 max-md:pt-10">
+                    <p class="pb-2 text-2xl font-bold max-md:pb-4 max-xl:text-xl max-lg:text-lg">{{ $produk->Nama }}</p>
                     <div class="flex flex-row w-[100%] gap-[0.5vw]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="#8F8F8F"
@@ -37,7 +52,7 @@
                         </svg>
                         <p>{{ $produk->User->Nama }}</p>
                     </div>
-                    <div class="flex flex-row w-[100%] gap-[0.5vw]">
+                    <div class="flex flex-row w-full gap-[0.5vw]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="#8F8F8F"
                                 d="m12 18.275l-4.15 2.5q-.275.175-.575.15t-.525-.2q-.225-.175-.35-.438t-.05-.587l1.1-4.725L3.775 11.8q-.25-.225-.312-.513t.037-.562q.1-.275.3-.45t.55-.225l4.85-.425l1.875-4.45q.125-.3.388-.45t.537-.15q.275 0 .537.15t.388.45l1.875 4.45l4.85.425q.35.05.55.225t.3.45q.1.275.038.563t-.313.512l-3.675 3.175l1.1 4.725q.075.325-.05.588t-.35.437q-.225.175-.525.2t-.575-.15l-4.15-2.5Z" />
@@ -61,9 +76,13 @@
             </div>
         </a>
     @endforeach
+    <div>
+
+    </div>
+
 </div>
-
-
 <div class="mt-[50px]">
     {{ $produks->links() }}
 </div>
+
+

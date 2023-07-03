@@ -42,8 +42,8 @@
                                     <img src="images/location.png" alt="">
                                     <div class="font-light">3.5 km</div>
                                 </div> --}}
-                                <div class="flex gap-2 mt-1">
-                                    <img src="images/export.png" alt="">
+                                <div class="flex gap-2 mt-1 items-center">
+                                    <img src="images/export.png" class="w-5 h-5" alt="">
                                     <div class="font-light">
                                         @if ($item->JumlahRating == 0)
                                             N/A
@@ -161,7 +161,7 @@
                 </div>
                 <div class="shadow-2xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                     <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
-                        <img src="images/secure.png" alt="" class="mx-auto w-8">
+                        <img src="images/spread.png" alt="" class="mx-auto w-8">
                     </div>
                     <h1 class="font-bold text-xl">Tersebar di Seluruh Indonesia</h1>
                     <p class="font-light mt-8">
@@ -172,7 +172,7 @@
                 </div>
                 <div class="shadow-2xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                     <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
-                        <img src="images/secure.png" alt="" class="mx-auto w-8">
+                        <img src="images/easy.png" alt="" class="mx-auto w-9">
                     </div>
                     <h1 class="font-bold text-xl">Pembelian Dijamin Mudah</h1>
                     <p class="font-light mt-8">

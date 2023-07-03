@@ -1,6 +1,6 @@
 <footer class="w-[100%] bg-[#850000] flex flex-col items-center p-[4vh] gap-2">
     <p class="text-2xl font-bold text-white">S'Ketring</p>
-    <p class="w-[50%] text-center text-[#D9D9D9] text-1xl">Jelajahi dunia rasa yang tak terbatas dan hadirkan kelezatan sempurna ke setiap acaramu dengan Sketring.</p>
+    <p class="w-[50%] max-lg:w-[80%] max-md:w-full max-md:text-lg max-sm:text-base text-center text-[#D9D9D9] text-xl">Jelajahi dunia rasa yang tak terbatas dan hadirkan kelezatan sempurna ke setiap acaramu dengan Sketring.</p>
     <div class="w-[25%] h-[1px] bg-white my-[1vh]"></div>
     <div class="flex flex-row gap-4 text-white w-max">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12.95v-9q0-.425.288-.712T13 2.95h7q.425 0 .713.288T21 3.95v5q0 .425-.288.713T20 9.95h-5l-3 3ZM19.95 21q-3.225 0-6.288-1.438t-5.425-3.8q-2.362-2.362-3.8-5.425T3 4.05q0-.45.3-.75t.75-.3H8.1q.35 0 .625.225t.325.575l.65 3.5q.05.35-.013.638T9.4 8.45L7 10.9q1.05 1.8 2.625 3.375T13.1 17l2.35-2.35q.225-.225.588-.337t.712-.063l3.45.7q.35.075.575.338T21 15.9v4.05q0 .45-.3.75t-.75.3Z"/></svg>

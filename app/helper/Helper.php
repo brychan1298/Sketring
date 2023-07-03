@@ -6,8 +6,6 @@ if(!function_exists('set_active')){
             foreach($uri as $u){
                 if(Route::is($u)){
                     return $output;
-                }else{
-                    return 'max-w-0';
                 }
             }
         }else{

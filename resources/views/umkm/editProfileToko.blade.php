@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10">
+<img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-84">
 
 <form action="update" enctype="multipart/form-data" method="post">
 @method('put')
@@ -23,7 +23,7 @@
     <div class="w-full">
         <div class="text-center w-fit max-lg:mx-auto">
             @if (Auth::User()->FotoProfil)
-                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
+                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 object-cover rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
             @else
                 <img src="/images/profile.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
             @endif
@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div class="flex flex-col w-full mx-auto container px-36 max-lg:px-8">
+<div class="container flex flex-col w-full mx-auto px-36 max-lg:px-8">
     {{-- <div class="w-[100%] flex flex-row-reverse mb-5 max-md:mb-2">
         <a href="/umkm/profileToko" class="flex flex-row w-max">
             <div class="flex flex-row bg-[#F8CB66] w-max text-[#DC0000] gap-[16px] items-center p-[16px] rounded-[10px]">

@@ -15,9 +15,9 @@
 <img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-48">
 <div class="container mx-auto w-max">
     <div class="w-full">
-        <div class="text-center w-fit max-lg:mx-auto">
+        <div class="text-center w-fit max-lg:mx-auto ">
             @if (Auth::User()->FotoProfil)
-                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
+                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview object-cover">
             @else
                 <img src="/images/profile.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
             @endif
@@ -86,7 +86,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"/></svg>
                     <p class="text-xl font-bold max-md:text-lg">Alamat</p>
                 </div>
-                <p class="text-lg max-md:text-base px-[24px] py-[16px] text-black bg-white rounded-[10px]">
+                <p class="text-lg max-md:text-base px-[24px] py-[16px] text-black bg-white rounded-[10px] flex-wrap">
                     {{Auth::User()->Alamat}}
                 </p>
             </div>

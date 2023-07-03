@@ -2,6 +2,42 @@
 @section('title', 'Login')
 @section('description', 'Halaman Login Sketring')
 @section('contents')
+    <style>
+        .inputForm label {
+            transform: translateY(-50%) scale(0.85);
+            top: 50%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .inputForm input:focus+label,
+        .inputForm input:not(:placeholder-shown)+label {
+            transform: translateY(-50%) scale(0.75);
+            top: 0;
+        }
+
+        .inputForm div {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            background-color: transparent;
+            transform-origin: bottom;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .inputForm div.active {
+            transform: scale(1);
+            background-color: gray;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-transition-delay: 9999s;
+            transition-delay: 9999s;
+        }
+    </style>
     <div class="flex items-center justify-center p-5 pt-10">
         <h1 class="text-3xl font-black">
             LOGIN
@@ -9,7 +45,7 @@
         <h1></h1>
     </div>
 
-    <div class="px-12 py-12 bg-[#FFDB89] mx-[7vw] mb-8  shadow-2xl">
+    <div class="px-10 py-10 bg-[#FFDB89] mx-[6.4vw] mb-12  shadow-2xl mt-3 rounded-md">
         @if (session()->has('loginError'))
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                 <span>
@@ -27,7 +63,78 @@
         @endif
         <form action="/login" method="post">
             @csrf
+            <div class="relative inputForm mb-5 mt-5 mx-4" data-te-input-wrapper-init>
+                <input type="text" name="Email" required value="{{ old('Email') }}"
+                    class="@if ($errors->has('Email')) border border-red-500 @else shadow @endif
+                    text-[#850000] border-[#850000] border
+                    peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[2.15] transition-all duration-200 ease-linear placeholder:opacity-0 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none focus:placeholder:text-sm
+                    focus:outline-none focus:shadow-outline
+                    focus:ring-0"
+                    id="Email" placeholder="Email" />
+                <label for="Email"
+                    class="peer-focus:text-[#dc0000] pointer-events-none absolute bg-[#FFDB89] text-[#85000070] px-2 left-3 top-3 origin-[0] transition-all duration-300 text-md">Alamat
+                    Email
+                </label>
+            </div>
+            <div class="relative inputForm mb-8 mt-8 mx-4" data-te-input-wrapper-init>
+                <input type="password" name="password" required
+                    class="@if ($errors->has('password')) border border-red-500 @else @endif
+                    text-[#850000] border-[#850000] border
+                    peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[2.15] transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0
+                    focus:outline-none focus:shadow-outline
+                    focus:ring-0"
+                    id="password" placeholder="Password" />
+                <label for="password"
+                    class="peer-focus:text-[#dc0000] pointer-events-none absolute bg-[#FFDB89] text-[#85000070] px-2 left-3 top-3 origin-[0] transition-all duration-300 text-md">
+                    Password
+                </label>
+            </div>
+
+
+            {{-- <div class="relative mb-6" data-te-input-wrapper-init>
+                <input type="text"
+                    class="@if ($errors->has('Email')) border border-red-500 @else border-none shadow @endif
+                    text-gray-700
+                    peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0
+                    focus:outline-none focus:shadow-outline"
+                    id="exampleFormControlInput3" placeholder="Email address" />
+                <label for="exampleFormControlInput3"
+                    class="pointer-events-none absolute left-3 top-3 text-gray-500 transition-all duration-300">Email
+                    address
+                </label>
+            </div> --}}
+
+            {{-- <div class="relative mb-6" data-te-input-wrapper-init>
+                <input type="text"
+                    class="@if ($errors->has('Email')) border border-red-500 @else border-none shadow @endif
+                        text-gray-700
+                        peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0
+                        focus:outline-none focus:shadow-outline"
+                    id="exampleFormControlInput3" placeholder="Email address" />
+                <label for="exampleFormControlInput3"
+                    class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8]">Email
+                    address
+                </label>
+            </div> --}}
+            {{-- <div>
+                <div class="text-sm font-bold text-gray-700 tracking-wide">Email</div>
+                <input name="Email" autofocus required value="{{ old('Email') }}"
+                    class="
+                    @if ($errors->has('Email')) border-b border-red-500 @else @endif
+                    text-[#850000] placeholder:text-gray-500 placeholder:text-sm w-full text-lg py-2 border-b border-gray-400 bg-[#FFDB89] focus:outline-none focus:border-indigo-500"
+                    type="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
+                    placeholder="Alamat Email">
+            </div>
             <div class="mb-12 mt-6">
+                <div class="text-sm font-bold text-gray-700 tracking-wide">Password</div>
+                <input name="Email" autofocus required value="{{ old('Email') }}"
+                    class="
+                    @if ($errors->has('Email')) border-b border-red-500 @else @endif
+                    text-[#850000] placeholder:text-gray-500 placeholder:text-sm w-full text-lg py-2 border-b border-gray-400 bg-[#FFDB89] focus:outline-none focus:border-indigo-500"
+                    type="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
+                    placeholder="Password">
+            </div> --}}
+            {{-- <div class="mb-12 mt-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2 text-xl" for="email">
                     Email
                 </label>
@@ -43,20 +150,77 @@
                 <input name="password" required
                     class="@if ($errors->has('password')) border border-red-500 @else border-none shadow @endif
                 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="email" type="password" placeholder="Password">
-            </div>
-            <div class="mb-8 flex justify-center">
-                <button type="submit" class="bg-[#DC0000] px-10 py-3 text-white rounded-xl">
+                    id="password" type="password" placeholder="Password">
+            </div> --}}
+
+            <div class="mb-4 flex justify-center mx-4">
+                <button type="submit" class="bg-[#DC0000] px-10 py-3 text-white rounded-xl w-full">
                     MASUK
                 </button>
             </div>
-            <div class="text-center">
-                Belum punya akun? <a href="/register" class="font-bold text-blue-500 hover:text-red-600">Register</a>
+
+            <div class="mx-4 text-center">
+                Belum punya akun? <a href="/register"
+                    class="font-bold text-[#850000] underline text-md hover:text-red-600">Register</a>
             </div>
+
+            <div
+                class="my-4 mx-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#850000] after:mt-0.5 after:flex-1 after:border-t after:border-[#850000]">
+                <p class="mx-4 mb-0 text-center font-semibold text-[#850000]">
+                    Or
+                </p>
+            </div>
+            {{-- <p class="text-center mb-6">atau masuk menggunakan</p> --}}
+            <div class="flex gap-5 justify-between mx-4 grid grid-cols-2">
+                <a href="https://www.google.com/" class="">
+                    <div
+                        class="flex items-center text-[0.9vw] shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
+                        <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M54.5138 25.1038H52.5V25H30V35H44.1288C42.0675 40.8213 36.5288 45 30 45C21.7163 45 15 38.2837 15 30C15 21.7163 21.7163 15 30 15C33.8238 15 37.3025 16.4425 39.9513 18.7987L47.0225 11.7275C42.5575 7.56625 36.585 5 30 5C16.1937 5 5 16.1937 5 30C5 43.8063 16.1937 55 30 55C43.8063 55 55 43.8063 55 30C55 28.3238 54.8275 26.6875 54.5138 25.1038Z"
+                                fill="#FFC107" />
+                            <path
+                                d="M7.88232 18.3637L16.0961 24.3875C18.3186 18.885 23.7011 15 29.9998 15C33.8236 15 37.3023 16.4425 39.9511 18.7987L47.0223 11.7275C42.5573 7.56625 36.5848 5 29.9998 5C20.3973 5 12.0698 10.4212 7.88232 18.3637Z"
+                                fill="#FF3D00" />
+                            <path
+                                d="M29.9999 54.9999C36.4574 54.9999 42.3249 52.5286 46.7612 48.5099L39.0237 41.9624C36.4293 43.9354 33.2592 45.0025 29.9999 44.9999C23.4974 44.9999 17.9762 40.8536 15.8962 35.0674L7.74365 41.3486C11.8812 49.4449 20.2837 54.9999 29.9999 54.9999Z"
+                                fill="#4CAF50" />
+                            <path
+                                d="M54.5138 25.1038H52.5V25H30V35H44.1288C43.1428 37.7705 41.3667 40.1915 39.02 41.9637L39.0237 41.9613L46.7613 48.5087C46.2138 49.0062 55 42.5 55 30C55 28.3238 54.8275 26.6875 54.5138 25.1038Z"
+                                fill="#1976D2" />
+                        </svg>
+                        Google Login
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/" class="">
+                    <div
+                        class="flex items-center text-[0.9vw] shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
+                        <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_934_1016)">
+                                <path
+                                    d="M60 30C60 13.4316 46.5684 0 30 0C13.4316 0 0 13.4313 0 30C0 44.9738 10.9706 57.3851 25.3125 59.6355V38.6719H17.6953V30H25.3125V23.3906C25.3125 15.8719 29.7914 11.7188 36.6438 11.7188C39.9263 11.7188 43.3594 12.3047 43.3594 12.3047V19.6875H39.5766C35.8495 19.6875 34.6875 22.0001 34.6875 24.3727V30H43.0078L41.6777 38.6719H34.6875V59.6355C49.0294 57.3851 60 44.974 60 30Z"
+                                    fill="#1877F2" />
+                                <path
+                                    d="M41.6777 38.6719L43.0078 30H34.6875V24.3727C34.6875 21.9998 35.8498 19.6875 39.5766 19.6875H43.3594V12.3047C43.3594 12.3047 39.9263 11.7188 36.6438 11.7188C29.7914 11.7188 25.3125 15.8719 25.3125 23.3906V30H17.6953V38.6719H25.3125V59.6355C26.8632 59.8786 28.4304 60.0004 30 60C31.5696 60.0005 33.1368 59.8786 34.6875 59.6355V38.6719H41.6777Z"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_934_1016">
+                                    <rect width="60" height="60" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        Facebook Login
+                    </div>
+                </a>
+            </div>
+
         </form>
     </div>
 
-    <div>
+    {{-- <div>
         <p class="text-center mb-6">atau masuk menggunakan</p>
         <div class="flex gap-5 mb-10 justify-center">
             <a href="https://www.facebook.com/">
@@ -104,5 +268,35 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div> --}}
+    <script>
+        import {
+            Input,
+            Ripple,
+            initTE,
+        } from "tw-elements";
+
+        initTE({
+            Input,
+            Ripple
+        });
+
+        $(document).ready(function() {
+            $('.inputForm input').on('input', function() {
+                checkInput($(this));
+            });
+
+            $('.inputForm input').each(function() {
+                checkInput($(this));
+            });
+
+            function checkInput(input) {
+                if (input.val().length > 0) {
+                    input.siblings('label').addClass('active');
+                } else {
+                    input.siblings('label').removeClass('active');
+                }
+            }
+        });
+    </script>
 @endsection

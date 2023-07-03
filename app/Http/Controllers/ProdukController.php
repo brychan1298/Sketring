@@ -38,9 +38,10 @@ class ProdukController extends Controller
 
 
 
-        $produks = $produks->paginate(10)->withQueryString();
+        $produks = $produks->paginate(6)->withQueryString();
+        // dd($produks);
 
-        return view("konsumen.cari",compact('produks'));
+        return view("konsumen.cari",['produks'=>$produks]);
     }
 
     public function konsumenSearch(Request $request){
@@ -54,7 +55,7 @@ class ProdukController extends Controller
         if(request('search') != ""){
             $produks = $produks->where('Produk.Nama','like','%'.request('search').'%');
         }
-        $produks = $produks->paginate(10)->withQueryString();
+        $produks = $produks->paginate(6)->withQueryString();
         $view = view("konsumen.data-cari",['produks' => $produks]);
         $html = $view->render();
         return $html;
@@ -118,10 +119,10 @@ class ProdukController extends Controller
                         ->where('users.IdKota','=',Auth::User()->IdKota)
                         ->orderBy('Produk.Harga',$TipeHarga);
         }else{
-            $produks = Produk::latest()->orderBy('Produk.Harga',$TipeHarga);
+            $produks = Produk::select('Produk.*')->orderBy('Produk.Harga',$TipeHarga);
         }
 
-        $produks = $produks->paginate(10)->withQueryString();
+        $produks = $produks->paginate(6)->withQueryString();
         $view = view("konsumen.data-cari",['produks' => $produks]);
         $html = $view->render();
         return $html;
@@ -134,6 +135,23 @@ class ProdukController extends Controller
     {
         $produk = Produk::find($IdProduk);
         return view('umkm.editProduk',compact('produk'));
+    }
+
+    public function filterToko(Request $request){
+        $TipeHarga = $request->input('TipeHarga');
+        if(Auth::check()){
+            $produks = Produk::select('Produk.*')->join('users','Produk.IdUser','=','users.IdUser')
+                        ->join('regencies','users.IdKota','=','regencies.id')
+                        ->where('users.IdKota','=',Auth::User()->IdKota)
+                        ->orderBy('Produk.Harga',$TipeHarga);
+        }else{
+            $produks = Produk::latest()->orderBy('Produk.Harga',$TipeHarga);
+        }
+
+        $produks = $produks->paginate(6)->withQueryString();
+        $view = view("konsumen.data-cari",['produks' => $produks]);
+        $html = $view->render();
+        return $html;
     }
 
     /**

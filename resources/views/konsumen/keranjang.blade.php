@@ -461,7 +461,11 @@
             }
 
             if (count == 0) {
-                alert("Silahkan pilih barang yang ingin dicheckout terlebih dahulu");
+                Swal.fire({
+                    icon: 'warning',
+                    // title: "Berhasil",
+                    text: "Silahkan pilih barang yang ingin dicheckout terlebih dahulu"
+                });
                 return false;
             }
         }
