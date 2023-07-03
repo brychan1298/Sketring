@@ -22,10 +22,10 @@
 
     <div class="container m-auto mt-[60px]">
         <div class="grid lg:grid-cols-2 gap-x-20 sm:max-md:grid-cols-1">
-            <div class="md:mb-10">
+            <div class="">
                 <div class="flex justify-between items-end">
-                    <h1 class="text-2xl font-bold">Rekomendasi Katering</h1>
-                    <a href="/konsumen/cari" class="text-[#850000] hover:underline">Lihat Semua</a>
+                    <h1 class="text-2xl font-bold">Rekomendasi Produk</h1>
+                    <a href="/konsumen/cari" class="text-[#850000] hover:underline">Lihat Semua >></a>
                 </div>
                 @foreach ($produk as $item)
                     <div class="flex mt-10 rounded-md shadow-3xl p-5 items-end justify-between">
@@ -56,7 +56,7 @@
                         </div>
                         <div>
                             <a href="/konsumen/detailproduk/{{ $item->IdProduk }}"
-                                class="bg-[#850000] text-white px-5 py-2 rounded-md font-semibold">
+                                class="bg-[#850000] text-white px-5 py-2 rounded-md">
                                 Lihat Detail
                             </a>
                         </div>
@@ -132,13 +132,14 @@
 
 
     <section id="" class="mt-[130px]">
-        <div class="text-center">
+        <div class="text-center flex flex-col items-center">
             <p class="text-[#8f8f8f]">
                 Selamat datang di
             </p>
-            <p class="uppercase text-5xl mt-2">
+            {{-- <p class="uppercase text-5xl mt-2">
                 sketring
-            </p>
+            </p> --}}
+            <img src="/images/sketringDoank.png" class="w-64" alt="">
             <p class="sm:mx-[32vw] mx-[15vw] mt-5">
                 Kami adalah platform inovatif yang didedikasikan untuk membantu UMKM katering dan memfasilitasi konsumen
                 dalam menemukan katering terbaik di daerah mereka. Kami memahami betapa pentingnya makanan yang lezat dan

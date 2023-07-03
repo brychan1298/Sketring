@@ -76,9 +76,6 @@
             </div>
         </a>
     @endforeach
-    <div>
-
-    </div>
 
 </div>
 <div class="mt-[50px]">

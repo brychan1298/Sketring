@@ -38,7 +38,7 @@ class ProdukController extends Controller
 
 
 
-        $produks = $produks->paginate(6)->withQueryString();
+        $produks = $produks->paginate(8)->withQueryString();
         // dd($produks);
 
         return view("konsumen.cari",['produks'=>$produks]);
@@ -55,7 +55,7 @@ class ProdukController extends Controller
         if(request('search') != ""){
             $produks = $produks->where('Produk.Nama','like','%'.request('search').'%');
         }
-        $produks = $produks->paginate(6)->withQueryString();
+        $produks = $produks->paginate(8)->withQueryString();
         $view = view("konsumen.data-cari",['produks' => $produks]);
         $html = $view->render();
         return $html;
@@ -122,7 +122,7 @@ class ProdukController extends Controller
             $produks = Produk::select('Produk.*')->orderBy('Produk.Harga',$TipeHarga);
         }
 
-        $produks = $produks->paginate(6)->withQueryString();
+        $produks = $produks->paginate(8)->withQueryString();
         $view = view("konsumen.data-cari",['produks' => $produks]);
         $html = $view->render();
         return $html;
@@ -148,7 +148,7 @@ class ProdukController extends Controller
             $produks = Produk::latest()->orderBy('Produk.Harga',$TipeHarga);
         }
 
-        $produks = $produks->paginate(6)->withQueryString();
+        $produks = $produks->paginate(8)->withQueryString();
         $view = view("konsumen.data-cari",['produks' => $produks]);
         $html = $view->render();
         return $html;
