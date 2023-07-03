@@ -33,18 +33,18 @@
         }
 </style>
 
-<div class="grid items-center grid-cols-4 w-fit gap-10 mt-12 konten max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 max-2xl:gap-20 max-xl:gap-8 max-sm:gap-7">
+<div class="grid grid-cols-4 gap-10 mt-12 w-fit konten max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 max-2xl:gap-20 max-xl:gap-8">
     @foreach ($produks as $produk)
         <a href="/konsumen/detailproduk/{{ $produk->IdProduk }}">
             <div class="flex rounded-md w-72 max-2xl:w-64 max-xl:w-48 shadow-3xl produksatu md:flex-col card-produk">
                 {{-- Product Image --}}
-                <div class="overflow-hidden rounded-[10px] max-md:w-5/6 ">
+                <div class="overflow-hidden rounded-[10px] max-md:w-5/6">
                     <img src="{{ asset('storage/' . $produk->FotoProduk) }}"
-                    class="object-cover w-full h-64 rounded-md card-image" alt="">
+                    class="object-cover w-full h-64 rounded-md max-xl:h-52 card-image" alt="">
                 </div>
                 {{-- Product Information --}}
-                <div class="flex flex-col w-full gap-[0.5vw] p-[1vw] max-md:pl-5 max-md:pt-10">
-                    <p class="font-bold text-2xl pb-[0.5vw] md:h-[5vw]">{{ $produk->Nama }}</p>
+                <div class="flex flex-col w-full gap-[0.5vw] p-5 max-md:pl-5 max-md:pt-10">
+                    <p class="pb-2 text-2xl font-bold max-md:pb-4 max-xl:text-xl max-lg:text-lg">{{ $produk->Nama }}</p>
                     <div class="flex flex-row w-[100%] gap-[0.5vw]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="#8F8F8F"
@@ -73,24 +73,6 @@
                         <p>@currency($produk->Harga)</p>
                     </div>
                 </div>
-                {{-- <img src="{{ asset('storage/' . $produk->FotoProduk) }}" alt=""
-                    class="object-cover w-1/2 h-64 rounded-md md:w-full">
-                <div class="flex flex-col justify-center p-4">
-                    <h1 class="my-1 text-xl font-bold 2xl:text-xl lg:text-xl md:text-2xl sm:text-2xl">{{ $produk->Nama }}</h1>
-                    <p class="mt-3 font-normal text-md 2xl:text-sm lg:text-base md:text-base">
-                        {{ $produk->Deskripsi }}</p>
-                    <div class="flex justify-between mt-4">
-                        <h1 class="text-[#850000] text-md 2xl:text-base lg:text-base sm:text-xl">
-                            Rp {{ $produk->Harga }}
-                        </h1>
-                    </div>
-                    <a href="/umkm/editProduk/{{ $produk->IdProduk }}">
-                        <div
-                            class="bg-[#850000] text-white py-2 px-10 text-center rounded-md mt-4 2xl:text-sm lg:text-base md:text-base sm:text-xl">
-                            Edit
-                        </div>
-                    </a>
-                </div> --}}
             </div>
         </a>
     @endforeach

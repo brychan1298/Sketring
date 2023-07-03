@@ -3,7 +3,7 @@
 @section('description', 'Cari Produk Katering di Kota Anda')
 @section('content')
 
-    <div class="container px-[8vw] mx-auto mt-[152px] max-sm:mt-[120px]">
+    <div class="container px-[8vw] mx-auto flex flex-col items-center mt-40 max-md:mt-[15vh] mb-12 w-full">
         {{-- Search and Sort --}}
         <div class="flex mb-12 items-center justify-center w-full max-xl:flex-col max-xl:gap-8 max-xl:items-start gap-14">
             {{-- Search Bar --}}
