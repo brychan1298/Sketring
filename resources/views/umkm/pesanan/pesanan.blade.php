@@ -137,6 +137,7 @@
                     icon: "question",
                     showCancelButton: true,
                     confirmButtonText: "Ya",
+                    confirmButtonColor: "#850000",
                     cancelButtonText: "Tidak",
                     dangerMode: true,
                     buttons: true

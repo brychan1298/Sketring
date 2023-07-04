@@ -34,7 +34,7 @@
                                     <input type="hidden" class="ItemNama" value="{{ $item->Nama }}">
                                     <input type="hidden" class="ItemQty" value="{{ $item->Qty }}">
                                     <button type="button"
-                                        class="text-[#DC0000] border border-2 border-[#DC0000] px-2 py-1 text-sm rounded-md">
+                                        class="text-[#DC0000] btnTerimaPesanan border border-2 border-[#DC0000] px-2 py-1 text-sm rounded-md">
                                         DITERIMA
                                     </button>
                                 </form>

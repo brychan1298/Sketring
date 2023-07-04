@@ -114,6 +114,7 @@
                     icon: "question",
                     showCancelButton: true,
                     confirmButtonText: "Ya",
+                    confirmButtonColor: "#850000",
                     cancelButtonText: "Batal",
                     dangerMode: true,
                     buttons: true

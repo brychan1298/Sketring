@@ -126,6 +126,7 @@
                     showCancelButton: true,
                     confirmButtonText: "Ya",
                     cancelButtonText: "Tidak",
+                    confirmButtonColor: "#850000",
                     dangerMode: true,
                     buttons: true
                 })
