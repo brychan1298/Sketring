@@ -26,7 +26,8 @@ class User extends Authenticatable
         'Alamat',
         'Role',
         'IdKota',
-        'Nohp'
+        'Nohp',
+        'google_id'
     ];
 
     /**

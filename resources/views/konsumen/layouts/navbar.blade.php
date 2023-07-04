@@ -98,12 +98,13 @@
                 <li>
                     <a href="/konsumen/cari"
                         class="{{ set_active_2('cari') }}
-                        {{ set_active_2('detailProduk') }}
-                        block px-4 py-2 pr-4 text-white md:bg-transparent md:text-white-700 group transition duration-200">Produk
+                        {{ set_active_2('detailProduk') }} block py-2 px-4 pr-4 text-white
+                                md:bg-transparent md:text-white-700
+                                group transition duration-200"
+                        aria-current="page">Produk
                         <span
                             class="{{ set_active('cari') }}
-                            {{ set_active('detailProduk') }}
-                            block group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
+                            {{ set_active('detailProduk') }} block group-hover:max-w-full transition-all duration-500 h-0.5 bg-[white]"></span>
                     </a>
                 </li>
                 <li>

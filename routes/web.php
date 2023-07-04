@@ -117,6 +117,8 @@ Route::put('/tarikSaldoEmoneyUMKM/{id}', [UserController::class, 'tarikSaldoUMKM
 Route::group(["prefix" => "umkm", "middleware" => "umkm"], function(){
     Route::get('/', [UserController::class, 'umkmHome'])->name("berandaumkm");
     Route::get('/dashboard',[ProdukController::class,'index'])->name("dashboardumkm");
+    Route::get('/search', [ProdukController::class,'umkmsearch']);
+
     Route::get('/pesanan', [UmkmPesananController::class, 'umkmindex'])->name('pesanan');
     Route::get('/terima-pesanan/{Id}', [UmkmPesananController::class ,'umkmterimapesanan']);
     Route::get('/detailTransaksi/{IdTransaksi}', [UmkmPesananController::class, 'umkmshow']);

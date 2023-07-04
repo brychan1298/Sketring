@@ -18,10 +18,21 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produks = Produk::Where('Iduser',Auth::User()->IdUser)->get();
-
+        $produks = Produk::Where('Iduser',Auth::User()->IdUser);
+        $produks = $produks->paginate(7)->withQueryString();
         // dd($produks);
         return view("umkm.dashboard",compact('produks'));
+    }
+
+    public function umkmsearch(Request $request){
+        $produks = Produk::Where('Iduser',Auth::User()->IdUser);
+        if(request('search') != ""){
+            $produks = $produks->where('Produk.Nama','like','%'.request('search').'%');
+        }
+        $produks = $produks->paginate(7)->withQueryString();
+        $view = view("umkm.data-dashboard",['produks' => $produks]);
+        $html = $view->render();
+        return $html;
     }
 
     public function konsumenIndex(Request $request)

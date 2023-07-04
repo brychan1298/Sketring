@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Redirect;
 
 class GoogleAuthController extends Controller
 {
@@ -15,10 +19,14 @@ class GoogleAuthController extends Controller
 
     public function callbackGoogle(){
         try{
-            $google_user = Socialite::driver('google')->user();
+            try{
+                $google_user = Socialite::driver('google')->user();
+            }catch(Exception $e){
+                return Redirect::to('auth/google');
+            }
+
 
             $user = User::where('google_id',$google_user->getId())->first();
-            Auth::login($user);
             if(!$user){
                 $new_user = User::create([
                     'Nama' => $google_user->getName(),
@@ -30,6 +38,7 @@ class GoogleAuthController extends Controller
 
                 return redirect()->intended('/');
             }else{
+                // $user = User::where('google_id',$google_user->getId())->get();
                 Auth::login($user);
                 return redirect()->intended('/');
             }
