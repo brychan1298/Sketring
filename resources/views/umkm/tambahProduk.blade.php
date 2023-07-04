@@ -157,12 +157,12 @@
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Harga"><br>
 
-                <label class="font-semibold" for="MinOrder">Min. Pemesanan:</label>
+                <label class="font-semibold" for="MinOrder">Min. Order:</label>
                 <input type="number" id="MinOrder" required name="MinOrder" value=""
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Minimum Pemesanan"><br>
 
-                <label class="font-semibold" for="MaxOrder">Max Order:</label>
+                <label class="font-semibold" for="MaxOrder">Max. Order:</label>
                 <input type="number" id="MaxOrder" required name="MaxOrder" value=""
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-400"
                     placeholder="Maximum Pemesanan"><br>

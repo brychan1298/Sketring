@@ -112,7 +112,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="text-sm text-[#8F8F8F]">
+                <div class="text-sm py-1 text-[#8F8F8F]">
                     minimum order : {{ $detailProduk->MinOrder }} <br>
                     maximum order : {{ $detailProduk->MaxOrder }}
                 </div>
