@@ -41,7 +41,7 @@
 
 <div class="container mx-auto mt-[7.5vw] px-[8vw] max-xl:mt-[13vw] max-2xl:mt-[10vw] max-lg:mt-[18vw] max-md:mt-[24vw]">
     <div class="flex items-center justify-center judulAddProduk">
-        <a href="/tarikSaldo">
+        {{-- <a href="/tarikSaldo">
             <svg class="w-10 h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -55,7 +55,7 @@
                     </line>
                 </g>
             </svg>
-        </a>
+        </a> --}}
         <h2 class="text-4xl font-black max-md:text-2xl max-lg:text-3xl textJudul">Tarik Saldo</h2>
     </div>
 
@@ -105,7 +105,7 @@
                 <option value="Shopeepay">Shopeepay</option>
             </select>
             <div class="flex flex-col items-center">
-                <input type="text" id="virtualAccount" placeholder="No Virtual Account" class=" p-2 my-12 text-lg border-b-2 border-gray-400 outline-none w-4/5 2xl:w-1/3 md:w-3/5 lg:w-2/5 focus:border-black" required>
+                <input type="text" id="virtualAccount" placeholder="No Virtual Account" class="w-4/5 p-2 my-12 text-lg border-b-2 border-gray-400 outline-none 2xl:w-1/3 md:w-3/5 lg:w-2/5 focus:border-black" required>
                 <input type="number" name="nominal" id="nominal" min = "0" placeholder="Rp Jumlah" class="w-4/5 p-2 my-8 text-lg border-b-2 border-gray-400 outline-none 2xl:w-1/3 md:w-3/5 lg:w-2/5 focus:border-black" required>
             </div>
             {{-- <div class="">
@@ -140,7 +140,7 @@
         } else if(!(virtualAccount >= '0' && virtualAccount <= '9')){
             event.preventDefault();
             alert('No.Rekening harus berupa angka!');
-        } else if (virtualAccount.length != 15) {
+        } else if (virtualAccount.length < 8) {
             event.preventDefault();
             alert("No.Rekening yang Anda masukan tidak valid!");
         } else if (nominal <= 0) {
