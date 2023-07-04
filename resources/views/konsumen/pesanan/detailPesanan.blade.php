@@ -22,8 +22,8 @@
         }
     </style>
     <div class="container px-[8vw] mx-auto mt-[152px]">
-        <div class="judulAddProduk flex items-center justify-center">
-            <a href="/konsumen/pesanan">
+        <div class="flex items-center justify-center judulAddProduk">
+            {{-- <a href="/konsumen/pesanan">
                 <svg class="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -37,8 +37,8 @@
                         </line>
                     </g>
                 </svg>
-            </a>
-            <h2 class="text-2xl font-black textJudul 2xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl">Detail Pesanan</h2>
+            </a> --}}
+            <h2 class="mx-auto text-2xl font-bold text-center max-md:text-lg">Detail Pesanan</h2>
         </div>
 
         <hr class="my-8">
@@ -52,18 +52,18 @@
                     </div> --}}
                     <div class="flex items-center my-3 pengiriman">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4a2 2 0 0 0-2 2v11h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2v-5l-3-4h-3V4m-7 2l4 4l-4 4v-3H4V9h6m7 .5h2.5l1.97 2.5H17M6 15.5A1.5 1.5 0 0 1 7.5 17A1.5 1.5 0 0 1 6 18.5A1.5 1.5 0 0 1 4.5 17A1.5 1.5 0 0 1 6 15.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5Z"/></svg>
-                        <h1 class="mx-3 font-bold text-xl">Delivery</h1>
+                        <h1 class="mx-3 text-xl font-bold">Delivery</h1>
                     </div>
                     <div class="flex items-center my-3 tanggal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Zm7-6q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18Z"/></svg>
-                        <h1 id="tanggalPesanan" class="mx-3 font-bold text-xl">{{$TanggalPesanan}}</h1>
+                        <h1 id="tanggalPesanan" class="mx-3 text-xl font-bold">{{$TanggalPesanan}}</h1>
                     </div>
                 </div>
 
                 <div class="w-full alamat lg:w-1/2">
-                    <div class="flex items-center judulAlamat gap-1">
+                    <div class="flex items-center gap-1 judulAlamat">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z"/></svg>
-                        <h2 class="font-bold text-xl">Alamat Pengiriman</h2>
+                        <h2 class="text-xl font-bold">Alamat Pengiriman</h2>
                     </div>
                     <div class="p-3 px-4 my-3 border border-black border-solid detailAlamat rounded-xl">
                         <h1 id="namaKonsumen" class="text-xl">{{Auth::User()->Nama}}</h1>
@@ -98,7 +98,7 @@
                                 <input type="text" value="{{$listBarang->MinimalWaktuPO}}" name="" id="" class="hidden MinimalWaktuPO">
 
                                 <div class="py-10 detail2">
-                                    <h1 class="text-end text-2xl">Total:</h1>
+                                    <h1 class="text-2xl text-end">Total:</h1>
                                     <h1 id="totalHarga" class="text-xl">@currency($listBarang->Harga * $listBarang->Qty)</h1>
                                 </div>
                             </div>
@@ -115,12 +115,12 @@
             <div class="subOngkir">
                 <div class="flex justify-between">
                     <h1 class="text-xl font-bold">Subtotal</h1>
-                    <h1 id="subtotal" class="font-bold text-lg">@currency($SubTotal)</h1>
+                    <h1 id="subtotal" class="text-lg font-bold">@currency($SubTotal)</h1>
                 </div>
 
                 <div class="flex justify-between my-4">
                     <h1 class="text-xl font-bold">Ongkos Kirim</h1>
-                    <h1 id="ongkir" class="font-bold text-lg">Rp 30.000,00</h1>
+                    <h1 id="ongkir" class="text-lg font-bold">Rp 30.000,00</h1>
                 </div>
             </div>
 

@@ -2,16 +2,16 @@
 @section('title', 'Pesanan Anda')
 @section('description', 'Pesanan dari para konsumen')
 @section('content')
-    <div class="container mx-auto flex flex-col items-center px-36 max-lg:px-12 w-full">
+    <div class="container flex flex-col items-center w-full mx-auto px-36 max-lg:px-12">
         @if (session()->has('Success'))
             <div id="alert"
-                class="flex mt-12 bg-success border border-green-700 text-green-700 px-4 py-3 rounded relative alert alert-success"
+                class="relative flex px-4 py-3 mt-12 text-green-700 border border-green-700 rounded bg-success alert alert-success"
                 role="alert">
                 <span>
                     {{ session('Success') }}
                 </span>
                 <span class="" onclick="document.getElementById('alert').style.display='none'">
-                    <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-6 h-6 text-green-500 fill-current" role="button" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20">
                         <title>Close</title>
                         <path
@@ -22,13 +22,13 @@
         @endif
         @if (session()->has('Delete'))
             <div id="alert"
-                class="flex mt-12 bg-warning border border-red-700 text-red-700 px-4 py-3 rounded relative alert alert-success"
+                class="relative flex px-4 py-3 mt-12 text-red-700 border border-red-700 rounded bg-warning alert alert-success"
                 role="alert">
                 <span>
                     {{ session('Delete') }}
                 </span>
                 <span class="" onclick="document.getElementById('alert').style.display='none'">
-                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-6 h-6 text-red-500 fill-current" role="button" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20">
                         <title>Close</title>
                         <path
@@ -38,15 +38,15 @@
             </div>
         @endif
 
-        <div class="flex flex-col justify-center items-center w-full gap-2">
-            <div class="container flex flex-col w-full mx-auto mt-32 mb-8 max-sm:mt-12 justify-between">
+        <div class="flex flex-col items-center justify-center w-full gap-2">
+            <div class="container flex flex-col justify-between w-full mx-auto mt-32 mb-8 max-sm:mt-12">
                 <div class="inline-flex max-sm:pt-16">
-                    <a href="/umkm/profileToko">
+                    {{-- <a href="/umkm/profileToko">
                         <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
                         </svg>
-                    </a>
-                    <p class="mx-auto text-2xl font-bold text-center">PESANAN ANDA</p>
+                    </a> --}}
+                    <p class="mx-auto text-2xl font-bold text-center">Pesanan Anda</p>
                 </div>
             </div>
             {{-- Status Selection --}}
@@ -64,7 +64,7 @@
                     @foreach ($items as $Transaksi)
                         <div class="flex flex-row justify-between w-[100%] py-4 items-center max-sm:flex-col max-sm:items-start max-sm:gap-4">
                             {{-- Left hug content --}}
-                            <div class="flex flex-row w-max gap-2 max-sm:text-sm max-sm:flex-col max-sm:items-center max-sm:self-center">
+                            <div class="flex flex-row gap-2 w-max max-sm:text-sm max-sm:flex-col max-sm:items-center max-sm:self-center">
                                 <img class="w-24 h-24 rounded-[10px] object-cover"
                                     src="{{ asset('storage/' . $Transaksi->FotoProduk) }}" alt="">
                                 <div class="flex flex-col w-max text-[#850000] justify-center max-sm:text-center">
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             {{-- Right hug content --}}
-                            <div class="flex flex-col w-max items-end max-sm:self-end">
+                            <div class="flex flex-col items-end w-max max-sm:self-end">
                                 {{-- <div class="flex flex-row w-max gap-[1vw] font-bold">
                                     <button type="submit"
                                         class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
