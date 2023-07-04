@@ -2,17 +2,17 @@
 @section('title', 'Pesanan dikirimkan')
 @section('description', 'Daftar Pesanan Konsumen Yang Sedang dikirimkan')
 @section('content')
-    <div class="container mx-auto flex flex-col items-center px-36 max-lg:px-12 w-full">
-        <div class="flex flex-col justify-center items-center w-full gap-2">
+    <div class="container flex flex-col items-center w-full mx-auto px-36 max-lg:px-12">
+        <div class="flex flex-col items-center justify-center w-full gap-2">
             @if (session()->has('selesai'))
                 <div id="alert"
-                    class="flex mt-12 bg-success border border-green-700 text-green-700 px-4 py-3 rounded relative alert alert-success"
+                    class="relative flex px-4 py-3 mt-12 text-green-700 border border-green-700 rounded bg-success alert alert-success"
                     role="alert">
                     <span>
                         {{ session('selesai') }}
                     </span>
                     <span class="" onclick="document.getElementById('alert').style.display='none'">
-                        <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-6 h-6 text-green-500 fill-current" role="button" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20">
                             <title>Close</title>
                             <path
@@ -21,14 +21,14 @@
                     </span>
                 </div>
             @endif
-            <div class="container flex flex-col w-full mx-auto mt-36 mb-8 max-sm:mt-12 justify-between">
+            <div class="container flex flex-col justify-between w-full mx-auto mb-8 mt-36 max-sm:mt-12">
                 <div class="inline-flex max-sm:pt-16">
-                    <a href="/profileKonsumen">
+                    {{-- <a href="/profileKonsumen">
                         <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z" fill="#850000"/>
                         </svg>
-                    </a>
-                    <p class="mx-auto text-2xl font-bold text-center">PESANAN ANDA</p>
+                    </a> --}}
+                    <p class="mx-auto text-2xl font-bold text-center">Pesanan Anda</p>
                 </div>
             </div>
             {{-- Status Selection --}}
