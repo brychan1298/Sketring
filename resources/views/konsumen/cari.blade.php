@@ -38,7 +38,7 @@
 
         {{-- Product List --}}
         @if (!request('search') && Auth::check())
-            <div class="mx-auto text-center my-16 text-2xl max-md:text-xl max-sm:my-10 max-sm:flex max-sm:items-center max-sm:flex-col">
+            <div class="mx-auto text-center text-2xl max-md:text-xl max-sm:my-10 max-sm:flex max-sm:items-center max-sm:flex-col">
                 Katering terdekat di
                 <label class="font-bold" for="">{{ Auth::User()->Regency->name }}</label>
             </div>

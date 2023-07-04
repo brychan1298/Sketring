@@ -66,7 +66,7 @@
                             @endif
                         @endforeach
                         @for ($i = 0; $i < 4 - $countImg; $i++)
-                            <img src="images/bannerToko.jpg" alt="" class="w-1/2 aspect-square rounded-xl">
+                            <img src="/images/empty-cart.png" alt="" class="w-1/2 aspect-square rounded-xl">
                         @endfor
                     </div>
                     <h1 class="mt-5 font-bold">

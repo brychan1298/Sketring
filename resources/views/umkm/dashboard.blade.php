@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <div class="grid items-center gap-5 mt-12 konten 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
+        <div class="grid items-center gap-5 mt-12 konten xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
             <a id="addProduct" href="/umkm/tambahProduk"
                 class="tambahProduk bg-[#EBEBEB] rounded-md shadow-3xl flex flex-row items-center justify-center gap-5 md:gap-0 md:flex-col py-12 w-[85vw] md:w-[290px] lg:w-[260px] xl:w-[325px] 2xl:w-[290px] md:py-40 lg:py-40 xl:py-40 2xl:py-36">
                 <svg id="addButton" version="1.1" id="Capa_1" class="w-20 h-20" xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,9 @@
                         <h1 class="my-1 text-xl font-bold 2xl:text-xl lg:text-xl md:text-2xl sm:text-2xl">
                             {{ $produk->Nama }}</h1>
                         <p class="mt-3 font-normal text-md 2xl:text-sm lg:text-base md:text-base">
-                            {{ $produk->Deskripsi }}</p>
+
+                            {{ strlen($produk->Deskripsi) > 25 ? substr($produk->Deskripsi, 0, 25) . '...' : $produk->Deskripsi }}
+                        </p>
                         <div class="flex justify-between mt-4">
                             <h1 class="text-[#850000] text-md 2xl:text-base lg:text-base sm:text-xl">
                                 Rp {{ $produk->Harga }}
