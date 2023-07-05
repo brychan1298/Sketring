@@ -13,15 +13,15 @@
 </style>
 <div class="container m-auto mt-[160px] mb-[60px]">
     <div class="flex">
-        <div class="sm:w-1/2 max-lg:hidden flex justify-center items-center rounded-l-md" id="left">
+        <div class="sm:w-1/2 max-lg:hidden flex justify-center h-[75vh] items-center rounded-l-md" id="left">
             <div class="bg-[black] bg-opacity-50 px-[8vw] py-[30%] text-center rounded-md">
-                <img src="/images/LogoSketring.png" alt="" class="sm:w-72 align-middle">
-                <p class="text-3xl mt-5 text-white font-bold">
+                <img src="/images/LogoSketring.png" alt="" class="align-middle sm:w-72">
+                <p class="mt-5 text-3xl font-bold text-white">
                     "RING MY KATERING!"
                 </p>
             </div>
         </div>
-        <div class="lg:w-1/2 w-full rounded-r-md" id="right">
+        <div class="w-full lg:w-1/2 rounded-r-md" id="right">
             @yield('contents')
         </div>
     </div>

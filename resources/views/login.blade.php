@@ -38,21 +38,22 @@
             transition-delay: 9999s;
         }
     </style>
-    <div class="flex items-center justify-center p-5 pt-10">
+<div class="container m-auto lg:mb-8 lg:mt-6">
+    <div class="flex items-center justify-center p-8 ">
         <h1 class="text-3xl font-black">
             LOGIN
         </h1>
         <h1></h1>
     </div>
 
-    <div class="px-10 py-10 bg-[#FFDB89] mx-[6.4vw] mb-12  shadow-2xl mt-3 rounded-md">
+    <div class="p-8 bg-[#FFDB89] mx-[6.4vw] mb-12 shadow-2xl rounded-md">
         @if (session()->has('loginError'))
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded" role="alert">
                 <span>
                     {{ session('loginError') }}
                 </span>
                 <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-6 h-6 text-red-500 fill-current" role="button" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20">
                         <title>Close</title>
                         <path
@@ -63,7 +64,7 @@
         @endif
         <form action="/login" method="post">
             @csrf
-            <div class="relative inputForm mb-5 mt-5 mx-4" data-te-input-wrapper-init>
+            <div class="relative mx-4 my-12 inputForm" data-te-input-wrapper-init>
                 <input type="text" name="Email" required value="{{ old('Email') }}"
                     class="@if ($errors->has('Email')) border border-red-500 @else shadow @endif
                     text-[#850000] border-[#850000] border
@@ -76,7 +77,7 @@
                     Email
                 </label>
             </div>
-            <div class="relative inputForm mb-8 mt-8 mx-4" data-te-input-wrapper-init>
+            <div class="relative mx-4 mt-8 mb-8 inputForm" data-te-input-wrapper-init>
                 <input type="password" name="password" required
                     class="@if ($errors->has('password')) border border-red-500 @else @endif
                     text-[#850000] border-[#850000] border
@@ -99,7 +100,7 @@
                     focus:outline-none focus:shadow-outline"
                     id="exampleFormControlInput3" placeholder="Email address" />
                 <label for="exampleFormControlInput3"
-                    class="pointer-events-none absolute left-3 top-3 text-gray-500 transition-all duration-300">Email
+                    class="absolute text-gray-500 transition-all duration-300 pointer-events-none left-3 top-3">Email
                     address
                 </label>
             </div> --}}
@@ -117,7 +118,7 @@
                 </label>
             </div> --}}
             {{-- <div>
-                <div class="text-sm font-bold text-gray-700 tracking-wide">Email</div>
+                <div class="text-sm font-bold tracking-wide text-gray-700">Email</div>
                 <input name="Email" autofocus required value="{{ old('Email') }}"
                     class="
                     @if ($errors->has('Email')) border-b border-red-500 @else @endif
@@ -125,8 +126,8 @@
                     type="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
                     placeholder="Alamat Email">
             </div>
-            <div class="mb-12 mt-6">
-                <div class="text-sm font-bold text-gray-700 tracking-wide">Password</div>
+            <div class="mt-6 mb-12">
+                <div class="text-sm font-bold tracking-wide text-gray-700">Password</div>
                 <input name="Email" autofocus required value="{{ old('Email') }}"
                     class="
                     @if ($errors->has('Email')) border-b border-red-500 @else @endif
@@ -134,8 +135,8 @@
                     type="" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
                     placeholder="Password">
             </div> --}}
-            {{-- <div class="mb-12 mt-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2 text-xl" for="email">
+            {{-- <div class="mt-6 mb-12">
+                <label class="block mb-2 text-sm text-xl font-bold text-gray-700" for="email">
                     Email
                 </label>
                 <input name="Email" autofocus required value="{{ old('Email') }}"
@@ -144,7 +145,7 @@
                     id="email" type="text" placeholder="Email">
             </div>
             <div class="mb-12">
-                <label class="block text-gray-700 text-sm font-bold mb-2 text-xl" for="Password">
+                <label class="block mb-2 text-sm text-xl font-bold text-gray-700" for="Password">
                     Password
                 </label>
                 <input name="password" required
@@ -153,7 +154,7 @@
                     id="password" type="password" placeholder="Password">
             </div> --}}
 
-            <div class="mb-4 flex justify-center mx-4">
+            <div class="flex justify-center mx-4 mb-4">
                 <button type="submit" class="bg-[#DC0000] px-10 py-3 text-white rounded-xl w-full">
                     MASUK
                 </button>
@@ -165,16 +166,16 @@
             </div>
 
             <div
-                class="my-4 mx-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#850000] after:mt-0.5 after:flex-1 after:border-t after:border-[#850000]">
+                class="my-6 mx-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#850000] after:mt-0.5 after:flex-1 after:border-t after:border-[#850000]">
                 <p class="mx-4 mb-0 text-center font-semibold text-[#850000]">
                     Or
                 </p>
             </div>
-            {{-- <p class="text-center mb-6">atau masuk menggunakan</p> --}}
-            <div class="flex gap-5 justify-between mx-4 grid grid-cols-2">
+            {{-- <p class="mb-6 text-center">atau masuk menggunakan</p> --}}
+            <div class="flex grid justify-between grid-cols-2 gap-5 mx-4 mb-4">
                 <a href="{{ route('google-auth') }}" class="">
                     <div
-                        class="flex items-center text-[0.9vw] shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
+                        class="flex items-center text-lg max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                         <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -195,7 +196,7 @@
                 </a>
                 <a href="https://www.facebook.com/" class="">
                     <div
-                        class="flex items-center text-[0.9vw] shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
+                        class="flex items-center text-lg max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                         <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_934_1016)">
@@ -219,13 +220,15 @@
 
         </form>
     </div>
+</div>
+
 
     {{-- <div>
-        <p class="text-center mb-6">atau masuk menggunakan</p>
-        <div class="flex gap-5 mb-10 justify-center">
+        <p class="mb-6 text-center">atau masuk menggunakan</p>
+        <div class="flex justify-center gap-5 mb-10">
             <a href="https://www.facebook.com/">
                 <div
-                    class="shadow-2xl rounded-full border-2 w-12 h-12 flex justify-center items-center hover:bg-blue-800 hover:border-white">
+                    class="flex items-center justify-center w-12 h-12 border-2 rounded-full shadow-2xl hover:bg-blue-800 hover:border-white">
                     <svg width="13" height="25" viewBox="0 0 27 50" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -236,7 +239,7 @@
             </a>
             <a href="https://www.instagram.com/">
                 <div
-                    class="shadow-2xl rounded-full border-2 w-12 h-12 flex justify-center items-center hover:bg-pink-500 hover:border-white">
+                    class="flex items-center justify-center w-12 h-12 border-2 rounded-full shadow-2xl hover:bg-pink-500 hover:border-white">
                     <svg width="25" height="25" viewBox="0 0 50 50" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -247,7 +250,7 @@
             </a>
             <a href="https://id.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F">
                 <div
-                    class="shadow-2xl rounded-full border-2 w-12 h-12 flex justify-center items-center hover:bg-blue-500 hover:border-white">
+                    class="flex items-center justify-center w-12 h-12 border-2 rounded-full shadow-2xl hover:bg-blue-500 hover:border-white">
                     <svg width="24" height="23" viewBox="0 0 48 46" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -258,7 +261,7 @@
             </a>
             <a href="https://twitter.com/?lang=id">
                 <div
-                    class="shadow-2xl rounded-full border-2 w-12 h-12 flex justify-center items-center hover:bg-blue-300 hover:border-white">
+                    class="flex items-center justify-center w-12 h-12 border-2 rounded-full shadow-2xl hover:bg-blue-300 hover:border-white">
                     <svg width="26" height="21" viewBox="0 0 53 43" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

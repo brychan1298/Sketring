@@ -85,18 +85,19 @@
             -moz-appearance: textfield;
         }
     </style>
-    <div class="flex items-center justify-center p-5">
+
+    <div class="flex items-center justify-center p-8">
         {{-- <svg width="24" height="24" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M17.0024 33.6666L0.335693 16.9999L17.0024 0.333252L19.9711 3.24992L8.30444 14.9166H33.669V19.0833H8.30444L19.9711 30.7499L17.0024 33.6666Z"
                 fill="#000000" />
         </svg> --}}
-        <h1 class="text-2xl font-bold">
+        <h1 class="text-3xl font-bold lg:pt-5">
             REGISTRASI
         </h1>
         <h1></h1>
     </div>
-    <div class="px-12 py-5 bg-[#FFDB89] mx-[6.4vw] mb-8 rounded-md shadow-2xl">
+    <div class="px-12 py-10 bg-[#FFDB89] mx-[6.4vw] mb-8 rounded-md shadow-2xl">
         <form action="/register" method="post" class="mx-4">
             @csrf
             <input type="hidden" name="Role" value="{{ $roleId }}">
@@ -109,7 +110,7 @@
                     Nama
                 </label>
             </div> --}}
-            <div class="relative inputForm mb-3 mt-3 " data-te-input-wrapper-init>
+            <div class="relative mt-3 mb-3 inputForm " data-te-input-wrapper-init>
                 <input id="Nama" type="text" placeholder="Nama" required value="{{ old('Nama') }}" name="Nama"
                     class="@if ($errors->has('Nama')) border border-red-500 @else shadow @endif
                 text-[#850000] border-[#850000] border
@@ -123,7 +124,7 @@
                 </label>
             </div>
             {{-- <div class="mb-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
+                <label class="block mb-2 text-sm font-bold text-gray-700" for="nama">
                     Nama
                 </label>
                 <input required value="{{ old('Nama') }}" name="Nama"
@@ -131,7 +132,7 @@
                     shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="nama" type="text" placeholder="Nama">
             </div> --}}
-            <div class="relative inputForm mb-3 mt-3 " data-te-input-wrapper-init>
+            <div class="relative mt-3 mb-3 inputForm " data-te-input-wrapper-init>
                 <input type="text" name="Email" required value="{{ old('Email') }}"
                     class="@if ($errors->has('Email')) border border-red-500 @else shadow @endif
                     text-[#850000] border-[#850000] border
@@ -145,7 +146,7 @@
                 </label>
             </div>
             {{-- <div class="mb-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
                     Email
                 </label>
                 <input required value="{{ old('Email') }}" name="Email"
@@ -153,7 +154,7 @@
                     shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="email" type="text" placeholder="Email">
             </div> --}}
-            <div class="relative inputForm mb-3 mt-3 " data-te-input-wrapper-init>
+            <div class="relative mt-3 mb-3 inputForm " data-te-input-wrapper-init>
                 <input type="password" name="password" required
                     class="@if ($errors->has('password')) border border-red-500 @else @endif
                     text-[#850000] border-[#850000] border
@@ -167,7 +168,7 @@
                 </label>
             </div>
             {{-- <div class="mb-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
                     Password
                 </label>
                 <input required name="password"
@@ -175,7 +176,7 @@
                     shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="email" type="password" placeholder="Password">
             </div> --}}
-            <div class="relative inputForm mb-3 mt-3 " data-te-input-wrapper-init>
+            <div class="relative mt-3 mb-3 inputForm " data-te-input-wrapper-init>
                 <input type="number" name="Nohp" required
                     class="@if ($errors->has('Nohp')) border border-red-500 @else @endif
                     text-[#850000] border-[#850000] border
@@ -189,7 +190,7 @@
                 </label>
             </div>
             {{-- <div class="mb-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="Nohp">
+                <label class="block mb-2 text-sm font-bold text-gray-700" for="Nohp">
                     No Telepon
                 </label>
                 <input required value="{{ old('Nohp') }}" name="Nohp"
@@ -197,7 +198,7 @@
                     shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="Nohp" type="text" placeholder="No Telepon">
             </div> --}}
-            {{-- <div class="relative inputForm mb-12 mt-5 " data-te-input-wrapper-init>
+            {{-- <div class="relative mt-5 mb-12 inputForm " data-te-input-wrapper-init>
                 <textarea type="number" name="Nohp" required
                     class="@if ($errors->has('Nohp')) border border-red-500 @else @endif
                     text-[#850000] border-[#850000] border
@@ -210,7 +211,7 @@
                     No Telepon
                 </label>
             </div> --}}
-            <div class="relative inputForm mb-3 mt-3 " data-te-input-wrapper-init>
+            <div class="relative mt-3 mb-3 inputForm " data-te-input-wrapper-init>
                 <textarea required name="Alamat"
                     class="@if ($errors->has('Alamat')) border border-red-500 @else @endif
                     text-[#850000] border-[#850000] border
@@ -225,7 +226,7 @@
             </div>
 
             {{-- <div class="mb-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="Alamat">
+                <label class="block mb-2 text-sm font-bold text-gray-700" for="Alamat">
                     Alamat
                 </label>
                 <textarea required name="Alamat" id="" rows="2" class="w-full" placeholder="Alamat" value="">
@@ -233,8 +234,8 @@
                 </textarea>
             </div> --}}
             <div class="flex">
-                <div class="relative mb-5 mr-1 w-1/2" data-te-input-wrapper-init>
-                    <div class="inputForm relative select-wrapper">
+                <div class="relative w-1/2 mb-5 mr-1" data-te-input-wrapper-init>
+                    <div class="relative inputForm select-wrapper">
                         <select required id="Province-dropdown" name="provinsi"
                             class="
                             text-[#850000] border-[#850000] border text-sm
@@ -260,8 +261,8 @@
                             id="selectLabel">Provinsi</label>
                     </div>
                 </div>
-                <div class="relative mb-5 ml-1 w-1/2" data-te-input-wrapper-init>
-                    <div class="inputForm relative select-wrapper">
+                <div class="relative w-1/2 mb-5 ml-1" data-te-input-wrapper-init>
+                    <div class="relative inputForm select-wrapper">
                         <select required id="kota-dropdown" name="IdKota"
                             class="
                             text-[#850000] border-[#850000] border text-sm
@@ -279,8 +280,8 @@
             </div>
 
             {{-- <div class="flex">
-                <div class="form-group mb-3 w-1/2 mr-1">
-                    <select required id="Province-dropdown" name="provinsi" class="text-sm rounded-lg w-full py-2">
+                <div class="w-1/2 mb-3 mr-1 form-group">
+                    <select required id="Province-dropdown" name="provinsi" class="w-full py-2 text-sm rounded-lg">
                         <option value="">Pilih Provinsi</option>
                         @foreach ($provinces as $data)
                             @if (old('provinsi') == $data->id)
@@ -295,19 +296,19 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group mb-3 w-1/2 ml-1">
-                    <select required id="kota-dropdown" class="text-sm rounded-lg w-full py-2" name="IdKota">
+                <div class="w-1/2 mb-3 ml-1 form-group">
+                    <select required id="kota-dropdown" class="w-full py-2 text-sm rounded-lg" name="IdKota">
                     </select>
                 </div>
             </div> --}}
 
-            {{-- <div class="flex mb-8 justify-center">
-                <input type="checkbox" name="" id="" class="mr-3 w-5">
+            {{-- <div class="flex justify-center mb-8">
+                <input type="checkbox" name="" id="" class="w-5 mr-3">
                 <p>
-                    Saya setuju dengan <a href="" class="text-decoration-none font-bold">Syarat dan Ketentuan</a>
+                    Saya setuju dengan <a href="" class="font-bold text-decoration-none">Syarat dan Ketentuan</a>
                 </p>
             </div> --}}
-            <div class="mb-4 flex justify-center">
+            <div class="flex justify-center mb-4">
                 <button type="submit" class="bg-[#DC0000] px-10 py-2.5 text-white rounded-md w-full">
                     DAFTAR
                 </button>
@@ -318,14 +319,14 @@
                     class="font-bold text-[#850000] underline text-md hover:text-red-600">Log In</a>
             </div>
         </form>
-        <div
+        {{-- <div
         class="my-4 mx-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#850000] after:mt-0.5 after:flex-1 after:border-t after:border-[#850000]">
         <p class="mx-4 mb-0 text-center font-semibold text-[#850000]">
             Or
         </p>
-    </div>
-    {{-- <p class="text-center mb-6">atau masuk menggunakan</p> --}}
-    <div class="flex gap-5 justify-between mx-4 grid grid-cols-2">
+        </div> --}}
+    {{-- <p class="mb-6 text-center">atau masuk menggunakan</p> --}}
+    {{-- <div class="flex grid justify-between grid-cols-2 gap-5 mx-4">
         <a href="https://www.google.com/" class="">
             <div
                 class="flex items-center text-[0.9vw] shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
@@ -368,8 +369,8 @@
                 Facebook Login
             </div>
         </a>
-    </div>
-    </div>
+    </div> --}}
+    {{-- </div> --}}
 
 
 
