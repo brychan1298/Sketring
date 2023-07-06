@@ -10,11 +10,11 @@
         }
     </style>
 
-    <div class="DataProduk  container px-[8vw] mx-auto mt-[152px] mb-[130px] flex gap-8">
+    <div class="DataProduk container px-[8vw] mx-auto mt-[152px] mb-[130px] flex gap-8">
         <div class="h-96 w-96 flex-shrink-0">
             <img class="block w-full h-full object-cover rounded-lg" src="{{ asset('storage/' . $detailProduk->FotoProduk) }}" alt="" >
         </div>
-        <div class="py-8 w-full">
+        <div class=" w-full">
             <input type="hidden" name="IdProduk" id="IdProduk" class="IdProduk" value="{{ $detailProduk->IdProduk }}">
             <div>
                 <h1 class="text-3xl font-black">
@@ -47,8 +47,11 @@
 
                 <div class="mt-8 border rounded-md w-fit px-4">
                     <div class="flex items-center gap-3 my-3">
-                        <img src="{{ asset('storage/' . $detailProduk->User->FotoProfil) }}" alt=""
-                            class="w-[5vw] h-[5vw] rounded-full">
+                        @if ($detailProduk->User->FotoProfil)
+                            <img src="{{ asset('storage/' . $detailProduk->User->FotoProfil) }}" alt="" class="w-[5vw] h-[5vw] rounded-full">
+                        @else
+                            <img src="/images/fotoprofile_default.png" alt="" class="w-[5vw] h-[5vw] rounded-full">
+                        @endif
                         <div>
                             <h1 class="text-xl font-black">{{ $detailProduk->User->Nama }}</h1>
                             <div class="statusBuka my-2 gap-2 px-3 py-px text-md w-fit h-fit text-green-900 bg-[#C8F8C8] font-bold rounded-full flex items-center">
@@ -73,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-1/2 px-6 border-2 pt-8 border-[#850000] rounded-2xl">
+        <div class="w-1/2 px-6 border-2 h-fit py-8 max-2xl:absolute max-2xl:bottom-0 max-2xl:bg-white max-2xl:flex max-2xl:w-full max-2xl:flex-row border-[#850000] rounded-2xl">
             <div class="font-bold text-lg pb-2">
                 Pengiriman: DELIVERY
             </div>
@@ -118,7 +121,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-3 mt-7 w-full font-black">
+            <div class="flex gap-3 mt-6 w-full font-black">
                 <button class="addtocart bg-white border-2 border-[#DC0000] text-[#DC0000] hover:text-white hover:bg-[#DC0000] py-1 px-4 rounded-lg">
                     MASUKKAN KERANJANG
                 </button>

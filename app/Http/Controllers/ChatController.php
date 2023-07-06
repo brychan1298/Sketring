@@ -47,43 +47,48 @@ class ChatController extends Controller
 
         $allID = implode(",",$allID);
 
-        $lastChatRaw = DB::select("
-        SELECT c.*, u.IdUser, u.Nama, u.FotoProfil
-        FROM chat c
-        JOIN users u ON (u.IdUser = c.IdSender OR u.IdUser = c.IdReceiver)
-        WHERE (c.IdSender = ? OR c.IdReceiver = ?)
-          AND (c.IdSender IN ($allID) OR c.IdReceiver IN ($allID))
-          AND c.time IN (
-            SELECT MAX(time)
-            FROM chat
-            WHERE (IdSender = ? OR IdReceiver = ?)
-              AND (IdSender IN ($allID) OR IdReceiver IN ($allID))
-            GROUP BY CASE
-              WHEN IdSender = ? THEN IdReceiver
-              ELSE IdSender
-            END
-          )
-          AND u.IdUser IN ($allID)
-        ORDER BY c.time DESC;", [$myId,$myId,$myId,$myId,$myId]);
+        if($allID == ""){
+            $lastChatRaw = "";
+            $unread = "";
+        }else{
+            $lastChatRaw = DB::select("
+            SELECT c.*, u.IdUser, u.Nama, u.FotoProfil
+            FROM chat c
+            JOIN users u ON (u.IdUser = c.IdSender OR u.IdUser = c.IdReceiver)
+            WHERE (c.IdSender = ? OR c.IdReceiver = ?)
+                AND (c.IdSender IN ($allID) OR c.IdReceiver IN ($allID))
+                AND c.time IN (
+                SELECT MAX(time)
+                FROM chat
+                WHERE (IdSender = ? OR IdReceiver = ?)
+                    AND (IdSender IN ($allID) OR IdReceiver IN ($allID))
+                GROUP BY CASE
+                    WHEN IdSender = ? THEN IdReceiver
+                    ELSE IdSender
+                END
+                )
+                AND u.IdUser IN ($allID)
+            ORDER BY c.time DESC;", [$myId,$myId,$myId,$myId,$myId]);
+
+            $unread = DB::select("
+            SELECT u.IdUser, COALESCE(COUNT(c.readStatus), 0) AS Count
+            FROM users u
+            LEFT JOIN chat c ON (u.IdUser = c.IdSender AND c.IdReceiver = ? AND c.readStatus = 0)
+            WHERE u.IdUser IN ($allID)
+            GROUP BY u.IdUser;
+            ",[$myId]);
+        }
 
         $receiver = DB::selectOne("
         SELECT u.FotoProfil, u.Nama
         FROM users u
         WHERE u.IdUser = $IdPerson");
 
-        $unread = DB::select("
-        SELECT u.IdUser, COALESCE(COUNT(c.readStatus), 0) AS Count
-        FROM users u
-        LEFT JOIN chat c ON (u.IdUser = c.IdSender AND c.IdReceiver = ? AND c.readStatus = 0)
-        WHERE u.IdUser IN ($allID)
-        GROUP BY u.IdUser;
-        ",[$myId]);
-
         Chat::where('IdSender', $IdPerson)
         ->where('IdReceiver', $myId)
         ->update(['readStatus' => 1]);
 
-        // dd($receiver);
+        // dd($lastChatRaw);
 
         return view("konsumen.chat", compact(['chats','IdPerson','userIds','lastChatRaw','myId','receiver','unread']));
     }

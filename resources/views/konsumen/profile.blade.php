@@ -3,7 +3,7 @@
 @section('description', 'Profil Konsumen Sketring')
 @section('content')
 
-<div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
+{{-- <div class="container flex flex-col w-full mx-auto mt-36 max-sm:mt-12 px-36">
     <div class="inline-flex max-sm:pt-16">
         <a href="/">
             <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,16 +12,16 @@
         </a>
         <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">PROFIL ANDA</p>
     </div>
-</div>
+</div> --}}
 
-<img src="/images/bannerToko.jpg" alt="" class="h-96 w-full max-md:h-84 mt-10 object-cover">
+<img src="/images/home_banner.png" alt="" class="w-full mt-10 h-96 max-md:h-48 object-cover">
 <div class="container mx-auto w-max">
     <div class="w-full">
         <div class="text-center w-fit max-lg:mx-auto">
             @if (Auth::User()->FotoProfil)
                 <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
             @else
-                <img src="/images/profile.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
+                <img src="/images/fotoprofile_default.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
             @endif
             <p class="mt-8 text-2xl font-bold max-md:text-lg max-md:mt-4">{{Auth::User()->Nama}}</p>
         </div>
@@ -42,7 +42,7 @@
     </div>
     <div class="container-md flex flex-row w-full justify-between pb-[48px] max-xl:gap-12 max-lg:gap-8 max-md:grid max-md:grid-cols-1">
         <div class="container-md flex flex-col gap-[32px] max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1 w-1/5 max-md:w-full">
-            <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] max-lg:ml-0">
+            <div class="bg-[#D6FFE1] p-[24px] flex flex-col rounded-[10px] gap-[12px] text-[#088443] max-lg:ml-0 shadow-xl">
                 <div class="flex flex-col">
                     <div class="w-[100%] flex flex-row justify-center items-center gap-[12px] rounded-[10px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -53,11 +53,11 @@
                     </div>
                     <p class="mt-2 text-xl font-bold text-center max-lg:text-lg max-md:text-base">@currency(Auth::User()->Saldo)</p>
                     <a href="/konsumen/tariksaldo">
-                        <p class="font-bold text-center hover:underline text-1xl">Tarik Saldo >></p>
+                        <p class="text-xl font-bold text-center hover:underline max-md:text-lg">Tarik Saldo >></p>
                     </a>
                 </div>
             </div>
-            <button class="bg-[#FFE6AE] flex flex-col rounded-[10px] max-lg:ml-0 justify-center">
+            <button class="bg-[#FFE6AE] flex flex-col rounded-[10px] max-lg:ml-0 justify-center shadow-xl">
                 {{-- <div class="w-[100%] p-[12px] flex flex-row justify-center items-center gap-[12px] rounded-[10px] bg-[#F8CB66]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
@@ -72,7 +72,7 @@
                 </div>
             </button>
         </div>
-        <div class="bg-[#850000] w-9/12 text-white flex flex-col gap-[2.5vw] items-center p-[3vw] rounded-[10px] max-md:w-full max-md:p-6 max-md:gap-6">
+        <div class="bg-[#850000] w-9/12 text-white flex flex-col gap-[2.5vw] items-center p-[3vw] rounded-[10px] max-md:w-full max-md:p-6 max-md:gap-6 shadow-2xl">
             <div class="w-[100%] flex flex-col gap-[8px]">
                 <div class="w-[100%] flex flex-row gap-[1vw] items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">

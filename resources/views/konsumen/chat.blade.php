@@ -33,13 +33,20 @@
                     {{-- <div class="mt-8 mb-5 border border-gray-300 border-solid line"></div> --}}
                     <div id="list-chat" class="flex flex-col">
                         <div class="flex flex-col -mx-2 space-y-1">
+                        @if ($lastChatRaw == "")
+                            <p class="w-full text-center">Belum ada History Chat.</p>
+                        @else
                         @php
                             $countId = 0;
                         @endphp
                         @foreach($lastChatRaw as $chatIds)
                             <a href="/konsumen/chat/{{$chatIds->IdUser}}" class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
                                 <div class="flex-shrink-0">
+                                    @if ($chatIds->FotoProfil)
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $chatIds->FotoProfil) }}"/>
+                                    @else
+                                    <img class="w-16 h-16 rounded-full" src="/images/fotoprofile_default.png" alt="">
+                                    @endif
                                 </div>
                                 <div class="ml-2">
                                     <h1 class="text-lg font-semibold text-left">{{$chatIds->Nama}}</h1>
@@ -56,7 +63,7 @@
                                 $countId++;
                             @endphp
                         @endforeach
-
+                        @endif
                             {{-- <div class="my-8 border border-gray-300 border-solid line"></div> --}}
                         </div>
                     </div>
@@ -79,7 +86,12 @@
                                     </svg>
                                 </button>
                                 <div class="flex-shrink-0 ml-5">
-                                    <img class="w-16 h-16 rounded-full" src="/images/natfood.png"/>
+                                    @if ($receiver->FotoProfil)
+                                    <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $receiver->FotoProfil) }}"/>
+                                    @else
+                                    <img class="w-16 h-16 rounded-full" src="/images/fotoprofile_default.png" alt="">
+                                    @endif
+
                                 </div>
                                 <div class="ml-4">
                                     <p class="text-2xl font-semibold max-md:text-lg">
@@ -135,8 +147,8 @@
                             <div class="flex-grow ml-4">
                                 <div class="relative w-full">
                                     <textarea id="kotakPesan" name="kotakPesan" placeholder="Ketik Pesan..." class="flex w-full h-12 pt-2 pl-4 border-2 border-gray-300 resize-none max-sm:text-xs rounded-xl focus:outline-none focus:border-gray-500"></textarea>
-                                    <button class="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-gray-400 hover:text-gray-600">
-                                    </button>
+                                    {{-- <button class="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-gray-400 hover:text-gray-600">
+                                    </button> --}}
                                 </div>
                             </div>
                             <div class="ml-4">
@@ -204,6 +216,34 @@ $('.send-message-btn').on('click', function () {
 
 });
 
+var textarea = document.getElementById('kotakPesan');
+
+textarea.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && !event.shiftKey && textarea.value.trim() !== '') {
+      event.preventDefault(); // Prevents the newline from being added to the textarea
+
+      var message = textarea.value;
+      var IdPerson = window.location.pathname.split('/').pop();
+
+      $.ajax({
+        url: "/send-message/" + IdPerson,
+        method: 'POST',
+        data: {
+          _token: "{{ csrf_token() }}",
+          message: message
+        },
+        success: function (response) {
+          console.log(response);
+          textarea.value = "";
+          // do something here, like clear the textarea or show a success message
+        },
+        error: function (xhr, status, error) {
+          console.log(xhr.responseText);
+          // handle the error here
+        }
+      });
+    }
+});
 
 </script>
 
