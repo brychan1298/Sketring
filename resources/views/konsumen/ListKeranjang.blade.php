@@ -2,22 +2,22 @@
 @section('title', 'List Keranjang')
 @section('description', 'Halaman Daftar Keranjang')
 @section('content')
-    <div class="container m-auto">
+    <div class="container px-[8vw] mx-auto mt-[152px]">
         <div class="grid grid-cols-3 border-b-2 pb-5 mt-[140px]">
             <h1></h1>
             <h1 class="text-2xl font-bold text-center">Keranjang Belanja</h1>
             <div class="text-right">
                 <div class="flex items-center float-right gap-3">
-                    <h1 class="">
+                    <h1 class="max-lg:hidden">
                         Tambah Koleksi
                     </h1>
-                    <div class="">
+                    <div class="flex justify-end">
                         <div id="dropdownToggle"
-                            class="bg-[#850000] w-11 h-11 text-white rounded-full flex justify-center items-center cursor-pointer"
+                            class="bg-[#850000] text-4xl w-11 h-11 text-white rounded-full flex justify-center items-center cursor-pointer"
                             data-dropdown-toggle="dropdown">
                             +
                         </div>
-                        <div id="dropdown" class="hidden z-10 rounded-lg border-2 border-[#850000] bg-[#BBBBBB] p-5">
+                        <div id="dropdown" class="hidden z-10 rounded-lg border-2 border-[#850000] bg-[#FFF6C3] p-5">
                             <form action="/konsumen/tambahAcara" method="post">
                                 @csrf
                                 <div>
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="grid xl:grid-cols-4 md:grid-cols-3 max-sm:mx-5 grid-cols-2 mt-12 gap-7 mx-auto mb-[100px]">
+        <div class="grid max-sm:mx-5 grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 mt-12 gap-7 mx-auto mb-[100px]">
             <a href="/konsumen/keranjang">
                 <div>
                     <div class="flex flex-wrap rounded-md shadow-3xl">
