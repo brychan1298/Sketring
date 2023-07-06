@@ -1,4 +1,4 @@
-<nav class="bg-[#850000] fixed w-full z-10">
+<nav class="bg-[#850000] fixed w-full z-20">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="/" class="flex items-center">
             <img src="/images/LogoSketring.png" alt="" class="w-24 sm:w-48 max-sm:mx-7">
