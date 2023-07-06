@@ -39,7 +39,11 @@
                         @foreach($lastChatRaw as $chatIds)
                             <a href="/umkm/chat/{{$chatIds->IdUser}}" class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
                                 <div class="flex-shrink-0">
+                                    @if ($chatIds->FotoProfil)
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $chatIds->FotoProfil) }}"/>
+                                    @else
+                                    <img class="w-16 h-16 rounded-full" src="/images/fotoprofile_default.png" alt="">
+                                    @endif
                                 </div>
                                 <div class="ml-2">
                                     <h1 class="text-lg font-semibold text-left">{{$chatIds->Nama}}</h1>
@@ -79,7 +83,11 @@
                                     </svg>
                                 </button>
                                 <div class="flex-shrink-0 ml-5">
+                                    @if ($receiver->FotoProfil)
                                     <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $receiver->FotoProfil) }}"/>
+                                    @else
+                                    <img class="w-16 h-16 rounded-full" src="/images/fotoprofile_default.png" alt="">
+                                    @endif
                                 </div>
                                 <div class="ml-4">
                                     <p class="text-2xl font-semibold max-md:text-lg">
@@ -204,6 +212,34 @@ $('.send-message-btn').on('click', function () {
 
 });
 
+var textarea = document.getElementById('kotakPesan');
+
+textarea.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && !event.shiftKey && textarea.value.trim() !== '') {
+      event.preventDefault(); // Prevents the newline from being added to the textarea
+
+      var message = textarea.value;
+      var IdPerson = window.location.pathname.split('/').pop();
+
+      $.ajax({
+        url: "/send-message/" + IdPerson,
+        method: 'POST',
+        data: {
+          _token: "{{ csrf_token() }}",
+          message: message
+        },
+        success: function (response) {
+          console.log(response);
+          textarea.value = "";
+          // do something here, like clear the textarea or show a success message
+        },
+        error: function (xhr, status, error) {
+          console.log(xhr.responseText);
+          // handle the error here
+        }
+      });
+    }
+});
 
 </script>
 

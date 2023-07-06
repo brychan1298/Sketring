@@ -3,7 +3,7 @@
 @section('description', 'Sunting Profil Toko Anda')
 @section('content')
 
-<div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36 max-sm:px-12">
+{{-- <div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36 max-sm:px-12">
     <div class="inline-flex max-sm:pt-16">
         <a href="/umkm/profileToko">
             <svg class="max-md:w-6 max-md:h-6" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,9 +12,9 @@
         </a>
         <p class="mx-auto text-2xl font-bold text-center max-md:text-lg">EDIT PROFIL TOKO</p>
     </div>
-</div>
+</div> --}}
 
-<img src="/images/bannerToko.jpg" alt="" class="w-full mt-10 h-96 max-md:h-84">
+<img src="/images/home_banner.png" alt="" class="w-full mt-10 h-96 max-md:h-48 object-cover">
 
 <form action="update" enctype="multipart/form-data" method="post">
 @method('put')
@@ -23,9 +23,9 @@
     <div class="w-full">
         <div class="text-center w-fit max-lg:mx-auto">
             @if (Auth::User()->FotoProfil)
-                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 object-cover rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
+                <img src="{{asset('storage/'.Auth::User()->FotoProfil)}}" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
             @else
-                <img src="/images/profile.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:w-40 max-sm:h-40 img-preview">
+                <img src="/images/fotoprofile_default.png" alt="SyamsulKatering.id" class="-mt-40 rounded-full w-80 h-80 max-lg:w-52 max-lg:h-52 max-lg:-mt-28 max-sm:-mt-20 max-sm:text-center max-sm:w-40 max-sm:h-40 img-preview">
             @endif
             <label for="FotoProfil">
             <div class="opacity-0 hover:opacity-100 flex flex-col items-center justify-center absolute bg-[black] w-80 h-80 rounded-full bg-opacity-50 -mt-80 max-lg:w-52 max-lg:h-52 max-sm:w-40 max-sm:h-40 max-lg:-mt-52 max-sm:-mt-40">

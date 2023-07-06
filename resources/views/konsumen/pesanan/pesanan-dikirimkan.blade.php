@@ -6,7 +6,7 @@
         <div class="flex flex-col items-center justify-center w-full gap-2">
             @if (session()->has('selesai'))
                 <div id="alert"
-                    class="relative flex px-4 py-3 mt-12 text-green-700 border border-green-700 rounded bg-success alert alert-success"
+                    class="relative flex px-4 py-3 mt-36 -mb-32 text-green-700 border border-green-700 rounded bg-success alert alert-success"
                     role="alert">
                     <span>
                         {{ session('selesai') }}

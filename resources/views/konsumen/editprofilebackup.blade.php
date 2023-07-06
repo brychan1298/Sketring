@@ -2,8 +2,8 @@
 @section('title', 'Edit Profil')
 @section('description', 'Edit Profil Anda')
 @section('content')
-    <div class="container-md mx-auto flex flex-col mt-[48px] w-full">
-        <div class="flex flex-row w-full h-max justify-start p-[48px]">
+    <div class="container flex flex-col w-full mx-auto mt-32 max-sm:mt-6 px-36 max-sm:px-12">
+        <div class="flex flex-row w-full h-max justify-start my-16">
             <a href="/" class="z-50">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#850000"
@@ -12,14 +12,14 @@
                     </svg>
                 </div>
             </a>
-            <p class="w-full text-center ml-[-48px] text-2xl font-bold">
-                PROFIL ANDA
+            <p class="w-full text-center text-2xl font-bold">
+                EDIT PROFIL ANDA
             </p>
         </div>
         <form action="/konsumen/update" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
-            <div class="container-md flex flex-row justify-center gap-[32px] w-full px-[48px] pb-[48px]">
+            <div class="container-md flex flex-row justify-center justify-between w-full">
                 <div class="container-md flex flex-col w-[15%] gap-[32px]">
                     <div class="bg-[#FFE6AE] p-[24px] flex flex-col rounded-[10px] gap-[12px]">
                         <div
@@ -69,10 +69,10 @@
                                 <img class="img-preview rounded-full w-[360px] h-[360px]" id="images" src="{{asset('storage/'.Auth::User()->FotoProfil)}}"
                                     alt="">
                             @else
-                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images" src="images/profile.png" alt="">
+                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images" src="/images/fotoprofile_default.png" alt="">
                             @endif
                             <div
-                                class="flex flex-col items-center justify-center absolute bg-[black] w-[360px] h-[360px] rounded-full bg-opacity-50">
+                                class="flex flex-col items-center justify-center absolute bg-[black] w-[360px] h-[360px] rounded-full bg-opacity-50 opacity-0 hover:opacity-100">
                                 <svg class="text-center" width="80" height="72" viewBox="0 0 80 72" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
