@@ -64,7 +64,7 @@
         @endif
         <form action="/login" method="post">
             @csrf
-            <div class="relative mx-4 my-12 inputForm" data-te-input-wrapper-init>
+            <div class="relative mx-4 my-16 inputForm" data-te-input-wrapper-init>
                 <input type="text" name="Email" required value="{{ old('Email') }}"
                     class="@if ($errors->has('Email')) border border-red-500 @else shadow @endif
                     text-[#850000] border-[#850000] border

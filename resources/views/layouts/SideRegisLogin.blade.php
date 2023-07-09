@@ -12,8 +12,8 @@
     }
 </style>
 <div class="container m-auto mt-[160px] mb-[60px]">
-    <div class="flex">
-        <div class="sm:w-1/2 max-lg:hidden flex justify-center h-[75vh] items-center rounded-l-md" id="left">
+    <div class="flex ">
+        <div class="flex items-center justify-center sm:w-1/2 max-lg:hidden rounded-l-md" id="left">
             <div class="bg-[black] bg-opacity-50 px-[8vw] py-[30%] text-center rounded-md">
                 <img src="/images/LogoSketring.png" alt="" class="align-middle sm:w-72">
                 <p class="mt-5 text-3xl font-bold text-white">
