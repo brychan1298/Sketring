@@ -10,15 +10,21 @@
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
-                        alt="user photo">
+                    @if (Auth::User()->FotoProfil)
+                        <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}">
+                    @else
+                        <img class="w-12 h-12 rounded-full" src="/images/fotoprofile_default.png" alt="user photo">
+                    @endif
                 </button>
                 <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-300 rounded-lg shadow max-sm:hidden"
                     id="user-dropdown">
                     <div class="flex flex-row items-center gap-2 px-4 py-3">
                         <div class="w-25">
-                            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}"
-                                alt="user photo">
+                            @if (Auth::User()->FotoProfil)
+                            <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}">
+                        @else
+                            <img class="w-8 h-8 rounded-full" src="/images/fotoprofile_default.png" alt="user photo">
+                        @endif
                         </div>
                         <div>
                             <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>
@@ -115,15 +121,21 @@
                             id="user-menu-button-2" aria-expanded="false" data-dropdown-toggle="user-dropdown-2"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-12 h-12 rounded-full"
-                                src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
+                            @if (Auth::User()->FotoProfil)
+                                <img class="w-12 h-12 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}">
+                            @else
+                                <img class="w-12 h-12 rounded-full" src="/images/fotoprofile_default.png" alt="user photo">
+                            @endif
                         </button>
                         <div class="z-50 hidden my-5 text-base list-none bg-white divide-y divide-gray-300 rounded-lg shadow"
                             id="user-dropdown-2">
                             <div class="flex flex-row items-center gap-2 px-4 py-3">
                                 <div class="w-25">
-                                    <img class="w-8 h-8 rounded-full"
-                                        src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="user photo">
+                                    @if (Auth::User()->FotoProfil)
+                                        <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . Auth::User()->FotoProfil) }}">
+                                    @else
+                                        <img class="w-8 h-8 rounded-full" src="/images/fotoprofile_default.png" alt="user photo">
+                                    @endif
                                 </div>
                                 <div>
                                     <span class="block text-sm font-bold text-black">{{ auth()->user()->Nama }}</span>

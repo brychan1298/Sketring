@@ -75,6 +75,9 @@
                     </div>
                     @if (Auth::check())
                         <div class="mx-7 py-5 items-center justify-between">
+                            @if ($lastChatRaw == "")
+                                <p>Belum ada chat.</p>
+                            @else
                             @php
                                 $countId = 0;
                             @endphp
@@ -82,8 +85,11 @@
                                 <a href="/konsumen/chat/{{ $chatIds->IdUser }}"
                                     class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
                                     <div class="flex-shrink-0">
-                                        <img class="w-16 h-16 rounded-full"
-                                            src="{{ asset('storage/' . $chatIds->FotoProfil) }}" />
+                                        @if ($chatIds->FotoProfil)
+                                        <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $chatIds->FotoProfil) }}"/>
+                                        @else
+                                        <img class="w-16 h-16 rounded-full" src="/images/fotoprofile_default.png" alt="">
+                                        @endif
                                     </div>
                                     <div class="ml-2">
                                         <h1 class="text-lg font-semibold text-left">{{ $chatIds->Nama }}</h1>
@@ -102,6 +108,7 @@
                                     $countId++;
                                 @endphp
                             @endforeach
+                            @endif
                             {{-- <div class="flex gap-5">
                             <img class="w-12 h-12 rounded-full bg-gray" src="">
                             <div class="">

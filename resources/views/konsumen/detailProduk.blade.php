@@ -15,6 +15,7 @@
             <img class="block w-full h-full object-cover rounded-lg" src="{{ asset('storage/' . $detailProduk->FotoProduk) }}" alt="" >
         </div>
         <div class=" w-full">
+        <div class=" w-full">
             <input type="hidden" name="IdProduk" id="IdProduk" class="IdProduk" value="{{ $detailProduk->IdProduk }}">
             <div>
                 <h1 class="text-3xl font-black">
@@ -47,6 +48,11 @@
 
                 <div class="mt-8 border rounded-md w-fit px-4">
                     <div class="flex items-center gap-3 my-3">
+                        @if ($detailProduk->User->FotoProfil)
+                            <img src="{{ asset('storage/' . $detailProduk->User->FotoProfil) }}" alt="" class="w-[5vw] h-[5vw] rounded-full">
+                        @else
+                            <img src="/images/fotoprofile_default.png" alt="" class="w-[5vw] h-[5vw] rounded-full">
+                        @endif
                         @if ($detailProduk->User->FotoProfil)
                             <img src="{{ asset('storage/' . $detailProduk->User->FotoProfil) }}" alt="" class="w-[5vw] h-[5vw] rounded-full">
                         @else

@@ -135,33 +135,40 @@
                     </h1>
                 </div>
                 <div class="mx-7 py-5 items-center justify-between">
-                    @php
-                        $countId = 0;
-                    @endphp
-                    @foreach ($lastChatRaw as $chatIds)
-                        <a href="/umkm/chat/{{ $chatIds->IdUser }}"
-                            class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
-                            <div class="flex-shrink-0">
-                                <img class="w-16 h-16 rounded-full"
-                                    src="{{ asset('storage/' . $chatIds->FotoProfil) }}" />
-                            </div>
-                            <div class="ml-2">
-                                <h1 class="text-lg font-semibold text-left">{{ $chatIds->Nama }}</h1>
-                                <p class="text-sm text-left text-gray-500">
-                                    {{ \Illuminate\Support\Str::limit($chatIds->text, 30, '...') }}</p>
-                            </div>
-                            <div class="ml-auto notif">
-                                @if ($unread[$countId]->Count > 0)
-                                    <span
-                                        class="flex justify-center w-6 h-6 text-white bg-red-500 rounded-full">{{ $unread[$countId]->Count }}</span>
-                                @endif
-                            </div>
-                        </a>
-                        <div class="my-3 border border-gray-300 border-solid line"></div>
+                    @if ($lastChatRaw == "")
+                        <p>Belum ada chat.</p>
+                    @else
                         @php
-                            $countId++;
+                            $countId = 0;
                         @endphp
-                    @endforeach
+                        @foreach ($lastChatRaw as $chatIds)
+                            <a href="/umkm/chat/{{ $chatIds->IdUser }}"
+                                class="flex flex-row items-center p-2 hover:bg-gray-100 rounded-xl">
+                                <div class="flex-shrink-0">
+                                    @if ($chatIds->FotoProfil)
+                                    <img class="w-16 h-16 rounded-full" src="{{ asset('storage/' . $chatIds->FotoProfil) }}"/>
+                                    @else
+                                    <img class="w-16 h-16 rounded-full" src="/images/fotoprofile_default.png" alt="">
+                                    @endif
+                                </div>
+                                <div class="ml-2">
+                                    <h1 class="text-lg font-semibold text-left">{{ $chatIds->Nama }}</h1>
+                                    <p class="text-sm text-left text-gray-500">
+                                        {{ \Illuminate\Support\Str::limit($chatIds->text, 30, '...') }}</p>
+                                </div>
+                                <div class="ml-auto notif">
+                                    @if ($unread[$countId]->Count > 0)
+                                        <span
+                                            class="flex justify-center w-6 h-6 text-white bg-red-500 rounded-full">{{ $unread[$countId]->Count }}</span>
+                                    @endif
+                                </div>
+                            </a>
+                            <div class="my-3 border border-gray-300 border-solid line"></div>
+                            @php
+                                $countId++;
+                            @endphp
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

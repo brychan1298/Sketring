@@ -5,7 +5,7 @@
     <div class="container flex flex-col items-center w-full mx-auto px-36 max-lg:px-12">
         @if (session()->has('delivered'))
             <div id="alert"
-                class="relative flex px-4 py-3 mt-12 text-green-700 border border-green-700 rounded bg-success alert alert-success"
+                class="relative flex px-4 py-3 mt-32 -mb-24 text-green-700 border border-green-700 rounded bg-success alert alert-success"
                 role="alert">
                 <span>
                     {{ session('delivered') }}

@@ -117,7 +117,9 @@ class ProdukController extends Controller
         $keranjang = [];
         $detailProduk = Produk::find($IdProduk);
         if(Auth::check()){
-            $keranjang = Acara::where("IdUser",Auth::User()->IdUser)->get();
+            $keranjang = Acara::where("IdUser",Auth::User()->IdUser)
+                        ->where("show",1)
+                        ->get();
         }
         return view('konsumen.detailProduk',compact('detailProduk','keranjang'));
     }
