@@ -2,23 +2,21 @@
 @section('title', 'Beranda')
 @section('description', 'Halaman Beranda Konsumen')
 @section('content')
-    <div class="">
-        <div id="" class="mx-auto container-md">
-            {{-- <div class="object-fill h-auto px-10 py-24 mt-12 text-white bg-center bg-cover"
-                style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)"> --}}
-            <div class="bg-cover bg-center h-auto text-white py-24 max-lg:py-12 max-sm:py-8 px-10 object-fill mt-24 max-sm:mt-12" style="background-image: url(images/home_banner.png)">
-                <div class="object-fill h-auto px-10 py-24 mt-12 text-white bg-center bg-cover"
-                style="background-image: url(images/home_banner.png)">
-                <div class="md:w-1/2 px-[5.5%]">
-                    <p class="text-sm font-bold max-sm:text-xs uppercase">Selamat datang</p>
-                    <p class="mt-4 max-lg:text-5xl max-sm:text-4xl font-bold text-7xl">Sketring</p>
-                    <p class="mt-10 mb-10 text-xl max-lg:text-sm max-lg:mb-6 max-lg:mt-6">Katering Andalanmu!!</p>
-                    @if(!Auth::check())
-                    <a href="/register"
-                        class="bg-[#850000] max-lg:py-2 max-lg:px-4 py-3 px-7 text-white font-bold uppercase text-sm rounded hover:bg-gray-200 hover:text-gray-800">Daftar
-                        Sekarang</a>
-                    @endif
-                </div>
+    <div id="" class="mx-auto container-md">
+        {{-- <div class="object-fill h-auto px-10 py-24 mt-12 text-white bg-center bg-cover"
+            style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)"> --}}
+            {{-- bg-cover bg-center --}}
+        <div class="bg-cover bg-center h-auto text-white py-24 max-lg:py-12 max-sm:py-8 px-10 object-fill mt-24 max-sm:mt-12"
+        style="background-image: url(images/home_banner.png)">
+            <div class="md:w-1/2 px-[5.5%]">
+                <p class="text-sm font-bold max-sm:text-xs uppercase">Selamat datang</p>
+                <p class="mt-4 max-lg:text-5xl max-sm:text-4xl font-bold text-7xl">Sketring</p>
+                <p class="mt-10 mb-10 text-xl max-lg:text-sm max-lg:mb-6 max-lg:mt-6">Katering Andalanmu!!</p>
+                @if(!Auth::check())
+                <a href="/register"
+                    class="bg-[#850000] max-lg:py-2 max-lg:px-4 py-3 px-7 text-white font-bold uppercase text-sm rounded hover:bg-gray-200 hover:text-gray-800">Daftar
+                    Sekarang</a>
+                @endif
             </div>
         </div>
     </div>
@@ -197,11 +195,11 @@
                     <div class="shadow-3xl rounded-md px-11 py-12 max-sm:mx-[7vw] bg-white items-center flex flex-col">
                         <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
                             <img src="images/secure.png" alt="" class="w-8 mx-auto">
-                        </div>]
+                        </div>
                         <h1 class="font-bold text-xl text-center">Pembelian Terjamin Aman</h1>
                         <p class="font-light mt-8 text-center">
                             Nikmati pengalaman pembelian yang terjamin aman di Sketring! <br>
-                            Kepercayaan dan keamanan Anda merupakan prioritas kami.]
+                            Kepercayaan dan keamanan Anda merupakan prioritas kami.
                         </p>
                     </div>
                 </label>
@@ -230,11 +228,6 @@
                     </div>
                 </label>
             </div>
-        </div>
-
-        <div class="py-28">
-            <hr class="border-[#850000] border-2">
-            <hr class="mt-1 border-[#850000] border-1">
         </div>
 
         {{-- <div class="container m-auto mt-[60px] mb-[100px]">
@@ -272,6 +265,25 @@
                         mengapa kami memastikan proses pembelian dijamin mudah bagi setiap pelanggan.
                     </p>
                 </div>
+            </div>
+        </div> --}}
+
+        {{-- <div class="py-28">
+            <hr class="border-[#850000] border-2">
+            <hr class="mt-1 border-[#850000] border-1">
+        </div>
+
+        <div class="flex justify-around">
+            <img src="tentangKami.png" alt="">
+            <div>
+                <p class="font-black text-5xl leading-tight max-lg:text-4xl ">
+                    Tentang <span class="text-[#850000]">SKetring?</span>
+                </p>
+                <p>
+                    Platform inovatif yang didedikasikan untuk membantu UMKM Katering dan memfasilitasi konsumen dalam menemukan katering terbaik di daerah mereka.
+                    Kami memahami betapa pentingnya makanan yang lezat dan berkualitas untuk setiap acara spesial Anda.Dengan Sketring,
+                    Anda dapat menjelajahi beragam katering yang tersedia di sekitar Anda dengan mudah dan cepat.
+                </p>
             </div>
         </div> --}}
     </div>
