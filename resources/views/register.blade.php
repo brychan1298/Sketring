@@ -97,7 +97,7 @@
         </h1>
         <h1></h1>
     </div>
-    <div class="px-12 py-10 bg-[#FFDB89] mx-[6.4vw] mb-8 rounded-md shadow-2xl">
+    <div class="px-12 py-10 bg-[#FFDB89] mx-[6.4vw] mb-10 rounded-md shadow-2xl">
         <form action="/register" method="post" class="mx-4">
             @csrf
             <input type="hidden" name="Role" value="{{ $roleId }}">
