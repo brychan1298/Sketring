@@ -161,8 +161,13 @@
             </div>
 
             <div class="">
-                <img src="/images/beranda.png" class="w-96" alt="">
+                <img src="/images/beranda.png" class="w-80" alt="">
             </div>
+        </div>
+
+        <div class="py-28">
+            <hr class="border-[#850000] border-2">
+            <hr class="mt-1 border-[#850000] border-1">
         </div>
 
         {{-- <div class="text-center my-16 text-[#850000] text-lg">
@@ -174,7 +179,7 @@
             </p>
         </div> --}}
 
-        <div class="mt-40 text-center">
+        <div class=" text-center">
             <p class="font-bold text-4xl">
                 Mengapa memilih kami?
             </p>
@@ -182,7 +187,7 @@
                 Sketring memberikan layanan yang terbaik dan <span class="text-[#850000]">menjamin kepuasan</span>  bagi para pengguna UMKM Katering dan konsumen.
             </p>
         </div>
-        <div class="luar mt-12 pb-[400px]">
+        <div class="luar mt-20 pb-[400px]">
             <input type="radio" name="slider" id="item-1" checked>
             <input type="radio" name="slider" id="item-2">
             <input type="radio" name="slider" id="item-3">
