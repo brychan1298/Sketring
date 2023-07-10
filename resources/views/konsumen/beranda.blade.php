@@ -140,32 +140,54 @@
             </div>
         </div>
 
-
-        <div class="text-center bg-[#850000] flex flex-col items-center rounded-2xl py-12 mt-36">
-            <p class="text-xl text-white">
-                Selamat datang di
-            </p>
-            {{-- <p class="mt-2 text-5xl uppercase">
-                sketring
-            </p> --}}
-            <img src="/images/sketringDoank.png" class="w-1/2 pt-8" alt="">
+        <div class="py-28">
+            <hr class="border-[#850000] border-2">
+            <hr class="mt-1 border-[#850000] border-1">
         </div>
 
-        <div class="text-center my-16 text-[#850000] text-lg">
+        <div class="flex justify-around items-center">
+            <div>
+                <p class="font-black text-5xl leading-tight">
+                    Kamu punya acara <br> tapi tidak ingin <br> <span class="text-[#850000]">Memasak?</span>
+                </p>
+                {{-- <p class="font-black text-3xl leading-tight">
+                    Atau punya usaha katering tapi <br> <span class="text-[#850000]">tidak laku?</span>
+                </p> --}}
+                <p class="mt-6 text-md">
+                    Sekarang waktunya pakai S'Ketring!! Platform inovatif untuk membantu <br>
+                    Anda menjelajahi beragam katering di sekitar Anda dengan
+                    <span class="font-bold text-[#850000]">mudah dan cepat.</span>
+                </p>
+            </div>
+
+            <div class="">
+                <img src="/images/beranda.png" class="w-80" alt="">
+            </div>
+        </div>
+
+        <div class="py-28">
+            <hr class="border-[#850000] border-2">
+            <hr class="mt-1 border-[#850000] border-1">
+        </div>
+
+        {{-- <div class="text-center my-16 text-[#850000] text-lg">
             <p class="">
                 Platform inovatif yang didedikasikan untuk membantu <span class="font-bold text-[#850000]">UMKM Katering</span>  dan memfasilitasi konsumen dalam menemukan
                 <span class="font-bold text-[#850000]"> <br>katering terbaik di daerah mereka.</span>
                 Kami memahami betapa pentingnya makanan yang lezat dan berkualitas untuk setiap acara spesial Anda.Dengan Sketring, Anda dapat menjelajahi beragam katering yang tersedia di sekitar Anda dengan
                 <span class="font-bold text-[#850000]">mudah dan cepat.</span>
             </p>
-        </div>
+        </div> --}}
 
-
-
-        <div class="luar my-96 max-lg:mb-[600px]">
-            <p> Benefit dari SKetring
+        <div class=" text-center">
+            <p class="font-bold text-4xl">
+                Mengapa memilih kami?
             </p>
-            <hr>
+            <p class="mt-4 text-gray-500">
+                Sketring memberikan layanan yang terbaik dan <span class="text-[#850000]">menjamin kepuasan</span>  bagi para pengguna UMKM Katering dan konsumen.
+            </p>
+        </div>
+        <div class="luar mt-20 pb-[400px]">
             <input type="radio" name="slider" id="item-1" checked>
             <input type="radio" name="slider" id="item-2">
             <input type="radio" name="slider" id="item-3">
@@ -174,38 +196,35 @@
                     <div class="shadow-3xl rounded-md px-11 py-12 max-sm:mx-[7vw] bg-white items-center flex flex-col">
                         <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
                             <img src="images/secure.png" alt="" class="w-8 mx-auto">
-                        </div>
-                        <h1 class="text-xl font-bold text-center">Pembelian Terjamin Aman</h1>
-                        <p class="mt-8 font-light text-center">
-                            Nikmati pengalaman pembelian yang terjamin aman di Sketring! Kami memahami betapa pentingnya
-                            kepercayaan dan keamanan dalam setiap transaksi online. Itulah mengapa kami menempatkan keamanan
-                            sebagai prioritas utama kami.
+                        </div>]
+                        <h1 class="font-bold text-xl text-center">Pembelian Terjamin Aman</h1>
+                        <p class="font-light mt-8 text-center">
+                            Nikmati pengalaman pembelian yang terjamin aman di Sketring! <br>
+                            Kepercayaan dan keamanan Anda merupakan prioritas kami.]
                         </p>
                     </div>
                 </label>
                 <label class="card" for="item-2" id="song-2">
                     <div class="shadow-2xl rounded-md px-11 py-12 max-sm:mx-[7vw] bg-white items-center flex flex-col">
-                        <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
-                            <img src="images/spread.png" alt="" class="w-8 mx-auto">
+                        <div class="bg-[#649EF6] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
+                            <img src="images/spread.png" alt="" class="mx-auto w-8">
                         </div>
-                        <h1 class="text-xl font-bold text-center">Tersebar di Seluruh Indonesia</h1>
-                        <p class="mt-8 font-light text-center">
-                            Sketring hadir untuk membantu Anda menemukan katering terbaik, tidak hanya di satu daerah, tetapi
-                            juga tersebar di seluruh Indonesia. Kami bangga menjadi platform yang menghubungkan Anda dengan
-                            berbagai pilihan katering yang dapat memenuhi kebutuhan kuliner Anda, di mana pun Anda berada.
+                        <h1 class="font-bold text-xl text-center">Tersebar di Seluruh Indonesia</h1>
+                        <p class="font-light mt-8 text-center">
+                            Sketring membantu Anda temukan katering terbaik di seluruh Indonesia. <br>
+                            Kami menghubungkan Anda dengan berbagai pilihan katering sesuai dengan lokasi di mana pun Anda berada.
                         </p>
                     </div>
                 </label>
                 <label class="card" for="item-3" id="song-3">
                     <div class="shadow-2xl rounded-md px-11 py-12 max-sm:mx-[7vw] bg-white items-center flex flex-col">
-                        <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
+                        <div class="bg-[#61C16B] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
                             <img src="images/easy.png" alt="" class="mx-auto w-9">
                         </div>
-                        <h1 class="text-xl font-bold text-center">Pembelian Dijamin Mudah</h1>
-                        <p class="mt-8 font-light text-center">
-                            Nikmati kemudahan dalam setiap pembelian Anda di Sketring! Kami telah merancang platform ini dengan
-                            fokus pada kenyamanan dan kemudahan pengguna. Kami mengerti bahwa waktu Anda berharga, dan itulah
-                            mengapa kami memastikan proses pembelian dijamin mudah bagi setiap pelanggan.
+                        <h1 class="font-bold text-xl text-center">Pembelian Dijamin Mudah</h1>
+                        <p class="font-light mt-8 text-center">
+                            Nikmati kemudahan berbelanja di Sketring! Platform kami dirancang untuk kenyamanan dan kemudahan pengguna.
+                            Kami menjamin proses pembelian yang mudah bagi setiap pelanggan.
                         </p>
                     </div>
                 </label>
