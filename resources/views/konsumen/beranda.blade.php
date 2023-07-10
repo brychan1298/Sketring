@@ -3,14 +3,16 @@
 @section('description', 'Halaman Beranda Konsumen')
 @section('content')
     <div class="">
-        <div id="" class="container-md mx-auto">
-            {{-- <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill mt-12"
+        <div id="" class="mx-auto container-md">
+            {{-- <div class="object-fill h-auto px-10 py-24 mt-12 text-white bg-center bg-cover"
                 style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)"> --}}
             <div class="bg-cover bg-center h-auto text-white py-24 max-lg:py-12 max-sm:py-8 px-10 object-fill mt-24 max-sm:mt-12" style="background-image: url(images/home_banner.png)">
+                <div class="object-fill h-auto px-10 py-24 mt-12 text-white bg-center bg-cover"
+                style="background-image: url(images/home_banner.png)">
                 <div class="md:w-1/2 px-[5.5%]">
-                    <p class="font-bold text-sm max-sm:text-xs uppercase">Selamat datang</p>
-                    <p class="text-7xl max-lg:text-5xl max-sm:text-4xl font-bold mt-4">Sketring</p>
-                    <p class="text-xl max-lg:text-sm max-lg:mb-6 max-lg:mt-6 mb-10 mt-10">Katering Andalanmu!!</p>
+                    <p class="text-sm font-bold max-sm:text-xs uppercase">Selamat datang</p>
+                    <p class="mt-4 max-lg:text-5xl max-sm:text-4xl font-bold text-7xl">Sketring</p>
+                    <p class="mt-10 mb-10 text-xl max-lg:text-sm max-lg:mb-6 max-lg:mt-6">Katering Andalanmu!!</p>
                     @if(!Auth::check())
                     <a href="/register"
                         class="bg-[#850000] max-lg:py-2 max-lg:px-4 py-3 px-7 text-white font-bold uppercase text-sm rounded hover:bg-gray-200 hover:text-gray-800">Daftar
@@ -65,14 +67,14 @@
                     @endforeach
                 </div>
 
-                <div class="rounded-xl shadow-3xl h-full">
+                <div class="h-full rounded-xl shadow-3xl">
                     <div class="bg-[#850000] rounded-t-xl px-7 py-2">
                         <h1 class="text-2xl text-white">
                             Chat
                         </h1>
                     </div>
                     @if (Auth::check())
-                        <div class="mx-7 py-5 items-center justify-between">
+                        <div class="items-center justify-between py-5 mx-7">
                             @if ($lastChatRaw == "")
                                 <p>Belum ada chat.</p>
                             @else
@@ -123,7 +125,7 @@
                         </div> --}}
                         </div>
                     @else
-                        <div class="grid place-items-center py-24">
+                        <div class="grid py-24 place-items-center">
 
                             <h2 class="text-center font-bold mx-24 mt-5 text-xl text-[#850000]">
                                 SILAHKAN LOGIN TERLEBIH DAHULU UNTUK CHAT
@@ -190,16 +192,16 @@
             <input type="radio" name="slider" id="item-1" checked>
             <input type="radio" name="slider" id="item-2">
             <input type="radio" name="slider" id="item-3">
-            <div class="cards mb-12">
+            <div class="mb-12 cards">
                 <label class="card" for="item-1" id="song-1">
                     <div class="shadow-3xl rounded-md px-11 py-12 max-sm:mx-[7vw] bg-white items-center flex flex-col">
                         <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
-                            <img src="images/secure.png" alt="" class="mx-auto w-8">
-                        </div>
+                            <img src="images/secure.png" alt="" class="w-8 mx-auto">
+                        </div>]
                         <h1 class="font-bold text-xl text-center">Pembelian Terjamin Aman</h1>
                         <p class="font-light mt-8 text-center">
                             Nikmati pengalaman pembelian yang terjamin aman di Sketring! <br>
-                            Kepercayaan dan keamanan Anda merupakan prioritas kami.
+                            Kepercayaan dan keamanan Anda merupakan prioritas kami.]
                         </p>
                     </div>
                 </label>
@@ -239,10 +241,10 @@
             <div class="flex grid lg:grid-cols-3 gap-9 md:max-lg:grid-cols-2 sm:max-md:grid-cols-1">
                 <div class="shadow-3xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                     <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
-                        <img src="images/secure.png" alt="" class="mx-auto w-8">
+                        <img src="images/secure.png" alt="" class="w-8 mx-auto">
                     </div>
-                    <h1 class="font-bold text-xl">Pembelian Terjamin Aman</h1>
-                    <p class="font-light mt-8">
+                    <h1 class="text-xl font-bold">Pembelian Terjamin Aman</h1>
+                    <p class="mt-8 font-light">
                         Nikmati pengalaman pembelian yang terjamin aman di Sketring! Kami memahami betapa pentingnya
                         kepercayaan dan keamanan dalam setiap transaksi online. Itulah mengapa kami menempatkan keamanan
                         sebagai prioritas utama kami.
@@ -250,10 +252,10 @@
                 </div>
                 <div class="shadow-2xl rounded-md px-11 py-12 max-sm:mx-[7vw]">
                     <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
-                        <img src="images/spread.png" alt="" class="mx-auto w-8">
+                        <img src="images/spread.png" alt="" class="w-8 mx-auto">
                     </div>
-                    <h1 class="font-bold text-xl">Tersebar di Seluruh Indonesia</h1>
-                    <p class="font-light mt-8">
+                    <h1 class="text-xl font-bold">Tersebar di Seluruh Indonesia</h1>
+                    <p class="mt-8 font-light">
                         Sketring hadir untuk membantu Anda menemukan katering terbaik, tidak hanya di satu daerah, tetapi
                         juga tersebar di seluruh Indonesia. Kami bangga menjadi platform yang menghubungkan Anda dengan
                         berbagai pilihan katering yang dapat memenuhi kebutuhan kuliner Anda, di mana pun Anda berada.
@@ -263,8 +265,8 @@
                     <div class="bg-[#DC0000] rounded-md bg-opacity-60 w-20 h-20 place-items-center mb-6 flex align-center">
                         <img src="images/easy.png" alt="" class="mx-auto w-9">
                     </div>
-                    <h1 class="font-bold text-xl">Pembelian Dijamin Mudah</h1>
-                    <p class="font-light mt-8">
+                    <h1 class="text-xl font-bold">Pembelian Dijamin Mudah</h1>
+                    <p class="mt-8 font-light">
                         Nikmati kemudahan dalam setiap pembelian Anda di Sketring! Kami telah merancang platform ini dengan
                         fokus pada kenyamanan dan kemudahan pengguna. Kami mengerti bahwa waktu Anda berharga, dan itulah
                         mengapa kami memastikan proses pembelian dijamin mudah bagi setiap pelanggan.

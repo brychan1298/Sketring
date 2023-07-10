@@ -90,7 +90,7 @@ class UserController extends Controller
 
     public function detailToko($IdToko){
         $detailToko = User::findOrFail($IdToko);
-        $listProduks = Produk::where('IdUser',$IdToko)->get();
+        $listProduks = Produk::where('IdUser',$IdToko)->paginate(8);
         return view("konsumen.toko",compact('detailToko','listProduks'));
     }
 
@@ -146,7 +146,7 @@ class UserController extends Controller
                 ",[$myId]);
             }
         }
-        
+
         return view("umkm.beranda",compact("ProdukUMKM",'lastChatRaw','unread'));
     }
 
