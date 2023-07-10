@@ -6,15 +6,14 @@
         <div id="" class="container-md mx-auto">
             {{-- <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill mt-12"
                 style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)"> --}}
-                <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill mt-12"
-                style="background-image: url(images/home_banner.png)">
+            <div class="bg-cover bg-center h-auto text-white py-24 max-lg:py-12 max-sm:py-8 px-10 object-fill mt-24 max-sm:mt-12" style="background-image: url(images/home_banner.png)">
                 <div class="md:w-1/2 px-[5.5%]">
-                    <p class="font-bold text-sm uppercase">Selamat datang</p>
-                    <p class="text-7xl font-bold mt-4">Sketring</p>
-                    <p class="text-2xl mb-10 mt-10">Katering Andalanmu</p>
+                    <p class="font-bold text-sm max-sm:text-xs uppercase">Selamat datang</p>
+                    <p class="text-7xl max-lg:text-5xl max-sm:text-4xl font-bold mt-4">Sketring</p>
+                    <p class="text-xl max-lg:text-sm max-lg:mb-6 max-lg:mt-6 mb-10 mt-10">Katering Andalanmu!!</p>
                     @if(!Auth::check())
                     <a href="/register"
-                        class="bg-[#850000] py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Daftar
+                        class="bg-[#850000] max-lg:py-2 max-lg:px-4 py-3 px-7 text-white font-bold uppercase text-sm rounded hover:bg-gray-200 hover:text-gray-800">Daftar
                         Sekarang</a>
                     @endif
                 </div>
@@ -24,44 +23,43 @@
 
     <div class="container px-[8vw] mx-auto mt-[80px]">
         <div class="container m-auto mt-[60px]">
-            <div class="grid lg:grid-cols-2 gap-x-20 sm:max-md:grid-cols-1">
+            <div class="grid lg:grid-cols-2 gap-x-20 sm:max-md:grid-cols-1 gap-y-20">
                 <div class="">
-                    <div class="flex justify-between items-end">
-                        <h1 class="text-2xl font-bold">Rekomendasi Produk</h1>
+                    <div class="flex max-sm:flex-col justify-between">
+                        <h1 class="text-2xl font-bold max-sm:mb-2">Rekomendasi Produk</h1>
                         <a href="/konsumen/cari" class="text-[#850000] hover:underline">Lihat Semua >></a>
                     </div>
                     @foreach ($produk as $item)
-                        <div class="flex mt-10 rounded-md shadow-3xl p-5 items-end justify-between">
-                            <div class="flex">
-                                <img src="{{ asset('storage/' . $item->FotoProduk) }}"
-                                    class="w-36 h-36 object-cover rounded-md mr-5">
-                                <div class="">
-                                    <p class="font-bold text-xl">{{ $item->Nama }}</p>
-                                    <div class="flex gap-2 mt-1">
-                                        <img src="images/store.png" alt="">
-                                        <div class="font-light">{{ $item->User->Nama }}</div>
-                                    </div>
-                                    {{-- <div class="flex gap-2 mt-1">
-                                        <img src="images/location.png" alt="">
-                                        <div class="font-light">3.5 km</div>
-                                    </div> --}}
-                                    <div class="flex gap-2 mt-1 items-center">
-                                        <img src="images/export.png" class="w-5 h-5" alt="">
-                                        <div class="font-light">
-                                            @if ($item->JumlahRating == 0)
-                                                N/A
-                                            @else
-                                                {{$item->Rating}}
-                                            @endif
-                                        </div>
+                        <div class="flex mt-4 rounded-md shadow-3xl p-5 items-center max-xl:gap-5">
+                            <div class="">
+                                <img src="{{ asset('storage/' . $item->FotoProduk) }}" class="w-36 h-36 object-cover rounded-md mr-5">
+                            </div>
+                            <div class="w-2/3">
+                                <p class="font-bold text-xl">{{ $item->Nama }}</p>
+                                <div class="flex gap-2 mt-1">
+                                    <img src="images/store.png" alt="">
+                                    <div class="font-light">{{ $item->User->Nama }}</div>
+                                </div>
+                                {{-- <div class="flex gap-2 mt-1">
+                                    <img src="images/location.png" alt="">
+                                    <div class="font-light">3.5 km</div>
+                                </div> --}}
+                                <div class="flex gap-2 mt-1 mb-3 items-center">
+                                    <img src="images/export.png" class="w-5 h-5" alt="">
+                                    <div class="font-light">
+                                        @if ($item->JumlahRating == 0)
+                                            N/A
+                                        @else
+                                            {{$item->Rating}}
+                                        @endif
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                <a href="/konsumen/detailproduk/{{ $item->IdProduk }}"
-                                    class="bg-[#850000] text-white px-5 py-2 rounded-md">
-                                    Lihat Detail
-                                </a>
+                                <div class="flex justify-end w-full">
+                                    <a href="/konsumen/detailproduk/{{ $item->IdProduk }}"
+                                        class="bg-[#850000] text-white px-5 py-2 rounded-md">
+                                        Lihat Detail
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -145,23 +143,23 @@
             <hr class="mt-1 border-[#850000] border-1">
         </div>
 
-        <div class="flex justify-around items-center">
-            <div>
-                <p class="font-black text-5xl leading-tight">
-                    Kamu punya acara <br> tapi tidak ingin <br> <span class="text-[#850000]">Memasak?</span>
+        <div class="flex justify-around items-center max-lg:flex-col max-lg:justify-center">
+            <div class="max-lg:mb-12 max-lg:text-center">
+                <p class="font-black text-5xl leading-tight max-lg:text-4xl ">
+                    Kamu punya acara <br class="max-lg:hidden"> tapi tidak ingin <br class="max-lg:hidden"> <span class="text-[#850000]">Memasak?</span>
                 </p>
                 {{-- <p class="font-black text-3xl leading-tight">
                     Atau punya usaha katering tapi <br> <span class="text-[#850000]">tidak laku?</span>
                 </p> --}}
                 <p class="mt-6 text-md">
-                    Sekarang waktunya pakai S'Ketring!! Platform inovatif untuk membantu <br>
+                    Sekarang waktunya pakai S'Ketring!! Platform inovatif untuk membantu <br class="max-lg:hidden">
                     Anda menjelajahi beragam katering di sekitar Anda dengan
                     <span class="font-bold text-[#850000]">mudah dan cepat.</span>
                 </p>
             </div>
 
             <div class="">
-                <img src="/images/beranda.png" class="w-80" alt="">
+                <img src="/images/beranda.png" class="w-80 max-lg:w-[32vw]" alt="">
             </div>
         </div>
 
@@ -187,7 +185,8 @@
                 Sketring memberikan layanan yang terbaik dan <span class="text-[#850000]">menjamin kepuasan</span>  bagi para pengguna UMKM Katering dan konsumen.
             </p>
         </div>
-        <div class="luar mt-20 pb-[400px]">
+
+        <div class="luar mt-20 pb-[300px]">
             <input type="radio" name="slider" id="item-1" checked>
             <input type="radio" name="slider" id="item-2">
             <input type="radio" name="slider" id="item-3">
@@ -229,6 +228,11 @@
                     </div>
                 </label>
             </div>
+        </div>
+
+        <div class="py-28">
+            <hr class="border-[#850000] border-2">
+            <hr class="mt-1 border-[#850000] border-1">
         </div>
 
         {{-- <div class="container m-auto mt-[60px] mb-[100px]">

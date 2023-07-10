@@ -211,7 +211,7 @@
                         </div>
 
                         <div class="mt-6 w-full font-black">
-                            <button class="flex gap-3 items-centeraddtocart bg-white border-2 border-[#DC0000] text-[#DC0000] py-1 px-4 rounded-lg">
+                            <button class="addtocart flex gap-3 items-centeraddtocart bg-white border-2 border-[#DC0000] text-[#DC0000] py-1 px-4 rounded-lg">
                                 <svg class="mt-px max-lg:hidden max-md:block" width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <g id="Rounded" transform="translate(-441.000000, -155.000000)">

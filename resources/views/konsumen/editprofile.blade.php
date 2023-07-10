@@ -1,4 +1,4 @@
-@extends('umkm.layouts.master')
+@extends('konsumen.layouts.master')
 @section('title', 'Edit Profil Anda')
 @section('description', 'Sunting Profil Anda')
 @section('content')
