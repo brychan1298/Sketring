@@ -43,28 +43,29 @@
                 mt-12 flex justify-between
                 text-[#850000] font-bold">
                 <div class="">
-                    <h1>Saldo</h1>
+                    <h1 class="text-md font-black">Saldo</h1>
                     <h1>
                         <label>@currency(Auth::User()->Saldo)</label>
                     </h1>
                 </div>
                 <div class="border-l-2 pl-4 border-[#850000]">
+                    <h1>Produk</h1>
                     <h1>
                         @php
                             $Produk = App\Models\Produk::where('IdUser', Auth::User()->IdUser);
                         @endphp
                         {{ $Produk->count() }}
                     </h1>
-                    <h1>Produk</h1>
+
                 </div>
                 <div class="border-l-2 pl-4 border-[#850000]">
+                    <h1>Pesanan Menunggu</h1>
                     <h1>
                         @php
                             $Pesanan = App\Models\TransaksiDetail::where('Status', 2);
                         @endphp
                         {{ $Pesanan->count() }}
                     </h1>
-                    <h1>Pesanan Menunggu</h1>
                 </div>
             </div>
         </div>
