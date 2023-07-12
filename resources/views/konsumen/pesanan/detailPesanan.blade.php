@@ -88,7 +88,7 @@
                         <input type="checkbox" name="listIdKeranjang[]" checked value="{{$listBarang->IdKeranjang}}" class="hidden" id="">
                         <div class="justify-between my-5 lg:flex">
                             <img src="{{ asset('storage/' . $listBarang->FotoProduk) }}"
-                                class="mr-5 rounded-lg w-52 h-52">
+                                class="mr-5 rounded-lg object-cover w-52 h-52">
                             <div class="flex items-center justify-between w-full detailProduk">
                                 <div class="detail1">
                                     <h1 id="namaProduk" class="text-2xl font-bold">{{ $listBarang->Nama }}</h1>

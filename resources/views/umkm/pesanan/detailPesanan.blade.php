@@ -101,7 +101,7 @@
                 @endphp
                 @foreach ($ListProduks as $listBarang)
                     <div class="justify-between my-5 lg:flex">
-                        <img src="{{ asset('storage/' . $listBarang->FotoProduk) }}" class="mr-5 rounded-lg w-52 h-52">
+                        <img src="{{ asset('storage/' . $listBarang->FotoProduk) }}" class="mr-5 object-cover rounded-lg w-52 h-52">
                         <div class="flex items-center justify-between w-full detailProduk">
                             <div class="detail1">
                                 <h2 id="namaProduk" class="text-2xl font-bold">{{ $listBarang->Nama }}</h2>
