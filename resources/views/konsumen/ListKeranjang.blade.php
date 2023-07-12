@@ -48,7 +48,7 @@
                         @foreach ($daftarAcara as $acara)
                             @if (!empty($acara->FotoProduk))
                                 <img src="{{ asset('storage/' . $acara->FotoProduk) }}" alt=""
-                                    class="w-1/2 aspect-square rounded-xl">
+                                    class="w-1/2 aspect-square object-cover rounded-xl">
                                 @php
                                     $countImg++;
                                 @endphp
@@ -87,7 +87,7 @@
                         <div class="relative rounded-xl shadow-3xl">
                             @if ($fotoProduk)
                                 <img src="{{ asset('storage/' . $fotoProduk) }}" alt=""
-                                    class="w-full aspect-square rounded-xl">
+                                    class="w-full aspect-square object-cover rounded-xl">
                             @else
                                 <div class="w-full">
                                     <img src="/images/empty-cart.png" alt=""

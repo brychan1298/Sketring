@@ -101,8 +101,10 @@
                             <img src="{{ asset('storage/' . $Produk->FotoProduk) }}" alt=""
                                 class="w-full sm:h-[20vw] max-sm:h-[24vw] object-cover rounded-md xl:h-[9.4vw] lg:h-[12vw]">
                             <div class="p-4">
-                                <h1 class="font-black my-1 h-12">{{ $Produk->Nama }}</h1>
-                                <p class="font-normal text-xs mt-3 h-8">{{ $Produk->Deskripsi }}</p>
+                                <h1 class="font-black my-1">{{ $Produk->Nama }}</h1>
+                                <p class="font-normal text-xs mt-3">
+                                    {{ strlen($Produk->Deskripsi) > 50 ? substr($Produk->Deskripsi, 0, 50) . '...' : $Produk->Deskripsi }}
+                                </p>
                                 <div class="flex justify-between mt-4">
                                     <h1 class="text-[#850000] text-sm">
                                         @currency($Produk->Harga)
