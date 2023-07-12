@@ -58,7 +58,10 @@ Route::get('/editProfile', function(){
 
 
 
-Route::get('/konsumen/cari', [ProdukController::class,'konsumenIndex'])->name('cari');
+Route::get('/konsumen/cari', [ProdukController::class,'konsumenIndex'])->name('cari')->middleware('datadiri');
+Route::get('/ProfileBlank', function(){
+    return view("konsumen.profileNotFound");
+});
 Route::get('/konsumen/search', [ProdukController::class,'konsumenSearch']);
 Route::get('/konsumen/filter-produk',[ProdukController::class, 'filterProduk']);
 

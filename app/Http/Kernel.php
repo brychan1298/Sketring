@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'umkm' => \App\Http\Middleware\isUMKM::class,
         'konsumen' => \App\Http\Middleware\isKonsumen::class,
-        'forbidumkm' => \App\Http\Middleware\forbidUMKM::class
+        'forbidumkm' => \App\Http\Middleware\forbidUMKM::class,
+        'datadiri' => \App\Http\Middleware\LengkapiData::class,
     ];
 }

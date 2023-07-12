@@ -64,12 +64,13 @@
                 <div class="bg-[#850000] w-[75%] text-white flex flex-col gap-[16px] items-center p-[32px] rounded-[10px]">
                     <label for="FotoProfil">
                         <div class="flex flex-col relative">
-                            <input type="hidden" name="oldImage" value="{{Auth::User()->FotoProfil}}">
+                            <input type="hidden" name="oldImage" value="{{ Auth::User()->FotoProfil }}">
                             @if (Auth::User()->FotoProfil)
-                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images" src="{{asset('storage/'.Auth::User()->FotoProfil)}}"
-                                    alt="">
+                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images"
+                                    src="{{ asset('storage/' . Auth::User()->FotoProfil) }}" alt="">
                             @else
-                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images" src="/images/fotoprofile_default.png" alt="">
+                                <img class="img-preview rounded-full w-[360px] h-[360px]" id="images"
+                                    src="/images/fotoprofile_default.png" alt="">
                             @endif
                             <div
                                 class="flex flex-col items-center justify-center absolute bg-[black] w-[360px] h-[360px] rounded-full bg-opacity-50 opacity-0 hover:opacity-100">
@@ -107,7 +108,8 @@
                             </svg>
                             <p class="font-bold">Alamat</p>
                         </div>
-                        <input type="text" name="Alamat" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
+                        <input type="text" name="Alamat"
+                            class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
                             value="{{ Auth::User()->Alamat }}">
                     </div>
                     <div class="w-[100%] flex flex-col gap-[8px]">
@@ -121,17 +123,26 @@
                         <select required id="Province-dropdown" name="provinsi"
                             class="px-[24px] py-[16px] text-black bg-white rounded-[10px]">
                             <option value="">Pilih Provinsi</option>
-                            @foreach ($provinces as $data)
-                                @if (Auth::User()->Regency->Province->id == $data->id)
-                                    <option value="{{ $data->id }}" selected>
-                                        {{ $data->name }}
-                                    </option>
-                                @else
+                            @if (Auth::User()->IdKota)
+                                @foreach ($provinces as $data)
+                                    @if (Auth::User()->Regency->Province->id == $data->id)
+                                        <option value="{{ $data->id }}" selected>
+                                            {{ $data->name }}
+                                        </option>
+                                    @else
+                                        <option value="{{ $data->id }}">
+                                            {{ $data->name }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            @else
+                                @foreach ($provinces as $data)
                                     <option value="{{ $data->id }}">
                                         {{ $data->name }}
                                     </option>
-                                @endif
-                            @endforeach
+                                @endforeach
+                            @endif
+
                         </select>
                     </div>
                     <div class="w-[100%] flex flex-col gap-[8px]">
@@ -154,7 +165,8 @@
                             </svg>
                             <p class="font-bold">Email</p>
                         </div>
-                        <input type="email" name="Email" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
+                        <input type="email" name="Email"
+                            class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
                             value="{{ Auth::User()->Email }}">
                     </div>
                     <div class="w-[100%] flex flex-col gap-[8px]">
@@ -165,14 +177,17 @@
                             </svg>
                             <p class="font-bold">No Telepon</p>
                         </div>
-                        <input type="text" name="Nohp" class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
+                        <input type="text" name="Nohp"
+                            class="px-[24px] py-[16px] text-black bg-white rounded-[10px]"
                             value="{{ Auth::User()->Nohp }}">
                     </div>
                     <div class="flex gap-5">
-                        <a href="/profilekonsumen" class="font-bold border-2 text-2xl px-7 py-2 my-5 rounded-md hover:text-[#DC0000] hover:bg-white">
+                        <a href="/profilekonsumen"
+                            class="font-bold border-2 text-2xl px-7 py-2 my-5 rounded-md hover:text-[#DC0000] hover:bg-white">
                             BATAL
                         </a>
-                        <button type="submit" class="border-2 text-[#DC0000] bg-white px-7 py-2 text-2xl rounded-md my-5 hover:bg-[#850000] hover:text-white">
+                        <button type="submit"
+                            class="border-2 text-[#DC0000] bg-white px-7 py-2 text-2xl rounded-md my-5 hover:bg-[#850000] hover:text-white">
                             SIMPAN
                         </button>
                     </div>
@@ -209,18 +224,17 @@
             });
         });
 
-        function previewImage(){
+        function previewImage() {
             const image = document.querySelector('#FotoProfil');
             const previewed = document.querySelector('.img-preview');
 
             const oFReader = new FileReader();
             oFReader.readAsDataURL(image.files[0]);
 
-            oFReader.onload = function(oFREvent){
+            oFReader.onload = function(oFREvent) {
                 previewed.src = oFREvent.target.result
             }
         }
-
     </script>
 
 @endsection
