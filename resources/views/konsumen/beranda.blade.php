@@ -268,24 +268,24 @@
             </div>
         </div> --}}
 
-        {{-- <div class="py-28">
+        <div class="py-28">
             <hr class="border-[#850000] border-2">
             <hr class="mt-1 border-[#850000] border-1">
         </div>
 
-        <div class="flex justify-around">
-            <img src="tentangKami.png" alt="">
-            <div>
-                <p class="font-black text-5xl leading-tight max-lg:text-4xl ">
+        <div class="flex justify-around mx-24 items-center pb-28">
+            <img src="/images/beranda(2).png" class="w-96 rounded-xl" alt="">
+            <div class="ml-24">
+                <p class="font-black text-5xl leading-tight max-lg:text-4xl mb-8">
                     Tentang <span class="text-[#850000]">SKetring?</span>
                 </p>
-                <p>
+                <p class="">
                     Platform inovatif yang didedikasikan untuk membantu UMKM Katering dan memfasilitasi konsumen dalam menemukan katering terbaik di daerah mereka.
                     Kami memahami betapa pentingnya makanan yang lezat dan berkualitas untuk setiap acara spesial Anda.Dengan Sketring,
                     Anda dapat menjelajahi beragam katering yang tersedia di sekitar Anda dengan mudah dan cepat.
                 </p>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     <style>
