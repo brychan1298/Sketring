@@ -31,7 +31,7 @@
                 </p>
                 <div class="flex justify-between mt-4">
                     <h1 class="text-[#850000] text-md 2xl:text-base lg:text-base sm:text-xl">
-                        Rp {{ $produk->Harga }}
+                        <p>@currency($produk->Harga)</p>
                     </h1>
                     <div class="flex flex-row gap-[0.5vw]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
