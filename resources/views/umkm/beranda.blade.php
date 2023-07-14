@@ -62,7 +62,9 @@
                     <h1>Pesanan Menunggu</h1>
                     <h1>
                         @php
-                            $Pesanan = App\Models\TransaksiDetail::where('Status', 2);
+                            $Pesanan = App\Models\TransaksiDetail::where('Status', 2)
+                            ->join('Produk','Produk.IdProduk','=','TransaksiDetail.IdProduk')
+                            ->where('Produk.IdUser',Auth::user()->IdUser);
                         @endphp
                         {{ $Pesanan->count() }}
                     </h1>
@@ -81,7 +83,7 @@
                         </h1>
                         <h1 class="mt-4 text-[#8F8F8F] max-sm:text-sm">
                             {{ $Produk->count() }} Produk tersedia di
-                            <a href="" class="text-decoration-none text-[#850000] hover:underline">
+                            <a href="/umkm/profileToko" class="text-decoration-none text-[#850000] hover:underline">
                                 toko anda
                             </a>
                         </h1>

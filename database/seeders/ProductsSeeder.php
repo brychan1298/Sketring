@@ -6,6 +6,8 @@ use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsSeeder extends Seeder
 {
@@ -29,6 +31,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 25,
                 'MaxOrder' => 100
             ]);
+            Storage::disk('public')->put('filename', 'nasiGoreng.jpg');
+
+            $oldPath = 'images/nasiGoreng.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'nasiGoreng.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 1,
                 'Nama' => 'Mie Ayam',
@@ -39,6 +49,15 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 10,
                 'MaxOrder' => 100
             ]);
+            Storage::disk('public')->put('filename', 'mieAyam.jpg');
+
+            $oldPath = 'images/mieAyam.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'mieAyam.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
+
             Produk::create([
                 'IdUser' => 1,
                 'Nama' => 'Lontong Sayur',
@@ -49,6 +68,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 30,
                 'MaxOrder' => 85
             ]);
+            Storage::disk('public')->put('filename', 'lontongSayur.jpg');
+
+            $oldPath = 'images/lontongSayur.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'lontongSayur.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 1,
                 'Nama' => 'Nasi Kuning',
@@ -59,6 +86,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 45,
                 'MaxOrder' => 120
             ]);
+            Storage::disk('public')->put('filename', 'nasiKuning.jpg');
+
+            $oldPath = 'images/nasiKuning.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'nasiKuning.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 1,
                 'Nama' => 'Kwetiau Goreng',
@@ -69,6 +104,13 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 30,
                 'MaxOrder' => 150
             ]);
+            Storage::disk('public')->put('filename', 'kwetiauGoreng.jpg');
+
+            $oldPath = 'images/kwetiauGoreng.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'kwetiauGoreng.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
         // }
 
             // produk umkm2
@@ -82,6 +124,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 50,
                 'MaxOrder' => 400
             ]);
+            Storage::disk('public')->put('filename', 'nasiLiwet.jpg');
+
+            $oldPath = 'images/nasiLiwet.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'nasiLiwet.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 2,
                 'Nama' => 'Sate Madura',
@@ -92,6 +142,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 20,
                 'MaxOrder' => 90
             ]);
+            Storage::disk('public')->put('filename', 'sateMadura.jpeg');
+
+            $oldPath = 'images/sateMadura.jpeg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'sateMadura.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 2,
                 'Nama' => 'Rendang',
@@ -102,6 +160,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 15,
                 'MaxOrder' => 125
             ]);
+            Storage::disk('public')->put('filename', 'rendang.jpg');
+
+            $oldPath = 'images/rendang.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'rendang.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 2,
                 'Nama' => 'Gulai',
@@ -112,6 +178,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 25,
                 'MaxOrder' => 100
             ]);
+            Storage::disk('public')->put('filename', 'gulai.jpg');
+
+            $oldPath = 'images/gulai.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'gulai.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 2,
                 'Nama' => 'Telur Balado',
@@ -122,6 +196,13 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 35,
                 'MaxOrder' => 250
             ]);
+            Storage::disk('public')->put('filename', 'telurBalado.jpg');
+
+            $oldPath = 'images/telurBalado.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'telurBalado.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
 
             // produk umkm3
             Produk::create([
@@ -134,6 +215,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 50,
                 'MaxOrder' => 355
             ]);
+            Storage::disk('public')->put('filename', 'pempek.jpg');
+
+            $oldPath = 'images/pempek.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'pempek.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 3,
                 'Nama' => 'Spaghetti Bolognese',
@@ -144,6 +233,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 17,
                 'MaxOrder' => 255
             ]);
+            Storage::disk('public')->put('filename', 'spageti.png');
+
+            $oldPath = 'images/spageti.png';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'spageti.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 3,
                 'Nama' => 'Kue Sus',
@@ -154,6 +251,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 20,
                 'MaxOrder' => 125
             ]);
+            Storage::disk('public')->put('filename', 'kue.jpg');
+
+            $oldPath = 'images/kue.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'kue.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 3,
                 'Nama' => 'Ayam Teriyaki',
@@ -164,6 +269,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 55,
                 'MaxOrder' => 342
             ]);
+            Storage::disk('public')->put('filename', 'ayamTeriyaki.jpg');
+
+            $oldPath = 'images/ayamTeriyaki.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'ayamTeriyaki.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 3,
                 'Nama' => 'Soto Betawi',
@@ -174,6 +287,13 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 12,
                 'MaxOrder' => 150
             ]);
+            Storage::disk('public')->put('filename', 'sotoBetawi.jpg');
+
+            $oldPath = 'images/sotoBetawi.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'sotoBetawi.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
 
             // produk umkm4
             Produk::create([
@@ -186,6 +306,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 20,
                 'MaxOrder' => 105
             ]);
+            Storage::disk('public')->put('filename', 'tehLemon.jpg');
+
+            $oldPath = 'images/tehLemon.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'tehLemon.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 4,
                 'Nama' => 'Mie Goreng',
@@ -196,6 +324,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 20,
                 'MaxOrder' => 305
             ]);
+            Storage::disk('public')->put('filename', 'mieGoreng.jpg');
+
+            $oldPath = 'images/mieGoreng.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'mieGoreng.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 4,
                 'Nama' => 'Capcay',
@@ -206,6 +342,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 25,
                 'MaxOrder' => 115
             ]);
+            Storage::disk('public')->put('filename', 'capcay.jpg');
+
+            $oldPath = 'images/capcay.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'capcay.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 4,
                 'Nama' => 'Fuyunghai',
@@ -216,6 +360,14 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 55,
                 'MaxOrder' => 342
             ]);
+            Storage::disk('public')->put('filename', 'fuyunghai.jpg');
+
+            $oldPath = 'images/fuyunghai.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'fuyunghai.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
+
             Produk::create([
                 'IdUser' => 4,
                 'Nama' => 'Sop Iga',
@@ -226,6 +378,13 @@ class ProductsSeeder extends Seeder
                 'MinOrder' => 12,
                 'MaxOrder' => 150
             ]);
+            Storage::disk('public')->put('filename', 'sopIga.jpg');
+
+            $oldPath = 'images/sopIga.jpg';
+            $fileExtension = File::extension($oldPath);
+            $newName = 'sopIga.'.$fileExtension;
+            $newPathWithName = './.storage/app/public'.$newName;
+            File::copy($oldPath , $newPathWithName);
         // }
     }
 }

@@ -201,6 +201,7 @@ Route::get('/konsumen/toko/filter-produk',[ProdukController::class, 'filterToko'
 Route::get('/loadCartCount', [KeranjangController::class, 'CartCount']);
 
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::post('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth-umkm');
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackgoogle']);
 
 // require __DIR__.'/auth.php';

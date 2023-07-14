@@ -105,7 +105,9 @@
                     <p class="text-xl font-bold max-md:text-lg">Provinsi</p>
                 </div>
                 <p class="text-lg max-md:text-base px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    {{Auth::User()->Regency->Province->name}}
+                    @if(Auth::User()->IdKota)
+                        {{Auth::User()->Regency->Province->name}}
+                    @endif
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">
@@ -114,7 +116,9 @@
                     <p class="text-xl font-bold max-md:text-lg">Kota</p>
                 </div>
                 <p class="text-lg max-md:text-base px-[24px] py-[16px] text-black bg-white rounded-[10px]">
-                    {{Auth::User()->Regency->name}}
+                    @if(Auth::User()->IdKota)
+                        {{Auth::User()->Regency->name}}
+                    @endif
                 </p>
             </div>
             <div class="w-[100%] flex flex-col gap-[8px]">

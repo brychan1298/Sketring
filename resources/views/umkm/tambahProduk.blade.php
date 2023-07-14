@@ -3,7 +3,6 @@
 @section('description', 'Halaman Tambah Produk')
 @section('content')
     <style>
-
         .textJudul {
             text-align: center;
             margin: 0;
@@ -88,7 +87,7 @@
             const oFReader = new FileReader();
             oFReader.readAsDataURL(image.files[0]);
 
-            oFReader.onload = function(oFREvent){
+            oFReader.onload = function(oFREvent) {
                 previewed.src = oFREvent.target.result
             }
         }
@@ -117,13 +116,15 @@
         <hr class="my-8">
 
         <div class="formProduk flex justify-center">
-            <form action="/tambahProduk" class=" w-full form" enctype="multipart/form-data" method="post">
+            <form action="/tambahProduk" class=" w-full form" onsubmit="return CHECK()" enctype="multipart/form-data"
+                method="post">
                 @csrf
                 <label for="file-upload" class="cursor-pointer rounded-md font-semibold">
-                    <div class="uploadFoto bg-[#BCBCBC] flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
+                    <div
+                        class="uploadFoto bg-[#BCBCBC] flex justify-center rounded-lg border border-dashed border-black-900/25 px-6 py-10">
                         <div class="text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="90" height="90" color="white"
-                                viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto" width="90" height="90"
+                                color="white" viewBox="0 0 24 24">
                                 <path fill="currentColor"
                                     d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z" />
                             </svg>
@@ -135,7 +136,7 @@
                             <div id="photoPreview"></div>
                         </div>
                         <input id="file-upload" name="FotoProduk" type="file" class="hidden sr-only"
-                                        accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
+                            accept=".jpg, .png, .jpeg" required onchange="displayPhoto()">
                     </div><br>
                 </label>
                 <p id="Preview" class="font-black hidden">Preview :</p>
@@ -181,5 +182,17 @@
             </form>
         </div>
     </div>
-
+    <script>
+        function CHECK() {
+            var minOrder = document.getElementById("MinOrder").value;
+            var maxOrder = document.getElementById("MaxOrder").value;
+            if(parseInt(maxOrder) < parseInt(minOrder)){
+                Swal.fire({
+                    icon: 'warning',
+                    title: "Max order harus lebih banyak dari Min Order",
+                });
+                return false
+            }
+        }
+    </script>
 @endsection

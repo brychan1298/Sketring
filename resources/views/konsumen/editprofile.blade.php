@@ -128,6 +128,8 @@
                             </svg>
                             <p class="text-xl font-bold max-md:text-lg">Provinsi</p>
                         </div>
+
+                        <input type="hidden" id="idKota" value="{{ Auth::User()->IdKota }}">
                         <select required id="Province-dropdown" name="provinsi"
                             class="px-[24px] py-[16px] max-md:text-base text-black bg-white rounded-[10px]">
                             <option value="">Pilih Provinsi</option>
@@ -207,6 +209,32 @@
 
     <script>
         $(document).ready(function() {
+            var idProvince = document.querySelector("#Province-dropdown").value;
+            var idKota = document.querySelector("#idKota").value;
+            $("#kota-dropdown").html('');
+            $.ajax({
+                url: "{{ url('api/fetch-kota') }}",
+                type: "POST",
+                data: {
+                    Province_id: idProvince,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#kota-dropdown').html(
+                        '<option value="">Pilih Kota</option>');
+                    $.each(result.states, function(key, value) {
+                        if (value.id == idKota) {
+                            $("#kota-dropdown").append('<option selected value="' +
+                                value.id + '">' + value.name + '</option>');
+                        } else {
+                            $("#kota-dropdown").append('<option value="' + value.id + '">' +
+                                value.name + '</option>');
+                        }
+                    });
+                }
+            });
+
             $('#Province-dropdown').on('change', function() {
                 var idProvince = this.value;
                 $("#kota-dropdown").html('');

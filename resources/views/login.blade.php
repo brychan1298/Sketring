@@ -175,7 +175,7 @@
             <div class="flex grid justify-between grid-cols-2 gap-5 mx-4 mb-4">
                 <a href="{{ route('google-auth') }}" class="">
                     <div
-                        class="flex items-center text-lg max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
+                        class="flex items-center text-md max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                         <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -196,7 +196,7 @@
                 </a>
                 <a href="https://www.facebook.com/" class="">
                     <div
-                        class="flex items-center text-lg max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
+                        class="flex items-center text-md max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                         <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_934_1016)">
