@@ -333,7 +333,7 @@
             </div>
         </form>
         <div
-            class="my-6 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#850000] after:mt-0.5 after:flex-1 after:border-t after:border-[#850000]">
+            class="my-6 mx-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#850000] after:mt-0.5 after:flex-1 after:border-t after:border-[#850000]">
             <p class="mx-4 mb-0 text-center font-semibold text-[#850000]">
                 Or
             </p>
@@ -342,7 +342,7 @@
         @if ($roleId == 1)
             <form action="{{ route('google-auth-umkm') }}" method="POST">
                 @csrf
-                <div class="flex grid justify-between grid-cols-2 gap-5 mb-4">
+                <div class="flex grid justify-between grid-cols-1 gap-5 mb-4 mx-4">
                     <button class="button">
                         <input type="hidden" name="roleId" value="{{ $roleId }}">
                         <div
@@ -365,7 +365,7 @@
                             Google Login
                         </div>
                     </button>
-                    <a href="https://www.facebook.com/" class="">
+                    {{-- <a href="https://www.facebook.com/" class="">
                         <div
                             class="flex items-center text-md max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                             <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
@@ -386,15 +386,14 @@
                             </svg>
                             Facebook Login
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
             </form>
         @else
-            <div class="flex grid justify-between grid-cols-2 gap-5 mb-4">
-                <a class="{{ route('google-auth') }}">
-                    <input type="hidden" name="roleId" value="{{ $roleId }}">
+            <div class="flex grid justify-between grid-cols-1 gap-5 mx-4 mb-4">
+                <a href="{{ route('google-auth') }}" class="">
                     <div
-                        class="flex items-center text-md max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
+                        class="flex items-center text-md max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-full py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                         <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -413,7 +412,7 @@
                         Google Login
                     </div>
                 </a>
-                <a href="https://www.facebook.com/" class="">
+                {{-- <a href="https://www.facebook.com/" class="">
                     <div
                         class="flex items-center text-md max-xl:text-base max-sm:text-sm shadow-2xl bg-[#FFFFFF] rounded-md w-[1/2] py-2.5 text-center justify-center gap-2 text-[#000000] font-black hover:bg-[#850000] hover:text-[#FFFFFF]">
                         <svg width="22" height="22" viewBox="0 0 60 60" fill="none"
@@ -434,7 +433,7 @@
                         </svg>
                         Facebook Login
                     </div>
-                </a>
+                </a> --}}
             </div>
         @endif
 
