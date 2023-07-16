@@ -37,25 +37,27 @@
             {{-- Order List --}}
             <div class="w-full">
                 @foreach ($ListTransaksi as $Transaksis => $items)
-                <div class="bg-white shadow-xl flex flex-col mb-8 p-8 rounded-[10px]">
-                <h1 class="text-xl text-[#850000] font-bold">
-                    Transaksi #{{ $Transaksis }}
-                </h1>
-                @foreach ($items as $Transaksi)
-                    <div class="flex flex-row justify-between w-[100%] py-4 items-center max-sm:flex-col max-sm:items-start max-sm:gap-4">
-                        {{-- Left hug content --}}
-                        <div class="flex flex-row gap-2 w-max max-sm:text-sm max-sm:flex-col max-sm:items-center max-sm:self-center">
-                            <img class="w-24 h-24 rounded-[10px] object-cover"
-                                src="{{ asset('storage/' . $Transaksi->FotoProduk) }}" alt="">
-                            <div class="flex flex-col w-max text-[#850000] justify-center max-sm:text-center">
-                                <p class="font-bold">{{ $Transaksi->Nama }} ({{ $Transaksi->Qty }})</p>
-                                <p>Keranjang: {{ $Transaksi->NamaAcara }}</p>
-                                <p>Keterangan: Silahkan Menyiapkan Pesanan</p>
-                            </div>
-                        </div>
-                        {{-- Right hug content --}}
-                        <div class="flex flex-col items-end w-max max-sm:self-end">
-                            {{-- <div class="flex flex-row w-max gap-[1vw] font-bold">
+                    <div class="bg-white shadow-xl flex flex-col mb-8 p-8 rounded-[10px]">
+                        <h1 class="text-xl text-[#850000] font-bold">
+                            Transaksi #{{ $Transaksis }}
+                        </h1>
+                        @foreach ($items as $Transaksi)
+                            <div
+                                class="flex flex-row justify-between w-[100%] py-4 items-center max-sm:flex-col max-sm:items-start max-sm:gap-4">
+                                {{-- Left hug content --}}
+                                <div
+                                    class="flex flex-row gap-2 w-max max-sm:text-sm max-sm:flex-col max-sm:items-center max-sm:self-center">
+                                    <img class="w-24 h-24 rounded-[10px] object-cover"
+                                        src="{{ asset('storage/' . $Transaksi->FotoProduk) }}" alt="">
+                                    <div class="flex flex-col w-max text-[#850000] justify-center max-sm:text-center">
+                                        <p class="font-bold">{{ $Transaksi->Nama }} ({{ $Transaksi->Qty }})</p>
+                                        <p>Keranjang: {{ $Transaksi->NamaAcara }}</p>
+                                        <p>Keterangan: Silahkan Menyiapkan Pesanan</p>
+                                    </div>
+                                </div>
+                                {{-- Right hug content --}}
+                                <div class="flex flex-col items-end w-max max-sm:self-end">
+                                    {{-- <div class="flex flex-row w-max gap-[1vw] font-bold">
                                 <button type="submit"
                                     class="text-[#DC0000] border border-2 border-[#DC0000] px-[1vw] py-[0.5vw] text-sm rounded-md">
                                     DETAIL
@@ -68,39 +70,41 @@
                                     </button>
                                 </form>
                             </div> --}}
-                            {{-- <p class="text-[#DC0000] text-sm max-sm:self-center">
+                                    {{-- <p class="text-[#DC0000] text-sm max-sm:self-center">
                                 Pesanan Untuk Tanggal:
                                 {{ \Carbon\Carbon::parse($Transaksi->TanggalPesanan)->locale('id')->isoFormat('D MMMM YYYY') }}
                             </p> --}}
+                                </div>
+                            </div>
+                            <div class="w-full h-[2px] bg-[#850000]"></div>
+                        @endforeach
+
+                        <div
+                            class="flex flex-col w-max items-center self-center max-sm:items-center max-sm:self-center gap-[0.5vw] justify-center mt-5">
+                            <p class="text-[#DC0000] text-sm max-sm:self-center mb-2">
+                                Pesanan Untuk Tanggal:
+                                {{ \Carbon\Carbon::parse($Transaksi->TanggalPesanan)->locale('id')->isoFormat('D MMMM YYYY') }}
+                            </p>
+                            <div class="flex flex-row w-max gap-[1vw] font-bold float-right">
+                                <a href="/umkm/detailTransaksi-2/{{ $Transaksis }}"
+                                    class="text-[#DC0000] border border-2 border-[#DC0000] px-4 py-2 text-sm rounded-md hover:bg-[#850000] hover:text-white">
+                                    DETAIL
+                                </a>
+                                <form action="/umkm/kirim-pesanan/{{ $Transaksis }}" method="get">
+                                    {{-- onsubmit="return confirm('Anda akan mengirim transaksi #{{ $Transaksis }}?')" --}}
+                                    @csrf
+                                    <input type="hidden" class="IdTransaksi" value="{{ $Transaksis }}">
+                                    <button type="button"
+                                        class="btnKirimPesanan text-white bg-[#DC0000] border border-2 border-[#DC0000] px-4 py-2 text-sm rounded-md hover:bg-[#850000] hover:border-[#850000]">
+                                        KIRIM
+                                    </button>
+                                </form>
+                            </div>
+                            {{-- <p class="text-[#DC0000] text-sm">Keterangan: Belum Bayar</p> --}}
                         </div>
                     </div>
-                    <div class="w-full h-[2px] bg-[#850000]"></div>
                 @endforeach
-
-                <div class="flex flex-col w-max items-center self-center max-sm:items-center max-sm:self-center gap-[0.5vw] justify-center mt-5">
-                    <p class="text-[#DC0000] text-sm max-sm:self-center mb-2">
-                        Pesanan Untuk Tanggal:
-                        {{ \Carbon\Carbon::parse($Transaksi->TanggalPesanan)->locale('id')->isoFormat('D MMMM YYYY') }}
-                    </p>
-                    <div class="flex flex-row w-max gap-[1vw] font-bold float-right">
-                        <a href="/umkm/detailTransaksi-2/{{ $Transaksis }}"
-                            class="text-[#DC0000] border border-2 border-[#DC0000] px-4 py-2 text-sm rounded-md hover:bg-[#850000] hover:text-white">
-                            DETAIL
-                        </a>
-                        <form action="/umkm/kirim-pesanan/{{ $Transaksis }}" method="get">
-                            {{-- onsubmit="return confirm('Anda akan mengirim transaksi #{{ $Transaksis }}?')" --}}
-                            @csrf
-                            <input type="hidden" class="IdTransaksi" value="{{ $Transaksis }}">
-                            <button type="button"
-                                class="btnKirimPesanan text-white bg-[#DC0000] border border-2 border-[#DC0000] px-4 py-2 text-sm rounded-md hover:bg-[#850000] hover:border-[#850000]">
-                                KIRIM
-                            </button>
-                        </form>
-                    </div>
-                    {{-- <p class="text-[#DC0000] text-sm">Keterangan: Belum Bayar</p> --}}
-                </div>
             </div>
-            @endforeach
         </div>
     </div>
     <script>

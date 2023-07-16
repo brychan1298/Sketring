@@ -29,6 +29,6 @@
 <div>
     @yield('content')
 </div>
-@include('konsumen.layouts.footer')
+@include('umkm.layouts.footer')
 </body>
 </html>

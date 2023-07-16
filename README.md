@@ -1,11 +1,89 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<P Align="Center">
+**Ring My Katering!!**
+</P>
+##### ~ RING MY KATERING ~
+<hr>
+
+Are you struggling to prepare meals for your event or having difficulty finding catering services? Or perhaps you are facing challenges with marketing and your sales are not picking up?
+
+Sketring is here to help address your issues. Sketring is a website that assists consumers in finding the best catering services in their area and helps small and medium-sized enterprises (UMKM) market their products.
+
+We would like to invite you to take a closer look at the Sketring Project through this **readme**.
+
+
+
+## :hammer_and_pick:  Languages and Tools
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
+
+<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>  **HTML 5**
+
+<a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>  **CSS**
+
+<a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a>  **Tailwind**
+
+<a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg" alt="laravel" width="40" height="40"/> </a>  **Laravel**
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> **Javascript & Jquery**
+
+<a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> **MySQL**
+
+<a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> **Figma**
+
+
+## Features
+Sketring provides 2 roles that can be utilized by users and can be chose by user when register
+![Choose Role](https://github.com/brychan1298/Sketring/blob/master/public/1readmegithub/chooseRole.png)
+
+![Register](https://github.com/brychan1298/Sketring/blob/master/public/1readmegithub/Register.png)
+
+![Login](https://github.com/brychan1298/Sketring/blob/master/public/1readmegithub/login.png)
+
+
+
+#### :man: As Consumer
+The person who becomes the catering buyer.
+##### Home
+
+
+##### Profile & Edit Profile
+
+
+##### Product & Detail Product
+
+
+##### Store
+
+
+##### Cart
+
+
+##### Order Tracking
+
+
+##### Chat
+
+
+#### :man_cook: As UMKM / Catering Owner
+
+##### Home
+
+
+##### Profile & Edit Profile
+
+
+##### Dashboard
+
+
+##### Order Tracking
+
+
+##### Chat
+
+
+##### Withdrawal
+
 
 ## About Laravel
 
