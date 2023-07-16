@@ -1,9 +1,8 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/brychan1298/Sketring/blob/main/public/images/LogoSketring.png" width="400" alt="Sketring Logo"></a></p>
 
-<P Align="Center">
-**Ring My Katering!!**
-</P>
-##### ~ RING MY KATERING ~
+
+### Sketring?
+#### ~ RING MY KATERING ~
 <hr>
 
 Are you struggling to prepare meals for your event or having difficulty finding catering services? Or perhaps you are facing challenges with marketing and your sales are not picking up?
@@ -11,7 +10,6 @@ Are you struggling to prepare meals for your event or having difficulty finding 
 Sketring is here to help address your issues. Sketring is a website that assists consumers in finding the best catering services in their area and helps small and medium-sized enterprises (UMKM) market their products.
 
 We would like to invite you to take a closer look at the Sketring Project through this **readme**.
-
 
 
 ## :hammer_and_pick:  Languages and Tools
@@ -34,11 +32,12 @@ We would like to invite you to take a closer look at the Sketring Project throug
 
 ## Features
 Sketring provides 2 roles that can be utilized by users and can be chose by user when register
-![Choose Role](https://github.com/brychan1298/Sketring/blob/master/public/1readmegithub/chooseRole.png)
 
-![Register](https://github.com/brychan1298/Sketring/blob/master/public/1readmegithub/Register.png)
+![Choose Role](https://github.com/brychan1298/Sketring/blob/main/public/1readmegithub/chooseRole.png)
 
-![Login](https://github.com/brychan1298/Sketring/blob/master/public/1readmegithub/login.png)
+![Register](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/Register.png)
+
+![Login](https://github.com/brychan1298/Sketring/blob/main/public/1readmegithub/login.png)
 
 
 
@@ -85,6 +84,9 @@ The person who becomes the catering buyer.
 ##### Withdrawal
 
 
+## :arrow_down: Installation
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -99,6 +101,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
@@ -106,10 +110,6 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
 ### Premium Partners
 
@@ -127,18 +127,3 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
 - **[Lendio](https://lendio.com)**
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
