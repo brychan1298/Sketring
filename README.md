@@ -12,7 +12,7 @@ Sketring is here to help address your issues. Sketring is a website that assists
 We would like to invite you to take a closer look at the Sketring Project through this **readme**.
 
 
-## :hammer_and_pick:  Languages and Tools
+# :hammer_and_pick:  Languages and Tools
 <p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
 
 <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>  **HTML 5**
@@ -30,18 +30,18 @@ We would like to invite you to take a closer look at the Sketring Project throug
 <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> **Figma**
 
 
-## Features
+# Features
 Sketring provides 2 roles that can be utilized by users and can be chose by user when register
 
-![Choose Role](https://github.com/brychan1298/Sketring/blob/main/public/1readmegithub/chooseRole.png)
+![Choose Role](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/chooseRole.png)
 
 ![Register](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/Register.png)
 
-![Login](https://github.com/brychan1298/Sketring/blob/main/public/1readmegithub/login.png)
+![Login](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/login.png)
 
 
 
-#### :man: As Consumer
+### :man: As Consumer <hr>
 The person who becomes the catering buyer.
 ##### Home
 
@@ -64,7 +64,7 @@ The person who becomes the catering buyer.
 ##### Chat
 
 
-#### :man_cook: As UMKM / Catering Owner
+### :man_cook: As UMKM / Catering Owner <hr>
 
 ##### Home
 
@@ -84,32 +84,39 @@ The person who becomes the catering buyer.
 ##### Withdrawal
 
 
-## :arrow_down: Installation
+# :arrow_down: Installation
+We also support those of you who want to download our project through the following steps :hugs:
 
+But before that, I suggest you have some of the tools below:
+- Laptop or Computer (Of Course) :scream:
+- XAMPP
+- Visual Studio Code
 
-## About Laravel
+Now you can follow steps below:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Download the .zip of this project 
+	or clone this project via an IDE like Visual Studio Code
+> git clone https://github.com/brychan1298/Sketring.git
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+2. Next, you can open the project on the IDE and then open the terminal
+Now, we will do some configuration on the terminal so you can run our project :star_struck:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+3. Run command `copy .env.example .env` for windows or `cp .env.example .env` for macOs. Now, you have environment of our project and can change it freely.
 
+4. After that, you can run `composer install` to install all composer packages used in this project.
 
+5. Also, dont forget to run `php artisan key:generate` 	:wink:
 
-## Learning Laravel
+6. Then, you can also run `npm install` to install all NPM packges used in this project and run command `npm run build`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+7. We have configured the required database via migration from laravel as well as a seeder containing all provinces and cities. So all you need to do is run the command `php artisan migrate --seed`
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+8. The good news is you have completed all the required configuration :smirk_cat:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+9. To run the website sketring, just open 2 terminals and run the `php artisan serve` command in the 1st terminal. Then, run `npm run dev` in the second terminal.
+
+10. And this was the moment of truth :see_no_evil:. Let's open the given URL address to open the sketring website
+
 
 ### Premium Partners
 
