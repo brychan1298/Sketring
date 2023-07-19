@@ -58,7 +58,7 @@ Sketring provides 2 roles that can be utilized by users and can be chosen by use
 ![Register](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/Register.png)
 
 ![Login](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/login.png)
-
+With login using an existing account, the user will be redirected to their respective pages based on the role they selected during registration.
 
 
 ### :man: As Consumer <hr>
@@ -71,9 +71,6 @@ The person who becomes the catering buyer.
 
 ##### Product & Detail Product
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_produk.gif" alt="Konsumen Store">
-
-##### Store
-
 
 ##### Cart
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_keranjang.gif" alt="Konsumen Cart">
@@ -115,16 +112,16 @@ But before that, I suggest you have some of the tools below:
 - Composer
 - Node.Js
 
-Now you can follow steps below:
+Now you can follow steps below 	:runner: :
 
 1. Download the .zip of this project 
-	or clone this project via an IDE like Visual Studio Code
+	or clone this project via Visual Studio Code
 > git clone https://github.com/brychan1298/Sketring.git
 
-2. Next, you can open the project on the IDE and then open the terminal.
+2. Next, you can open the project on the Visual Studio Code and then open the terminal.
 Now, we will do some configuration on the terminal so you can run our project :star_struck:
 
-3. Run command `copy .env.example .env` for windows or `cp .env.example .env` for macOs. Now, you have environment of our project and can change it freely.
+3. Run command `copy .env.example .env` for windows or `cp .env.example .env` for macOs. Now, you have environment of our project and can change it freely. 
 
 4. After that, you can run `composer install` to install all composer packages used in this project.
 
@@ -143,6 +140,8 @@ Now, we will do some configuration on the terminal so you can run our project :s
 
 # :reminder_ribbon: Honorable Mention
 It would be nice to express our gratitude and acknowledge the outstanding contributions of our dedicated colleagues who showcased their expertise and dedicated efforts towards the successful completion of this project. Their commitment, remarkable collaboration, and invaluable perspectives have been instrumental in achieving exceptional outcomes. We deeply appreciate their significant contributions and commend their unwavering commitment to achieving excellence.
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/team.png" alt="Development Teams">
+
 
 # :medal_military: Special Partners
 Now, we would like to introduce our most special partner of course.
