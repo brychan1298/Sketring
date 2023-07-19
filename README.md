@@ -64,45 +64,46 @@ Sketring provides 2 roles that can be utilized by users and can be chose by user
 ### :man: As Consumer <hr>
 The person who becomes the catering buyer.
 ##### Home
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/konsumen_beranda.gif" width="400" alt="Sketring Logo">
 
 ##### Profile & Edit Profile
 
 
 ##### Product & Detail Product
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/konsumen_produk.gif" width="400" alt="Konsumen Store">
 
 ##### Store
 
 
 ##### Cart
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/konsumen_keranjang.gif" width="400" alt="Konsumen Cart">
 
 ##### Order Tracking
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/konsumen_pesanan.gif" width="400" alt="Konsumen Order">
 
 ##### Chat
 
 
 ### :man_cook: As UMKM / Catering Owner <hr>
+The owner of Catering Business
 
 ##### Home
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/umkm_beranda.gif" width="400" alt="UMKM Beranda">
 
 ##### Profile & Edit Profile
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/umkm_profile.gif" width="400" alt="UMKM Profile">
 
 ##### Dashboard
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/umkm_produk.gif" width="400" alt="UMKM Dashboard">
 
 ##### Order Tracking
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/umkm_pesanan.gif" width="400" alt="UMKM Order">
 
 ##### Chat
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/umkm_chat.gif" width="400" alt="UMKM Chat">
 
 ##### Withdrawal
-
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1githubreadme/gif/umkm_tariksaldo.gif" width="400" alt="UMKM Withdrawal">
 
 # :arrow_down: Installation
 We also support those of you who want to download our project through the following steps :hugs:
