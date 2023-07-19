@@ -11,6 +11,16 @@ Sketring is here to help address your issues. Sketring is a website that assists
 
 We would like to invite you to take a closer look at the Sketring Project through this **readme**.
 
+<table border="0">
+ <tr>
+    <td>![Consumer](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/eat-cute.gif)</td>
+    <td>Sketring assists **Consumers** in finding their preferred and best catering services in their vicinity. Customers no longer need to worry about how to order catering, where to find reliable and safe catering options. With Sketring's support, Consumers can utilize the best features to arrange catering services promptly for any event.</td>
+ </tr>
+ <tr>
+   <td>Of course, Sketring's website supports **catering UMKM owners** to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
+<td>![Catering Owner](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif)</td>
+ </tr>
+</table>
 
 # :hammer_and_pick:  Languages and Tools
 <p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
@@ -30,7 +40,7 @@ We would like to invite you to take a closer look at the Sketring Project throug
 <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> **Figma**
 
 
-# Features
+# :bulb: Features
 Sketring provides 2 roles that can be utilized by users and can be chose by user when register
 
 ![Choose Role](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/chooseRole.png)
@@ -118,7 +128,14 @@ Now, we will do some configuration on the terminal so you can run our project :s
 10. And this was the moment of truth :see_no_evil:. Let's open the given URL address to open the sketring website
 
 
-### Premium Partners
+# :reminder_ribbon: Honorable Mention
+
+
+# :medal_military: Special Partners
+Now, we would like to introduce our most special partner of course.
+The one and only **Mr. Anderies**
+
+
 
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
