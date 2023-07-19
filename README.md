@@ -70,16 +70,16 @@ The person who becomes the catering buyer.
 
 
 ##### Product & Detail Product
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_produk.gif" width="400" alt="Konsumen Store">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_produk.gif" alt="Konsumen Store">
 
 ##### Store
 
 
 ##### Cart
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_keranjang.gif" width="400" alt="Konsumen Cart">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_keranjang.gif" alt="Konsumen Cart">
 
 ##### Order Tracking
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_pesanan.gif" width="400" alt="Konsumen Order">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_pesanan.gif" alt="Konsumen Order">
 
 ##### Chat
 
@@ -88,22 +88,22 @@ The person who becomes the catering buyer.
 The owner of Catering Business
 
 ##### Home
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_beranda.gif" width="400" alt="UMKM Beranda">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_beranda.gif"  alt="UMKM Beranda">
 
 ##### Profile & Edit Profile
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_profile.gif" width="400" alt="UMKM Profile">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_profile.gif" alt="UMKM Profile">
 
 ##### Dashboard
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_produk.gif" width="400" alt="UMKM Dashboard">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_produk.gif"  alt="UMKM Dashboard">
 
 ##### Order Tracking
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_pesanan.gif" width="400" alt="UMKM Order">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_pesanan.gif" alt="UMKM Order">
 
 ##### Chat
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_chat.gif" width="400" alt="UMKM Chat">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_chat.gif" alt="UMKM Chat">
 
 ##### Withdrawal
-<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_tariksaldo.gif" width="400" alt="UMKM Withdrawal">
+<img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_tariksaldo.gif" alt="UMKM Withdrawal">
 
 # :arrow_down: Installation
 We also support those of you who want to download our project through the following steps :hugs:
