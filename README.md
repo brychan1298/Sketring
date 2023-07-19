@@ -22,7 +22,7 @@ We would like to invite you to take a closer look at the Sketring Project throug
     <td>Sketring assists **Consumers** in finding their preferred and best catering services in their vicinity. Customers no longer need to worry about how to order catering, where to find reliable and safe catering options. With Sketring's support, Consumers can utilize the best features to arrange catering services promptly for any event.</td>
  </tr>
  <tr>
-   <td>Of course, Sketring's website supports **catering UMKM owners** to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
+   <td>Of course, Sketring's website supports **Catering UMKM owners** to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
 <td>
 <p align="center">
   <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif" alt="Consumers">
@@ -51,7 +51,7 @@ We would like to invite you to take a closer look at the Sketring Project throug
 
 
 # :bulb: Features
-Sketring provides 2 roles that can be utilized by users and can be chose by user when register
+Sketring provides 2 roles that can be utilized by users and can be chosen by user when register
 
 ![Choose Role](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/chooseRole.png)
 
@@ -121,7 +121,7 @@ Now you can follow steps below:
 	or clone this project via an IDE like Visual Studio Code
 > git clone https://github.com/brychan1298/Sketring.git
 
-2. Next, you can open the project on the IDE and then open the terminal
+2. Next, you can open the project on the IDE and then open the terminal.
 Now, we will do some configuration on the terminal so you can run our project :star_struck:
 
 3. Run command `copy .env.example .env` for windows or `cp .env.example .env` for macOs. Now, you have environment of our project and can change it freely.
@@ -142,25 +142,8 @@ Now, we will do some configuration on the terminal so you can run our project :s
 
 
 # :reminder_ribbon: Honorable Mention
-It would be nice to express our gratitude and acknowledge the outstanding contributions of our dedicated colleagues who showcased their expertise and dedicated efforts towards the successful completion of this project. Their steadfast commitment, remarkable collaboration, and invaluable perspectives have been instrumental in achieving exceptional outcomes. We deeply appreciate their significant contributions and commend their unwavering commitment to achieving excellence.
+It would be nice to express our gratitude and acknowledge the outstanding contributions of our dedicated colleagues who showcased their expertise and dedicated efforts towards the successful completion of this project. Their commitment, remarkable collaboration, and invaluable perspectives have been instrumental in achieving exceptional outcomes. We deeply appreciate their significant contributions and commend their unwavering commitment to achieving excellence.
 
 # :medal_military: Special Partners
 Now, we would like to introduce our most special partner of course.
 The one and only **Mr. Anderies**
-
-
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
