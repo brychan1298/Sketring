@@ -150,11 +150,32 @@ class TransaksiController extends Controller
         $TanggalPesanan = date_create($tanggal);
         setlocale(LC_ALL, 'id_ID.utf8');
         $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
+        $DataTransaksiUser = Transaksi::where("IdTransaksi",$IdTransaksi)->first();
         foreach($ListProduk as $items){
             $ListProduks[$items->NamaAcara][] = $items;
         }
 
-        return view("konsumen.pesanan.detailPesanan", compact('ListProduks','TanggalPesanan','IdTransaksi'));
+        return view("konsumen.pesanan.detailPesanan", compact('DataTransaksiUser','ListProduks','TanggalPesanan','IdTransaksi'));
+    }
+
+    public function show2(Transaksi $transaksi, $IdTransaksi)
+    {
+        $ListProduks = [];
+        $ListProduk = Acara::selectRaw("Acara.Nama AS NamaAcara, Transaksi.*, Produk.*, TransaksiDetail.*")
+                                ->join("TransaksiDetail","TransaksiDetail.IdAcara","=","Acara.IdAcara")
+                                ->join("Produk","Produk.IdProduk","=","TransaksiDetail.IdProduk")
+                                ->join("Transaksi","Transaksi.IdTransaksi","=","TransaksiDetail.IdTransaksi")
+                                ->where("Transaksi.IdTransaksi",$IdTransaksi)->get();
+        $tanggal = Transaksi::where("IdTransaksi",$IdTransaksi)->first()->TanggalPesanan;
+        $TanggalPesanan = date_create($tanggal);
+        setlocale(LC_ALL, 'id_ID.utf8');
+        $TanggalPesanan = strftime('%e %B %Y', $TanggalPesanan->getTimestamp());
+        $DataTransaksiUser = Transaksi::where("IdTransaksi",$IdTransaksi)->first();
+        foreach($ListProduk as $items){
+            $ListProduks[$items->NamaAcara][] = $items;
+        }
+
+        return view("konsumen.pesanan.detailPesananDisiapkan", compact('DataTransaksiUser','ListProduks','TanggalPesanan','IdTransaksi'));
     }
 
     public function pembayaranselesai(Request $request){

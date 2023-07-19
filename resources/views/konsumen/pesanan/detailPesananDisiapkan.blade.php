@@ -139,20 +139,6 @@
                 <h1 class="text-2xl text-[#850000] font-bold">Total Pembayaran</h1>
                 <h1 class="text-2xl text-[#850000] font-black" id="totalharga">@currency($SubTotal + 30000)</h1>
             </div>
-
-            <div class="flex justify-center my-16 md:justify-end">
-                <form action="/konsumen/batalkan/{{$IdTransaksi}}" method="get" onsubmit="return confirm('Apakah anda yakin ingin membatalkan pesanan ini?')">
-                    @csrf
-                    <button type="submit" class="px-4 px-8 py-2 mx-2 text-xl font-semibold text-red-600 bg-transparent border border-red-600 rounded hover:bg-red-800 hover:text-white hover:border-transparent">
-                        BATAL
-                    </button>
-                </form>
-
-
-                <a href="/konsumen/pembayaran/{{$IdTransaksi}}" class="px-4 px-8 py-2 text-xl font-bold text-white bg-red-600 rounded hover:bg-red-800">
-                    BAYAR
-                </a>
-            </div>
         </div>
     </div>
 @endsection

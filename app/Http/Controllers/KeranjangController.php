@@ -69,7 +69,7 @@ class KeranjangController extends Controller
     }
 
     public function CartCount(){
-        $listAcara = Acara::select('IdAcara')->where('IdUser',Auth::User()->IdUser)->get();
+        $listAcara = Acara::select('IdAcara')->where('Show',1)->where('IdUser',Auth::User()->IdUser)->get();
         $cartCount = 0;
         foreach($listAcara as $Acara){
             $cartCount += Keranjang::where('IdAcara',$Acara->IdAcara)->count();
