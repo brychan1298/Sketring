@@ -11,18 +11,28 @@ Sketring is here to help address your issues. Sketring is a website that assists
 
 We would like to invite you to take a closer look at the Sketring Project through this **readme**.
 
+
 <table border="0">
  <tr>
-    <td>![Consumer](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/eat-cute.gif)</td>
+    <td>
+<p align="center">
+  <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/eat-cute.gif" alt="Consumers">
+</p>
+</td>
     <td>Sketring assists **Consumers** in finding their preferred and best catering services in their vicinity. Customers no longer need to worry about how to order catering, where to find reliable and safe catering options. With Sketring's support, Consumers can utilize the best features to arrange catering services promptly for any event.</td>
  </tr>
  <tr>
    <td>Of course, Sketring's website supports **catering UMKM owners** to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
-<td>![Catering Owner](https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif)</td>
+<td>
+<p align="center">
+  <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif" alt="Consumers">
+</p></td>
  </tr>
 </table>
 
 # :hammer_and_pick:  Languages and Tools
+
+
 <p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
 
 <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>  **HTML 5**
@@ -101,6 +111,8 @@ But before that, I suggest you have some of the tools below:
 - Laptop or Computer (Of Course) :scream:
 - XAMPP
 - Visual Studio Code
+- Composer
+- Node.Js
 
 Now you can follow steps below:
 
@@ -129,7 +141,7 @@ Now, we will do some configuration on the terminal so you can run our project :s
 
 
 # :reminder_ribbon: Honorable Mention
-
+It would be nice to express our gratitude and acknowledge the outstanding contributions of our dedicated colleagues who showcased their expertise and dedicated efforts towards the successful completion of this project. Their steadfast commitment, remarkable collaboration, and invaluable perspectives have been instrumental in achieving exceptional outcomes. We deeply appreciate their significant contributions and commend their unwavering commitment to achieving excellence.
 
 # :medal_military: Special Partners
 Now, we would like to introduce our most special partner of course.
