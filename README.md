@@ -132,15 +132,17 @@ Now, we will do some configuration on the terminal so you can run our project :s
 
 6. Then, you can also run `npm install` to install all NPM packges used in this project and run command `npm run build`
 
-7. We have configured the required database via migration from laravel as well as a seeder containing all provinces and cities. So all you need to do is run the command `php artisan migrate --seed`
+7. open XAMPP and start your 'MySQL Database Server' and 'Apache Web Server' service.
 
-8. The good news is you have completed all the required configuration :smirk_cat:
+8. We have configured the required database via migration from laravel as well as a seeder containing all provinces and cities. So all you need to do is run the command `php artisan migrate --seed`
 
-9. To run the website sketring, just open 2 terminals and run the `php artisan serve` command in the 1st terminal. Then, run `npm run dev` in the second terminal.
+9. The good news is you have completed all the required configuration :smirk_cat:
 
-10. Run `php artisan storage:link` so you can upload picture to Sketring Website.
+10. To run the website sketring, just open 2 terminals and run the `php artisan serve` command in the 1st terminal. Then, run `npm run dev` in the second terminal.
 
-11. And this was the moment of truth :see_no_evil:. Let's open the given URL address to open the sketring website
+11. Run `php artisan storage:link` so you can upload picture to Sketring Website.
+
+12. And this was the moment of truth :see_no_evil:. Let's open the given URL address to open the sketring website
 
 
 # :reminder_ribbon: Honorable Mention
@@ -151,3 +153,8 @@ It would be nice to express our gratitude and acknowledge the outstanding contri
 # :medal_military: Special Partners
 Now, we would like to introduce our most special partner of course.
 The one and only **Mr. Anderies**
+
+
+
+<hr>
+Thankyou for your attention guys :heart:
