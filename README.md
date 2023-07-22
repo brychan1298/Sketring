@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/brychan1298/Sketring/blob/main/public/images/LogoSketring.png" width="400" alt="Sketring Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/sketringredlogo.png" width="400" alt="Sketring Logo"></a></p>
 
 
 ### Sketring?
@@ -19,16 +19,23 @@ We would like to invite you to take a closer look at the Sketring Project throug
   <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/eat-cute.gif" alt="Consumers">
 </p>
 </td>
-    <td>Sketring assists **Consumers** in finding their preferred and best catering services in their vicinity. Customers no longer need to worry about how to order catering, where to find reliable and safe catering options. With Sketring's support, Consumers can utilize the best features to arrange catering services promptly for any event.</td>
+    <td>
+	<b style="font-size:20px">Consumer</b>
+	
+	Sketring assists <b>Consumers</b> in finding their preferred and best catering services in their vicinity. Customers no longer need to worry about how to order catering, where to find reliable and safe catering options. With Sketring's support, Consumers can utilize the best features to arrange catering services promptly for any event.</td>
  </tr>
  <tr>
-   <td>Of course, Sketring's website supports **Catering UMKM owners** to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
+   <td>
+   <b style="font-size:20px">Catering Owner</b>
+   
+   Of course, Sketring's website supports <b>Catering UMKM owners</b> to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
 <td>
 <p align="center">
   <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif" alt="Consumers">
 </p></td>
  </tr>
 </table>
+
 
 # :hammer_and_pick:  Languages and Tools
 
@@ -135,7 +142,9 @@ Now, we will do some configuration on the terminal so you can run our project :s
 
 9. To run the website sketring, just open 2 terminals and run the `php artisan serve` command in the 1st terminal. Then, run `npm run dev` in the second terminal.
 
-10. And this was the moment of truth :see_no_evil:. Let's open the given URL address to open the sketring website
+10. Run `php artisan storage:link` so you can upload picture to Sketring Website.
+
+11. And this was the moment of truth :see_no_evil:. Let's open the given URL address to open the sketring website
 
 
 # :reminder_ribbon: Honorable Mention
