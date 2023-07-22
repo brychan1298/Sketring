@@ -20,15 +20,13 @@ We would like to invite you to take a closer look at the Sketring Project throug
 </p>
 </td>
     <td>
-	<b style="font-size:20px">Consumer</b>
-	
-	Sketring assists <b>Consumers</b> in finding their preferred and best catering services in their vicinity. Customers no longer need to worry about how to order catering, where to find reliable and safe catering options. With Sketring's support, Consumers can utilize the best features to arrange catering services promptly for any event.</td>
+<b style="font-size:20px">Consumer</b>
+Sketring assists <b>Consumers</b> in finding their preferred and best catering services in their vicinity. Customers no longer need to worry about how to order catering, where to find reliable and safe catering options. With Sketring's support, Consumers can utilize the best features to arrange catering services promptly for any event.</td>
  </tr>
  <tr>
    <td>
    <b style="font-size:20px">Catering Owner</b>
-   
-   Of course, Sketring's website supports <b>Catering UMKM Owners</b> to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
+Of course, Sketring's website supports <b>Catering UMKM Owners</b> to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
 <td>
 <p align="center">
   <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif" alt="Catering Owner">
