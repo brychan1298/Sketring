@@ -73,8 +73,6 @@ The person who becomes the catering buyer.
 ##### Home
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_beranda.gif" alt="Consumers">
 
-##### Profile & Edit Profile
-
 
 ##### Product & Detail Product
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_produk.gif" alt="Konsumen Store">
@@ -84,8 +82,6 @@ The person who becomes the catering buyer.
 
 ##### Order Tracking
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/konsumen_pesanan.gif" alt="Konsumen Order">
-
-##### Chat
 
 
 ### :man_cook: As UMKM / Catering Owner <hr>
@@ -99,12 +95,14 @@ The owner of Catering Business
 
 ##### Dashboard
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_produk.gif"  alt="UMKM Dashboard">
+Used by catering owner to add or edit their products
 
 ##### Order Tracking
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_pesanan.gif" alt="UMKM Order">
 
 ##### Chat
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_chat.gif" alt="UMKM Chat">
+This feature owned by consumers and catering owner to do their discussion
 
 ##### Withdrawal
 <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/umkm_tariksaldo.gif" alt="UMKM Withdrawal">
