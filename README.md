@@ -28,10 +28,10 @@ We would like to invite you to take a closer look at the Sketring Project throug
    <td>
    <b style="font-size:20px">Catering Owner</b>
    
-   Of course, Sketring's website supports <b>Catering UMKM owners</b> to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
+   Of course, Sketring's website supports <b>Catering UMKM Owners</b> to market their products on the Sketring platform. With the support from catering owners, they contribute to the vibrancy and progress of UMKM businesses.</td>
 <td>
 <p align="center">
-  <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif" alt="Consumers">
+  <img src="https://github.com/brychan1298/Sketring/blob/main/public/images/1readmegithub/gif/boyster-molusco.gif" alt="Catering Owner">
 </p></td>
  </tr>
 </table>
