@@ -206,7 +206,8 @@
                             </div>
                             <div class="text-sm w-full font-normal text-[#8F8F8F]">
                                 minimum order : {{ $detailProduk->MinOrder }} <br>
-                                maximum order : {{ $detailProduk->MaxOrder }}
+                                maximum order : {{ $detailProduk->MaxOrder }} <br>
+                                minimal waktu PO : {{$detailProduk->MinimalWaktuPO}} hari
                             </div>
                         </div>
 

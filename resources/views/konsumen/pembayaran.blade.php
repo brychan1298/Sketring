@@ -101,7 +101,8 @@
                             </svg>
                             <h1 class="mx-3 text-xl font-bold max-md:text-base">Alamat Pengiriman</h1>
                         </div>
-                        <div class="p-3 px-4 my-3 text-xl border border-black border-solid max-md:text-sm detailAlamat rounded-xl">
+                        <div
+                            class="p-3 px-4 my-3 text-xl border border-black border-solid max-md:text-sm detailAlamat rounded-xl">
                             <input type="text" value="{{ Auth::User()->Nama }}" disabled> <br>
                             <input type="text" value="{{ Auth::User()->Nohp }}" disabled class="my-2">
                             <textarea name="AlamatKirim" id="" cols="30" rows="10" readonly class="w-full h-24 text-left"
@@ -113,10 +114,12 @@
                     <div class="relative w-full mt-10 lg:w-[46%]">
                         <div class="">
                             <h1 class="text-xl font-bold max-md:text-base">Nama Keranjang</h1>
-                            <h1 id="namaKeranjang" class="p-3 my-3 border border-black rounded-lg max-md:text-sm">{{ $namaAcara }}</h1>
+                            <h1 id="namaKeranjang" class="p-3 my-3 border border-black rounded-lg max-md:text-sm">
+                                {{ $namaAcara }}</h1>
                         </div>
                         <div class="absolute bottom-0 w-full max-lg:relative max-lg:mt-8">
                             <h1 class="text-xl font-bold max-md:text-base">Masukan Tanggal & Jam Pesanan</h1>
+                            <h1 class="text-[0.8vw] w-full font-bold text-[#8F8F8F]">Minimal Waktu PO : <label id="minWaktuPO"></label> hari</h1>
                             <div class="flex items-center justify-between my-3">
                                 <div class="flex justify-center w-full gap-10 text-lg">
                                     <input type="date" name="TanggalPesanan" id="TanggalPesanan"
@@ -149,9 +152,11 @@
                                     class="mr-5 rounded-lg object-cover w-52 h-52">
                                 <div class="flex items-center justify-between w-full detailProduk">
                                     <div class="detail1">
-                                        <h1 id="namaProduk" class="text-2xl font-bold max-md:text-lg">{{ $listBarang->Nama }}</h1>
+                                        <h1 id="namaProduk" class="text-2xl font-bold max-md:text-lg">
+                                            {{ $listBarang->Nama }}</h1>
                                         <h1 id="hargaProduk" class="text-lg max-md:text-sm">@currency($listBarang->Harga)</h1>
-                                        <h1 id="jumlahPesanan" class="text-lg max-md:text-sm">Jumlah Pesanan: {{ $listBarang->Qty }}</h1>
+                                        <h1 id="jumlahPesanan" class="text-lg max-md:text-sm">Jumlah Pesanan:
+                                            {{ $listBarang->Qty }}</h1>
                                     </div>
                                     <input type="text" value="{{ $listBarang->MinimalWaktuPO }}" name=""
                                         id="" class="hidden MinimalWaktuPO">
@@ -213,6 +218,23 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
     <script>
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var checks = document.getElementsByClassName("MinimalWaktuPO");
+            var minWaktuPO = 0;
+            for (let index = 0; index < checks.length; index++) {
+                if (checks[index].value > minWaktuPO) {
+                    minWaktuPO = checks[index].value;
+                }
+            }
+
+            document.getElementById('minWaktuPO').innerHTML = minWaktuPO.toString();
+        });
+
+        // function loadMinimalWaktuPO() {
+
+        // }
+
         function CHECK() {
             var checks = document.getElementsByClassName("MinimalWaktuPO");
             var tglpesanan = document.getElementById("TanggalPesanan").value;
@@ -236,18 +258,22 @@
             var selisih = tglPesanan.getTime() - tglHariIni.getTime();
             var selisihHari = Math.round(selisih / (1000 * 60 * 60 * 24));
             // alert(selisihHari);
+            var minWaktuPO = 0;
             for (let index = 0; index < checks.length; index++) {
-                if (checks[index].value > selisihHari) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: "Minimal waktu PO untuk " + checks.length + " barang ini adalah " + checks[index]
-                            .value +
-                            " hari",
-                    });
-                    // alert();
-                    return false;
+                if (checks[index].value > minWaktuPO) {
+                    minWaktuPO = checks[index].value;
                 }
             }
+            if (minWaktuPO > selisihHari) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: "Minimal waktu PO untuk " + checks.length + " barang ini adalah " + minWaktuPO +
+                        " hari",
+                });
+                // alert();
+                return false;
+            }
+            return false;
             Swal.fire({
                 icon: 'success',
                 title: "Berhasil",
