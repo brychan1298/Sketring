@@ -199,7 +199,7 @@
                 </label>
             </div>
 
-            @error('password')
+            @error('Nohp')
                 <div class="text-sm font-thin text-red-500">No telepon 10 - 14 karakter</div>
             @enderror
             {{-- <div class="mb-2">
@@ -258,7 +258,7 @@
                             onchange="checkInputSelect(this)" onfocus="focusInput(this)" onblur="blurInput(this)">
                             <option value="" disabled selected hidden></option>
                             @foreach ($provinces as $data)
-                                @if (old('provinsi') == $data->id)
+                                {{-- @if (old('provinsi') == $data->id)
                                     <option value="{{ $data->id }}" selected>
                                         {{ $data->name }}
                                     </option>
@@ -266,7 +266,10 @@
                                     <option value="{{ $data->id }}">
                                         {{ $data->name }}
                                     </option>
-                                @endif
+                                @endif --}}
+                                <option value="{{ $data->id }}">
+                                    {{ $data->name }}
+                                </option>
                             @endforeach
                         </select>
                         <label for="Province-dropdown"
@@ -291,36 +294,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="flex">
-                <div class="w-1/2 mb-3 mr-1 form-group">
-                    <select required id="Province-dropdown" name="provinsi" class="w-full py-2 text-sm rounded-lg">
-                        <option value="">Pilih Provinsi</option>
-                        @foreach ($provinces as $data)
-                            @if (old('provinsi') == $data->id)
-                                <option value="{{ $data->id }}" selected>
-                                    {{ $data->name }}
-                                </option>
-                            @else
-                                <option value="{{ $data->id }}">
-                                    {{ $data->name }}
-                                </option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div>
-                <div class="w-1/2 mb-3 ml-1 form-group">
-                    <select required id="kota-dropdown" class="w-full py-2 text-sm rounded-lg" name="IdKota">
-                    </select>
-                </div>
-            </div> --}}
-
-            {{-- <div class="flex justify-center mb-8">
-                <input type="checkbox" name="" id="" class="w-5 mr-3">
-                <p>
-                    Saya setuju dengan <a href="" class="font-bold text-decoration-none">Syarat dan Ketentuan</a>
-                </p>
-            </div> --}}
             <div class="flex justify-center mb-4">
                 <button type="submit" class="bg-[#DC0000] px-10 py-2.5 text-white rounded-md w-full">
                     DAFTAR
