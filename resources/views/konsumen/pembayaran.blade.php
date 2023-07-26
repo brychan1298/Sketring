@@ -273,7 +273,6 @@
                 // alert();
                 return false;
             }
-            return false;
             Swal.fire({
                 icon: 'success',
                 title: "Berhasil",

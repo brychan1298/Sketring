@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 
 class TransaksiController extends Controller
 {
@@ -53,6 +54,10 @@ class TransaksiController extends Controller
         $date = date('Y-m-d');
         $date = $request->TanggalPesanan;
 
+        do {
+            $order_id = "SKT-".Str::random(12);
+        } while (Transaksi::where("order_id", "=", $order_id)->first());
+
         $ListKeranjang = Keranjang::whereIn("Keranjang.IdKeranjang",$request->listIdKeranjang)->get();
         $Transaksi = new Transaksi();
         $Transaksi->IdUser = Auth::User()->IdUser;
@@ -61,6 +66,7 @@ class TransaksiController extends Controller
         $Transaksi->SudahBayar = 0;
         $Transaksi->AlamatKirim = $request->AlamatKirim;
         $Transaksi->waktuPesanan = $request->waktuPesanan;
+        $Transaksi->order_id = $order_id;
         $Transaksi->save();
 
         $LatestTransaksi = Transaksi::latest()->first();
@@ -119,7 +125,7 @@ class TransaksiController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => $IdTransaksi,
+                'order_id' => $DataTransaksi->order_id,
                 'gross_amount' => $grossAmount,
             ),
             'customer_details' => array(

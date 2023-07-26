@@ -84,7 +84,7 @@
         <div class="">
             <div class="content_VirtualAccount">
                 <div class="inline-flex w-full max-sm:pt-16">
-                    <h1 class="w-full mx-auto text-4xl font-bold text-center mx-automb-8 max-md:text-2xl">Pembayaran</h1>
+                    <h1 class="w-full mx-auto text-4xl font-bold text-center mx-auto mb-8 max-md:text-2xl">Pembayaran</h1>
                 </div>
                 <div class="mt-5 mb-16 border border-gray-500 border-solid max-md:mb-10"></div>
                 {{-- Title --}}
@@ -119,7 +119,7 @@
                 </div>
                 {{-- <p class="text-2xl max-md:text-xl text-center text-[#DC0000]">Bayar sebelum: 18 April 2023</p> --}}
                 {{-- Button --}}
-                <div class="flex justify-center mt-10 mb-10">
+                <div class="flex justify-center mt-12 mb-12">
                     <form action="/konsumen/bayarselesai" method="POST" id="bayar" onsubmit="submitForm(event)">
                         @csrf
                         <input type="hidden" name="IdTransaksi" value="{{ $IdTransaksi }}">
@@ -135,6 +135,20 @@
                         </button>
                     </form>
                 </div>
+
+                {{-- <div class="flex text-sm text-gray-500 justify-center mt-12 mb-12">
+                    <div>
+                        <p class="text-lg font-black">
+                            NOTES (Penting!!):
+                        </p>
+                        <p>
+                            Untuk testing pembayaran menggunakan <b class="font-bold">credit/debit card:</b> <br>
+                            "Card Number" -> <b class="text-md font-bold">4811 1111 1111 1114</b> <br>
+                            "Expiration date" -> <b class="text-md font-bold">Bulan setelah hari ini </b> <br>
+                            "CVV" -> <b class="text-md font-bold">123</b>
+                        </p>
+                    </div>
+                </div> --}}
 
                 {{-- Pop Up --}}
                 <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
