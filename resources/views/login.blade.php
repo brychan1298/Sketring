@@ -48,11 +48,11 @@
 
     <div class="p-8 bg-[#FFDB89] mx-[6.4vw] mb-12 shadow-2xl rounded-md">
         @if (session()->has('loginError'))
-            <div class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded" role="alert">
+            <div id="alert" class="relative px-4 py-3 mx-4 text-red-700 bg-red-100 border border-red-400 rounded" role="alert">
                 <span>
                     {{ session('loginError') }}
                 </span>
-                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="document.getElementById('alert').style.display='none'">
                     <svg class="w-6 h-6 text-red-500 fill-current" role="button" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20">
                         <title>Close</title>

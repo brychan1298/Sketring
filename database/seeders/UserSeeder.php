@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class UserSeeder extends Seeder
@@ -29,6 +30,13 @@ class UserSeeder extends Seeder
                 'Role' => 'umkm',
                 // 'Saldo' => '0.00'
         ]);
+
+        $oldPath = 'public/images/umkm1.png';
+        $fileExtension = File::extension($oldPath);
+        $newName = 'umkm1.'.$fileExtension;
+        $newPathWithName = 'storage/app/public/'.$newName;
+        File::copy($oldPath , $newPathWithName);
+
         User::create([
                 'IdUser' => 2,
                 'Email' => 'umkm2@gmail.com',
@@ -41,6 +49,12 @@ class UserSeeder extends Seeder
                 'Role' => 'umkm',
                 // 'Saldo' => '0.00'
         ]);
+        $oldPath = 'public/images/umkm2.png';
+        $fileExtension = File::extension($oldPath);
+        $newName = 'umkm2.'.$fileExtension;
+        $newPathWithName = 'storage/app/public/'.$newName;
+        File::copy($oldPath , $newPathWithName);
+
         User::create([
                 'IdUser' => 3,
                 'Email' => 'umkm3@gmail.com',
@@ -53,6 +67,12 @@ class UserSeeder extends Seeder
                 'Role' => 'umkm',
                 // 'Saldo' => '0.00'
         ]);
+        $oldPath = 'public/images/umkm3.png';
+        $fileExtension = File::extension($oldPath);
+        $newName = 'umkm3.'.$fileExtension;
+        $newPathWithName = 'storage/app/public/'.$newName;
+        File::copy($oldPath , $newPathWithName);
+
         User::create([
                 'IdUser' => 4,
                 'Email' => 'umkm4@gmail.com',
@@ -65,5 +85,11 @@ class UserSeeder extends Seeder
                 'Role' => 'umkm',
                 // 'Saldo' => '0.00'
         ]);
+
+        $oldPath = 'public/images/umkm4.png';
+        $fileExtension = File::extension($oldPath);
+        $newName = 'umkm4.'.$fileExtension;
+        $newPathWithName = 'storage/app/public/'.$newName;
+        File::copy($oldPath , $newPathWithName);
     }
 }
