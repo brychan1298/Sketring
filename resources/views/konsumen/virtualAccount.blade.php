@@ -136,7 +136,7 @@
                     </form>
                 </div>
 
-                {{-- <div class="flex text-sm text-gray-500 justify-center mt-12 mb-12">
+                <div class="flex text-sm text-gray-500 justify-center mt-12 mb-12">
                     <div>
                         <p class="text-lg font-black">
                             NOTES (Penting!!):
@@ -148,7 +148,7 @@
                             "CVV" -> <b class="text-md font-bold">123</b>
                         </p>
                     </div>
-                </div> --}}
+                </div>
 
                 {{-- Pop Up --}}
                 <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
